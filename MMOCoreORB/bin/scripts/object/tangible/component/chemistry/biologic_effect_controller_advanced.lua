@@ -44,13 +44,13 @@
 object_tangible_component_chemistry_biologic_effect_controller_advanced = object_tangible_component_chemistry_shared_biologic_effect_controller_advanced:new {
 
 
-	numberExperimentalProperties = {1, 2, 2, 2, 1},
+	numberExperimentalProperties = {1, 1, 2, 2, 1},
 	experimentalProperties = {"XX", "XX", "OQ", "PE", "OQ", "UT", "XX"},
-	experimentalWeights = {1, 2, 2, 1, 2, 1, 1},
-	experimentalGroupTitles = {"null", "exp_effectiveness", "exp_effectiveness", "exp_charges", "null"},
-	experimentalSubGroupTitles = {"null", "duration", "power", "charges", "hitpoints"},
-	experimentalMin = {0, 900, 5, 5, 1000},
-	experimentalMax = {0, 1200, 30, 25, 1000},
+	experimentalWeights = {1, 1, 2, 1, 2, 1, 1},
+	experimentalGroupTitles = {"null", "null", "exp_effectiveness", "exp_charges", "null"},
+	experimentalSubGroupTitles = {"null", "null", "power", "charges", "hitpoints"},
+	experimentalMin = {0, 0, 5, 5, 1000},
+	experimentalMax = {0, 0, 30, 25, 1000},
 	experimentalPrecision = {0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 4},
 }

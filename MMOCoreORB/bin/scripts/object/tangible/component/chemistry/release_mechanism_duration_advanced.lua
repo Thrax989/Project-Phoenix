@@ -44,13 +44,13 @@
 object_tangible_component_chemistry_release_mechanism_duration_advanced = object_tangible_component_chemistry_shared_release_mechanism_duration_advanced:new {
 
 
-	numberExperimentalProperties = {1, 2, 2, 1, 1},
+	numberExperimentalProperties = {1, 1, 2, 1, 1},
 	experimentalProperties = {"XX", "XX", "OQ", "PE", "XX", "XX"},
-	experimentalWeights = {1, 2, 2, 1, 1, 1},
-	experimentalGroupTitles = {"null", "exp_effectiveness", "exp_effectiveness", "null", "null"},
-	experimentalSubGroupTitles = {"null", "duration", "power", "charges", "hitpoints"},
-	experimentalMin = {0, 900, 10, 0, 1000},
-	experimentalMax = {0, 1200, 75, 0, 1000},
+	experimentalWeights = {1, 1, 2, 1, 1, 1},
+	experimentalGroupTitles = {"null", "null", "exp_effectiveness", "null", "null"},
+	experimentalSubGroupTitles = {"null", "null", "power", "charges", "hitpoints"},
+	experimentalMin = {0, 0, 10, 0, 1000},
+	experimentalMax = {0, 0, 75, 0, 1000},
 	experimentalPrecision = {0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 4},
 }
