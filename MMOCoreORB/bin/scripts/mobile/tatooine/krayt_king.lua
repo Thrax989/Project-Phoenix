@@ -67,6 +67,24 @@ lootGroups = {
 			},
 			lootChance = 5000000
 		},
+				 {
+			groups = {
+				{group = "saberhand24", chance = 10000000}
+			},
+			lootChance = 750000
+		},
+				 {
+			groups = {
+				{group = "saberhand25", chance = 10000000}
+			},
+			lootChance = 500000
+		},
+				 {
+			groups = {
+				{group = "saberhand26", chance = 10000000}
+			},
+			lootChance = 250000
+		},
 		},
 	weapons = {},
 	conversationTemplate = "",
