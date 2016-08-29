@@ -45,7 +45,7 @@ object_tangible_component_chemistry_biologic_effect_controller_advanced = object
 
 
 	numberExperimentalProperties = {1, 2, 2, 2, 1},
-	experimentalProperties = {"XX", "OQ", "OQ", "PE", "OQ", "UT", "XX"},
+	experimentalProperties = {"XX", "XX", "OQ", "PE", "OQ", "UT", "XX"},
 	experimentalWeights = {1, 2, 2, 1, 2, 1, 1},
 	experimentalGroupTitles = {"null", "exp_effectiveness", "exp_effectiveness", "exp_charges", "null"},
 	experimentalSubGroupTitles = {"null", "duration", "power", "charges", "hitpoints"},

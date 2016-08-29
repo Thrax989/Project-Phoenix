@@ -45,7 +45,7 @@ object_tangible_component_chemistry_solid_delivery_shell_advanced = object_tangi
 
 
 	numberExperimentalProperties = {1, 2, 2, 1, 1},
-	experimentalProperties = {"XX", "OQ", "OQ", "PE", "XX", "XX"},
+	experimentalProperties = {"XX", "XX", "OQ", "PE", "XX", "XX"},
 	experimentalWeights = {1, 2, 2, 1, 1, 1},
 	experimentalGroupTitles = {"null", "exp_effectiveness", "exp_effectiveness", "null", "null"},
 	experimentalSubGroupTitles = {"null", "duration", "power", "charges", "hitpoints"},
