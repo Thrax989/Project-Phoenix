@@ -6,10 +6,10 @@ mando_boss = Creature:new {
 	faction = "",
 	level = 300,
 	chanceHit = 65,
-	damageMin = 2250,
-	damageMax = 3980,
-	baseXp = 321478,
-	baseHAM = 2200000,
+	damageMin = 3950,
+	damageMax = 6580,
+	baseXp = 2600000,
+	baseHAM = 3800000,
 	baseHAMmax = 2800000,
 	armor = 3,
 	resists = {125,125,125,125,125,125,125,125,100},
@@ -155,9 +155,7 @@ mando_boss = Creature:new {
 				{group = "saberhand11", chance =100000},
 				{group = "saberhand10", chance =100000},
 				{group = "saberhand19", chance =100000},
-				{group = "saberhand24", chance =100000},
-				{group = "saberhand8", chance =100000},
-				{group = "saberhand25", chance =500000}
+				{group = "saberhand8", chance =700000}
 			},
 			lootChance = 1000000
 		},
