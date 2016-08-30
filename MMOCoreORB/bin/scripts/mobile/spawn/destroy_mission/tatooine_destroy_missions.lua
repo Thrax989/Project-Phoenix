@@ -284,6 +284,30 @@ tatooine_destroy_missions = {
 			maxDifficulty = 36,
 			size = 25,
 		},
+		{
+			lairTemplateName = "tatooine_canyon_krayt_dragon_lair_neutral_large",
+			minDifficulty = 100,
+			maxDifficulty = 110,
+			size = 25,
+		},
+		{
+			lairTemplateName = "tatooine_giant_canyon_krayt_dragon_lair_neutral_large",
+			minDifficulty = 105,
+			maxDifficulty = 120,
+			size = 25,
+		},
+		{
+			lairTemplateName = "tatooine_krayt_dragon_ancient_lair_neutral_large",
+			minDifficulty = 110,
+			maxDifficulty = 125,
+			size = 25,
+		},
+		{
+			lairTemplateName = "tatooine_krayt_king_lair_neutral_large",
+			minDifficulty = 125,
+			maxDifficulty = 160,
+			size = 25,
+		}
 	}
 }
 

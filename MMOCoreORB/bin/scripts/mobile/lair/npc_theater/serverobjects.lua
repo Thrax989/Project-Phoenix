@@ -39,6 +39,7 @@ includeFile("lair/npc_theater/dantooine_mokk_soothsayer_camp_neutral_medium_thea
 
 includeFile("lair/npc_theater/dathomir_escaped_mtn_clan_slave_camp_neutral_medium_theater.lua")
 includeFile("lair/npc_theater/dathomir_escaped_nightsister_slave_camp_neutral_medium_theater.lua")
+includeFile("lair/npc_theater/dathomir_marvs_home_neutral_large_theater.lua")
 includeFile("lair/npc_theater/dathomir_mtn_clan_enclave_neutral_large_theater.lua")
 includeFile("lair/npc_theater/dathomir_mtn_clan_initiate_neutral_large_theater.lua")
 includeFile("lair/npc_theater/dathomir_mtn_clan_outcast_camp_neutral_small_theater.lua")
@@ -254,6 +255,7 @@ includeFile("lair/npc_theater/tatooine_valarian_swooper_neutral_small_theater.lu
 includeFile("lair/npc_theater/tatooine_weequay_outpost_neutral_large_theater.lua")
 
 includeFile("lair/npc_theater/yavin4_hutt_expedition_force_camp_hutt_medium_theater.lua")
+includeFile("lair/npc_theater/yavin4_thrawn_and_sher_kar_neutral_medium_theater.lua")
 includeFile("lair/npc_theater/yavin4_hutt_expedition_force_patrl_hutt_medium_theater.lua")
 includeFile("lair/npc_theater/yavin4_stranded_imperial_base_imperial_medium_theater.lua")
 includeFile("lair/npc_theater/yavin4_stranded_imperial_patrol_imperial_medium_theater.lua")
