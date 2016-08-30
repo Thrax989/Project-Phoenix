@@ -1,6 +1,7 @@
 --New Content
 includeFile("custom_content/serverobjects.lua")
 includeFile("force_trainers/serverobjects.lua")
+includeFile("post_14_mobs/serverobjects.lua")
 
 -- Conversations
 includeFile("conversations.lua")
