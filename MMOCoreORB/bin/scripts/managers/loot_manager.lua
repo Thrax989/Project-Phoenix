@@ -107,6 +107,8 @@ lootableArmorAttachmentStatMods = {
 	"droid_find_speed",
 	"droid_track_chance",
 	"droid_track_speed",
+	"heavy_flame_thrower_accuracy"
+	"heavy_flame_thrower_speed"
 	"foraging",
 	"group_slope_move",
 	"heavy_rifle_lightning_accuracy",
@@ -227,6 +229,8 @@ lootableClothingAttachmentStatMods = {
 	"heavy_rifle_lightning_speed",
 	"heavyweapon_accuracy",
 	"heavyweapon_speed",
+	"heavy_flame_thrower_accuracy"
+	"heavy_flame_thrower_speed"
 	"intimidate",
 	"intimidate_defense",
 	"keep_creature",
@@ -699,6 +703,8 @@ lootableHeavyWeaponStatMods = {
 	"counterattack",
 	"dizzy_defense",
 	"dodge",
+	"heavy_flame_thrower_accuracy"
+	"heavy_flame_thrower_speed"
 	"group_slope_move",
 	"heavy_rifle_lightning_accuracy",
 	"heavy_rifle_lightning_speed",
