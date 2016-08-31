@@ -751,7 +751,7 @@ void PlayerManagerImplementation::killPlayer(TangibleObject* attacker, CreatureO
 	//player->clearBuffs(true);
 
 	PlayerObject* ghost = player->getPlayerObject();
-	ghost->setFactionStatus(FactionStatus::COVERT);
+	ghost->setFactionStatus(FactionStatus::ONLEAVE);
 	player->playEffect("clienteffect/holoemote_haunted.cef", "head");
 	PlayMusicMessage* pmm = new PlayMusicMessage("sound/mus_npe2_station_victory.snd");
  	player->sendMessage(pmm);
