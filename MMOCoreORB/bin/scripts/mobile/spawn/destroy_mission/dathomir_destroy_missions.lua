@@ -111,6 +111,12 @@ dathomir_destroy_missions = {
 			size = 25,
 		},
 		{
+			lairTemplateName = "dathomir_dune_bantha_lair_neutral_large",
+			minDifficulty = 40,
+			maxDifficulty = 50,
+			size = 25,
+		},
+		{
 			lairTemplateName = "dathomir_brackaset_surefoot_lair_neutral_medium",
 			minDifficulty = 44,
 			maxDifficulty = 48,
