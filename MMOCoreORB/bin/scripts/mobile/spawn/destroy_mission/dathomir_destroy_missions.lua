@@ -170,6 +170,12 @@ dathomir_destroy_missions = {
 			maxDifficulty = 135,
 			size = 35,
 		},
+		{
+			lairTemplateName = "dathomir_marvs_home_neutral_large_theater",
+			minDifficulty = 120,
+			maxDifficulty = 140,
+			size = 35,
+		}
 	}
 }
 
