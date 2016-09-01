@@ -302,12 +302,6 @@ tatooine_destroy_missions = {
 			maxDifficulty = 125,
 			size = 25,
 		},
-		{
-			lairTemplateName = "tatooine_krayt_king_lair_neutral_large",
-			minDifficulty = 125,
-			maxDifficulty = 160,
-			size = 25,
-		}
 	}
 }
 
