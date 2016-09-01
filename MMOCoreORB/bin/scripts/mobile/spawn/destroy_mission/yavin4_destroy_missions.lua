@@ -104,36 +104,6 @@ yavin4_destroy_missions = {
 			maxDifficulty = 37,
 			size = 25,
 		},
-		{
-			lairTemplateName = "yavin4_acklay_lair_neutral_small",
-			minDifficulty = 100,
-			maxDifficulty = 110,
-			size = 25,
-		},
-		{
-			lairTemplateName = "yavin4_fire_spider_lair_neutral_small",
-			minDifficulty = 110,
-			maxDifficulty = 120,
-			size = 25,
-		},
-		{
-			lairTemplateName = "yavin4_acklay_youngling_lair_neutral_small",
-			minDifficulty = 120,
-			maxDifficulty = 130,
-			size = 25,
-		},
-		{
-			lairTemplateName = "yavin4_acklay_elder_lair_neutral_small",
-			minDifficulty = 130,
-			maxDifficulty = 140,
-			size = 25,
-		},
-		{
-			lairTemplateName = "yavin4_thrawn_and_sher_kar_neutral_medium_theater",
-			minDifficulty = 140,
-			maxDifficulty = 150,
-			size = 25,
-		}
 	}
 }
 
