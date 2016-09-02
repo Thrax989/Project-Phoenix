@@ -297,12 +297,6 @@ corellia_destroy_missions = {
 			size = 35,
 		},
 		{
-			lairTemplateName = "corellia_bolle_bol_stomper_neutral_small",
-			minDifficulty = 30,
-			maxDifficulty = 36,
-			size = 35,
-		},
-		{
 			lairTemplateName = "corellia_war_gronda_lair_neutral_large",
 			minDifficulty = 30,
 			maxDifficulty = 34,

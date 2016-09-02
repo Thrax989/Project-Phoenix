@@ -1,7 +1,6 @@
 
 includeFile("lair/creature_lair/corellia_bageraset_lair_neutral_medium.lua")
 includeFile("lair/creature_lair/corellia_bageraset_lair_neutral_medium_boss_01.lua")
-includeFile("lair/creature_lair/corellia_bolle_bol_stomper_neutral_small.lua")
 includeFile("lair/creature_lair/corellia_canoid_lair_neutral_medium.lua")
 includeFile("lair/creature_lair/corellia_carrion_spat_lair_neutral_medium.lua")
 includeFile("lair/creature_lair/corellia_carrion_spat_lair_neutral_medium_boss_01.lua")
@@ -102,7 +101,6 @@ includeFile("lair/creature_lair/dathomir_brackaset_family_lair_neutral_medium.lu
 includeFile("lair/creature_lair/dathomir_brackaset_lair_neutral_medium.lua")
 includeFile("lair/creature_lair/dathomir_brackaset_pigmy_neutral_small.lua")
 includeFile("lair/creature_lair/dathomir_brackaset_surefoot_lair_neutral_medium.lua")
-includeFile("lair/creature_lair/dathomir_dune_bantha_lair_neutral_large.lua")
 includeFile("lair/creature_lair/dathomir_gaping_spider_lair_neutral_medium.lua")
 includeFile("lair/creature_lair/dathomir_gaping_spider_lair_neutral_medium_boss_01.lua")
 includeFile("lair/creature_lair/dathomir_gaping_spider_queen_neutral_large.lua")
