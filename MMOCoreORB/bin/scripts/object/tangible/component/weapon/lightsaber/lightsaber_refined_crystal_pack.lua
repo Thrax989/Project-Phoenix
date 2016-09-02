@@ -45,14 +45,14 @@ object_tangible_component_weapon_lightsaber_lightsaber_refined_crystal_pack = ob
 
 
 	numberExperimentalProperties = {1, 1},
-	experimentalProperties = {"OQ", "OQ", "OQ"},
+	experimentalProperties = {"XX", "XX"},
 	experimentalWeights = {1, 1},
-	experimentalGroupTitles = {"expDamage", "expDamage", "expEffeciency"},
-	experimentalSubGroupTitles = {"mindamage", "maxdamage", "forcecost"},
-	experimentalMin = {25, 25, -2},
-	experimentalMax = {50, 50, -3},
-	experimentalPrecision = {0, 0, 0},
-	experimentalCombineType = {1, 1, 1},
+	experimentalGroupTitles = {"null", "null"},
+	experimentalSubGroupTitles = {"null", "null"},
+	experimentalMin = {0, 0},
+	experimentalMax = {0, 0},
+	experimentalPrecision = {0, 0},
+	experimentalCombineType = {0, 0},
 }
 
 ObjectTemplates:addTemplate(object_tangible_component_weapon_lightsaber_lightsaber_refined_crystal_pack, "object/tangible/component/weapon/lightsaber/lightsaber_refined_crystal_pack.iff")
