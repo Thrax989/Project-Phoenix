@@ -71,19 +71,19 @@ lootGroups = {
 			groups = {
 				{group = "saberhand24", chance = 10000000}
 			},
-			lootChance = 750000
+			lootChance = 1500000
 		},
 				 {
 			groups = {
 				{group = "saberhand25", chance = 10000000}
 			},
-			lootChance = 500000
+			lootChance = 1500000
 		},
 				 {
 			groups = {
 				{group = "saberhand26", chance = 10000000}
 			},
-			lootChance = 250000
+			lootChance = 1500000
 		},
 		},
 	weapons = {},

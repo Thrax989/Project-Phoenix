@@ -39,11 +39,21 @@ krayt_dragon_ancient = Creature:new {
 		},
 		{
 			groups = {
-				{group = "saberhand24", chance = 3333333},
-				{group = "saberhand25", chance = 3333334},
-				{group = "saberhand26", chance = 3333333}
+				{group = "saberhand24", chance = 10000000}
 			},
-			lootChance = 750000
+			lootChance = 1000000
+		},
+		{
+			groups = {
+				{group = "saberhand25", chance = 10000000}
+			},
+			lootChance = 1000000
+		},
+		{
+			groups = {
+				{group = "saberhand26", chance = 10000000}
+			},
+			lootChance = 1000000
 		},
 	},
 	weapons = {},
