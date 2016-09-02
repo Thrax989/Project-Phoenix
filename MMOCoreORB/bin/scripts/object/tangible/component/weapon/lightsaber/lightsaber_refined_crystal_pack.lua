@@ -44,9 +44,9 @@
 object_tangible_component_weapon_lightsaber_lightsaber_refined_crystal_pack = object_tangible_component_weapon_lightsaber_shared_lightsaber_refined_crystal_pack:new {
 
 
-	numberExperimentalProperties = {1, 1, 1},
+	numberExperimentalProperties = {1, 1},
 	experimentalProperties = {"OQ", "OQ", "OQ"},
-	experimentalWeights = {1, 1, 1},
+	experimentalWeights = {1, 1},
 	experimentalGroupTitles = {"expDamage", "expDamage", "expEffeciency"},
 	experimentalSubGroupTitles = {"mindamage", "maxdamage", "forcecost"},
 	experimentalMin = {25, 25, -2},
