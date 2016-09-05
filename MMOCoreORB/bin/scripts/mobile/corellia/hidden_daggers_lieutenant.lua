@@ -42,8 +42,9 @@ hidden_daggers_lieutenant = Creature:new {
 				{group = "junk", chance = 4300000},
 				{group = "loot_kit_parts", chance = 2000000},
 				{group = "tailor_components", chance = 1000000},
-				{group = "hidden_dagger_common", chance = 2700000}
-			}
+				{group = "hidden_dagger_common", chance = 2700000},
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"ranged_weapons"},

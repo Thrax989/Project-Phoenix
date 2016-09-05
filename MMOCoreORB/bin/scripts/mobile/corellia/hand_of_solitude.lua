@@ -33,8 +33,9 @@ hand_of_solitude = Creature:new {
 				{group = "pistols", chance = 1000000},
 				{group = "melee_weapons", chance = 1000000},
 				{group = "carbines", chance = 1000000},
-				{group = "wearables_common", chance = 1000000}
-			}
+				{group = "wearables_common", chance = 1000000},
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"pirate_weapons_medium"},

@@ -44,8 +44,9 @@ afarathu_cult_bodyguard = Creature:new {
 			groups = {
 				{group = "junk", chance = 7000000},
 				{group = "loot_kit_parts", chance = 2000000},
-				{group = "tailor_components", chance = 1000000}
-			}
+				{group = "tailor_components", chance = 1000000},
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"pirate_weapons_light"},
