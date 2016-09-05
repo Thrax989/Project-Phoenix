@@ -42,8 +42,9 @@ smashball_bully = Creature:new {
 			groups = {
 				{group = "junk", chance = 6000000},
 				{group = "loot_kit_parts", chance = 2500000},
-				{group = "tailor_components", chance = 1500000}
-			}
+				{group = "tailor_components", chance = 1500000},
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"pirate_weapons_medium"},
