@@ -67,6 +67,7 @@ randomDotUses = {250, 9999}
 junkValueModifier = 15;
 
 lootableArmorAttachmentStatMods = {
+	"tame_level",
 	"bio_engineer_assembly",
 	"bio_engineer_experimentation",
 	"combat_healing_ability",
@@ -165,6 +166,7 @@ lootableArmorAttachmentStatMods = {
 }
 
 lootableClothingAttachmentStatMods = {
+	"tame_level",
 	"combat_healing_ability",
 	"combat_medic_effectiveness",
 	"healing_ability",
@@ -304,6 +306,7 @@ lootableClothingAttachmentStatMods = {
 }
 
 lootableArmorStatMods = {
+	"tame_level",
 	"bio_engineer_assembly",
 	"bio_engineer_experimentation",
 	"combat_healing_ability",
@@ -381,6 +384,7 @@ lootableArmorStatMods = {
 }
 
 lootableClothingStatMods = {
+	"tame_level",
 	"combat_healing_ability",
 	"combat_medic_effectiveness",
 	"healing_ability",
@@ -518,6 +522,7 @@ lootableClothingStatMods = {
 }
 
 lootableOneHandedMeleeStatMods = {
+	"tame_level",
 	"blind_defense",
 	"block",
 	"combat_bleeding_defense",
@@ -545,6 +550,7 @@ lootableOneHandedMeleeStatMods = {
 }
 
 lootableTwoHandedMeleeStatMods = {
+	"tame_level",
 	"berserk",
 	"blind_defense",
 	"block",
@@ -577,6 +583,7 @@ lootableTwoHandedMeleeStatMods = {
 }
 
 lootableUnarmedStatMods = {
+	"tame_level",
 	"blind_defense",
 	"block",
 	"combat_bleeding_defense",
@@ -606,6 +613,7 @@ lootableUnarmedStatMods = {
 }
 
 lootablePistolStatMods = {
+	"tame_level",
 	"blind_defense",
 	"block",
 	"camouflage",
@@ -641,6 +649,7 @@ lootablePistolStatMods = {
 }
 
 lootableRifleStatMods = {
+	"tame_level",
 	"blind_defense",
 	"block",
 	"camouflage",
@@ -673,6 +682,7 @@ lootableRifleStatMods = {
 }
 
 lootableCarbineStatMods = {
+	"tame_level",
 	"blind_defense",
 	"block",
 	"camouflage",
@@ -703,6 +713,7 @@ lootableCarbineStatMods = {
 }
 
 lootablePolearmStatMods = {
+	"tame_level",
 	"blind_defense",
 	"block",
 	"camouflage",
@@ -731,6 +742,7 @@ lootablePolearmStatMods = {
 }
 
 lootableHeavyWeaponStatMods = {
+	"tame_level",
 	"blind_defense",
 	"block",
 	"combat_bleeding_defense",

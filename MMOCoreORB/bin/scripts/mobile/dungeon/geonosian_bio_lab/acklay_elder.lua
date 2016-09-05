@@ -38,7 +38,31 @@ acklay_elder = Creature:new {
 		},
 		{
 			groups = {
-				{group = "redeed1", chance = 1000000},
+				{group = "acklay", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "acklay", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "acklay", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "acklay", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "nge1", chance = 1000000},
 				{group = "clothing_attachments", chance = 4500000},
 				{group = "armor_attachments", chance = 4500000}
 			},

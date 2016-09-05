@@ -436,7 +436,7 @@ void PetControlDeviceImplementation::storeObject(CreatureObject* player, bool fo
 
 	assert(pet->isLockedByCurrentThread());
 
-	if (!force && (pet->isInCombat() || player->isInCombat()))
+	if (!force && pet->isInCombat())
 		return;
 
 	if (player->isRidingMount() && player->getParent() == pet) {
@@ -473,8 +473,8 @@ void PetControlDeviceImplementation::storeObject(CreatureObject* player, bool fo
 	}
 	else{
 		if(pet->getPendingTask("store_pet") == NULL) {
-			player->sendSystemMessage( "Storing pet in 5 seconds");
-			pet->addPendingTask("store_pet", task, 5 * 1000);
+			player->sendSystemMessage( "Storing pet in 1 seconds");
+			pet->addPendingTask("store_pet", task, 1 * 1000);
 		}
 		else{
 			Time nextExecution;
@@ -514,7 +514,7 @@ bool PetControlDeviceImplementation::growPet(CreatureObject* player, bool force,
 
 	Time currentTime;
 	uint32 timeDelta = currentTime.getTime() - lastGrowth.getTime();
-	int stagesToGrow = timeDelta / 900; // 15 Minutes
+	int stagesToGrow = timeDelta / 300; // 5 Minutes
 
 	if (adult)
 		stagesToGrow = 10;
