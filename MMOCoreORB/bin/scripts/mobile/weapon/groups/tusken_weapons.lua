@@ -1,8 +1,9 @@
 tusken_weapons = {
-	"object/weapon/ranged/rifle/rifle_tusken.iff",
 	"object/weapon/melee/baton/baton_gaderiffi.iff",
-	"object/weapon/ranged/carbine/carbine_laser.iff"
-
+	"object/weapon/melee/special/vibroknuckler.iff",
+	"object/weapon/melee/polearm/polearm_vibro_axe.iff",
+	"object/weapon/melee/axe/axe_vibroaxe.iff",
+	"object/weapon/melee/baton/baton_stun.iff"
 }
 
 addWeapon("tusken_weapons", tusken_weapons)

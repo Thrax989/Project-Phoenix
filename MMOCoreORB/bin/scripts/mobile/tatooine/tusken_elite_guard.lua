@@ -45,7 +45,7 @@ tusken_elite_guard = Creature:new {
 	},
 	weapons = {"tusken_weapons"},
 	conversationTemplate = "",
-	attacks = merge(marksmanmaster,brawlermaster,fencermaster,riflemanmaster)
+	attacks = merge(brawlermaster,fencermaster,swordsmanmaster,pikemanmaster,tkamaster)
 }
 
 CreatureTemplates:addCreatureTemplate(tusken_elite_guard, "tusken_elite_guard")

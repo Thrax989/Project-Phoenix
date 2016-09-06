@@ -45,7 +45,7 @@ tusken_warlord = Creature:new {
 	},
 	weapons = {"tusken_weapons"},
 	conversationTemplate = "",
-	attacks = merge(brawlernovice,marksmannovice,fencermaster,riflemanmaster)
+	attacks = merge(brawlermaster,fencermaster,swordsmanmaster,pikemanmaster,tkamaster)
 }
 
 CreatureTemplates:addCreatureTemplate(tusken_warlord, "tusken_warlord")

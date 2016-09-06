@@ -41,7 +41,7 @@ tusken_child = Creature:new {
 	},
 	weapons = {"primitive_weapons"},
 	conversationTemplate = "",
-	attacks = merge(marksmannovice,brawlernovice)
+	attacks = merge(brawlermaster,fencermaster,swordsmanmaster,pikemanmaster,tkamaster)
 }
 
 CreatureTemplates:addCreatureTemplate(tusken_child, "tusken_child")
