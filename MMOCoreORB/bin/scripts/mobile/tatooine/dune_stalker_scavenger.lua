@@ -36,7 +36,7 @@ dune_stalker_scavenger = Creature:new {
 				{group = "loot_kit_parts", chance = 1500000},
 				{group = "printer_parts", chance = 1000000},
 			},
-			lootChance = 2200000
+			lootChance = 10000000
 		}
 	},
 	weapons = {"tusken_weapons"},

@@ -39,7 +39,8 @@ weequay_captain = Creature:new {
 				{group = "printer_parts", chance = 1000000},
 				{group = "weequay_common", chance = 500000},
 				{group = "color_crystals", chance = 500000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"rebel_weapons_heavy"},

@@ -37,7 +37,8 @@ jawa_engineer = Creature:new {
 				{group = "tailor_components", chance = 1000000},
 				{group = "loot_kit_parts", chance = 1500000},
 				{group = "color_crystals", chance = 200000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"jawa_weaker_weapons"},

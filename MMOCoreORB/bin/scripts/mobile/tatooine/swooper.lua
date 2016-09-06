@@ -35,8 +35,9 @@ swooper = Creature:new {
 				{group = "wearables_common", chance = 2000000},
 				{group = "tailor_components", chance = 1000000},
 				{group = "loot_kit_parts", chance = 2000000},
-				{group = "printer_parts", chance = 1000000},
-			}
+				{group = "printer_parts", chance = 1000000}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"pirate_weapons_light"},

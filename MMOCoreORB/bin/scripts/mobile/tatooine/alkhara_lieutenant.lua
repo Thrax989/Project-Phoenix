@@ -37,7 +37,8 @@ alkhara_lieutenant = Creature:new {
 				{group = "tailor_components", chance = 1500000},
 				{group = "loot_kit_parts", chance = 1500000},
 				{group = "alkhara_common", chance = 450000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"ranged_weapons"},
