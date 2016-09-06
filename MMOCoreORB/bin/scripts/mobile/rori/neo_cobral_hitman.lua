@@ -39,7 +39,8 @@ neo_cobral_hitman = Creature:new {
 				{group = "rifles", chance = 2000000},
 				{group = "tailor_components", chance = 2000000},
 				{group = "loot_kit_parts", chance = 2000000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"ranged_weapons"},

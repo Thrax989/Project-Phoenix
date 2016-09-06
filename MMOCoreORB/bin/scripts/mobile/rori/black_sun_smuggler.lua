@@ -38,7 +38,8 @@ black_sun_smuggler = Creature:new {
 				{group = "carbines", chance = 800000},
 				{group = "wearables_common", chance = 550000},
 				{group = "wearables_uncommon", chance = 550000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"pirate_weapons_heavy"},
