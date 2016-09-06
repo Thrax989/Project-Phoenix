@@ -52,7 +52,7 @@ object_draft_schematic_instrument_instrument_fanfar = object_draft_schematic_ins
    size = 1, 
 
    xpType = "dance", 
-   xp = 1000, 
+   xp = 5000, 
 
    assemblySkill = "instrument_assembly", 
    experimentingSkill = "general_experimentation", 
