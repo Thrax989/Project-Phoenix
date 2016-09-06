@@ -45,7 +45,8 @@ elite_canyon_corsair = Creature:new {
 				{group = "clothing_attachments", chance = 450000},
 				{group = "armor_attachments", chance = 450000},
 				{group = "canyon_corsair_common", chance = 1500000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"canyon_corsair_weapons"},

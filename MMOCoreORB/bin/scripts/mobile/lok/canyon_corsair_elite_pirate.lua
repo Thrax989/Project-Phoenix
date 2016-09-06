@@ -48,8 +48,9 @@ canyon_corsair_elite_pirate = Creature:new {
 				{group = "clothing_attachments", chance = 450000},
 				{group = "armor_attachments", chance = 450000},
 				{group = "canyon_corsair_common", chance = 1500000},
-				{group = "wearables_uncommon", chance = 500000},
-			}
+				{group = "wearables_uncommon", chance = 500000}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"canyon_corsair_weapons"},
