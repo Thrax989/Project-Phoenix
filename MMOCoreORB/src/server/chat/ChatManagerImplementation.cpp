@@ -244,7 +244,7 @@ void ChatManagerImplementation::initiateRooms() {
 	generalRoom->setAllowSubrooms(true);
 	generalRoom->setTitle("public chat for this server, can create rooms here");
 
-	auctionRoom = createRoom("Auction", galaxyRoom);
+	auctionRoom = createRoom("General", galaxyRoom);
 	auctionRoom->setCanEnter(true);
 	auctionRoom->setChatRoomType(ChatRoom::AUCTION);
 
