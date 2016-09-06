@@ -1,8 +1,9 @@
-kimogila_hatchling = Creature:new {
-	objectName = "@mob/creature_names:kimogila_hatchling",
+kimogila_hatchling_ancient = Creature:new {
+	objectName = "@mob/creature_names:",
+	customName = "kimogila hatchling ancient",
 	socialGroup = "kimogila",
 	faction = "",
-	level = 85,
+	level = 22,
 	chanceHit = 0.33,
 	damageMin = 210,
 	damageMax = 220,
@@ -43,4 +44,4 @@ kimogila_hatchling = Creature:new {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(kimogila_hatchling, "kimogila_hatchling")
+CreatureTemplates:addCreatureTemplate(kimogila_hatchling_ancient, "kimogila_hatchling_ancient")

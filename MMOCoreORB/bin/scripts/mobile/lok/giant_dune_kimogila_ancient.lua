@@ -1,8 +1,9 @@
-giant_dune_kimogila = Creature:new {
-	objectName = "@mob/creature_names:giant_dune_kimogila",
+giant_dune_kimogila_ancient = Creature:new {
+	objectName = "@mob/creature_names:",
+	customName = "giant dune kimogila ancient",
 	socialGroup = "kimogila",
 	faction = "",
-	level = 85,
+	level = 153,
 	chanceHit = 8.5,
 	damageMin = 895,
 	damageMax = 1500,
@@ -44,4 +45,4 @@ giant_dune_kimogila = Creature:new {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(giant_dune_kimogila, "giant_dune_kimogila")
+CreatureTemplates:addCreatureTemplate(giant_dune_kimogila_ancient, "giant_dune_kimogila_ancient")

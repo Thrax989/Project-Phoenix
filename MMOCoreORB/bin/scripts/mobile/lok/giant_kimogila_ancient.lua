@@ -1,16 +1,17 @@
-kimogila = Creature:new {
-	objectName = "@mob/creature_names:kimogila",
+giant_kimogila_ancient = Creature:new {
+	objectName = "@mob/creature_names:",
+	customName = "giant kimogila ancient",
 	socialGroup = "kimogila",
 	faction = "",
-	level = 85,
-	chanceHit = 0.9,
-	damageMin = 630,
-	damageMax = 970,
-	baseXp = 9057,
-	baseHAM = 22000,
-	baseHAMmax = 27000,
+	level = 139,
+	chanceHit = 5.5,
+	damageMin = 875,
+	damageMax = 1460,
+	baseXp = 13178,
+	baseHAM = 65000,
+	baseHAMmax = 80000,
 	armor = 2,
-	resists = {145,175,0,175,0,0,200,-1,-1},
+	resists = {135,180,20,180,20,20,200,20,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 1000,
 	hideType = "hide_leathery",
@@ -25,10 +26,10 @@ kimogila = Creature:new {
 	optionsBitmask = AIENABLED,
 	diet = CARNIVORE,
 
-	templates = {"object/mobile/kimogila.iff"},
-	scale = 0.85,
+	templates = {"object/mobile/giant_kimogila.iff"},
+	scale = 1.15,
 	lootGroups = {
-	 {
+	    {
 	        groups = {
 				{group = "kimogila_common", chance = 10000000}
 			},
@@ -38,9 +39,9 @@ kimogila = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"blindattack",""},
+		{"creatureareaknockdown",""},
 		{"dizzyattack",""}
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(kimogila, "kimogila")
+CreatureTemplates:addCreatureTemplate(giant_kimogila_ancient, "giant_kimogila_ancient")

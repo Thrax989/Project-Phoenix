@@ -1,16 +1,17 @@
-kimogila = Creature:new {
-	objectName = "@mob/creature_names:kimogila",
+enraged_dune_kimogila_ancient = Creature:new {
+	objectName = "@mob/creature_names:",
+	customName = "enraged dune kimogila ancient",
 	socialGroup = "kimogila",
 	faction = "",
-	level = 85,
-	chanceHit = 0.9,
-	damageMin = 630,
-	damageMax = 970,
-	baseXp = 9057,
-	baseHAM = 22000,
-	baseHAMmax = 27000,
+	level = 148,
+	chanceHit = 6.25,
+	damageMin = 940,
+	damageMax = 1590,
+	baseXp = 14030,
+	baseHAM = 62000,
+	baseHAMmax = 75000,
 	armor = 2,
-	resists = {145,175,0,175,0,0,200,-1,-1},
+	resists = {180,190,180,200,180,180,200,180,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 1000,
 	hideType = "hide_leathery",
@@ -25,8 +26,8 @@ kimogila = Creature:new {
 	optionsBitmask = AIENABLED,
 	diet = CARNIVORE,
 
-	templates = {"object/mobile/kimogila.iff"},
-	scale = 0.85,
+	templates = {"object/mobile/kimogila_hue.iff"},
+	scale = 1.05,
 	lootGroups = {
 	 {
 	        groups = {
@@ -38,9 +39,9 @@ kimogila = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"blindattack",""},
-		{"dizzyattack",""}
+		{"creatureareaattack",""},
+		{"blindattack",""}
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(kimogila, "kimogila")
+CreatureTemplates:addCreatureTemplate(enraged_dune_kimogila_ancient, "enraged_dune_kimogila_ancient")

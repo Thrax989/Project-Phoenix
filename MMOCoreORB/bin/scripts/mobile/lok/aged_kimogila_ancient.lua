@@ -1,32 +1,32 @@
-kimogila = Creature:new {
-	objectName = "@mob/creature_names:kimogila",
+aged_kimogila_ancient = Creature:new {
+	objectName = "@mob/creature_names:",
+	customName = "aged kimogila ancient",
 	socialGroup = "kimogila",
 	faction = "",
-	level = 85,
-	chanceHit = 0.9,
-	damageMin = 630,
-	damageMax = 970,
-	baseXp = 9057,
-	baseHAM = 22000,
-	baseHAMmax = 27000,
+	level = 139,
+	chanceHit = 5.5,
+	damageMin = 900,
+	damageMax = 1500,
+	baseXp = 13671,
+	baseHAM = 81000,
+	baseHAMmax = 99000,
 	armor = 2,
-	resists = {145,175,0,175,0,0,200,-1,-1},
+	resists = {135,180,20,180,20,20,200,20,-1},
 	meatType = "meat_carnivore",
-	meatAmount = 1000,
+	meatAmount = 700,
 	hideType = "hide_leathery",
-	hideAmount = 1000,
+	hideAmount = 700,
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
 	tamingChance = 0.25,
-	ferocity = 0,
+	ferocity = 20,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
 	optionsBitmask = AIENABLED,
 	diet = CARNIVORE,
 
-	templates = {"object/mobile/kimogila.iff"},
-	scale = 0.85,
+	templates = {"object/mobile/kimogila_hue.iff"},
 	lootGroups = {
 	 {
 	        groups = {
@@ -38,9 +38,9 @@ kimogila = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"blindattack",""},
+		{"knockdownattack",""},
 		{"dizzyattack",""}
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(kimogila, "kimogila")
+CreatureTemplates:addCreatureTemplate(aged_kimogila_ancient, "aged_kimogila_ancient")

@@ -1,16 +1,17 @@
-kimogila = Creature:new {
-	objectName = "@mob/creature_names:kimogila",
+kimogila_dwarf_ancient = Creature:new {
+	objectName = "@mob/creature_names:",
+	customName = "kimogila dwarf ancient",
 	socialGroup = "kimogila",
 	faction = "",
-	level = 85,
-	chanceHit = 0.9,
-	damageMin = 630,
-	damageMax = 970,
-	baseXp = 9057,
-	baseHAM = 22000,
-	baseHAMmax = 27000,
+	level = 139,
+	chanceHit = 4.5,
+	damageMin = 800,
+	damageMax = 1400,
+	baseXp = 12671,
+	baseHAM = 71000,
+	baseHAMmax = 79000,
 	armor = 2,
-	resists = {145,175,0,175,0,0,200,-1,-1},
+	resists = {135,180,20,180,20,20,200,20,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 1000,
 	hideType = "hide_leathery",
@@ -19,14 +20,14 @@ kimogila = Creature:new {
 	boneAmount = 0,
 	milk = 0,
 	tamingChance = 0.25,
-	ferocity = 0,
+	ferocity = 20,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
 	optionsBitmask = AIENABLED,
 	diet = CARNIVORE,
 
-	templates = {"object/mobile/kimogila.iff"},
-	scale = 0.85,
+	templates = {"object/mobile/kimogila_hue.iff"},
+	scale = 0.8,
 	lootGroups = {
 	 {
 	        groups = {
@@ -38,9 +39,9 @@ kimogila = Creature:new {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"blindattack",""},
+		{"posturedownattack",""},
 		{"dizzyattack",""}
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(kimogila, "kimogila")
+CreatureTemplates:addCreatureTemplate(kimogila_dwarf_ancient, "kimogila_dwarf_ancient")
