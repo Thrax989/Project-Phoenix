@@ -28,7 +28,6 @@ spirit_exar = Creature:new {
 	diet = HERBIVORE,
 	scale = 2.0,
 	templates = {"object/mobile/ep3/palpatine_hologram.iff"},
-	outfit = "prophet_kadann_outfit",
 	lootGroups = {
 		{
 			groups = {
