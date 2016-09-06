@@ -33,7 +33,7 @@ gorax = Creature:new {
 				{group = "armor_attachments", chance = 2000000},
 				{group = "clothing_attachments", chance = 2000000}
 			},
-			lootChance = 7000000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

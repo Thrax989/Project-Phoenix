@@ -34,7 +34,7 @@ gondula_matriarch = Creature:new {
 			groups = {
 				{group = "ewok", chance = 10000000}
 			},
-			lootChance = 1300000
+			lootChance = 10000000
 		}
 	},
 	weapons = {"ewok_weapons"},

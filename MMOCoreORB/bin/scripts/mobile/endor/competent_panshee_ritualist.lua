@@ -37,7 +37,7 @@ competent_panshee_ritualist = Creature:new {
 			groups = {
 				{group = "ewok", chance = 10000000}
 			},
-			lootChance = 1440000
+			lootChance = 10000000
 		}
 	},
 	weapons = {"ewok_weapons"},

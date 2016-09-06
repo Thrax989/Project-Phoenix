@@ -34,7 +34,7 @@ masterful_ewok_warrior = Creature:new {
 			groups = {
 				{group = "ewok", chance = 10000000}
 			},
-			lootChance = 1220000
+			lootChance = 10000000
 		}
 	},
 	weapons = {"ewok_weapons"},

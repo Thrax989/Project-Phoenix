@@ -42,7 +42,7 @@ gondula_elder = Creature:new {
 			groups = {
 				{group = "ewok", chance = 10000000}
 			},
-			lootChance = 2120000
+			lootChance = 10000000
 		}
 	},
 	weapons = {"ewok_weapons"},

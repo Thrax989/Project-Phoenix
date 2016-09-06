@@ -43,8 +43,9 @@ frenzied_marauder = Creature:new {
 				{group = "mabari_armor", chance = 800000},
 				{group = "tantel_armor", chance = 800000},
 				{group = "ubese_armor", chance = 800000},
-				{group = "color_crystals", chance = 750000},
-			}
+				{group = "color_crystals", chance = 750000}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"pirate_weapons_heavy"},
