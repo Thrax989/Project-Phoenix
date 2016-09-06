@@ -38,7 +38,8 @@ aakuan_champion = Creature:new {
 				{group = "aakuan_common", chance = 2600000},
 				{group = "armor_attachments", chance = 600000},
 				{group = "clothing_attachments", chance = 800000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"melee_weapons"},

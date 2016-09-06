@@ -36,8 +36,9 @@ chunker_braggart = Creature:new {
 				{group = "melee_knife", chance = 700000},
 				{group = "pistols", chance = 700000},
 				{group = "carbines", chance = 700000},
-				{group = "chunker_common", chance = 6000000},
-			}
+				{group = "chunker_common", chance = 6000000}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"pirate_weapons_light"},
