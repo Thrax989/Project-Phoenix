@@ -43,9 +43,10 @@ spiderclan_web_dancer = Creature:new {
 				{group = "carbines",  chance = 1000000},
 				{group = "wearables_common",  chance = 500000},
 				{group = "wearables_uncommon",  chance = 500000},
-				{group = "redeed1",  chance = 500000},
-				{group = "redeed2",  chance = 200000}
-			}
+				{group = "clothing_attachments",  chance = 500000},
+				{group = "clothing_attachments",  chance = 200000}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"mixed_force_weapons"},

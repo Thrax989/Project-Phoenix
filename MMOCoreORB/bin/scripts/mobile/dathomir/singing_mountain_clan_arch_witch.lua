@@ -41,7 +41,8 @@ singing_mountain_clan_arch_witch = Creature:new {
 				{group = "pistols", chance = 500000},
 				{group = "axkva_min", chance = 500000},
 				{group = "carbines", chance = 1000000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"mixed_force_weapons"},

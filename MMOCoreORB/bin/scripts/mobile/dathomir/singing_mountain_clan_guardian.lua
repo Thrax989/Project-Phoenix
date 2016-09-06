@@ -43,7 +43,8 @@ singing_mountain_clan_guardian = Creature:new {
 				{group = "carbines",  chance = 500000},
 				{group = "redeed1",  chance = 500000},
 				{group = "axkva_min",  chance = 500000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"mixed_force_weapons"},

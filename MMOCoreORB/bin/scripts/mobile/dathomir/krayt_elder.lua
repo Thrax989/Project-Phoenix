@@ -34,7 +34,7 @@ krayt_elder = Creature:new {
 				{group = "armor_all", chance = 2000000},
 				{group = "weapons_all", chance = 2000000},
 			},
-			lootChance = 7720000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},
