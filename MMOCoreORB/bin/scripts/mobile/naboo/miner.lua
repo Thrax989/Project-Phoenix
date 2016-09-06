@@ -46,7 +46,8 @@ miner = Creature:new {
 				{group = "pistols", chance = 1000000},
 				{group = "tailor_components", chance = 1500000},
 				{group = "loot_kit_parts", chance = 1500000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"pirate_weapons_light"},

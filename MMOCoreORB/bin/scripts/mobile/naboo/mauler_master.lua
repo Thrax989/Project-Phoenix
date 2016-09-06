@@ -37,7 +37,8 @@ mauler_master = Creature:new {
 				{group = "carbines", chance = 1000000},
 				{group = "mauler_common", chance = 2000000},
 				{group = "wearables_uncommon", chance = 1000000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"pirate_weapons_heavy"},

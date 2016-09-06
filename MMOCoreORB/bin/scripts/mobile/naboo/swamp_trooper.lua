@@ -41,7 +41,8 @@ swamp_trooper = Creature:new {
 				{group = "clothing_attachments", chance = 250000},
 				{group = "armor_attachments", chance = 250000},
 				{group = "stormtrooper_common", chance = 700000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"stormtrooper_weapons"},
