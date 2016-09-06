@@ -40,7 +40,7 @@ ragtag_mercenary = Creature:new {
 				{group = "wearables_common", chance = 3000000},
 				{group = "loot_kit_parts", chance = 1500000},
 				{group = "crystals_poor", chance = 500000},
-				{group = "tailor_components", chance = 1000000},
+				{group = "tailor_components", chance = 1000000}
 			},
 			lootChance = 10000000
 		}

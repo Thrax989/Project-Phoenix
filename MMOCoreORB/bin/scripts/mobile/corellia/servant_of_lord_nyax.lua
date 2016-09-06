@@ -35,7 +35,7 @@ servant_of_lord_nyax = Creature:new {
 			groups = {
 				{group = "nyax", chance = 2000000},
 				{group = "pistols", chance = 4000000},
-				{group = "rifles", chance = 4000000},
+				{group = "rifles", chance = 4000000}
 			},
 			lootChance = 10000000
 		}

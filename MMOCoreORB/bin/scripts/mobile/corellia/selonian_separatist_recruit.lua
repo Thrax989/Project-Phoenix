@@ -59,7 +59,7 @@ selonian_separatist_recruit = Creature:new {
 				{group = "wearables_common", chance = 2000000},
 				{group = "melee_weapons", chance = 1000000},
 				{group = "loot_kit_parts", chance = 2500000},
-				{group = "tailor_components", chance = 1500000},
+				{group = "tailor_components", chance = 1500000}
 			},
 			lootChance = 10000000
 		}
