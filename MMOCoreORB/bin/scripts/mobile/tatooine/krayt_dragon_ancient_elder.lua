@@ -91,7 +91,20 @@ krayt_dragon_ancient_elder = Creature:new {
  	conversationTemplate = "",
  	attacks = {
  		{"creatureareacombo","stateAccuracyBonus=100"},
- 		{"creatureareaknockdown","stateAccuracyBonus=100"}
+ 		{"creatureareaknockdown","stateAccuracyBonus=100"},
+		{"knockdownattack","KnockdownChance=100"},
+		{"creatureareaknockdown","KnockdownChance=100"},
+		{"dizzyattack","DizzyChance=100"},
+		{"stunattack","StunChance=100"},
+		{"mildpoison","PoisonChance=100"},
+		{"intimidationattack","IntimidationChance=100"},
+		{"mediumpoison","PoisonChance=100"},
+		{"creatureareapoison","PoisonChance=100"},
+		{"mediumDisease","DiseaseChance=100"},
+		{"mildDisease","DiseaseChance=100"},
+		{"strongpoison","PoisonChance=100"},
+		{"strongDisease","DiseaseChance=100"},
+		{"creatureareaattack",""}
  	}
  }
  
