@@ -1,17 +1,17 @@
 som_kenobi_reunite_dark_jedi = Creature:new {
 	customName = "Mysterious Dark Jedi",
-	socialGroup = "self",
+	socialGroup = "dark_jedi",
 	pvpFaction = "",
 	faction = "",
 	level = 300,
-	chanceHit = 50,
-	damageMin = 1645,
-	damageMax = 3000,
-	baseXp = 25266,
-	baseHAM = 261000,
-	baseHAMmax = 320000,
+	chanceHit = 100.00,
+	damageMin = 1800,
+	damageMax = 3310,
+	baseXp = 278490,
+	baseHAM = 421000,
+	baseHAMmax = 2992000,
 	armor = 3,
-	resists = {90,90,90,90,90,90,90,90,-1},
+	resists = {95,95,95,95,95,95,95,95,95},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -22,7 +22,7 @@ som_kenobi_reunite_dark_jedi = Creature:new {
 	tamingChance = 0,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
-	creatureBitmask = PACK + STALKER,
+	creatureBitmask = KILLER + STALKER,
 	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
 
@@ -30,21 +30,58 @@ som_kenobi_reunite_dark_jedi = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "holocron_dark", chance = 600000},
-				{group = "holocron_light", chance = 600000},
-				{group = "crystals_premium", chance = 600000},
-				{group = "rifles", chance = 1300000},
-				{group = "pistols", chance = 1300000},
-				{group = "melee_weapons", chance = 1300000},
-				{group = "armor_attachments", chance = 1100000},
-				{group = "clothing_attachments", chance = 1100000},
-				{group = "carbines", chance = 1300000},
-				{group = "dark_jedi_common", chance = 800000}
+				{group = "saberhand13", chance = 5000000},
+				{group = "armor_attachments", chance = 2500000},
+				{group = "clothing_attachments", chance = 2500000}
 			},
 			lootChance = 10000000
-		}
-	},
-	weapons = {"dark_jedi_weapons_gen3"},
+		},
+		{
+			groups = {
+				{group = "nge1", chance = 10000000}
+			},
+			lootChance = 10000000
+		 },
+		{
+			groups = {
+				{group = "nge2", chance = 10000000}
+			},
+			lootChance = 10000000
+		 },
+		{
+			groups = {
+				{group = "wearables_rare", chance = 10000000}
+			},
+			lootChance = 10000000
+		 },
+		{
+			groups = {
+				{group = "weapons_all", chance = 10000000}
+			},
+			lootChance = 10000000
+		 },
+		{
+			groups = {
+				{group = "melee_weapons", chance = 10000000}
+			},
+			lootChance = 10000000
+		 },
+		{
+			groups = {
+				{group = "saberhand14", chance = 5000000},
+				{group = "armor_attachments", chance = 2500000},
+				{group = "clothing_attachments", chance = 2500000}
+			},
+			lootChance = 10000000
+		},
+		 {
+			groups = {
+				{group = "saberhand15", chance = 5000000},
+				{group = "saberhand16", chance = 5000000}
+			},
+			lootChance = 10000000
+		},
+		},	weapons = {"dark_jedi_weapons_gen3"},
 	conversationTemplate = "",
 	attacks = merge(lightsabermaster)
 }

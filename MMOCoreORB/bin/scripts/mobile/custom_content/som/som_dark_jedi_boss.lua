@@ -5,14 +5,14 @@ som_dark_jedi_boss = Creature:new {
 	pvpFaction = "",
 	faction = "",
 	level = 300,
-	chanceHit = 50.00,
+	chanceHit = 95.00,
 	damageMin = 1800,
 	damageMax = 3310,
 	baseXp = 278490,
-	baseHAM = 321000,
-	baseHAMmax = 392000,
+	baseHAM = 421000,
+	baseHAMmax = 1092000,
 	armor = 3,
-	resists = {90,90,90,90,90,90,90,90,90},
+	resists = {95,95,95,95,95,95,95,95,95},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -26,7 +26,7 @@ som_dark_jedi_boss = Creature:new {
 	creatureBitmask = KILLER + STALKER,
 	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
-	scale = 1.0,
+	scale = 2.0,
 
 	templates = {"object/mobile/som/som_dark_jedi_boss.iff"},
 		lootGroups = {
@@ -36,23 +36,23 @@ som_dark_jedi_boss = Creature:new {
 				{group = "armor_attachments", chance = 2500000},
 				{group = "clothing_attachments", chance = 2500000}
 			},
-			lootChance = 5000000
+			lootChance = 10000000
 		},
 		{
 			groups = {
 				{group = "nge1", chance = 10000000}
 			},
-			lootChance = 5000000
+			lootChance = 10000000
 		 },
 		{
 			groups = {
-				{group = "wearables_all", chance = 10000000}
+				{group = "nge2", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 		{
 			groups = {
-				{group = "wearables_rare", chance = 10000000}
+				{group = "nge3", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
@@ -78,10 +78,10 @@ som_dark_jedi_boss = Creature:new {
 		},
 		 {
 			groups = {
-				{group = "saberhand1", chance = 5000000},
-				{group = "saberhand2", chance = 5000000}
+				{group = "saberhand12", chance = 5000000},
+				{group = "saberhand13", chance = 5000000}
 			},
-			lootChance = 5000000
+			lootChance = 10000000
 		},
 		},	
 	weapons = {"dark_jedi_weapons_gen4"},

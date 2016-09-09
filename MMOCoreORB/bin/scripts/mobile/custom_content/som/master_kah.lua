@@ -1,17 +1,17 @@
 master_kah = Creature:new {
 	customName = "Master Kah",
-	socialGroup = "self",
+	socialGroup = "dark_jedi",
 	pvpFaction = "",
 	faction = "",
 	level = 300,
-	chanceHit = 100,
+	chanceHit = 100.00,
 	damageMin = 1800,
 	damageMax = 3310,
-	baseXp = 270849,
-	baseHAM = 1321000,
-	baseHAMmax = 1392000,
+	baseXp = 278490,
+	baseHAM = 421000,
+	baseHAMmax = 1092000,
 	armor = 3,
-	resists = {90,90,90,90,90,90,90,90,90},
+	resists = {95,95,95,95,95,95,95,95,95},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -21,8 +21,8 @@ master_kah = Creature:new {
 	milk = 0,
 	tamingChance = 0,
 	ferocity = 0,
-	pvpBitmask = ATTACKABLE,
-	creatureBitmask = PACK + STALKER,
+	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
+	creatureBitmask = KILLER + STALKER,
 	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
 
@@ -30,20 +30,243 @@ master_kah = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "holocron_dark",  chance = 500000},
-				{group = "holocron_light",  chance = 500000},
-				{group = "crystals_premium",  chance = 2000000},
-				{group = "council5_dark",  chance = 1000000},
-				{group = "council4_dark",  chance = 1000000},
-				{group = "council3_dark",  chance = 1000000},
-				{group = "council2_dark",  chance = 1000000},
-				{group = "council1_dark",  chance = 1000000},
-				{group = "crystal_baass_wisdom",  chance = 1000000},
-				{group = "crystal_banes_heart",  chance = 1000000}
+				{group = "pearls_flawless", chance = 5000000},
+				{group = "armor_attachments", chance = 2500000},
+				{group = "clothing_attachments", chance = 2500000}
 			},
 			lootChance = 10000000
-		}
-	},
+		},
+		{
+			groups = {
+				{group = "pearls_flawless", chance = 5000000},
+				{group = "g_pistol_heroic_exar", chance = 2500000},
+				{group = "clothing_attachments", chance = 2500000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "pearls_flawless", chance = 5000000},
+				{group = "armor_attachments", chance = 2500000},
+				{group = "clothing_attachments", chance = 2500000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "pearls_flawless", chance = 5000000},
+				{group = "armor_attachments", chance = 2500000},
+				{group = "clothing_attachments", chance = 2500000}
+			},
+			lootChance = 10000000
+		},
+		  {
+			groups = {
+				{group = "nyms_rare", chance = 3000000},
+				{group = "g_pistol_heroic_exar", chance = 2000000},
+				{group = "g_named_crystals", chance = 1000000},
+				{group = "weapons_all", chance = 4000000}
+		},
+			lootChance = 10000000
+		  },
+		  {
+			groups = {
+				{group = "nyms_rare", chance = 3000000},
+				{group = "aakuan_common", chance = 2000000},
+				{group = "g_named_crystals", chance = 1000000},
+				{group = "weapons_all", chance = 4000000}
+		},
+			lootChance = 10000000
+		  },
+		  {
+			groups = {
+				{group = "g_pistol_heroic_exar", chance = 3000000},
+				{group = "aakuan_common", chance = 2000000},
+				{group = "g_named_crystals", chance = 1000000},
+				{group = "weapons_all", chance = 4000000}
+		},
+			lootChance = 10000000
+		  },
+		  {
+			groups = {
+				{group = "g_pistol_heroic_sd", chance = 3000000},
+				{group = "g_pistol_heroic_exar", chance = 2000000},
+				{group = "g_sword_pvp_bf_01", chance = 1000000},
+				{group = "g_pvp_bf_knuckler", chance = 4000000}
+		},
+			lootChance = 10000000
+		  },
+		  {
+			groups = {
+				{group = "g_carbine_heroic_sd", chance = 3000000},
+				{group = "g_carbine_kun_massassi", chance = 2000000},
+				{group = "g_named_crystals", chance = 1000000},
+				{group = "g_polearm_heroic_sd", chance = 4000000}
+		},
+			lootChance = 10000000
+		  },
+		  {
+			groups = {
+				{group = "g_carbine_heroic_sd", chance = 500000},
+				{group = "g_carbine_kun_massassi", chance = 500000},
+				{group = "g_polearm_heroic_sd", chance = 500000},
+				{group = "g_pvp_bf_knuckler", chance = 500000},
+				{group = "g_sword_pvp_bf_01", chance = 500000},
+				{group = "g_pistol_heroic_exar", chance = 500000},
+				{group = "g_pistol_heroic_sd", chance = 500000},
+				{group = "g_som_2h_sword_obsidian", chance = 500000},
+				{group = "g_som_2h_sword_tulrus", chance = 500000},
+				{group = "g_som_sword_obsidian", chance = 500000},
+				{group = "weapons_all", chance = 4300000},
+				{group = "g_ep3_chiss_poacher_backpack", chance = 200000},
+				{group = "g_ep3_loot_necrosis", chance = 500000}
+			},
+			lootChance = 10000000
+		},
+		  {
+			groups = {
+				{group = "g_ep3_chiss_poacher_backpack", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "g_ep3_loot_necrosis", chance = 5000000},
+				{group = "armor_attachments", chance = 2500000},
+				{group = "g_som_2h_sword_tulrus", chance = 2500000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "pearls_flawless", chance = 5000000},
+				{group = "armor_attachments", chance = 2500000},
+				{group = "g_som_sword_obsidian", chance = 2500000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "pearls_flawless", chance = 5000000},
+				{group = "armor_attachments", chance = 2500000},
+				{group = "clothing_attachments", chance = 2500000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "pearls_flawless", chance = 5000000},
+				{group = "armor_attachments", chance = 2500000},
+				{group = "g_som_sword_obsidian", chance = 2500000}
+			},
+			lootChance = 10000000
+		},
+		  {
+			groups = {
+				{group = "nyms_rare", chance = 3000000},
+				{group = "aakuan_common", chance = 2000000},
+				{group = "g_named_crystals", chance = 1000000},
+				{group = "g_ep3_loot_necrosis", chance = 4000000}
+		},
+			lootChance = 10000000
+		  },
+		  {
+			groups = {
+				{group = "nyms_rare", chance = 3000000},
+				{group = "g_som_2h_sword_tulrus", chance = 2000000},
+				{group = "g_named_crystals", chance = 1000000},
+				{group = "weapons_all", chance = 4000000}
+		},
+			lootChance = 10000000
+		  },
+		  {
+			groups = {
+				{group = "nyms_rare", chance = 3000000},
+				{group = "aakuan_common", chance = 2000000},
+				{group = "g_named_crystals", chance = 1000000},
+				{group = "weapons_all", chance = 4000000}
+		},
+			lootChance = 10000000
+		  },
+		  {
+			groups = {
+				{group = "nyms_rare", chance = 3000000},
+				{group = "aakuan_common", chance = 2000000},
+				{group = "g_named_crystals", chance = 1000000},
+				{group = "weapons_all", chance = 4000000}
+		},
+			lootChance = 10000000
+		  },
+		  {
+			groups = {
+				{group = "nyms_rare", chance = 3000000},
+				{group = "aakuan_common", chance = 2000000},
+				{group = "g_named_crystals", chance = 1000000},
+				{group = "g_ep3_loot_necrosis", chance = 4000000}
+		},
+			lootChance = 10000000
+		  },
+		  {
+			groups = {
+				{group = "g_carbine_heroic_sd", chance = 10000000}
+			},
+			lootChance = 10000000
+		  },
+		  {
+			groups = {
+				{group = "g_carbine_kun_massassi", chance = 10000000}
+			},
+			lootChance = 10000000
+		  },
+		  {
+			groups = {
+				{group = "g_polearm_heroic_sd", chance = 10000000}
+			},
+			lootChance = 10000000
+		  },
+		  {
+			groups = {
+				{group = "g_polearm_heroic_sd", chance = 10000000}
+			},
+			lootChance = 10000000
+		  },
+		  {
+			groups = {
+				{group = "g_pvp_bf_knuckler", chance = 10000000}
+			},
+			lootChance = 10000000
+		  },
+		  {
+			groups = {
+				{group = "g_som_2h_sword_tulrus", chance = 10000000}
+			},
+			lootChance = 10000000
+		  },
+		  {
+			groups = {
+				{group = "g_carbine_heroic_sd", chance = 500000},
+				{group = "g_carbine_kun_massassi", chance = 500000},
+				{group = "g_polearm_heroic_sd", chance = 500000},
+				{group = "g_pvp_bf_knuckler", chance = 500000},
+				{group = "g_sword_pvp_bf_01", chance = 500000},
+				{group = "g_pistol_heroic_exar", chance = 500000},
+				{group = "g_pistol_heroic_sd", chance = 500000},
+				{group = "g_som_2h_sword_obsidian", chance = 500000},
+				{group = "g_som_2h_sword_tulrus", chance = 500000},
+				{group = "g_som_sword_obsidian", chance = 500000},
+				{group = "weapons_all", chance = 4300000},
+				{group = "g_ep3_chiss_poacher_backpack", chance = 200000},
+				{group = "g_ep3_loot_necrosis", chance = 500000}
+			},
+			lootChance = 10000000
+		  },
+		  {
+			groups = {
+				{group = "saberhand1", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		},
 	weapons = {"dark_jedi_weapons_gen4"},
 	conversationTemplate = "",
 	attacks = merge(lightsabermaster)

@@ -1,18 +1,18 @@
 spirit_exar = Creature:new {
 	objectName = "@mob/creature_names:",
 	customName = "Reincarnated Possessed Spirit",
-	socialGroup = "",
+	socialGroup = "dark_jedi",
 	pvpFaction = "",
 	faction = "",
 	level = 300,
-	chanceHit = 75.00,
+	chanceHit = 100.00,
 	damageMin = 1800,
-	damageMax = 3310,
+	damageMax = 4310,
 	baseXp = 27849,
-	baseHAM = 1021000,
-	baseHAMmax = 1592000,
+	baseHAM = 5021000,
+	baseHAMmax = 5920000,
 	armor = 3,
-	resists = {50,50,50,50,50,50,50,50,50},
+	resists = {100,100,100,100,100,100,100,100,100},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -66,14 +66,14 @@ spirit_exar = Creature:new {
 				{group = "nyms_rare", chance = 3000000},
 				{group = "g_pistol_heroic_exar", chance = 2000000},
 				{group = "g_named_crystals", chance = 1000000},
-				{group = "weapons_all", chance = 4000000}
+				{group = "saberhand20", chance = 4000000}
 		},
 			lootChance = 10000000
 		  },
 		  {
 			groups = {
-				{group = "nyms_rare", chance = 3000000},
-				{group = "aakuan_common", chance = 2000000},
+				{group = "saberhand18", chance = 3000000},
+				{group = "saberhand19", chance = 2000000},
 				{group = "g_named_crystals", chance = 1000000},
 				{group = "weapons_all", chance = 4000000}
 		},
@@ -118,7 +118,7 @@ spirit_exar = Creature:new {
 				{group = "g_som_2h_sword_obsidian", chance = 500000},
 				{group = "g_som_2h_sword_tulrus", chance = 500000},
 				{group = "g_som_sword_obsidian", chance = 500000},
-				{group = "weapons_all", chance = 4300000},
+				{group = "saberhand17", chance = 4300000},
 				{group = "g_ep3_chiss_poacher_backpack", chance = 200000},
 				{group = "g_ep3_loot_necrosis", chance = 500000}
 			},
@@ -164,8 +164,8 @@ spirit_exar = Creature:new {
 		},
 		  {
 			groups = {
-				{group = "nyms_rare", chance = 3000000},
-				{group = "aakuan_common", chance = 2000000},
+				{group = "saberhand15", chance = 3000000},
+				{group = "saberhand16", chance = 2000000},
 				{group = "g_named_crystals", chance = 1000000},
 				{group = "g_ep3_loot_necrosis", chance = 4000000}
 		},
@@ -173,7 +173,7 @@ spirit_exar = Creature:new {
 		  },
 		  {
 			groups = {
-				{group = "nyms_rare", chance = 3000000},
+				{group = "saberhand14", chance = 3000000},
 				{group = "g_som_2h_sword_tulrus", chance = 2000000},
 				{group = "g_named_crystals", chance = 1000000},
 				{group = "weapons_all", chance = 4000000}
@@ -182,8 +182,8 @@ spirit_exar = Creature:new {
 		  },
 		  {
 			groups = {
-				{group = "nyms_rare", chance = 3000000},
-				{group = "aakuan_common", chance = 2000000},
+				{group = "saberhand13", chance = 3000000},
+				{group = "saberhand12", chance = 2000000},
 				{group = "g_named_crystals", chance = 1000000},
 				{group = "weapons_all", chance = 4000000}
 		},
@@ -232,9 +232,9 @@ spirit_exar = Creature:new {
 			lootChance = 10000000
 		},
 		},
-	weapons = {"imperial_weapons_heavy"},
+	weapons = {"dark_jedi_weapons_gen4"},
 	reactionStf = "@npc_reaction/slang",
-	attacks = merge(bountyhuntermaster,marksmanmaster,brawlermaster,pikemanmaster,fencermaster,swordsmanmaster,tkamaster,pistoleermaster,commandomaster)
+	attacks = merge(lightsabermaster,forcepowermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(spirit_exar, "spirit_exar")
