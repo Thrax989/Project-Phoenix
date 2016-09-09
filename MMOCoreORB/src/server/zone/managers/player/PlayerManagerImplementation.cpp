@@ -1550,7 +1550,7 @@ void PlayerManagerImplementation::awardExperience(CreatureObject* player, const 
 		xpType == "political" ||
 		xpType == "bountyhunter" ||
 		xpType == "shipwright") {
-		xp = playerObject->addExperience(xpType, (amount * 10));
+		xp = playerObject->addExperience(xpType, (amount * 20));
 	} else {
 		xp = playerObject->addExperience(xpType, (int) (amount * localMultiplier * globalExpMultiplier));
 	}
