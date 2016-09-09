@@ -28,17 +28,65 @@ krayt_dragon_ancient_elder = Creature:new {
  	scale = 1.5,
  
  	templates = {"object/mobile/krayt_dragon.iff"},
- 	lootGroups = {
- 		{
- 	        groups = {
- 					{group = "krayt_tissue_rare", chance = 3000000},
- 					{group = "krayt_dragon_common2", chance = 2000000},
- 					{group = "pearls_flawless", chance = 3000000},
- 					{group = "clothing_attachments", chance = 2000000},
- 			},
- 			lootChance = 10000000
- 		}
- 	},
+	lootGroups = {
+		{
+			groups = {
+					{group = "krayt_tissue_rare", chance = 3000000},
+					{group = "krayt_dragon_common2", chance = 3000000},
+					{group = "pearls_flawless", chance = 3000000},
+					{group = "clothing_attachments", chance = 1000000},
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "pearls_flawless", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "clothing_attachments", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "armor_attachments", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "krayt_tissue_rare", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "krayt_tissue_rare", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "saberhand24", chance = 10000000}
+			},
+			lootChance = 1000000
+		},
+		{
+			groups = {
+				{group = "saberhand25", chance = 10000000}
+			},
+			lootChance = 1000000
+		},
+		{
+			groups = {
+				{group = "saberhand26", chance = 10000000}
+			},
+			lootChance = 1000000
+		},
+	}, 
  	weapons = {},
  	conversationTemplate = "",
  	attacks = {
