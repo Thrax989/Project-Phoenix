@@ -1,10 +1,9 @@
- /*
-  * PLEASE DO NOT STEEL MY WORK
-  *     ASK BEFOR USING
-  *Contact Me Here http://projectphoenix.com.shivtr.com/
-  *  Created on: 9/09/2016
-  *      Author: TOXIC
-  */
+--PLEASE DO NOT STEEL MY WORK
+--ASK BEFOR USING
+--Contact Me Here http://projectphoenix.com.shivtr.com/
+--Created on: 9/09/2016
+--Author: TOXIC
+
 local ObjectManager = require("managers.object.object_manager") --print("Object manager loaded for SOE")
 
 spirit_exar = ScreenPlay:new {
