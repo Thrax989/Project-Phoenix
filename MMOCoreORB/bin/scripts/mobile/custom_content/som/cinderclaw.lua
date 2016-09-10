@@ -40,6 +40,12 @@ cinderclaw = Creature:new {
 				{group = "g_lance_cryo",  chance = 1000000}
 			}
 		},
+		 {
+			groups = {
+				{group = "barc_speeder_deed_group", chance = 10000000}
+			},
+			lootChance = 100000
+		},
 		{
 			groups = {
 				{group = "g_lance_electric_polearm", chance = 2000000},

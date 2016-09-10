@@ -74,6 +74,12 @@ krayt_dragon_ancient_elder = Creature:new {
 			},
 			lootChance = 1000000
 		},
+		 {
+			groups = {
+				{group = "barc_speeder_deed_group", chance = 10000000}
+			},
+			lootChance = 100000
+		},
 		{
 			groups = {
 				{group = "saberhand25", chance = 10000000}

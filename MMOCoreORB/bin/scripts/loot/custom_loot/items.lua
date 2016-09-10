@@ -40,6 +40,8 @@ includeFile("custom_loot/items/player_house_deeds/yoda_house_loot_deed.lua")
 includeFile("custom_loot/items/player_house_deeds/yt1300_house_loot_deed.lua")
 
 includeFile("custom_loot/items/vehicle_loot_deeds/barc_speeder_loot_deed.lua")
+includeFile("custom_loot/items/vehicle_loot_deeds/pod_racer_one_loot_deed.lua")
+includeFile("custom_loot/items/vehicle_loot_deeds/pod_racer_two_loot_deed.lua")
 
 includeFile("custom_loot/items/weapons/axe_heavy_duty.lua")
 includeFile("custom_loot/items/weapons/axe_heavy_duty_npe.lua")

@@ -42,6 +42,12 @@ ig_88 = Creature:new {
 			},
 			lootChance = 500000
 		 },
+		 {
+			groups = {
+				{group = "barc_speeder_deed_group", chance = 10000000}
+			},
+			lootChance = 100000
+		},
 		{
 			groups = {
 				{group = "nge3", chance = 5000000},

@@ -3,7 +3,9 @@ barc_speeder_deed_group = {
 	minimumLevel = 0,
 	maximumLevel = 0,
 	lootItems = {
-		{itemTemplate = "barc_speeder_loot_deed", weight = 10000000}
+		{itemTemplate = "barc_speeder_loot_deed", weight = 3333333},
+		{itemTemplate = "pod_racer_one_loot_deed", weight = 3333333},
+		{itemTemplate = "pod_racer_two_loot_deed", weight = 3333334}
 	}
 }
 

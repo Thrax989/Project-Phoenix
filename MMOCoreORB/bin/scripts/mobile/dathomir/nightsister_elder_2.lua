@@ -42,6 +42,12 @@ nightsister_elder_2 = Creature:new {
 			},
 			lootChance = 5000000
 		 },
+		 {
+			groups = {
+				{group = "barc_speeder_deed_group", chance = 10000000}
+			},
+			lootChance = 100000
+		},
 		{
 			groups = {
 				{group = "nightsister_common", chance = 10000000}

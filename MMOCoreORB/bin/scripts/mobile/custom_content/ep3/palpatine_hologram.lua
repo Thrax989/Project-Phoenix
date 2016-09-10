@@ -43,6 +43,12 @@ palpatine_hologram = Creature:new {
 			},
 			lootChance = 5000000
 		 },
+		 {
+			groups = {
+				{group = "barc_speeder_deed_group", chance = 10000000}
+			},
+			lootChance = 100000
+		},
 		{
 			groups = {
 				{group = "wearables_all", chance = 10000000}
