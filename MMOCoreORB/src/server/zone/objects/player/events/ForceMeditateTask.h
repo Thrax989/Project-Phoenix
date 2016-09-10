@@ -41,6 +41,7 @@ public:
 				return;
 
 			player->playEffect("clienteffect/pl_force_meditate_self.cef", "");
+ 			player->playEffect("clienteffect/pl_force_absorb_hit.cef");
 			if (fmeditateTask != NULL)
 				fmeditateTask->reschedule(15000);
 

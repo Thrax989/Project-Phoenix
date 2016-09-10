@@ -1,4 +1,4 @@
---PLEASE DO NOT STEEL MY WORK
+--PLEASE DO NOT STEAL MY WORK
 --ASK BEFOR USING
 --Contact Me Here http://projectphoenix.com.shivtr.com/
 --Created on: 9/09/2016
