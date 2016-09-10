@@ -86,7 +86,7 @@ som_dark_jedi_boss = Creature:new {
 		},	
 	weapons = {"dark_jedi_weapons_gen4"},
 	reactionStf = "@npc_reaction/slang",
-	attacks = merge(lightsabermaster,forcepowermaster)
+	attacks = merge(lightsabermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(som_dark_jedi_boss, "som_dark_jedi_boss")
