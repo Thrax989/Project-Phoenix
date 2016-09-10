@@ -28,7 +28,7 @@ object_tangible_wearables_robe_exar_cultist_hood_up_f = object_tangible_wearable
 				},
 
 				objectMenuComponent = "RobeObjectMenuComponent",
-				certificationsRequired = {"force_title_jedi_rank_03"},
+				certificationsRequired = {"force_title_jedi_rank_02"},
 				attributeListComponent = "JediRobeAttributeListComponent",
 
 }

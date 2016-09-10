@@ -28,7 +28,7 @@ object_tangible_wearables_robe_robe_s33_h1 = object_tangible_wearables_robe_shar
 				},
 
 				objectMenuComponent = "RobeObjectMenuComponent",
-				certificationsRequired = {"force_title_jedi_rank_03"},
+				certificationsRequired = {"force_title_jedi_rank_02"},
 				attributeListComponent = "JediRobeAttributeListComponent",
 
 }

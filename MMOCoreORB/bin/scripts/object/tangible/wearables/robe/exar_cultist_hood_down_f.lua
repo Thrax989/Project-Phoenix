@@ -29,7 +29,7 @@ object_tangible_wearables_robe_exar_cultist_hood_down_f = object_tangible_wearab
 				noTrade = 0,
 
 				objectMenuComponent = {"RobeObjectMenuComponent"},
-				certificationsRequired = {"force_title_jedi_master"},
+				certificationsRequired = {"force_title_jedi_rank_02"},
 				attributeListComponent = "JediRobeAttributeListComponent",
 }
 

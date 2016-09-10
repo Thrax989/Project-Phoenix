@@ -72,7 +72,7 @@ object_tangible_wearables_robe_robe_jedi_dark_s02 = object_tangible_wearables_ro
 				noTrade = 0,
 
 				objectMenuComponent = "RobeObjectMenuComponent",
-				certificationsRequired = {"force_rank_dark_rank_01"},
+				certificationsRequired = {"force_title_jedi_rank_02"},
 				attributeListComponent = "JediRobeAttributeListComponent",
 }
 
