@@ -30,6 +30,8 @@ som_kenobi_historian_dark_jedi = Creature:new {
 	lootGroups = {
 		{
 			groups = {
+					{group = "holocron_dark", chance = 3000000},
+					{group = "armor_attachments", chance = 3000000},
 					{group = "pearls_flawless", chance = 3000000},
 					{group = "clothing_attachments", chance = 1000000},
 			},
@@ -37,6 +39,8 @@ som_kenobi_historian_dark_jedi = Creature:new {
 		},
 		{
 			groups = {
+					{group = "holocron_dark", chance = 3000000},
+					{group = "armor_attachments", chance = 3000000},
 					{group = "pearls_flawless", chance = 3000000},
 					{group = "clothing_attachments", chance = 1000000},
 			},
@@ -44,6 +48,7 @@ som_kenobi_historian_dark_jedi = Creature:new {
 		},
 		{
 			groups = {
+					{group = "holocron_dark", chance = 3000000},
 					{group = "armor_attachments", chance = 3000000},
 					{group = "pearls_flawless", chance = 3000000},
 					{group = "clothing_attachments", chance = 1000000},
