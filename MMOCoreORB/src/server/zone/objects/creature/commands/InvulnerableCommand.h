@@ -79,7 +79,7 @@ public:
 						//Broadcast to Server
  						String playerName = creature->getFirstName();
  						StringBuffer zBroadcast;
- 						zBroadcast << "\\#00FF00" << playerName << " \\#ff9900 Has Used The Invisible Command";
+ 						zBroadcast << "\\#00FF00" << playerName << " \\#ccffcc Has Used The Invisible Command";
  						creature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 						task->schedule(1600);
 						return SUCCESS;
