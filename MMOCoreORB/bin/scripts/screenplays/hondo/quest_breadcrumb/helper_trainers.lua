@@ -1,18 +1,14 @@
+--PLEASE DO NOT STEAL OUR WORK
+--ASK BEFOR USING
+--Contact Me Here http://projectphoenix.com.shivtr.com/
+--Created on: 9/12/2016
+--Authors: Falacy , TOXIC
+-- Legend of Hondo
 -- Bread Crumb Quest: Help the player find the profession trainers.
--- R. Bassett Jr. www.tpot.ca
--- June 2016
---
--- This file can be used a template for other "bread crumb quests" that takes place on the same planet as its quest giver.
--- 1. Replace all instances of HelperTrainersScreenPlay and helpertrainers_convo_handler, and change the value of questName, className, with something unique.
--- 2. Make a custom character and conversation for that character. Keep in mind the important convo steps that trigger the quest actions.
--- 3. Spawn your character in the spawnMobiles() function.
--- 4. Customize the questConfig table to your liking.
--- That gets you a new quest with minimal effort. As the quest is self contained, not part of a standard framework, you can add new functionality as you see fit, confident that your mods won't break something else.
--- Note that this quest method does not require a client side update, provided your convo lua file is hand made with NPC customDialogText and reply options.
--- This system was originally based upon the race track logic created by SWGEmu.
+-- Created by R. Bassett Jr. (Tatwi aka Falacy) 2016 www.tpot.ca
+-- Documentation: doc/features/add-breadcrumbquest.md
 
 local ObjectManager = require("managers.object.object_manager")
-
 
 HelperTrainersScreenPlay = ScreenPlay:new {
     numberOfActs = 1,
@@ -24,43 +20,37 @@ HelperTrainersScreenPlay = ScreenPlay:new {
     }, 
     questConfig={
         planetName = "tatooine",
-        questName="HelperTrainers",  -- Internal quest , should be unique to the quest
-        className="HelperTrainersScreenPlay", -- Class name of this class
-        questGiverName="Wherma Traynr",
-        timeResolution=0, -- number of decimal places to use for the time updates 0 = none
-        expiryTime = 3600, -- (1 Hour) Amount of time in SECONDS that the player has to finish the quest 
-        cooldown = 0, -- (1 hour) Amount of time in SECONDS until the player can repeat the quest
-        waypointRadius=3, -- size of the waypoint observer. 3 is good for on foot, 10 for when in a vehicle. 1 makes it kind of annoying to trigger.
-        cashReward = 10000, -- set to 0 for no cash reward
+        questName = "HelperTrainers",  -- Internal quest , should be unique to the quest
+        className = "HelperTrainersScreenPlay", -- Class name of this class
+        questGiverName ="Wherma Traynr",
+        timeResolution = 0, -- number of decimal places to use for the time updates 0 = none
+        expiryTime = 900, -- (15 minutes) Amount of time in SECONDS that the player has to finish the quest 
+        cooldown = 28800, -- (8 hours) Amount of time in SECONDS until the player can repeat the quest
+        waypointRadius = 6, -- size of the waypoint observer. 3 is good for on foot, 10 for when in a vehicle. 1 makes it kind of annoying to trigger.
+        cashReward = 1500, -- set to 0 for no cash reward
         giveItems = "true", -- set false if there isn't an item reward.
         rewardType = "lootgroup", -- Pick One: myListAll = give whole list, myListRNG = pick one item from the list, lootgroup = item from the lootGroups
         lootGroups = {"armor_attachments", "clothing_attachments"}, -- loot groups
         lootQuantity = 2, -- number of items to give
-        lootLevelMin = 1, -- range 1 - 300. Set same as lootLevelMax for highest chance of good loot.
-        lootLevelMax = 300, -- range 1 - 300. This is not a gaurantee the player will always get top end loot.
+        lootLevelMin = 300, -- range 1 - 300. Set same as lootLevelMax for highest chance of good loot.
+        lootLevelMax = 100, -- range 1 - 300. This is not a gaurantee the player will always get top end loot.
         lootMaxCondition = "true", -- set true for item to have full hitpoints
         myList = {
             "",
             "",
         },
     },
-    waypointSpecialType = 14, -- Any int 12 and up will do. Use a unique number per quest so they don't over-write eachother if the player takes more than one quest at time. 
+    waypointSpecialType = 14, -- Any int 14 and up will do. Use a unique number per quest so they don't over-write eachother if the player takes more than one quest at time. 
     waypoints = { 
-        {x = -2910, y = 2150, wpName = "Beginner's Square", wpDesc = "Before we get started, it's worth mentioning that you'll find other people like me to talk to here in the Starport area. Take a moment and have a look around, before heading out."},
-        {x = -2986, y = 2150, wpName = "Auto-Teach Termial", wpDesc = "First thing's, first... What you're looking at here is BETA, the super experience induction device. It's capable of helping you learn a range of skills that you may find useful or enjoyable. Most of these skills do not require Skill Points and the machine is even free to use!"},
-        {x = -3057, y = 2060, wpName = "Crafter's Guild", wpDesc = "Here in this guild for crafters, you will find trainers for Architecture, Armorsmithing, Droid Engineering, and Weaponsmithing. There's also an array of related Merchants here, much like you will find in other shops throughout your travels."},
-        {x = -3152, y = 2097, wpName = "Hospital", wpDesc = "Here is the local hospital. It has all the services you might need, such as that standard issue Wound Terminal over there. The doctor is a good teacher, having trained many in the use of advanced medicine and healing. I've heard he'll even teach you how to make and use poisons, so... probably a wise idea to stay on his good side. The Doc's second in command, the Medic trainer, is kinda skittish, but he's OK I guess."},
-        {x = -3089, y = 2219, wpName = "The Hotel", wpDesc = "Somewhere in this entertaining place I'm sure you'll find the Smuggler trainer. Can't say as though I've ever seen him anywhere else, now that I think about it..."},
-        {x = -2992, y = 2223, wpName = "Lovable Critters", wpDesc = "The local Creature Handler is a nice guy. He mostly looks after mounts at the cantina these days, but rumor has it that he's seen some adventures in his time."},
-        {x = -3097, y = 2284, wpName = "Cloning Facility", wpDesc = "Ah, the other doctor in town. This creap used to work at the hospital, until they found him... uh, you know what, never mind. He works at the cloner now and calls himself a Bio-Engineer. If you store your clone data there, your clone can see him when you die!"},
-        {x = -2898, y = 2425, wpName = "Nado's Junk Shop", wpDesc = "Being so close to the rough side of town, Nado likes to keep a guard in each of his entrances at all times. Perfect job for a retired Swordsman and an old Fencer who still have some swash left in their old buckles."},
-        {x = -3015, y = 2423, wpName = "Fighter's Guild", wpDesc = "Across the road from the best defended junk shop in the galaxy, you have the local Fighter's Guild. Markman, Rifelman, Brawler, and Pikeman trainers are usually here, as is the Teras Kasi Artist. The Pistoleer and Carbineer trainer on the other hand are probably out shooting mynocks again... or is it still..."},
-        {x = -2981, y = 2533, wpName = "Outdoorman", wpDesc = "Out here on the edge of town is the Scouting and Ranger Center. They should be more than happy to train you, sell you some camping gear, feed you to something. You know, the usual. "},
-        {x = -2716, y = 2506, wpName = "About Them Mynocks...", wpDesc = "I was right, wasn't I? Well, at least their happy, which is more than I can say for the Pistoleer's wife. She's the Marksman Tainer you just met, you know, back at the office where somebody has to do all the paper work. Somebody."},
-        {x = -2763, y = 2035, wpName = "The Nine to Fiver's Club", wpDesc = "It may come as a surprise, but the Empire does at least TRY to train their troops to the best of their ability, even if they have to bring in contract workers to get it done. You'll usually find their Squad Leader, Commando, and Bounty Hunter trainers relaxing here together when they aren't working for the man."},
-        {x = -2838, y = 1991, wpName = "Artisan's Mall", wpDesc = "This is a nice little place. A top notch Tailor, an Artisan who knows a little about a lot of things, and... the food is delicious! Be sure to tell that to the Chef even -especially- when it isn't."},
-        {x = -2896, y = 2083, wpName = "The Starport", wpDesc = "Finally, inside the Starport is the local Shipwright who always seems ready to help folks build stuff."},
-        {x = -2896, y = 2137, wpName = "Wherma's Hangout", wpDesc = ""}, -- final waypoint should be the quest giver, because quest ends only after talking to them.
+        {x = 1488, y = 3013, wpName = "Zone A", wpDesc = ""},
+        {x = 1674, y = 3062, wpName = "Zone B", wpDesc = ""},
+        {x = 1726, y = 3182, wpName = "Zone C", wpDesc = ""},
+        {x = 1614, y = 3317, wpName = "Zone D", wpDesc = ""},
+        {x = 1553, y = 3490, wpName = "Zone E", wpDesc = ""},
+        {x = 1352, y = 3447, wpName = "Zone F", wpDesc = ""},
+        {x = 1388, y = 3172, wpName = "Zone G", wpDesc = ""},
+        {x = 1245, y = 3257, wpName = "Zone H", wpDesc = ""},
+        {x = 1305, y = 3102, wpName = "Return To Bob", wpDesc = ""}, -- Quest Giver
     },
 }
 
@@ -69,7 +59,7 @@ registerScreenPlay("HelperTrainersScreenPlay", true)
 function HelperTrainersScreenPlay:start()
     if (isZoneEnabled(self.questConfig.planetName)) then
         -- Spawn character
-        --local pCoord = spawnMobile(self.questConfig.planetName, "helper_trainers", 1, -2896.3, 5.0, 2137.3, -67, 0)
+        local pCoord = spawnMobile(self.questConfig.planetName, "breadcrumb_bob", 1, 1304.62, 7, 3101.93, 187, 0) 
     end
 end
 
@@ -85,7 +75,7 @@ function HelperTrainersScreenPlay:startQuesting(pObject)
         -- Set start and expiry time
         local time = getTimestampMilli()
         writeScreenPlayData(pObject, self.questConfig.questName, "starttime", time)
-        createEvent(self.questConfig.expiryTime*1000, self.questConfig.className, "resetPlayerUnfinishedEventHandler",pObject)
+        createEvent(self.questConfig.expiryTime*1000, self.questConfig.className, "resetPlayerUnfinishedEventHandler", playerObject, "")
         
         -- Inform player
         creatureObject:sendSystemMessage("You have " .. (self:roundNumber(self.questConfig.expiryTime/60)) .. " minutes to complete your mission.")
@@ -100,11 +90,11 @@ function HelperTrainersScreenPlay:createPoint(pObject, wpIndex)
         local pWaypointAA = spawnActiveArea(self.questConfig.planetName, "object/active_area.iff", self.waypoints[wpIndex].x, 0, self.waypoints[wpIndex].y, self.questConfig.waypointRadius, 0)
         if (pWaypointAA ~= nil) then
           createObserver(ENTEREDAREA, self.questConfig.className, "triggerPoint" , pWaypointAA)
-          writeScreenPlayData(pObject, self.questConfig.questName, "activeAreaID", SceneObject(pWaypointAA):getObjectID()) -- Newer SWGEmu code users can just use getObjectID
+          writeScreenPlayData(pObject, self.questConfig.questName, "activeAreaID", SceneObject(pWaypointAA):getObjectID())
         end
         
         -- Create waypoint
-		local waypointID = playerObject:addWaypoint(self.questConfig.planetName, self.waypoints[wpIndex].wpName, "", self.waypoints[wpIndex].x, self.waypoints[wpIndex].y, WAYPOINTORANGE, true, true, self.waypointSpecialType, 0)
+		local waypointID = playerObject:addWaypoint(self.questConfig.planetName, self.waypoints[wpIndex].wpName, "", self.waypoints[wpIndex].x, self.waypoints[wpIndex].y, WAYPOINTGREEN, true, true, self.waypointSpecialType, 0)
         writeScreenPlayData(pObject, self.questConfig.questName, "activeWaypoint", tostring(wpIndex))
     end)
 end
@@ -138,7 +128,7 @@ function HelperTrainersScreenPlay:triggerPoint(pActiveArea, pObject)
         -- Remove current waypoint
         playerObject:removeWaypointBySpecialType(self.waypointSpecialType) 
         
-        if (wpIndex == table.getn(self.waypoints)) then
+        if (wpIndex == #self.waypoints) then
             -- Final waypoint
             creatureObject:removeScreenPlayState(HelperTrainersScreenPlay.states.active, HelperTrainersScreenPlay.screenplayName)
             creatureObject:setScreenPlayState(HelperTrainersScreenPlay.states.complete, HelperTrainersScreenPlay.screenplayName)
@@ -163,7 +153,7 @@ function HelperTrainersScreenPlay:triggerPoint(pActiveArea, pObject)
               timeType = " seconds"
             else
               if (timeLeft < 120) then
-                timeType = " minute"
+                timeType = " minute" -- because pluralization matters people! :)
               end
               timeLeft = timeLeft / 60 -- show time in minutes
             end
@@ -176,7 +166,8 @@ function HelperTrainersScreenPlay:triggerPoint(pActiveArea, pObject)
                 creatureObject:sendSystemMessage(self.waypoints[wpIndex-1].wpDesc) -- remove -1 to describe the next waypoint instead of the one the player arrived at.
             end
             
-            creatureObject:playMusicMessage("sound/ui_select_info.snd")
+            --creatureObject:playMusicMessage("sound/ui_select_info.snd")
+            creatureObject:playEffect("clienteffect/survey_tool_gas.cef", "")
         end
         
         return 0
@@ -234,7 +225,7 @@ function HelperTrainersScreenPlay:endQuest(pObject)
         creatureObject:removeScreenPlayState(HelperTrainersScreenPlay.states.complete, HelperTrainersScreenPlay.screenplayName)
         
         -- Start cooldown
-        createEvent(self.questConfig.cooldown*1000, self.questConfig.className, "cooldownEventHandler",pObject)
+        createEvent(self.questConfig.cooldown*1000, self.questConfig.className, "cooldownEventHandler", playerObject, "")
         creatureObject:setScreenPlayState(HelperTrainersScreenPlay.states.cooldown, HelperTrainersScreenPlay.screenplayName)
         
         -- Inform player
@@ -276,8 +267,15 @@ end
 -- Helper functions
 
 function HelperTrainersScreenPlay:roundNumber(num)
-  local mult = 10 ^ (self.questConfig.timeResolution or 0 )
-  return math.floor(num * mult + 0.5) / mult
+	local mult = 10 ^ (self.questConfig.timeResolution or 0 )
+	num = math.floor(num * mult + 0.5) / mult
+	
+	-- Remove the .0
+	local numString = tostring(num)
+	numString = string.format("%.0f", numString)
+	num = tonumber(numString)
+	
+	return num
 end
 
 
@@ -345,9 +343,28 @@ function HelperTrainersScreenPlay:giveReward(creature)
             -- Give loot group items
             local levelRNG = 0
             local groupRNG  = 0
+            local usedGroups = ""
+            local usedGroupCount = 0
+            local uniqueGroup = 0
+            
             for itemCount = 1, pieces do
-                groupRNG = getRandomNumber(1, #HelperTrainersScreenPlay.questConfig.lootGroups)
-                
+                -- if we haven't already used all the loot groups, pick a unique one
+                if (usedGroupCount < #HelperTrainersScreenPlay.questConfig.lootGroups) then
+                    while (uniqueGroup == 0) do
+                        groupRNG = getRandomNumber(1, #HelperTrainersScreenPlay.questConfig.lootGroups)
+                        
+                        if not (string.find(usedGroups, groupRNG)) then
+                            -- if the generated group isn't in the string, then it's unique!
+                            uniqueGroup = 1
+                            usedGroupCount = usedGroupCount + 1 -- prevent infinite loop
+                        end
+                    end
+                    uniqueGroup = 0 -- reset for next item
+                    usedGroups = usedGroups .. groupRNG .. " " -- add this loot group to the ones that have been used.
+                else
+                    groupRNG = getRandomNumber(1, #HelperTrainersScreenPlay.questConfig.lootGroups)
+                end
+
                 if (HelperTrainersScreenPlay.questConfig.lootLevelMin == HelperTrainersScreenPlay.questConfig.lootLevelMax) then
                     levelRNG = HelperTrainersScreenPlay.questConfig.lootLevelMax
                 else 
