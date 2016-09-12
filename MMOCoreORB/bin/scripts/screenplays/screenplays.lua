@@ -519,7 +519,7 @@ includeFile("hondo/merchants/john_connor.lua")
 --includeFile("military/rebel/corellia_rebel_hideout.lua")
 
 -- Bread Crumb Quests
---includeFile("hondo/quest_breadcrumb/helper_trainers.lua")
+includeFile("hondo/quest_breadcrumb/helper_trainers.lua")
 --includeFile("hondo/quest_breadcrumb/helper_quest.lua")
 --includeFile("hondo/quest_breadcrumb/helper_revan.lua")
 

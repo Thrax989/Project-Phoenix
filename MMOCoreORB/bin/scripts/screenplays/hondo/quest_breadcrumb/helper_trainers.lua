@@ -24,10 +24,10 @@ HelperTrainersScreenPlay = ScreenPlay:new {
         className = "HelperTrainersScreenPlay", -- Class name of this class
         questGiverName ="Wherma Traynr",
         timeResolution = 0, -- number of decimal places to use for the time updates 0 = none
-        expiryTime = 900, -- (15 minutes) Amount of time in SECONDS that the player has to finish the quest 
-        cooldown = 28800, -- (8 hours) Amount of time in SECONDS until the player can repeat the quest
+        expiryTime = 1800, -- (30 minutes) Amount of time in SECONDS that the player has to finish the quest 
+        cooldown = 3600, -- (1 hour) Amount of time in SECONDS until the player can repeat the quest
         waypointRadius = 6, -- size of the waypoint observer. 3 is good for on foot, 10 for when in a vehicle. 1 makes it kind of annoying to trigger.
-        cashReward = 1500, -- set to 0 for no cash reward
+        cashReward = 25000, -- set to 0 for no cash reward
         giveItems = "true", -- set false if there isn't an item reward.
         rewardType = "lootgroup", -- Pick One: myListAll = give whole list, myListRNG = pick one item from the list, lootgroup = item from the lootGroups
         lootGroups = {"armor_attachments", "clothing_attachments"}, -- loot groups
