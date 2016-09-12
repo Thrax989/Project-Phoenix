@@ -50,7 +50,7 @@ HelperTrainersScreenPlay = ScreenPlay:new {
         {x = 1352, y = 3447, wpName = "Zone F", wpDesc = ""},
         {x = 1388, y = 3172, wpName = "Zone G", wpDesc = ""},
         {x = 1245, y = 3257, wpName = "Zone H", wpDesc = ""},
-        {x = 1305, y = 3102, wpName = "Return To Bob", wpDesc = ""}, -- Quest Giver
+        {x = 1305, y = 3102, wpName = "Return To Wherma Traynr", wpDesc = ""}, -- Quest Giver
     },
 }
 
@@ -59,7 +59,7 @@ registerScreenPlay("HelperTrainersScreenPlay", true)
 function HelperTrainersScreenPlay:start()
     if (isZoneEnabled(self.questConfig.planetName)) then
         -- Spawn character
-        local pCoord = spawnMobile(self.questConfig.planetName, "breadcrumb_bob", 1, 1304.62, 7, 3101.93, 187, 0) 
+        local pCoord = spawnMobile(self.questConfig.planetName, "helper_trainers", 1, 1304.62, 7, 3101.93, 187, 0) 
     end
 end
 
