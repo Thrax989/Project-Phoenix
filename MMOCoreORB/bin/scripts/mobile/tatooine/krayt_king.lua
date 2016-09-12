@@ -131,9 +131,22 @@ lootGroups = {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"creatureareaattack","stateAccuracyBonus=50"},
-		{"stunattack","stateAccuracyBonus=50"}
-	}
+ 		{"creatureareacombo","stateAccuracyBonus=50"},
+ 		{"creatureareaknockdown","stateAccuracyBonus=50"},
+		{"knockdownattack","KnockdownChance=50"},
+		{"creatureareaknockdown","KnockdownChance=50"},
+		{"dizzyattack","DizzyChance=50"},
+		{"stunattack","StunChance=50"},
+		{"mildpoison","PoisonChance=50"},
+		{"intimidationattack","IntimidationChance=50"},
+		{"mediumpoison","PoisonChance=50"},
+		{"creatureareapoison","PoisonChance=50"},
+		{"mediumDisease","DiseaseChance=50"},
+		{"mildDisease","DiseaseChance=50"},
+		{"strongpoison","PoisonChance=50"},
+		{"strongDisease","DiseaseChance=50"},
+		{"creatureareaattack",""}
+ 	}
 }
 
 CreatureTemplates:addCreatureTemplate(krayt_king, "krayt_king")
