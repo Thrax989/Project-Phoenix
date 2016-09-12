@@ -1,12 +1,25 @@
 /*
 				Copyright <SWGEmu>
 		See file COPYING for copying conditions.*/
+/**
+ * 
+ * Authors TOXIC
+ * 
+ * PLEASE DO NOT STEAL OUR WORK
+ * ASK BEFOR USING
+ * Contact Me Here http://projectphoenix.com.shivtr.com/
+ * Re-Created on: 9/12/2016
+ */
 
 #ifndef KILLCOMMAND_H_
 #define KILLCOMMAND_H_
 
 #include "server/zone/objects/scene/SceneObject.h"
 #include "server/zone/managers/creature/CreatureManager.h"
+#include "server/chat/ChatManager.h"
+#include "server/zone/managers/visibility/VisibilityManager.h"
+#include "server/zone/objects/player/sui/callbacks/BountyHuntSuiCallback.h"
+#include "server/zone/objects/player/sui/inputbox/SuiInputBox.h"
 
 class KillCommand : public QueueCommand {
 public:
@@ -163,6 +176,12 @@ public:
 						targetCreature->inflictDamage(creature, 0, healthDamage, true, true);
 						targetCreature->inflictDamage(creature, 3, actionDamage, true, true);
 						targetCreature->inflictDamage(creature, 6, mindDamage, true, true);
+						Zone* zone = creature->getZone();
+						//Broadcast to Server
+ 						String playerName = creature->getFirstName();
+ 						StringBuffer zBroadcast;
+ 						zBroadcast << "\\#00FF00" << playerName << " \\#ccffcc Has Used The Kill Command";
+ 						creature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 					}
 				}
 			}
@@ -179,6 +198,12 @@ public:
 					targetCreature->inflictDamage(creature, 0, healthDamage, true, true);
 					targetCreature->inflictDamage(creature, 3, actionDamage, true, true);
 					targetCreature->inflictDamage(creature, 6, mindDamage, true, true);
+					Zone* zone = creature->getZone();
+					//Broadcast to Server
+ 					String playerName = creature->getFirstName();
+ 					StringBuffer zBroadcast;
+ 					zBroadcast << "\\#00FF00" << playerName << " \\#ccffcc Has Used The Kill Command";
+ 					creature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 					return SUCCESS;
 				}
 			}

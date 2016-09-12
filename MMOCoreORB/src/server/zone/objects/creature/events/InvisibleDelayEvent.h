@@ -4,8 +4,12 @@
 
 /**
  * file InvisibleDelayEvent.h
- * author Polonel
+ * Authors Polonel , TOXIC
  * date 10.01.2010
+ * PLEASE DO NOT STEAL OUR WORK
+ * ASK BEFOR USING
+ * Contact Me Here http://projectphoenix.com.shivtr.com/
+ * Re-Created on: 9/12/2016
  */
 
 #ifndef INVISIBLEDELAYEVENT_H_
@@ -62,7 +66,7 @@ public:
 
 				} else {
 					if (playerTemplate->getMinScale() > height) {
-						player->setHeight(height * 4.0f);
+						player->setHeight(height * 40.0f);
 					}
 
 					player->sendSystemMessage("You are now visible to all players and creatures.");
