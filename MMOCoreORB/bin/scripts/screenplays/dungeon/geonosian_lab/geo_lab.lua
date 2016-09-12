@@ -156,7 +156,7 @@ function GeonosianLabScreenPlay:spawnMobiles()
 
 	spawnMobile("yavin4", "acklay",7200,101.1,-34.3,-321.6,-136,1627823, true) --Randomized respawn
 	spawnMobile("yavin4", "elder_enhanced_gaping_spider",3600,-130,-22.1,-85,-180,1627794, true) -- Randomized respawn
-    spawnMobile("yavin4", "enhanced_gaping_spider",600,-130,-22.1,-85,-180,1627794)
+    	spawnMobile("yavin4", "enhanced_gaping_spider",600,-130,-22.1,-85,-180,1627794)
  	spawnMobile("yavin4", "acklay_youngling", 600,105.0,-33.7,-325.0,-94,1627823)
  	spawnMobile("yavin4", "acklay_youngling", 600,100.6,-33.8,-315.4,-157,1627823)
  	spawnMobile("yavin4", "acklay_youngling", 600,98.2,-34.4,-324.7,-133,1627823)
