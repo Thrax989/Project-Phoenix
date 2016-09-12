@@ -32,8 +32,8 @@ HelperTrainersScreenPlay = ScreenPlay:new {
         rewardType = "lootgroup", -- Pick One: myListAll = give whole list, myListRNG = pick one item from the list, lootgroup = item from the lootGroups
         lootGroups = {"armor_attachments", "clothing_attachments"}, -- loot groups
         lootQuantity = 2, -- number of items to give
-        lootLevelMin = 300, -- range 1 - 300. Set same as lootLevelMax for highest chance of good loot.
-        lootLevelMax = 100, -- range 1 - 300. This is not a gaurantee the player will always get top end loot.
+        lootLevelMin = 1, -- range 1 - 300. Set same as lootLevelMax for highest chance of good loot.
+        lootLevelMax = 300, -- range 1 - 300. This is not a gaurantee the player will always get top end loot.
         lootMaxCondition = "true", -- set true for item to have full hitpoints
         myList = {
             "",
