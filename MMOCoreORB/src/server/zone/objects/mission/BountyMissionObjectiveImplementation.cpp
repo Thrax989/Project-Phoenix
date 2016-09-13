@@ -1,8 +1,11 @@
 /*
  * BountyMissionObjectiveImplementation.cpp
- *
- *  Created on: 20/08/2010
- *      Author: dannuic
+ * PLEASE DO NOT STEAL OUR WORK
+ * ASK BEFOR USING
+ * Contact Me Here http://projectphoenix.com.shivtr.com/
+ * Created on: 20/08/2010
+ * Re Created on: 9/12/2016
+ * Authors: dannuic , TOXIC
  */
 
 #include "server/zone/objects/mission/BountyMissionObjective.h"
@@ -23,6 +26,9 @@
 #include "server/zone/objects/mission/bountyhunter/BountyHunterDroid.h"
 #include "server/zone/objects/mission/bountyhunter/events/BountyHunterTargetTask.h"
 #include "server/zone/managers/visibility/VisibilityManager.h"
+#include "server/zone/objects/player/sui/callbacks/BountyHuntSuiCallback.h"
+#include "server/zone/objects/player/sui/inputbox/SuiInputBox.h"
+#include "server/zone/packets/player/PlayMusicMessage.h"
 
 void BountyMissionObjectiveImplementation::setNpcTemplateToSpawn(SharedObjectTemplate* sp) {
 	npcTemplateToSpawn = sp;
@@ -641,6 +647,16 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 			//Player killed by target, fail mission.
 			owner->sendSystemMessage("@mission/mission_generic:failed"); // Mission failed
 			killer->sendSystemMessage("You have defeated a bounty hunter, ruining his mission against you!");
+			//Broadcast to Server
+			String playerName = killer->getFirstName();
+			StringBuffer zBroadcast;
+			zBroadcast << "\\#ffd700" << playerName << " \\#00e604 Force User Has Defeated A \\#e60000  Bounty Hunter! \\#00ffdf" << playerName << " Has Been Awarded 5,000 Force Ranking Exp";
+			killer->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
+			PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
+ 			killer->sendMessage(pmm);
+			killer->playEffect("clienteffect//holoemote_brainstorm.cef", "head");
+			killer->playEffect("clienteffect/pl_force_armor_self.cef", "");
+			killer->playEffect("clienteffect/holoemote_sparky.cef", "head");
 			if (killer->hasSkill("force_rank_light_novice") || killer->hasSkill("force_rank_dark_novice")) {
 				killer->getZoneServer()->getPlayerManager()->awardExperience(killer, "force_rank_xp", 5000);
 			}
