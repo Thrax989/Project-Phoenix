@@ -6,8 +6,8 @@ saber25 = {
 	customObjectName = "Shiny Pearl",
 	directObjectTemplate = "object/tangible/component/weapon/lightsaber/lightsaber_module_krayt_dragon_pearl.iff",
 	craftingValues = {
-		{"mindamage",100,100,0},
-		{"maxdamage",100,100,0},
+		{"mindamage",99,100,0},
+		{"maxdamage",99,100,0},
 		{"attackspeed",1,-1,5},
 		{"woundchance",5,9,6},
 		{"hitpoints",800,1200,0},

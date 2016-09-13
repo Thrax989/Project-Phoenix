@@ -6,8 +6,8 @@ saber27 = {
 	customObjectName = "Old Republic Crystal Pack",
 	directObjectTemplate = "object/tangible/component/weapon/lightsaber/lightsaber_refined_crystal_pack.iff",
 	craftingValues = {
-		{"mindamage",100,100,0},
-		{"maxdamage",150,150,0},
+		{"mindamage",99,100,0},
+		{"maxdamage",149,150,0},
 		{"attackspeed",1,-1,5},
 		{"woundchance",20,30,6},
 		{"hitpoints",800,1200,0},

@@ -7,7 +7,7 @@ krayt_dragon_pearl_flawless = {
 	directObjectTemplate = "object/tangible/component/weapon/lightsaber/lightsaber_module_krayt_dragon_pearl.iff",
 	craftingValues = {
 		{"mindamage",40,50,0},
-		{"maxdamage",50,50,0},
+		{"maxdamage",49,50,0},
 		{"attackspeed",1,-1,5},
 		{"woundchance",5,9,6},
 		{"hitpoints",800,1200,0},

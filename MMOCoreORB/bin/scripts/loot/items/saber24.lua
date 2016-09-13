@@ -6,7 +6,7 @@ saber24 = {
 	customObjectName = "Qixoni Crystal",
 	directObjectTemplate = "object/tangible/component/weapon/lightsaber/lightsaber_module_force_crystal.iff",
 	craftingValues = {
-		{"mindamage",75,75,0},
+		{"mindamage",75,76,0},
 		{"maxdamage",75,100,0},
 		{"attackspeed",1,-1,5},
 		{"woundchance",5,9,6},
