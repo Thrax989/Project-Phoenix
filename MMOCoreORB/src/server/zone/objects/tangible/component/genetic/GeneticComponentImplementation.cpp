@@ -163,10 +163,10 @@ void GeneticComponentImplementation::updateCraftingValues(CraftingValues* values
 	if (power < 0)
 		power = 1;
 	// max on resists
-	if (kinResist > 60)
-		kinResist = 60;
-	if (energyResist > 60)
-		energyResist = 60;
+	if (kinResist > 100)
+		kinResist = 100;
+	if (energyResist > 100)
+		energyResist = 100;
 	if (blastResist > 100)
 		blastResist = 100;
 	if (heatResist > 100)
