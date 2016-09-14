@@ -1754,4 +1754,51 @@ object_draft_schematic_bio_engineer_dna_template_shared_dna_template_zucca_boar 
 ]]
 }
 
-ObjectTemplates:addClientTemplate(object_draft_schematic_bio_engineer_dna_template_shared_dna_template_zucca_boar, "object/draft_schematic/bio_engineer/dna_template/shared_dna_template_zucca_boar.iff")
+ObjectTemplates:addClientTemplate(object_draft_schematic_bio_engineer_dna_template_shared_dna_template_krayt_dragon, "object/draft_schematic/bio_engineer/dna_template/shared_dna_template_krayt_dragon.iff")
+
+object_draft_schematic_bio_engineer_dna_template_shared_dna_template_krayt_dragon = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/bio_engineer/dna_template/shared_dna_template_krayt_dragon.iff"
+	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
+--[[
+	appearanceFilename = "",
+	arrangementDescriptorFilename = "abstract/slot/arrangement/arrangement_datapad.iff",
+
+	clearFloraRadius = 0,
+	clientDataFile = "",
+	clientGameObjectType = 2049,
+	collisionActionBlockFlags = 0,
+	collisionActionFlags = 0,
+	collisionActionPassFlags = 0,
+	collisionMaterialBlockFlags = 0,
+	collisionMaterialFlags = 0,
+	collisionMaterialPassFlags = 0,
+	containerType = 0,
+	containerVolumeLimit = 0,
+
+	detailedDescription = "string_id_table",
+
+	gameObjectType = 2049,
+
+	locationReservationRadius = 0,
+	lookAtText = "string_id_table",
+
+	noBuildRadius = 0,
+
+	objectName = "string_id_table",
+	onlyVisibleInTools = 0,
+
+	portalLayoutFilename = "",
+
+	scale = 0,
+	scaleThresholdBeforeExtentTest = 0.5,
+	sendToClient = 1,
+	slotDescriptorFilename = "",
+	snapToTerrain = 0,
+	surfaceType = 0,
+
+	totalCellNumber = 0,
+
+	clientObjectCRC = 1773187611,
+	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/intangible/base/shared_base_intangible.iff", "object/draft_schematic/base/shared_base_draft_schematic.iff"}
+]]
+}
