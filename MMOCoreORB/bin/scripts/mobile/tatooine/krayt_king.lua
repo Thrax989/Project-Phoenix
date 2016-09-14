@@ -119,7 +119,7 @@ lootGroups = {
 			groups = {
 				{group = "saberhand27", chance = 10000000}
 			},
-			lootChance = 1500000
+			lootChance = 5000000
 		},
 				 {
 			groups = {

@@ -48,7 +48,7 @@ krayt_dragon_ancient_elder = Creature:new {
 			groups = {
 				{group = "saberhand27", chance = 10000000}
 			},
-			lootChance = 1000000
+			lootChance = 4000000
 		},
 		{
 			groups = {

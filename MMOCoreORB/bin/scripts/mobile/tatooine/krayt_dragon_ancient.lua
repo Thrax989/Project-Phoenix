@@ -55,6 +55,12 @@ krayt_dragon_ancient = Creature:new {
 			},
 			lootChance = 1000000
 		},
+		{
+			groups = {
+				{group = "saberhand27", chance = 10000000}
+			},
+			lootChance = 4000000
+		},
 	},
 	weapons = {},
 	conversationTemplate = "",
