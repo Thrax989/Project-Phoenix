@@ -41,7 +41,7 @@
 --this exception also makes it possible to release a modified version 
 
 
-oobject_tangible_deed_pet_deed_krayt_dragon_deed = object_tangible_deed_pet_deed_shared_krayt_dragon_deed:new {
+object_tangible_deed_pet_deed_krahbu_deed = object_tangible_deed_pet_deed_shared_krahbu_deed:new {
 
 
 	templateType = PETDEED,
@@ -56,7 +56,7 @@ oobject_tangible_deed_pet_deed_krayt_dragon_deed = object_tangible_deed_pet_deed
 	experimentalCombineType = {0, 0},
 	generatedObjectTemplate = "mobile/krayt_dragon.iff",
 	controlDeviceObjectTemplate = "object/intangible/pet/krayt_dragon.iff",
-	mobileTemplate = "krayt_dragon_be",	
+	mobileTemplate = "krayt_be",	
 }
 
 ObjectTemplates:addTemplate(object_tangible_deed_pet_deed_krayt_dragon_deed, "object/tangible/deed/pet_deed/krayt_dragon_deed.iff")
