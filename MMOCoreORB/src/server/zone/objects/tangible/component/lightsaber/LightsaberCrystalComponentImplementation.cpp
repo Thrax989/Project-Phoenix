@@ -198,7 +198,7 @@ void LightsaberCrystalComponentImplementation::updateCraftingValues(CraftingValu
 		setQuality(values->getCurrentValue("quality"));
 		setAttackSpeed(MAX(MIN(Math::getPrecision(values->getCurrentValue("attackspeed"), 2), 2), -2));
 		setMinimumDamage(MAX(MIN(values->getCurrentValue("mindamage"), 100), 0));
-		setMaximumDamage(MAX(MIN(values->getCurrentValue("maxdamage"), 300), 0));
+		setMaximumDamage(MAX(MIN(values->getCurrentValue("maxdamage"), 200), 0));
 		setWoundChance(MAX(MIN(values->getCurrentValue("woundchance"), 75), 0));
 
 		// Following are incoming positive values in script (Due to loot modifier.)
@@ -211,7 +211,7 @@ void LightsaberCrystalComponentImplementation::updateCraftingValues(CraftingValu
 		setQuality(values->getCurrentValue("quality"));
 		setAttackSpeed(0);
 		setMinimumDamage(MAX(MIN(values->getCurrentValue("mindamage"), 100), 0));
-		setMaximumDamage(MAX(MIN(values->getCurrentValue("maxdamage"), 300), 0));
+		setMaximumDamage(MAX(MIN(values->getCurrentValue("maxdamage"), 200), 0));
 		setWoundChance(0);
 		setSacHealth(0);
 		setSacAction(0);
@@ -236,7 +236,7 @@ int LightsaberCrystalComponentImplementation::inflictDamage(TangibleObject* atta
 			if (getColor() == 31) {
 				weapon->setAttackSpeed(weapon->getAttackSpeed() - getAttackSpeed());
 				weapon->setMinDamage(weapon->getMinDamage() - MIN(MAX(getMinimumDamage(), 0), 100));
-				weapon->setMaxDamage(weapon->getMaxDamage() - MIN(MAX(getMaximumDamage(), 0), 300));
+				weapon->setMaxDamage(weapon->getMaxDamage() - MIN(MAX(getMaximumDamage(), 0), 200));
 				weapon->setHealthAttackCost(weapon->getHealthAttackCost() - getSacHealth());
 				weapon->setActionAttackCost(weapon->getActionAttackCost() - getSacAction());
 				weapon->setMindAttackCost(weapon->getMindAttackCost() - getSacMind());
