@@ -42,7 +42,7 @@
 --true = 1, false = 0
 
 CreatureAreaAttackCommand = {
-        name = "creatureareaattack",
+    name = "creatureareaattack",
 	damageMultiplier = 1.5,
 	speedMultiplier = 1,
 
@@ -54,9 +54,8 @@ CreatureAreaAttackCommand = {
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
 
-	range = 15,
 	areaRange = 25,
-
+	areaAction = true,
 	poolsToDamage = RANDOM_ATTRIBUTE
 }
 
