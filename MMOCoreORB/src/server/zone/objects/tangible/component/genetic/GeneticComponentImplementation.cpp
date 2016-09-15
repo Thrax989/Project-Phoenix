@@ -105,60 +105,60 @@ void GeneticComponentImplementation::updateCraftingValues(CraftingValues* values
 		armorRating = 1;
 	}
 	// min - max values
-	if (fortitude > 1000) {
-		fortitude = 1000;
+	if (fortitude > 10000) {
+		fortitude = 10000;
 	}
 	if (fortitude < 0)
 		fortitude = 1;
 
-	if (endurance > 1000){
-		endurance = 1000;
+	if (endurance > 10000){
+		endurance = 10000;
 	}
 	if (endurance < 0)
 		endurance = 1;
 
-	if (cleverness > 1000){
-		cleverness = 1000;
+	if (cleverness > 10000){
+		cleverness = 10000;
 	}
 	if (cleverness < 0)
 		cleverness = 1;
 
-	if (courage > 1000){
-		courage = 1000;
+	if (courage > 10000){
+		courage = 10000;
 	}
 	if (courage < 0)
 		courage = 1;
 
-	if (dependency > 1000){
-		dependency = 1000;
+	if (dependency > 10000){
+		dependency = 10000;
 	}
 	if (dependency < 0)
 		dependency = 1;
 
-	if (dexterity > 1000) {
-		dexterity = 1000;
+	if (dexterity > 10000) {
+		dexterity = 10000;
 	}
 	if (dexterity < 0)
 		dexterity = 1;
 
-	if (fierceness > 1000){
-		fierceness = 1000;
+	if (fierceness > 10000){
+		fierceness = 10000;
 	}
 	if (fierceness < 0)
 		fierceness = 1;
-	if (hardiness > 1000) {
-		hardiness = 1000;
+	if (hardiness > 10000) {
+		hardiness = 10000;
 	}
 	if (hardiness < 0)
 		hardiness = 1;
-	if (intelligence > 1000){
-		intelligence = 1000;
+	if (intelligence > 10000){
+		intelligence = 10000;
 	}
 	if (intelligence < 0)
 		intelligence = 1;
 
-	if (power > 1000) {
-		power = 1000;
+	if (power > 10000) {
+		power = 10000;
 	}
 	if (power < 0)
 		power = 1;
@@ -193,20 +193,20 @@ void GeneticComponentImplementation::updateCraftingValues(CraftingValues* values
 	// Strength: har,dep
 	// Quickness: dex,dep
 
-	health = (hardiness * 15)    + (dexterity * 3);
-	action = (dexterity * 15)    + (intelligence * 3);
-	mind   = (intelligence * 15) + (hardiness * 3);
-	stamina = (dexterity*15)     + (endurance * 3);
-	willPower = (intelligence * 15) + (cleverness * 3);
-	constitution = (hardiness * 15)    + (fortitude * 3);
-	focus = (intelligence * 15) + (dependency * 3);
-	strength = (hardiness * 15)    + (dependency * 3);
-	quickness = (dexterity * 15)    + (dependency * 3);
-	hit = 0.19 + (0.55 * ((float)cleverness/1000.0));
+	health = (hardiness * 45)    + (dexterity * 5);
+	action = (dexterity * 45)    + (intelligence * 5);
+	mind   = (intelligence * 45) + (hardiness * 5);
+	stamina = (dexterity*45)     + (endurance * 5);
+	willPower = (intelligence * 45) + (cleverness * 5);
+	constitution = (hardiness * 45)    + (fortitude * 5);
+	focus = (intelligence * 45) + (dependency * 5);
+	strength = (hardiness * 45)    + (dependency * 5);
+	quickness = (dexterity * 45)    + (dependency * 5);
+	hit = 0.29 + (0.55 * ((float)cleverness/500.0));
 	// dps of pet use to determien min and max value.
-	int dps = ceil((ceil(15.0 + (775.0 * ( ((float)power)/1000.0))))/3.5);
+	int dps = ceil((ceil(15.0 + (775.0 * ( ((float)power)/100.0))))/2.5);
 	speed = 2.5-((ceil(((float)courage)/10)*10)/1000);
-	maxDam = round(((float)dps * speed) * 1.5);
+	maxDam = round(((float)dps * speed) * 3.5);
 	//minDam = round(((float)dps * speed) * 0.5);
   	// round maxDam down to the closest multiple of 5
 	maxDam = maxDam - (maxDam % 5);
