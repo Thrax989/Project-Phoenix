@@ -1090,7 +1090,7 @@ void CraftingSessionImplementation::customization(const String& name, byte templ
 		}
 	}
 
-	if(schematicCount < 0 || schematicCount > 1000000)
+	if(schematicCount < 0 || schematicCount > 999)
 		schematicCount = 1000000;
 
 	manufactureSchematic->setManufactureLimit(schematicCount);
