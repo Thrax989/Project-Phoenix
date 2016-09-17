@@ -202,11 +202,11 @@ void GeneticLabratory::setInitialCraftingValues(TangibleObject* prototype, Manuf
 	}
 	if (kineticMax == 0) {
 		spKinetic = false;
-		kineticMax = 100;
+		kineticMax = 60;
 	}
 	if (energyMax == 0) {
 		spEnergy = false;
-		energyMax = 100;
+		energyMax = 60;
 	}
 	if (heatMax == 0) {
 		spHeat = false;

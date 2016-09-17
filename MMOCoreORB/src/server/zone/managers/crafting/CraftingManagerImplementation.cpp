@@ -114,22 +114,22 @@ int CraftingManagerImplementation::calculateExperimentationSuccess(CreatureObjec
 	///
 	int experimentRoll = (toolModifier * (luckRoll + (experimentingPoints * 4)));
 
-	if (experimentRoll > 50)
+	if (experimentRoll > 70)
 		return GREATSUCCESS;
 
-	if (experimentRoll > 45)
+	if (experimentRoll > 60)
 		return GOODSUCCESS;
 
-	if (experimentRoll > 40)
+	if (experimentRoll > 50)
 		return MODERATESUCCESS;
 
-	if (experimentRoll > 30)
+	if (experimentRoll > 40)
 		return SUCCESS;
 
-	if (experimentRoll > 20)
+	if (experimentRoll > 30)
 		return MARGINALSUCCESS;
 
-	if (experimentRoll > 10)
+	if (experimentRoll > 20)
 		return OK;
 
 	return BARELYSUCCESSFUL;
