@@ -217,7 +217,7 @@ public:
 	// we need to convert the range of the stat values to that required in the SharedLabratory calculation
 	// stat range converted from 1-900 to 300-1800
 	static uint32 initialValue(float maxValue) {
-		return round(((float)(maxValue - 1) / (1800 - 1)) * (5600 - 300) + 300);
+		return round(((float)(maxValue - 1) / (1800 - 1)) * (7200 - 300) + 300);
 	}
 
 	static float determineMinResistance(float input) {
