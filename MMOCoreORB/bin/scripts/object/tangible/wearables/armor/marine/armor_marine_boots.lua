@@ -96,7 +96,7 @@ object_tangible_wearables_armor_marine_armor_marine_boots = object_tangible_wear
 	maxCondition = 100000,
 
 	-- LIGHT, MEDIUM, HEAVY
-	rating = LIGHT,
+	rating = HEAVY,
 
 	kinetic = 65,
 	energy = 65,

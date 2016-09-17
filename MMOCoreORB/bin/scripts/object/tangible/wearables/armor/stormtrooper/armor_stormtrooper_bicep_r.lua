@@ -96,7 +96,7 @@ object_tangible_wearables_armor_stormtrooper_armor_stormtrooper_bicep_r = object
 	maxCondition = 100000,
 
 	-- LIGHT, MEDIUM, HEAVY
-	rating = LIGHT,
+	rating = HEAVY,
 
 	kinetic = 65,
 	energy = 65,
