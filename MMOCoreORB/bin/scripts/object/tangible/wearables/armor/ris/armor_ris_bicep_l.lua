@@ -92,7 +92,7 @@ object_tangible_wearables_armor_ris_armor_ris_bicep_l = object_tangible_wearable
 	maxCondition = 100000,
 
 	-- LIGHT, MEDIUM, HEAVY
-	rating = HEAVY,
+	rating = LIGHT,
 
 	kinetic = 15,
 	energy = 15,

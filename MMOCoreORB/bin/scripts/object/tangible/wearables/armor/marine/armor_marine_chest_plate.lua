@@ -96,7 +96,7 @@ object_tangible_wearables_armor_marine_armor_marine_chest_plate = object_tangibl
 	maxCondition = 100000,
 
 	-- LIGHT, MEDIUM, HEAVY
-	rating = HEAVY,
+	rating = LIGHT,
 
 	kinetic = 65,
 	energy = 65,
