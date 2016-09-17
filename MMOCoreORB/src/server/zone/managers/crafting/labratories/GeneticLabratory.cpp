@@ -182,8 +182,8 @@ void GeneticLabratory::setInitialCraftingValues(TangibleObject* prototype, Manuf
 	// 1 percent: (1000 - 0) / 100.0f;
 	float blastMax, energyMax, kineticMax,heatMax,coldMax,electricMax,acidMax,stunMax,saberMax;
 	blastMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::BLAST,100.0f);
-	kineticMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::KINETIC,60.0f);
-	energyMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::ENERGY,60.0f);
+	kineticMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::KINETIC,100.0f);
+	energyMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::ENERGY,100.0f);
 	heatMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::HEAT,100.0f);
 	coldMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::COLD,100.0f);
 	electricMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::ELECTRICITY,100.0f);
@@ -202,11 +202,11 @@ void GeneticLabratory::setInitialCraftingValues(TangibleObject* prototype, Manuf
 	}
 	if (kineticMax == 0) {
 		spKinetic = false;
-		kineticMax = 60;
+		kineticMax = 100;
 	}
 	if (energyMax == 0) {
 		spEnergy = false;
-		energyMax = 60;
+		energyMax = 100;
 	}
 	if (heatMax == 0) {
 		spHeat = false;
@@ -259,7 +259,7 @@ void GeneticLabratory::setInitialCraftingValues(TangibleObject* prototype, Manuf
 
 		// determine max percentage
 		craftingValues->setMaxPercentage(title, maxValue/1000.0f);
-		craftingValues->setMaxValue(title,1000);
+		craftingValues->setMaxValue(title,2000);
 
 		// using assembly to accoutn for a 1 +% increase
 		currentPercentage = getAssemblyPercentage(initialValue) * modifier;
@@ -310,7 +310,7 @@ void GeneticLabratory::setInitialCraftingValues(TangibleObject* prototype, Manuf
 			ranged = true;
 	}
 
-	odds = quality * 100;
+	odds = quality * 200;
 	// check for specials here, then we have base assemble work completed.
 	// update crafting values, and/or experimentRow should handle resist calc changes. update crafting values should determine armor setup
 	String sp1 = pickSpecialAttack(agr->getSpecialAttackOne(),psy->getSpecialAttackOne(),phy->getSpecialAttackOne(),men->getSpecialAttackOne(),pro->getSpecialAttackOne(),odds,"defaultattack");
