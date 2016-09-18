@@ -82,7 +82,7 @@ int SaberInventoryContainerComponent::notifyObjectInserted(SceneObject* sceneObj
 		if (crystal->getColor() == 31) {
 			weao->setAttackSpeed(weao->getAttackSpeed() + crystal->getAttackSpeed());
 			weao->setMinDamage(weao->getMinDamage() + MIN(MAX(crystal->getMinimumDamage(), 0), 100));
-			weao->setMaxDamage(weao->getMaxDamage() + MIN(MAX(crystal->getMaximumDamage(), 0), 100));
+			weao->setMaxDamage(weao->getMaxDamage() + MIN(MAX(crystal->getMaximumDamage(), 0), 200));
 			weao->setHealthAttackCost(weao->getHealthAttackCost() + crystal->getSacHealth());
 			weao->setActionAttackCost(weao->getActionAttackCost() + crystal->getSacAction());
 			weao->setMindAttackCost(weao->getMindAttackCost() + crystal->getSacMind());
@@ -95,7 +95,7 @@ int SaberInventoryContainerComponent::notifyObjectInserted(SceneObject* sceneObj
 			weao->setBladeColor(color);
 			weao->setCustomizationVariable("/private/index_color_blade", color, true);
 			weao->setMinDamage(weao->getMinDamage() + MIN(MAX(crystal->getMinimumDamage(), 0), 100));
-			weao->setMaxDamage(weao->getMaxDamage() + MIN(MAX(crystal->getMaximumDamage(), 0), 100));
+			weao->setMaxDamage(weao->getMaxDamage() + MIN(MAX(crystal->getMaximumDamage(), 0), 200));
 		}
 	}
 
@@ -121,7 +121,7 @@ int SaberInventoryContainerComponent::notifyObjectRemoved(SceneObject* sceneObje
 			if (crystal->getColor() == 31){
 				weao->setAttackSpeed(weao->getAttackSpeed() - crystal->getAttackSpeed());
 				weao->setMinDamage(weao->getMinDamage() - MIN(MAX(crystal->getMinimumDamage(), 0), 100));
-				weao->setMaxDamage(weao->getMaxDamage() - MIN(MAX(crystal->getMaximumDamage(), 0), 100));
+				weao->setMaxDamage(weao->getMaxDamage() - MIN(MAX(crystal->getMaximumDamage(), 0), 200));
 				weao->setHealthAttackCost(weao->getHealthAttackCost() - crystal->getSacHealth());
 				weao->setActionAttackCost(weao->getActionAttackCost() - crystal->getSacAction());
 				weao->setMindAttackCost(weao->getMindAttackCost() - crystal->getSacMind());
@@ -133,7 +133,7 @@ int SaberInventoryContainerComponent::notifyObjectRemoved(SceneObject* sceneObje
 				weao->setBladeColor(31);
 				weao->setCustomizationVariable("/private/index_color_blade", 31, true);
 				weao->setMinDamage(weao->getMinDamage() - MIN(MAX(crystal->getMinimumDamage(), 0), 100));
-				weao->setMaxDamage(weao->getMaxDamage() - MIN(MAX(crystal->getMaximumDamage(), 0), 100));
+				weao->setMaxDamage(weao->getMaxDamage() - MIN(MAX(crystal->getMaximumDamage(), 0), 200));
 			}
 		}
 

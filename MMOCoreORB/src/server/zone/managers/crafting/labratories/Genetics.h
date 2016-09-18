@@ -248,7 +248,7 @@ public:
 
 	// convert ham value to score
 	static int hamToValue(float ham, int quality) {
-		int base = round(((ham-50.0)/(10000)) * 1000.0);
+		int base = round(((ham-50.0)/(25000)) * 1000.0);
 		return randomizeValue(base,quality);
 	}
 
@@ -305,7 +305,7 @@ public:
 	}
 	// dps to level range
 	static float calculateDPSLevel(float maxDamage, float minDamage) {
-		float dps = (maxDamage + minDamage)/2;
+		float dps = (maxDamage + minDamage)/1.5;
 		return DnaManager::instance()->levelForScore(DnaManager::DPS_LEVEL,dps);
 	}
 	// ham level

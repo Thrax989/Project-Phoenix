@@ -203,7 +203,7 @@ int PetDeedImplementation::calculatePetLevel() {
 	// Regenerate the LEvel
 	int effective = (int)(((fortitude - (armor * 500)) / 50) * 5);
 	int dps = ((damageMax + damageMin) / 2.0f) / attackSpeed;
-	int avgHam = (health + action + mind) / 3;
+	int avgHam = (health + action + mind) / 10000;
 	if (regen == 0) {
 		regen = avgHam / 10;
 	}
@@ -553,9 +553,9 @@ bool PetDeedImplementation::adjustPetStats(CreatureObject* player, CreatureObjec
 	mind = ham;
 	regen = DnaManager::instance()->valueForLevel(DnaManager::REG_LEVEL,oldLevel);
 	float dps = DnaManager::instance()->valueForLevel(DnaManager::DPS_LEVEL,oldLevel);
-	damageMin = round((dps * 2.0) * 0.5);
+	damageMin = round((dps * 2.0) * 1.25);
 	attackSpeed = 2.0;
-	damageMax = round((dps * 2.0) * 1.5);
+	damageMax = round((dps * 2.0) * 1.75);
 	chanceHit = DnaManager::instance()->valueForLevel(DnaManager::HIT_LEVEL,oldLevel);
 
 	// Adjust Armor Now

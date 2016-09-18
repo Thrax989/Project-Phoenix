@@ -48,7 +48,7 @@ FlameCone2Command = {
 	healthCostMultiplier = 2.0,
 	actionCostMultiplier = 0.5,
 	mindCostMultiplier = 0.5,
-	accuracyBonus = 0,
+	accuracyBonus = 20,
 	
 	coneAngle = 45,
 	coneAction = true,
