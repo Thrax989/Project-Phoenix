@@ -6,11 +6,11 @@ marvolo = Creature:new {
 	faction = "",
 	level = 300,
 	chanceHit = 50,
-	damageMin = 1870,
-	damageMax = 5950,
+	damageMin = 2570,
+	damageMax = 4150,
 	baseXp = 35409,
-	baseHAM = 1950000,
-	baseHAMmax = 2250000,
+	baseHAM = 2950000,
+	baseHAMmax = 3250000,
 	armor = 3,
 	resists = {95,95,95,95,95,95,95,95,95},
 	meatType = "",
@@ -39,6 +39,24 @@ marvolo = Creature:new {
 		},
 		{
 			groups = {
+				{group = "g_blasterfist", chance = 10000000}
+			},
+			lootChance = 5000000
+		 },
+		 {
+			groups = {
+				{group = "barc_speeder_deed_group", chance = 10000000}
+			},
+			lootChance = 250000
+		},
+		{
+			groups = {
+				{group = "g_2h_sword_sith", chance = 10000000}
+			},
+			lootChance = 5000000
+		 },
+			{
+			groups = {
 				{group = "nge1", chance = 10000000}
 			},
 			lootChance = 5000000
@@ -57,19 +75,25 @@ marvolo = Creature:new {
 		 },
 		{
 			groups = {
-				{group = "av_21_pp", chance = 10000000}
+				{group = "saberhand27", chance = 10000000}
 			},
 			lootChance = 5000000
 		 },
 		{
 			groups = {
-				{group = "av_21_scheme", chance = 10000000}
+				{group = "saberhand11", chance = 10000000}
 			},
 			lootChance = 5000000
 		 },
 		{
 			groups = {
-				{group = "saberhand3", chance = 1000000},
+				{group = "saberhand19", chance = 10000000}
+			},
+			lootChance = 5000000
+		 },
+		{
+			groups = {
+				{group = "saberhand4", chance = 1000000},
 				{group = "armor_attachments", chance = 4500000},
 				{group = "clothing_attachments", chance = 4500000}
 			},
@@ -85,7 +109,7 @@ marvolo = Creature:new {
 		},	
 	weapons = {"dark_jedi_weapons_gen4"},
 	reactionStf = "@npc_reaction/slang",
-	attacks = merge(lightsabermaster,forcepowermaster)
+	attacks = merge(lightsabermaster)
 }
 
 CreatureTemplates:addCreatureTemplate(marvolo, "marvolo")
