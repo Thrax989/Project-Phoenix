@@ -43,9 +43,9 @@ String GeneticLabratory::pickSpecialAttack(String a, String b, String c, String 
 	}
 	if (effectiveSpecial.contains("creature"))
 		effectiveSpecial = "defaultattack";
-	int roll = System::random(750);
+	int roll = System::random(100);
 	// roll now determined by template quality
-	// we roll 0-800 if that number is < quality * 100 i.e. VHQ 100 VLQ 700 if we get less than the odds we dont stick the special
+	// we roll 0-100 if that number is < quality * 100 i.e. VHQ 100 VLQ 700 if we get less than the odds we dont stick the special
 	// VLQ has a 7% chance to stick a special VHQ has 87% chance to stick it
 	if (roll < odds ) {
 		effectiveSpecial = "defaultattack";
@@ -310,7 +310,7 @@ void GeneticLabratory::setInitialCraftingValues(TangibleObject* prototype, Manuf
 			ranged = true;
 	}
 
-	odds = quality * 200;
+	odds = quality * 100
 	// check for specials here, then we have base assemble work completed.
 	// update crafting values, and/or experimentRow should handle resist calc changes. update crafting values should determine armor setup
 	String sp1 = pickSpecialAttack(agr->getSpecialAttackOne(),psy->getSpecialAttackOne(),phy->getSpecialAttackOne(),men->getSpecialAttackOne(),pro->getSpecialAttackOne(),odds,"defaultattack");
