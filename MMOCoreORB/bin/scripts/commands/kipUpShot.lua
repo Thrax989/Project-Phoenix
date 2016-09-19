@@ -44,7 +44,7 @@
 KipUpShotCommand = {
 	name = "kipupshot",
 
-	damageMultiplier = 2.5,
+	damageMultiplier = 3.75,
 	speedMultiplier = 1.5,
 	healthCostMultiplier = 0.5,
 	actionCostMultiplier = 0.75,

@@ -44,7 +44,7 @@
 WarningShotCommand = {
 	name = "warningshot",
 
-	damageMultiplier = 0.25,
+	damageMultiplier = 0.75,
 	speedMultiplier = 2,
 	healthCostMultiplier = 1,
 	actionCostMultiplier = 1,

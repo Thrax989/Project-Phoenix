@@ -44,7 +44,7 @@
 Saber1hComboHit1Command = {
         name = "saber1hcombohit1",
 
-	damageMultiplier = 1.5,
+	damageMultiplier = 2.75,
 	speedMultiplier = 1.25,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
