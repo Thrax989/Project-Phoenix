@@ -83,7 +83,7 @@ public:
 			}
 			break;
 		case SAMPLING:
-			if (waitCount == 9) {
+			if (waitCount == 5) {
 				currentPhase = END;
 			}else {
 				waitCount++;
@@ -119,7 +119,7 @@ public:
 			float rollMod = (((skillMod-cl)/cl))  + (skillMod-cl);
 			rollMod /= 2;
 			// We have the players roll. NOW to determine if success of failure;
-			if (sampleRoll > 75) { // adjust great success ot 75% and above
+			if (sampleRoll > 50) { // adjust great success ot 50% and above
 				int maxSamples = (int) ceil((float) skillMod / 25.f);
 				if (creature->getDnaSampleCount() > maxSamples ){
 					creature->setDnaState(CreatureManager::DNASAMPLED);
@@ -229,19 +229,19 @@ public:
 		int low = 7;
 		int mid = 6;
 		int high = 5;
-		if (skillMod <= 15) {
+		if (skillMod <= 10) {
 			low = 7;mid=6;high=5;
 		}
-		else if (skillMod <= 30 ) {
+		else if (skillMod <= 20 ) {
 			low = 7; mid = 6; high = 5;
 		}
-		else if (skillMod <= 45) {
+		else if (skillMod <= 30) {
 			low = 6; mid = 5; high = 4;
 		}
-		else if (skillMod <= 60) {
+		else if (skillMod <= 40) {
 			low = 5; mid = 4; high = 3;
 		}
-		else if (skillMod <= 75) {
+		else if (skillMod <= 50) {
 			low = 4; mid = 3; high = 2;
 		}
 		else {
@@ -253,9 +253,9 @@ public:
 		//60 	BAQ, AQ,AAQ
 		//75 	AQ,AAQ,HQ
 		//100 	AAQ,HQ, VHQ
-		if (qualityRoll < 33)
+		if (qualityRoll < 25)
 			quality = low;
-		else if (qualityRoll < 66)
+		else if (qualityRoll < 50)
 			quality = mid;
 		else
 			quality = high;
