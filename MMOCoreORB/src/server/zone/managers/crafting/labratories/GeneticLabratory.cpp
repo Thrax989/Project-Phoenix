@@ -43,9 +43,9 @@ String GeneticLabratory::pickSpecialAttack(String a, String b, String c, String 
 	}
 	if (effectiveSpecial.contains("creature"))
 		effectiveSpecial = "defaultattack";
-	int roll = System::random(6000);
+	int roll = System::random(100);
 	// roll now determined by template quality
-	// we roll 0-6000 if that number is < quality * 100 i.e. VHQ 100 VLQ 700 if we get less than the odds we dont stick the special
+	// we roll 0-100 if that number is < quality * 100 i.e. VHQ 100 VLQ 700 if we get less than the odds we dont stick the special
 	// VLQ has a 7% chance to stick a special VHQ has 87% chance to stick it
 	if (roll < odds ) {
 		effectiveSpecial = "defaultattack";
