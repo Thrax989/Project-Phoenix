@@ -44,7 +44,7 @@
 UnarmedLunge1Command = {
 	name = "unarmedlunge1",
 
-	damageMultiplier = 2.0,
+	damageMultiplier = 3.0,
 	speedMultiplier = 1.5,
 	accuracyBonus = 15,
 	
