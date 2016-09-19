@@ -51,7 +51,7 @@ String GeneticLabratory::pickSpecialAttack(String a, String b, String c, String 
 		effectiveSpecial = "defaultattack";
 	}
 	if (effectiveSpecial == otherSpecial && effectiveSpecial != "defaultattack")
-		effectiveSpecial = pickSpecialAttack(effectiveSpecial,b,c,d,e,odds+100,otherSpecial);// pick another default mantis #5598 max loop count is 8 (i.e. odds starting at 100, at 8 calls it picks defaultattack
+		effectiveSpecial = pickSpecialAttack(effectiveSpecial,b,c,d,e,odds+200,otherSpecial);// pick another default mantis #5598 max loop count is 8 (i.e. odds starting at 100, at 8 calls it picks defaultattack
 	return effectiveSpecial;
 }
 void GeneticLabratory::recalculateResist(CraftingValues* craftingValues) {
@@ -310,7 +310,7 @@ void GeneticLabratory::setInitialCraftingValues(TangibleObject* prototype, Manuf
 			ranged = true;
 	}
 
-	odds = quality * 200;
+	odds = quality * 100;
 	// check for specials here, then we have base assemble work completed.
 	// update crafting values, and/or experimentRow should handle resist calc changes. update crafting values should determine armor setup
 	String sp1 = pickSpecialAttack(agr->getSpecialAttackOne(),psy->getSpecialAttackOne(),phy->getSpecialAttackOne(),men->getSpecialAttackOne(),pro->getSpecialAttackOne(),odds,"defaultattack");
@@ -355,23 +355,23 @@ void GeneticLabratory::experimentRow(CraftingValues* craftingValues,int rowEffec
 		if (subtitlesTitle == title) {
 			subtitle = craftingValues->getExperimentalPropertySubtitle(i);
 			if (experimentationResult == CraftingManager::AMAZINGSUCCESS)
-				modifier = 0.15f * (float)pointsAttempted; //
+				modifier = 0.35f * (float)pointsAttempted; //
 			if (experimentationResult == CraftingManager::GREATSUCCESS)
-				modifier = 0.10 * (float)pointsAttempted; //
+				modifier = 0.30 * (float)pointsAttempted; //
 			if (experimentationResult == CraftingManager::GOODSUCCESS)
-				modifier = 0.05 * (float)pointsAttempted;
+				modifier = 0.25 * (float)pointsAttempted;
 			if (experimentationResult == CraftingManager::MODERATESUCCESS)
-				modifier = 0.025 * (float)pointsAttempted;
+				modifier = 0.20 * (float)pointsAttempted;
 			if (experimentationResult == CraftingManager::SUCCESS)
-				modifier = 0.015 * (float)pointsAttempted;
+				modifier = 0.15 * (float)pointsAttempted;
 			if (experimentationResult == CraftingManager::MARGINALSUCCESS)
-				modifier = 0.0;
+				modifier = 0.10;
 			if (experimentationResult == CraftingManager::OK)
-				modifier = -0.05 * (float)pointsAttempted;
+				modifier = -0.01 * (float)pointsAttempted;
 			if (experimentationResult == CraftingManager::BARELYSUCCESSFUL)
-				modifier = -0.1 * (float)pointsAttempted;
+				modifier = -0.02 * (float)pointsAttempted;
 			if (experimentationResult == CraftingManager::CRITICALFAILURE) {
-				modifier = -0.1 * (float)pointsAttempted;
+				modifier = -0.03 * (float)pointsAttempted;
 				// pick a random attribute
 				int which = System::random(10);
 				while(which != i) {
