@@ -76,7 +76,7 @@ FlameCone1Command = {
 	
 	weaponType = SPECIALHEAVYWEAPON,
 	
-	range = 16
+	range = -1
 }
 
 AddCommand(FlameCone1Command)

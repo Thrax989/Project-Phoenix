@@ -49,7 +49,7 @@ FireAcidCone1Command = {
 	healthCostMultiplier = 1.5,
 	actionCostMultiplier = 0.5,
 	mindCostMultiplier = 0.5,
-	accuracyBonus = 0,
+	accuracyBonus = 20,
 
 	coneAngle = 45,
 	coneAction = true,
@@ -63,7 +63,7 @@ FireAcidCone1Command = {
 	
 	weaponType = SPECIALHEAVYWEAPON,
 	
-	range = 16
+	range = -1
 }
 
 AddCommand(FireAcidCone1Command)
