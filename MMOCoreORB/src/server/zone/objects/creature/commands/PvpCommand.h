@@ -1,9 +1,14 @@
 /*
-				Copyright <SWGEmu>
-		See file COPYING for copying conditions.*/
+ * PLEASE DO NOT STEAL OUR WORK
+ * ASK BEFOR USING
+ * Contact Me Here http://projectphoenix.com.shivtr.com/
+ * Created on: 9/21/2016
+ * Authors: Kurdtkobain
+ */
+ 
+#ifndef PVPCOMMAND_H_
 
-#ifndef PvpCOMMAND_H_
-#define PvpCOMMAND_H_
+#define PVPCOMMAND_H_
 
 #include "server/zone/objects/scene/SceneObject.h"
 #include "server/zone/objects/tangible/terminal/characterbuilder/CharacterBuilderTerminal.h"
@@ -54,4 +59,4 @@ public:
 
 };
 
-#endif //PvpCOMMAND_H_
+#endif //PVPCOMMAND_H_

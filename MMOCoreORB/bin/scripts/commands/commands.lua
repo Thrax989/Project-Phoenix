@@ -1,3 +1,11 @@
+--
+-- PLEASE DO NOT STEAL OUR WORK
+-- ASK BEFOR USING
+-- Contact Me Here http://projectphoenix.com.shivtr.com/
+-- Modified on: 9/21/2016
+-- Authors: Kurdtkobain
+--
+
 -- define an object to carry state data for combat commands
 function StateEffect(t, et, dm, jm, c, s, l) 
   return {
