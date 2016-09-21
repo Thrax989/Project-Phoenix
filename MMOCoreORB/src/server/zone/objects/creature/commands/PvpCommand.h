@@ -32,11 +32,16 @@ public:
 		if (!checkInvalidLocomotions(creature))
 			return INVALIDLOCOMOTION;
 		
+		if (creature->isInCombat()) {
+			creature->sendSystemMessage("@jedi_spam:not_while_in_combat");
+			return GENERALERROR;
+		}
+		
 		PlayerObject* targetGhost = creature->getPlayerObject();
 		Zone* zone = creature->getZone();
 		
 		if (targetGhost == NULL)
-					return GENERALERROR;
+			return GENERALERROR;
 
 		if(targetGhost->getFactionStatus() == FactionStatus::ONLEAVE || targetGhost->getFactionStatus() == FactionStatus::COVERT){
 			targetGhost->setFactionStatus(FactionStatus::OVERT);
