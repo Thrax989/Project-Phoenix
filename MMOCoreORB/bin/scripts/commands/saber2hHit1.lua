@@ -44,7 +44,7 @@
 Saber2hHit1Command = {
         name = "saber2hhit1",
 
-	damageMultiplier = 2.50,
+	damageMultiplier = 1.25,
 	speedMultiplier = 1.25,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,

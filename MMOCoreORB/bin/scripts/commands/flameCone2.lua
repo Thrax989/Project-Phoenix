@@ -43,7 +43,7 @@
 
 FlameCone2Command = {
         name = "flamecone2",
-	damageMultiplier = 9,
+	damageMultiplier = 6,
 	speedMultiplier = 4,
 	healthCostMultiplier = 2.0,
 	actionCostMultiplier = 0.5,
@@ -75,7 +75,7 @@ FlameCone2Command = {
 	
 	weaponType = SPECIALHEAVYWEAPON,
 	
-	range = 16
+	range = -1
 }
 
 AddCommand(FlameCone2Command)

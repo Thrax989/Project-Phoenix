@@ -44,12 +44,12 @@
 FireAcidSingle2Command = {
         name = "fireacidsingle2",
 
-	damageMultiplier = 12,
+	damageMultiplier = 8,
 	speedMultiplier = 4,
 	healthCostMultiplier = 2.0,
 	actionCostMultiplier = 0.5,
 	mindCostMultiplier = 0.5,
-	accuracyBonus = 0,
+	accuracyBonus = 20,
 
 	poolsToDamage = RANDOM_ATTRIBUTE,
 
@@ -60,7 +60,7 @@ FireAcidSingle2Command = {
 	
 	weaponType = SPECIALHEAVYWEAPON,
 	
-	range = 16
+	range = -1
 }
 
 AddCommand(FireAcidSingle2Command)
