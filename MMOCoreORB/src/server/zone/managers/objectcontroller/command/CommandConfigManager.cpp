@@ -1595,6 +1595,9 @@ void CommandConfigManager::registerCommands() {
 	commandFactory.registerCommand<InspacereloadCommand>(String("inspacereload").toLowerCase());
 	commandFactory.registerCommand<InspacerrCommand>(String("inspacerr").toLowerCase());
 	commandFactory.registerCommand<RequestSpaceTrainerCommand>(String("requestSpaceTrainer").toLowerCase());
+	
+	//Custom
+	commandFactory.registerCommand<PvpCommand>(String("pvp").toLowerCase());
 
 	//pet commands
 	commandFactory.registerCommand<PetAttackCommand>(String("petAttack").toLowerCase());
