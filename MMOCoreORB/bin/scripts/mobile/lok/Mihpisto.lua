@@ -1,6 +1,6 @@
 Mihpisto = Creature:new {
 	objectName = "@mob/creature_names:",
-	customName = "Mihpisto (Odious Collector",
+	customName = "Mihpisto (Odious Collector)",
 	socialGroup = "",
 	pvpFaction = "",
 	faction = "",
