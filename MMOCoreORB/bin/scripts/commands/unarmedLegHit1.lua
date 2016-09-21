@@ -44,7 +44,7 @@
 UnarmedLegHit1Command = {
         name = "unarmedleghit1",
 
-	damageMultiplier = 3.75,
+	damageMultiplier = 2.5,
 	speedMultiplier = 2.0,
 	healthCostMultiplier = 1.75,
 	actionCostMultiplier = 1.75,
