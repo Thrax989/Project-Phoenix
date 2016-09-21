@@ -2,6 +2,14 @@
 				Copyright <SWGEmu>
 		See file COPYING for copying conditions. */
 
+/*
+ * PLEASE DO NOT STEAL OUR WORK
+ * ASK BEFOR USING
+ * Contact Me Here http://projectphoenix.com.shivtr.com/
+ * Modified on: 9/21/2016
+ * Authors: Kurdtkobain
+ */
+
 #include "CommandConfigManager.h"
 #include "server/zone/objects/creature/commands/commands.h"
 #include "server/zone/objects/creature/commands/effect/StateEffect.h"
@@ -1595,6 +1603,9 @@ void CommandConfigManager::registerCommands() {
 	commandFactory.registerCommand<InspacereloadCommand>(String("inspacereload").toLowerCase());
 	commandFactory.registerCommand<InspacerrCommand>(String("inspacerr").toLowerCase());
 	commandFactory.registerCommand<RequestSpaceTrainerCommand>(String("requestSpaceTrainer").toLowerCase());
+	
+	//Custom
+	commandFactory.registerCommand<PvpCommand>(String("pvp").toLowerCase());
 
 	//pet commands
 	commandFactory.registerCommand<PetAttackCommand>(String("petAttack").toLowerCase());

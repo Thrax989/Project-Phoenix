@@ -1,22 +1,12 @@
 /*
 				Copyright <SWGEmu>
 		See file COPYING for copying conditions.*/
-/*
- * PLEASE DO NOT STEAL OUR WORK
- * ASK BEFOR USING
- * Contact Me Here http://projectphoenix.com.shivtr.com/
- * Created on: 9/21/2016
- * Authors: TOXIC
- */
 
 #ifndef PRONECOMMAND_H_
 #define PRONECOMMAND_H_
 
 #include "server/zone/objects/scene/SceneObject.h"
 #include "server/zone/objects/tangible/terminal/characterbuilder/CharacterBuilderTerminal.h"
-#include "server/zone/objects/player/sui/callbacks/BountyHuntSuiCallback.h"
-#include "server/zone/objects/player/sui/inputbox/SuiInputBox.h"
-#include "server/zone/packets/player/PlayMusicMessage.h"
 
 class ProneCommand : public QueueCommand {
 public:
@@ -88,14 +78,6 @@ public:
 				creature->queueDizzyFallEvent();
 			} else {
 				creature->setPosture(CreaturePosture::PRONE);
-				PlayerObject* targetGhost = creature->getPlayerObject();
-				targetGhost->setFactionStatus(FactionStatus::OVERT);
-				Zone* zone = creature->getZone();
-				//Broadcast to Server
- 				String playerName = creature->getFirstName();
- 				StringBuffer zBroadcast;
- 				zBroadcast << "\\#00E604" << playerName << " \\#63C8F9 Is Now Overt";
- 				creature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 			}
 		}// TODO DELETE THIS LINE
 
