@@ -44,13 +44,14 @@
 Saber2hPhantomCommand = {
         name = "saber2hphantom",
 
-	damageMultiplier = 7.50,
+	damageMultiplier = 4.5,
 	speedMultiplier = 4.0,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
-	areaRange = 24,
-	areaAction = true,
+	coneAngle = 45,
+	coneAction = true,
+	coneRange = 24,
 	forceCostMultiplier = 3.0,
 	visMod = 25,
 

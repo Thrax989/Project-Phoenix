@@ -44,7 +44,7 @@
 Saber2hBodyHit1Command = {
         name = "saber2hbodyhit1",
         
-    damageMultiplier = 2.75,
+    damageMultiplier = 1.5,
 	speedMultiplier = 1.5,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
