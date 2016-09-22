@@ -1605,7 +1605,7 @@ void CommandConfigManager::registerCommands() {
 	commandFactory.registerCommand<RequestSpaceTrainerCommand>(String("requestSpaceTrainer").toLowerCase());
 	
 	//Custom
-	commandFactory.registerCommand<PvpCommand>(String("pvp").toLowerCase());
+	commandFactory.registerCommand<setPvpCommand>(String("setPvp").toLowerCase());
 
 	//pet commands
 	commandFactory.registerCommand<PetAttackCommand>(String("petAttack").toLowerCase());
