@@ -11,6 +11,7 @@ This Project Consist Of many Collaborators Over The Years Who Brought The Projec
 Collaboration Credit Is Given To The Following Contributors
 * https://github.com/Thrax989 - Project Lead Creator
 * https://github.com/merik444 - Creature Mobs / NPC Mobs Improvment / Additional Game Tweaks
+* https://github.com/kurdtkobain - Additional Command Support / Game Tweaks
 * https://github.com/Mifie89 - Lua Logic Creator NPC/Quest/Creatures Additional Game Tweaks
 * Cesta - Project Phoenix Jedi Unlock System / Dev op Operating System Installer / Security Operative
 * Blasto - Added Additional Input\Idea To Cesta's Jedi Unlock System
