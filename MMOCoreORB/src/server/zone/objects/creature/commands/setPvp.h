@@ -37,6 +37,11 @@ public:
 			return GENERALERROR;
 		}
 		
+		if(creature->hasSkill("force_rank_dark_novice") || creature->hasSkill("force_rank_light_novice")){
+			creature->sendSystemMessage("Jedi in the FRS may not use this command.");
+			return GENERALERROR;
+		}
+		
 		PlayerObject* targetGhost = creature->getPlayerObject();
 		Zone* zone = creature->getZone();
 		
