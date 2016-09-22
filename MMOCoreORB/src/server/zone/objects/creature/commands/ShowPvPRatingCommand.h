@@ -1,6 +1,14 @@
 /*
 				Copyright <SWGEmu>
 		See file COPYING for copying conditions.*/
+/*
+  * PLEASE DO NOT STEAL OUR WORK
+  * ASK BEFOR USING
+  * Contact Me Here http://projectphoenix.com.shivtr.com/
+  * Created on: 9/21/2016
+  * Authors: TOXIC , Kurdtkobain
+  */
+  
 
 #ifndef SHOWPVPRATINGCOMMAND_H_
 #define SHOWPVPRATINGCOMMAND_H_
@@ -60,6 +68,27 @@ public:
 			creature->sendSystemMessage(ratingMsg);
 		}
 
+		PlayerObject* targetGhost = creature->getPlayerObject();
+		Zone* zone = creature->getZone();
+		
+		if (targetGhost == NULL)
+			return GENERALERROR;
+
+		if(targetGhost->getFactionStatus() == FactionStatus::ONLEAVE || targetGhost->getFactionStatus() == FactionStatus::COVERT){
+			targetGhost->setFactionStatus(FactionStatus::OVERT);
+		}else{
+			targetGhost->setFactionStatus(FactionStatus::ONLEAVE);
+		}
+			//Broadcast to Server
+ 			String playerName = creature->getFirstName();
+ 			StringBuffer zBroadcast;
+ 			zBroadcast << "\\#00E604" << playerName << " \\#63C8F9 Is Now ";
+			if(targetGhost->getFactionStatus() == FactionStatus::ONLEAVE){
+				zBroadcast << "Onleave";
+			}else{
+				zBroadcast << "Overt";
+			}
+			creature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 		return SUCCESS;
 	}
 
