@@ -180,7 +180,7 @@ public:
 						//Broadcast to Server
  						String playerName = creature->getFirstName();
  						StringBuffer zBroadcast;
- 						zBroadcast << "\\#00FF00" << playerName << " \\#ccffcc Has Used The Kill Command";
+ 						zBroadcast << "\\#00FF00" << playerName << " \\#63C8F9 Has Used The Kill Command";
  						creature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 					}
 				}
@@ -202,7 +202,7 @@ public:
 					//Broadcast to Server
  					String playerName = creature->getFirstName();
  					StringBuffer zBroadcast;
- 					zBroadcast << "\\#00FF00" << playerName << " \\#ccffcc Has Used The Kill Command";
+ 					zBroadcast << "\\#00FF00" << playerName << " \\#63C8F9 Has Used The Kill Command";
  					creature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 					return SUCCESS;
 				}
