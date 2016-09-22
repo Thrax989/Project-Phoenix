@@ -5,9 +5,9 @@
 -- Authors: Kurdtkobain
 --
 
-PvpCommand = {
-        name = "pvp",
+setPvpCommand = {
+        name = "setPvp",
 }
 
-AddCommand(PvpCommand)
+AddCommand(setPvpCommand)
 
