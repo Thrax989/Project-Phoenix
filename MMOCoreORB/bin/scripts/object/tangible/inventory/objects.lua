@@ -59,7 +59,7 @@ object_tangible_inventory_shared_character_inventory = SharedTangibleObjectTempl
 	collisionMaterialFlags = 0,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 150,
+	containerVolumeLimit = 80,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@item_n:inventory",

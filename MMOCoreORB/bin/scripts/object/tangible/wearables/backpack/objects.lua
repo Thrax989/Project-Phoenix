@@ -59,7 +59,7 @@ object_tangible_wearables_backpack_shared_backpack_s01 = SharedTangibleObjectTem
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 100,
+	containerVolumeLimit = 50,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@wearables_detail:backpack_s01",
@@ -118,7 +118,7 @@ object_tangible_wearables_backpack_shared_backpack_s03 = SharedTangibleObjectTem
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 100,
+	containerVolumeLimit = 50,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@wearables_detail:backpack_s03",
@@ -177,7 +177,7 @@ object_tangible_wearables_backpack_shared_backpack_s03_quest = SharedTangibleObj
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 100,
+	containerVolumeLimit = 50,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@wearables_detail:backpack_s03_quest",
@@ -236,7 +236,7 @@ object_tangible_wearables_backpack_shared_backpack_s04 = SharedTangibleObjectTem
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 100,
+	containerVolumeLimit = 50,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@wearables_detail:backpack_s04",
@@ -295,7 +295,7 @@ object_tangible_wearables_backpack_shared_backpack_s05 = SharedTangibleObjectTem
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 100,
+	containerVolumeLimit = 50,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@wearables_detail:backpack_s05",
@@ -354,7 +354,7 @@ object_tangible_wearables_backpack_shared_backpack_s06 = SharedTangibleObjectTem
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 100,
+	containerVolumeLimit = 50,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@wearables_detail:backpack_s06",
@@ -413,7 +413,7 @@ object_tangible_wearables_backpack_shared_backpack_s06_quest = SharedTangibleObj
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 100,
+	containerVolumeLimit = 50,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@wearables_detail:backpack_s06_quest",
@@ -472,7 +472,7 @@ object_tangible_wearables_backpack_shared_singing_mountain_clan_backpack = Share
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 100,
+	containerVolumeLimit = 50,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@wearables_detail:backpack_s01",

@@ -59,7 +59,7 @@ object_tangible_furniture_technical_shared_armoire_s01 = SharedTangibleObjectTem
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 100,
+	containerVolumeLimit = 50,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@frn_d:frn_armoire",
@@ -118,7 +118,7 @@ object_tangible_furniture_technical_shared_bookcase_s01 = SharedTangibleObjectTe
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 100,
+	containerVolumeLimit = 50,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@frn_d:frn_bookcase",
@@ -177,7 +177,7 @@ object_tangible_furniture_technical_shared_cabinet_s01 = SharedTangibleObjectTem
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 100,
+	containerVolumeLimit = 50,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@frn_d:frn_cabinet",
@@ -295,7 +295,7 @@ object_tangible_furniture_technical_shared_chest_s01 = SharedTangibleObjectTempl
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 100,
+	containerVolumeLimit = 50,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@frn_d:frn_chest",
