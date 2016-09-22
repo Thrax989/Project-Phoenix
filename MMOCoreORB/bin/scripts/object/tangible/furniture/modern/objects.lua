@@ -59,7 +59,7 @@ object_tangible_furniture_modern_shared_armoire_modern_style_01 = SharedTangible
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 50,
+	containerVolumeLimit = 100,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@frn_d:frn_armoire",
@@ -472,7 +472,7 @@ object_tangible_furniture_modern_shared_bookcase_modern_style_01 = SharedTangibl
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 50,
+	containerVolumeLimit = 100,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@frn_d:frn_bookcase",
@@ -531,7 +531,7 @@ object_tangible_furniture_modern_shared_cabinet_modern_style_01 = SharedTangible
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 50,
+	containerVolumeLimit = 100,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@frn_d:frn_cabinet",
@@ -649,7 +649,7 @@ object_tangible_furniture_modern_shared_chest_modern_style_01 = SharedTangibleOb
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 50,
+	containerVolumeLimit = 100,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@frn_d:frn_chest",

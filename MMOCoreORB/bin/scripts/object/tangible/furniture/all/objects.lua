@@ -6785,7 +6785,7 @@ object_tangible_furniture_all_shared_frn_all_toolchest_lg_s01 = SharedTangibleOb
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 50,
+	containerVolumeLimit = 100,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@frn_d:frn_toolchest",
@@ -6844,7 +6844,7 @@ object_tangible_furniture_all_shared_frn_all_toolchest_med_s01 = SharedTangibleO
 	collisionMaterialFlags = 1,
 	collisionMaterialPassFlags = 0,
 	containerType = 2,
-	containerVolumeLimit = 50,
+	containerVolumeLimit = 100,
 	customizationVariableMapping = {},
 
 	detailedDescription = "@frn_d:frn_toolchest",
