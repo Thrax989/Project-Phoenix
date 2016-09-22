@@ -66,7 +66,7 @@ public:
 
 				} else {
 					if (playerTemplate->getMinScale() > height) {
-						player->setHeight(height * 40.0f);
+						player->setHeight(height * 4.0f);
 					}
 
 					player->sendSystemMessage("You are now visible to all players and creatures.");
