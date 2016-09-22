@@ -3,13 +3,13 @@
 	customName = "mittens",
 	socialGroup = "vir_vur",
 	faction = "",
-	level = 100,
-	chanceHit = 55,
-	damageMin = 2525,
-	damageMax = 3815,
+	level = 85,
+	chanceHit = 75,
+	damageMin = 5850,
+	damageMax = 6750,
 	baseXp = 385000,
-	baseHAM = 275000,
-	baseHAMmax = 285000,
+	baseHAM = 515000,
+	baseHAMmax = 550000,
 	armor = 3,
 	resists = {95,95,95,95,95,95,95,95,95},
 	meatType = "meat_avian",
@@ -20,8 +20,8 @@
 	boneAmount = 5000,
 	milkType = "milk_domesticated",
 	milk = 2500,
-	tamingChance = 0,
-	ferocity = 10,
+	tamingChance = 0.25,
+	ferocity = 30,
 	pvpBitmask = ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + STALKER,
 	optionsBitmask = AIENABLED,
@@ -29,15 +29,57 @@
 
 	templates = {"object/mobile/vir_vur.iff"},
 	scale = 1.75;
-	lootGroups = {
+lootGroups = {
 		{
 			groups = {
-				{group = "armor_all", chance = 5000000},
-				{group = "weapons_all", chance = 5000000}
+				{group = "armor_attachments", chance = 5000000},
+				{group = "clothing_attachments", chance = 5000000}
 			},
 			lootChance = 10000000
-		}
-	},
+		},
+		{
+			groups = {
+				{group = "armor_attachments", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		 {
+			groups = {
+				{group = "nge1", chance = 10000000}
+			},
+			lootChance = 2500000
+		},
+		 {
+			groups = {
+				{group = "barc_speeder_deed_group", chance = 10000000}
+			},
+			lootChance = 100000
+		},
+		 {
+			groups = {
+				{group = "nge2", chance = 10000000}
+			},
+			lootChance = 2500000
+		},
+		 {
+			groups = {
+				{group = "nge3", chance = 10000000}
+			},
+			lootChance = 2500000
+		},
+		 {
+			groups = {
+				{group = "clothing_attachments", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		 {
+			groups = {
+				{group = "clothing_attachments", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
