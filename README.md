@@ -37,7 +37,6 @@ Collaboration Credit Is Given To The Following Contributors
 * https://github.com/KiritoShadowfang
 * https://github.com/kissofdarknes
 * https://github.com/Koushi009
-* https://github.com/kurdtkobain
 * https://github.com/LarelO
 * https://github.com/lexun
 * https://github.com/Mesagoppinmypants
