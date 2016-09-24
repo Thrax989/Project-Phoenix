@@ -31,10 +31,10 @@ nk_necrosis = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "redeed1", chance = 200000},
-				{group = "redeed2", chance = 200000},
-				{group = "holocron_dark", chance = 400000},
-				{group = "holocron_light", chance = 400000},
+				{group = "holocron_dark", chance = 200000},
+				{group = "holocron_light", chance = 200000},
+				{group = "armor_all", chance = 400000},
+				{group = "death_watch_bunker_art", chance = 400000},
 				{group = "crystals_premium", chance = 600000},
 				{group = "rifles", chance = 1300000},
 				{group = "pistols", chance = 1300000},
