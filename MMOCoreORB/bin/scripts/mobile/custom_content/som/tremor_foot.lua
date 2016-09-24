@@ -33,8 +33,8 @@ tremor_foot = Creature:new {
 	        groups = {
 					{group = "clothing_attachments",  chance = 3000000},
 					{group = "armor_attachments", chance = 3000000},
-					{group = "redeed1",  chance = 1000000},
-					{group = "redeed2",  chance = 1000000},
+					{group = "holocron_dark",  chance = 1000000},
+					{group = "holocron_light",  chance = 1000000},
 					{group = "crystal_prowess_of_plo_koon", chance = 1000000},
 					{group = "crystal_sunriders_destiny", chance = 1000000},
 			},
