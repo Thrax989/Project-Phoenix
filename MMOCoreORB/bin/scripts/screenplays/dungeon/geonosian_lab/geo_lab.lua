@@ -69,11 +69,6 @@ function GeonosianLabScreenPlay:start()
 end
 
 function GeonosianLabScreenPlay:spawnActiveAreas()
-	-- To disallow entry by PETS...
-	local pActiveArea = spawnActiveArea("yavin4", "object/active_area.iff", -6451.9, 92.0, -378.3, -40, 1627781)
-	if pActiveArea ~= nil then
-		createObserver(ENTEREDAREA, "GeonosianLabScreenPlay", "notifyPetEnteredDeny", pActiveArea)
-	end
 
 	local pActiveArea = spawnActiveArea("yavin4", "object/active_area.iff", -6435.5, 85.6, -367, 10, 1627783)
 	if pActiveArea ~= nil then
