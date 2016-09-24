@@ -41,7 +41,7 @@ revan_quest = Creature:new {
 				{group = "g_som_2h_sword_tulrus", chance = 500000},
 				{group = "g_som_sword_obsidian", chance = 500000},
 				{group = "weapons_all", chance = 4300000},
-				{group = "redeed1", chance = 100000},
+				{group = "holocron_light", chance = 100000},
 				{group = "g_ep3_loot_necrosis", chance = 600000}
 			},
 			lootChance = 10000000
