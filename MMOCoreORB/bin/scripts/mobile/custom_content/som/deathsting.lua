@@ -33,8 +33,8 @@ deathsting = Creature:new {
 	        groups = {
 					{group = "clothing_attachments",  chance = 3000000},
 					{group = "weapons_all", chance = 3000000},
-					{group = "redeed1",  chance = 1000000},
-					{group = "redeed2",  chance = 1000000},
+					{group = "holocron_dark",  chance = 1000000},
+					{group = "holocron_light",  chance = 1000000},
 					{group = "crystal_quintessence_of_the_force", chance = 1000000},
 					{group = "crystal_mauls_vengence", chance = 1000000},
 			},
