@@ -36,8 +36,8 @@ storm_lord = Creature:new {
 				{group = "rifles", chance = 1000000},
 				{group = "carbines", chance = 1000000},
 				{group = "melee_weapons", chance = 2000000},
-				{group = "redeed1", chance = 100000},
-				{group = "redeed2", chance = 100000},
+				{group = "holocron_dark", chance = 100000},
+				{group = "holocron_light", chance = 100000},
 				{group = "armor_attachments", chance = 400000},
 				{group = "clothing_attachments", chance = 400000},
 				{group = "wearables_rare", chance = 500000}
@@ -45,8 +45,8 @@ storm_lord = Creature:new {
 		},
 		{
 			groups = {
-				{group = "redeed3", chance = 5000000},
-				{group = "redeed4", chance = 5000000}
+				{group = "holocron_dark", chance = 5000000},
+				{group = "holocron_light", chance = 5000000}
 			},
 			lootChance = 10000000
 		}
