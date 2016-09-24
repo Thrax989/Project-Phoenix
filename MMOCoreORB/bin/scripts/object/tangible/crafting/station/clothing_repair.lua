@@ -47,7 +47,7 @@ object_tangible_crafting_station_clothing_repair = object_tangible_crafting_stat
 
 	canRepairType = 16777216, -- Clothing
 
-	boostSkill = "crafting_tailor_master",
+	boostSkill = "crafting_tailor_novice",
 	boostSkillMod = "clothing_repair",
 
 	stationType = 1,
