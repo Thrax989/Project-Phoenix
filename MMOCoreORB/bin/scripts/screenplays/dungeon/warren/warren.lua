@@ -89,11 +89,6 @@ function WarrenScreenPlay:lockDoors()
 end
 
 function WarrenScreenPlay:spawnActiveAreas()
--- To disallow entry by PETS
-	local pActiveArea = spawnActiveArea("dantooine", "object/active_area.iff", -546.0, 1.3, -3850.1, 65, 8575674)
-	if pActiveArea ~= nil then
-		createObserver(ENTEREDAREA, "WarrenScreenPlay", "notifyPetEnteredDeny", pActiveArea)
-	end
 end
 
 function WarrenScreenPlay:spawnSceneObjects()
