@@ -54,8 +54,8 @@ sher_kar_youngling = Creature:new {
 		},
 		 {
 			groups = {
-				{group = "redeed1", chance = 5000000},
-				{group = "redeed2", chance = 5000000}
+				{group = "holocron_light", chance = 5000000},
+				{group = "holocron_dark", chance = 5000000}
 			},
 			lootChance = 10000000
 		},
