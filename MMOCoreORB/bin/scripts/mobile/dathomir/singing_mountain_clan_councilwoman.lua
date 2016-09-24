@@ -39,7 +39,7 @@ singing_mountain_clan_councilwoman = Creature:new {
 				{group = "rifles",  chance = 800000},
 				{group = "carbines",  chance = 900000},
 				{group = "melee_weapons",  chance = 1000000},
-				{group = "redeed1",  chance = 500000},
+				{group = "holocron_light",  chance = 500000},
 				{group = "axkva_min",  chance = 500000}
 			},
 			lootChance = 10000000
