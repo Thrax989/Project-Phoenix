@@ -33,8 +33,8 @@ scorching_terror = Creature:new {
 	        groups = {
 					{group = "clothing_attachments",  chance = 4000000},
 					{group = "weapons_all", chance = 4000000},
-					{group = "redeed1",  chance = 1000000},
-					{group = "redeed2",  chance = 1000000},
+					{group = "holocron_dark",  chance = 1000000},
+					{group = "holocron_light",  chance = 1000000},
 			},
 			lootChance = 10000000
 		}
