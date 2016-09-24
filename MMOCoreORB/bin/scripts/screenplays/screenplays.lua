@@ -196,6 +196,7 @@ includeFile("events/buffTerminalMenuComponent.lua")
 includeFile("events/race_droid.lua")
 includeFile("events/black_sun.lua")
 includeFile("events/spirit_exar.lua")
+includeFile("events/world_exchange_dealer.lua")
 
 -- Hero of Tatooine
 includeFile("tasks/hero_of_tatooine/conversations/hermitConvoHandler.lua")

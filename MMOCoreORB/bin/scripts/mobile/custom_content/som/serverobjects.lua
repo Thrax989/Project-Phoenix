@@ -144,7 +144,7 @@ includeFile("custom_content/som/revan.lua")
 includeFile("custom_content/som/revan_quest.lua")
 includeFile("custom_content/som/revan_quest1.lua")
 includeFile("custom_content/som/revan_clone.lua")
-
+includeFile("custom_content/som/world_exchange.lua")
 
 --Root Folder
 
