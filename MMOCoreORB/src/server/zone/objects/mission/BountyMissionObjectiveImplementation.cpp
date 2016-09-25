@@ -121,7 +121,7 @@ void BountyMissionObjectiveImplementation::complete() {
 
 	ManagedReference<CreatureObject*> owner = getPlayerOwner();
 	//Award bountyhunter xp.
-	owner->getZoneServer()->getPlayerManager()->awardExperience(owner, "bountyhunter", mission->getRewardCredits() / 50, true, 1);
+	owner->getZoneServer()->getPlayerManager()->awardExperience(owner, "bountyhunter", mission->getRewardCredits() / 10, true, 1);
 
 	owner->getZoneServer()->getMissionManager()->completePlayerBounty(mission->getTargetObjectId(), owner->getObjectID());
 
@@ -537,7 +537,7 @@ void BountyMissionObjectiveImplementation::startNpcTargetTask() {
 	targetTask = new BountyHunterTargetTask(mission, getPlayerOwner().get(), mission->getEndPlanet());
 
 	if (targetTask != NULL && !targetTask->isScheduled()) {
-		targetTask->schedule(10 * 1000);
+		targetTask->schedule(5 * 1000);
 	}
 }
 
