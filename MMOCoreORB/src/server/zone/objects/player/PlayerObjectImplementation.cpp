@@ -1376,7 +1376,6 @@ void PlayerObjectImplementation::notifyOnline() {
 
 	SkillList* skillList = playerCreature->getSkillList();
 	ManagedReference<PlayerObject*> ghost = playerCreature->getPlayerObject();
-	playerCreature->sendExecuteConsoleCommand("/chatRoom join
 
 	// Check for Old Trainer Method
 	Vector3 coords = ghost->getTrainerCoordinates();
@@ -1393,46 +1392,6 @@ void PlayerObjectImplementation::notifyOnline() {
 		<< coordsOrg.getX();
 		playerCreature->sendSystemMessage(orgCords.toString());*/
 	}
-
-	//Check for non legit jedi
-	/*if (playerCreature->getScreenPlayState("VillageJediProgression") == 0 && numSpecificSkills(playerCreature, "force_") > 0 && !ghost->isPrivileged()) {
-		while (numSpecificSkills(playerCreature, "force_") > 0) {
-			for (int i = 0; i < skillList->size(); ++i) {
-				String skillName = skillList->get(i)->getSkillName();
-				if(skillName.contains("force_")) {
-					SkillManager::instance()->surrenderSkill(skillName, playerCreature, true);
-				}
-			}
-		}
-		//SkillManager::instance()->surrenderAllSkills(playerCreature, true);
-		ghost->setJediState(0);
-
-		//banning character for 10 minutes
-		PlayerManager* playerManager = server->getPlayerManager();
-		ManagedReference<Account*> account = playerManager->getAccount(ghost->getAccountID());
-		//playerManager->banCharacter(adminGhost, account, playerCreature->getFirstName(), server->getZoneServer()->getGalaxyID(), 10, "Exploit - Bypassed Jedi Unlock Method");
-
-		String reason = "Guilty Of Exploiting Jedi Unlock";
-		String escapedReason = reason;
-		Database::escapeString(escapedReason);
-
-		String escapedName = firstName;
-		Database::escapeString(escapedName);
-		//ManagedReference<CreatureObject*> playerBan = getPlayer(firstName);
-
-		StringBuffer query;
-		query << "INSERT INTO character_bans values (NULL, " << account->getAccountID() << ", " << 0 << ", " << server->getZoneServer()->getGalaxyID() << ", '" << escapedName << "', " <<  "now(), UNIX_TIMESTAMP() + " << 600 << ", '" << escapedReason << "');";
-		ServerDatabase::instance()->executeStatement(query);
-
-		if(ghost != NULL)
-			ghost->setLoggingOut();
-
-		ghost->sendMessage(new LogoutMessage());
-
-		ManagedReference<ZoneClientSession*> session = playerCreature->getClient();
-		ErrorMessage* errmsg = new ErrorMessage("10 Minute Ban", "You have been found Guilty of exploiting the Jedi unlock and have been temporarily banned", 0x0);
-		session->sendMessage(errmsg);
-	}*/
 
 	// Check for force Title without past FRS
 	if (playerCreature->getScreenPlayState("jedi_FRS") == 0 && playerCreature->hasSkill("force_title_jedi_rank_03")) {
