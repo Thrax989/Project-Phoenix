@@ -4,7 +4,7 @@ world_exchange = Creature:new {
 	socialGroup = "townsperson",
 	pvpFaction = "townsperson",
 	faction = "townsperson",
-	level = 500,
+	level = 300,
 	chanceHit = 300,
 	damageMin = 1245,
 	damageMax = 2000,
@@ -32,8 +32,7 @@ world_exchange = Creature:new {
         lootGroups = {},
         weapons = {},
         conversationTemplate = "world_exchange_template",
-        attacks = {
-   }
+        attacks = {}
 }
 
 CreatureTemplates:addCreatureTemplate(world_exchange, "world_exchange")
