@@ -116,16 +116,16 @@ void SurveyToolImplementation::sendRangeSui(CreatureObject* player) {
 		suiToolRangeBox->addMenuItem("320m x 5pts", 4);
 
 	if (surveyMod >= 105)
-		suiToolRangeBox->addMenuItem("384m x 5pts", 5);
+		suiToolRangeBox->addMenuItem("384m x 6pts", 5);
 
 	if (surveyMod >= 110)
-		suiToolRangeBox->addMenuItem("448m x 5pts", 6);
+		suiToolRangeBox->addMenuItem("448m x 6pts", 6);
 	
 	if (surveyMod >= 115)
-		suiToolRangeBox->addMenuItem("512m x 5pts", 7);
+		suiToolRangeBox->addMenuItem("512m x 6pts", 7);
 		
 	if (surveyMod >= 125)
-		suiToolRangeBox->addMenuItem("1024m x 5pts", 8);
+		suiToolRangeBox->addMenuItem("1024m x 6pts", 8);
 		
 	suiToolRangeBox->setUsingObject(_this.getReferenceUnsafeStaticCast());
 	suiToolRangeBox->setCallback(new SurveyToolSetRangeSuiCallback(server->getZoneServer()));
@@ -148,11 +148,11 @@ int SurveyToolImplementation::getSkillBasedRange(int skillLevel) {
 
 	if (skillLevel >= 125)
 		return 1024;
-	if (skillLevel >= 115)
+	else if (skillLevel >= 115)
 		return 512;
-	if (skillLevel >= 110)
+	else if (skillLevel >= 110)
 		return 448;
-	if (skillLevel >= 105)
+	else if (skillLevel >= 105)
 		return 384;
 	else if (skillLevel >= 100)
 		return 320;
@@ -171,8 +171,10 @@ int SurveyToolImplementation::getSkillBasedRange(int skillLevel) {
 void SurveyToolImplementation::setRange(int r) {
 	range = r;  // Distance the tool checks during survey
 
-	// Set number of grid points in survey SUI 3x3 to 5x5
-	if (range >= 256) {
+	// Set number of grid points in survey SUI 3x3 to 6x6
+	if (range >= 384) {
+		points = 6;
+	) else if (range >= 256) {
 		points = 5;
 	} else if (range >= 128) {
 		points = 4;
