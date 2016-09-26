@@ -5,9 +5,9 @@ wep_comps = {
 	minimumLevel = 0,
 	maximumLevel = 0,
 	lootItems = {
-		{itemTemplate = "prototype_blaster_barrel", weight = 2500000}
-		{itemTemplate = "prototype_projectile_barrel", weight = 2500000}
-		{itemTemplate = "prototype_scope", weight = 2500000}
+		{itemTemplate = "prototype_blaster_barrel", weight = 2500000},
+		{itemTemplate = "prototype_projectile_barrel", weight = 2500000},
+		{itemTemplate = "prototype_scope", weight = 2500000},
 		{itemTemplate = "prototype_stock", weight = 2500000}
 	}
 }
