@@ -426,6 +426,7 @@ includeFile("groups/nge3.lua")
 includeFile("groups/ngerobe1.lua")
 includeFile("groups/ngerobe2.lua")
 includeFile("groups/ngerobe3.lua")
+includeFile("groups/wep_comps.lua")
 -- Custom tables
 includeFile("groups/custom/av_21_pp.lua")
 includeFile("groups/custom/av_21_scheme.lua")

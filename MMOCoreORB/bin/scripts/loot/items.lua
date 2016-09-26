@@ -1248,6 +1248,11 @@ includeFile("items/ngerobes3.lua")
 includeFile("items/ngerobes4.lua")
 includeFile("items/ngerobes5.lua")
 includeFile("items/ngerobes6.lua")
+includeFile("items/prototype_blaster_barrel.lua")
+includeFile("items/prototype_projectile_barrel.lua")
+includeFile("items/prototype_scope.lua")
+includeFile("items/prototype_stock.lua")
+
 -- Custom data
 --AV21 Loot
 includeFile("items/custom/av_21_schematic.lua")
