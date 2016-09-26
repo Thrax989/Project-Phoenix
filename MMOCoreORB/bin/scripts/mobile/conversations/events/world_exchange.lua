@@ -34,7 +34,7 @@ world_exchange_template:addScreen(world_exchange_items_screen);
 world_exchange_first_screen = ConvoScreen:new {
    id = "first_screen",
    leftDialog = "",
-   customDialogText = "Welcome to the World Shop exchange.  Here you can Purchase Rare and Exotic Items from me by exchanging a Rare Loot Only Found off a World Boss mostly obtained from Special Events. If you are worth Enough Too loot these rare exchange items you can bring them here to exchange them for Rare and exotic Items/Goods . Few ever get a chance to use this shop due to only 1 rare boss item dropping from a single world boss, but if you are one of those who Holds a Rare Item from the World boss Consider Yourself Lucky. The Rare Item I am speaking of is a Set of Glowy Bones That is a symbol of you killing the creature or NPC. Select What Items you would like to exchange your bones for.",
+   customDialogText = "Welcome to the World Shop Exchange. Here you can Purchase Rare and Exotic Items from me by exchanging a Rare Loot Only Found off a World Boss mostly obtained from Special Events. If you are worthy Enough Too loot these rare exchange items you can bring them here to exchange them for Rare and exotic Items/Goods . Few ever get a chance to use this shop due to only 1 rare boss item dropping from a single world boss, but if you are one of those who Holds a Rare Item from the World boss Consider Yourself Lucky. The Rare Item I am speaking of is a Set of Glowy Bones That is a symbol of you killing the creature or NPC. Select What Items you would like to exchange your bones for on the right hand side Thank You For Your Time.",
    stopConversation = "false",
    options = {
       {"Items", "items"},
