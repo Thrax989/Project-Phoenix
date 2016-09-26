@@ -1253,6 +1253,8 @@ includeFile("items/prototype_projectile_barrel.lua")
 includeFile("items/prototype_scope.lua")
 includeFile("items/prototype_stock.lua")
 includeFile("items/prototype_blaster_power_handler.lua")
+includeFile("items/prototype_projectile_rifle_barrel.lua")
+includeFile("items/prototype_rifle_blaster_barrel.lua")
 
 -- Custom data
 --AV21 Loot
