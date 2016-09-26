@@ -1,4 +1,4 @@
-Elliot = Creature:new {
+elliot = Creature:new {
 	objectName = "@mob/creature_names:",
 	customName = "Elliot (Mad Scientist)",
 	socialGroup = "self",
@@ -42,8 +42,8 @@ Elliot = Creature:new {
 				{group = "wep_comps", chance = 10000000}
 			},
 			lootChance = 5000000
-		 },
-		 {
+		},
+		{
 			groups = {
 				{group = "wep_comps", chance = 10000000}
 			},
@@ -54,50 +54,50 @@ Elliot = Creature:new {
 				{group = "wep_comps", chance = 10000000}
 			},
 			lootChance = 5000000
-		 },
-			{
+		},
+		{
 			groups = {
 				{group = "janta_rare", chance = 10000000}
 			},
 			lootChance = 10000000
-		 },
+		},
 		{
 			groups = {
 				{group = "janta_rare", chance = 10000000}
 			},
 			lootChance = 5000000
-		 },
+		},
 		{
 			groups = {
 				{group = "janta_rare", chance = 10000000}
 			},
 			lootChance = 5000000
-		 },
+		},
 		{
 			groups = {
 				{group = "janta_rare", chance = 10000000}
 			},
 			lootChance = 5000000
-		 },
+		},
 		{
 			groups = {
 				{group = "geonosian_common", chance = 10000000}
 			},
 			lootChance = 10000000
-		 },
-		{
-			groups = {
-				{group = "geonosian_common", chance = 10000000}
-			},
-			lootChance = 5000000
-		 },
+		},
 		{
 			groups = {
 				{group = "geonosian_common", chance = 10000000}
 			},
 			lootChance = 5000000
 		},
-		 {
+		{
+			groups = {
+				{group = "geonosian_common", chance = 10000000}
+			},
+			lootChance = 5000000
+		},
+		{
 			groups = {
 				{group = "geonosian_common", chance = 10000000}
 			},
@@ -106,7 +106,7 @@ Elliot = Creature:new {
 		},	
 	weapons = {"imperial_weapons_heavy"},
 	reactionStf = "@npc_reaction/slang",
-attacks = merge(bountyhuntermaster,marksmanmaster,brawlermaster,pikemanmaster,fencermaster,swordsmanmaster,tkamaster,pistoleermaster,commandomaster)
+	attacks = merge(bountyhuntermaster,marksmanmaster,brawlermaster,pikemanmaster,fencermaster,swordsmanmaster,tkamaster,pistoleermaster,commandomaster)
 }
 
-CreatureTemplates:addCreatureTemplate(Elliot, "Elliot")
+CreatureTemplates:addCreatureTemplate(elliot, "elliot")
