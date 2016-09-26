@@ -44,11 +44,7 @@ function KraytGraveyardScreenPlay:spawnMobiles()
 
 	spawnMobile("tatooine", "krayt_dragon_ancient", 300, 4978.2, 29.2097, 4251.56, -91, 0)
 	spawnMobile("tatooine", "krayt_dragon_ancient", 300, 6138.01, 48.9556, 4146.06, -91, 0)
-   	spawnMobile("tatooine", "krayt_dragon_ancient_elder", 300,math.random(300) + 6138.01, 48.9556,math.random(300) + 4146.06, math.random(360), 0)
-   	spawnMobile("tatooine", "krayt_dragon_ancient_elder", 300,math.random(300) + 6138.01, 48.9556,math.random(300) + 4146.06, math.random(360), 0)
-   	spawnMobile("tatooine", "krayt_dragon_ancient_elder", 300,math.random(300) + 6138.01, 48.9556,math.random(300) + 4146.06, math.random(360), 0)
-   	spawnMobile("tatooine", "krayt_dragon_ancient_elder", 300,math.random(300) + 6138.01, 48.9556,math.random(300) + 4146.06, math.random(360), 0)
-   	spawnMobile("tatooine", "krayt_dragon_ancient_elder", 300,math.random(300) + 6138.01, 48.9556,math.random(300) + 4146.06, math.random(360), 0)
+	
 	spawnMobile("tatooine", "krayt_dragon_ancient", 300, -4760.66, 26.6838, -4513.16, -91, 0)
    	spawnMobile("tatooine", "krayt_dragon_ancient_elder", 300,math.random(300) + -4760.66, 26.6838,math.random(300) + -4513.16, math.random(360), 0)
    	spawnMobile("tatooine", "krayt_dragon_ancient_elder", 300,math.random(300) + -4760.66, 26.6838,math.random(300) + -4513.16, math.random(360), 0)
