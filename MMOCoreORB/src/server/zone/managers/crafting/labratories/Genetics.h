@@ -346,7 +346,7 @@ public:
 		int level = armorLevel + 1;
 		if (level < baseLevel)
 			level = baseLevel;
-		int eff = armorBase/50;
+		int eff = armorBase/100;
 		if (armorBase > 500)
 			eff = (armorBase-500)/50;
 		if (armorBase == 500)
@@ -368,7 +368,7 @@ public:
 		int level = armorLevel + 1;
 		if (level < baseLevel)
 			level = baseLevel;
-		int eff = armorBase/50;
+		int eff = armorBase/100;
 		if (armorBase > 500)
 			eff = (armorBase-500)/50;
 		if (armorBase == 500)
