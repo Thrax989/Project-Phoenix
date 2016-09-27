@@ -67,6 +67,7 @@ randomDotUses = {250, 9999}
 junkValueModifier = 15;
 
 lootableArmorAttachmentStatMods = {
+	"camp",
 	"tame_level",
 	"bio_engineer_assembly",
 	"bio_engineer_experimentation",
@@ -166,6 +167,7 @@ lootableArmorAttachmentStatMods = {
 }
 
 lootableClothingAttachmentStatMods = {
+	"camp",
 	"tame_level",
 	"combat_healing_ability",
 	"combat_medic_effectiveness",
