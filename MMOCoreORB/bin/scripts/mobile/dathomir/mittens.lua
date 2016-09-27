@@ -30,67 +30,43 @@
 	templates = {"object/mobile/vir_vur.iff"},
 	scale = 1.75;
 lootGroups = {
-		{
-			groups = {
-				{group = "armor_attachments", chance = 5000000},
-				{group = "clothing_attachments", chance = 5000000}
-			},
-			lootChance = 10000000
-		},
-		{
-			groups = {
-				{group = "armor_attachments", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
 		 {
 			groups = {
 				{group = "nge1", chance = 10000000}
 			},
-			lootChance = 2500000
+			lootChance = 4500000
 		},
 		 {
 			groups = {
 				{group = "barc_speeder_deed_group", chance = 10000000}
 			},
-			lootChance = 100000
+			lootChance = 150000
 		},
 		 {
 			groups = {
 				{group = "nge2", chance = 10000000}
 			},
-			lootChance = 2500000
+			lootChance = 4500000
 		},
 		 {
 			groups = {
 				{group = "nge3", chance = 10000000}
 			},
-			lootChance = 2500000
-		},
-		 {
-			groups = {
-				{group = "clothing_attachments", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-		 {
-			groups = {
-				{group = "clothing_attachments", chance = 10000000}
-			},
-			lootChance = 10000000
+			lootChance = 4500000
 		},
 		},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
+		{"strongpoison","PoisonChance=50"},
+		{"strongDisease","DiseaseChance=50"},
  		{"creatureareacombo","stateAccuracyBonus=50"},
  		{"creatureareaknockdown","stateAccuracyBonus=50"},
 		{"creatureareaknockdown","KnockdownChance=50"},
 		{"dizzyattack","DizzyChance=50"},
 		{"intimidationattack","IntimidationChance=50"},
-		{"creatureareapoison","PoisonChance=50"},
-		{"strongpoison","PoisonChance=50"},
-		{"strongDisease","DiseaseChance=50"}
+		{"creatureareapoison","PoisonChance=50"}
+
  	}
 }
 
