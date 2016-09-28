@@ -59,7 +59,7 @@ CreatureAreaDiseaseCommand = {
 	  )
 	},
 
-	areaRange = 25,
+	areaRange = 15,
 	areaAction = true
 }
 
