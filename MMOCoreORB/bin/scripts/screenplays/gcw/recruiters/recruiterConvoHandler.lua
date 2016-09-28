@@ -57,7 +57,6 @@ function RecruiterConvoHandler:runScreenHandlers(conversationTemplate, conversin
 			createEvent(0, "recruiterScreenplay", "handleGoOvert", conversingPlayer, "")
 
 		elseif (screenID == "accepted_go_covert") then
-			if (player:hasSkill("force_title_jedi_rank_03")) then
 				return
 			end
 			player:setPvpStatusBit(CHANGEFACTIONSTATUS)
@@ -66,7 +65,6 @@ function RecruiterConvoHandler:runScreenHandlers(conversationTemplate, conversin
 
 		elseif (screenID == "accepted_go_on_leave") then
 
-			if (player:hasSkill("force_title_jedi_rank_03")) then
 				return
 			end
 			player:setPvpStatusBit(CHANGEFACTIONSTATUS)
@@ -74,7 +72,6 @@ function RecruiterConvoHandler:runScreenHandlers(conversationTemplate, conversin
 			createEvent(0, "recruiterScreenplay", "handleGoOnLeave", conversingPlayer, "")
 
 		elseif (screenID == "accepted_resign") then
-			if (player:hasSkill("force_title_jedi_rank_03")) then
 				return
 			end
 
