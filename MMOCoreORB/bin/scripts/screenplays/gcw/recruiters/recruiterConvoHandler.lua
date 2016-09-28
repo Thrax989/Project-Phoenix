@@ -57,24 +57,17 @@ function RecruiterConvoHandler:runScreenHandlers(conversationTemplate, conversin
 			createEvent(0, "recruiterScreenplay", "handleGoOvert", conversingPlayer, "")
 
 		elseif (screenID == "accepted_go_covert") then
-				return
-			end
 			player:setPvpStatusBit(CHANGEFACTIONSTATUS)
 			writeData(player:getObjectID() .. ":changingFactionStatus", 1)
 			createEvent(0, "recruiterScreenplay", "handleGoCovert", conversingPlayer, "")
 
 		elseif (screenID == "accepted_go_on_leave") then
-
-				return
-			end
 			player:setPvpStatusBit(CHANGEFACTIONSTATUS)
 			writeData(player:getObjectID() .. ":changingFactionStatus", 1)
 			createEvent(0, "recruiterScreenplay", "handleGoOnLeave", conversingPlayer, "")
 
 		elseif (screenID == "accepted_resign") then
-				return
-			end
-
+				
 			if (playerObject:isOvert()) then
 				player:setPvpStatusBit(CHANGEFACTIONSTATUS)
 				writeData(player:getObjectID() .. ":changingFactionStatus", 1)
