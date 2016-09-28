@@ -172,15 +172,14 @@ void SurveyToolImplementation::setRange(int r) {
 	range = r;  // Distance the tool checks during survey
 
 	// Set number of grid points in survey SUI 3x3 to 6x6
-	if (range >= 384) {
+	if (range >= 384) 
 		points = 6;
-	) else if (range >= 256) {
+	else if (range >= 256) 
 		points = 5;
-	} else if (range >= 128) {
+	else if (range >= 128) 
 		points = 4;
-	} else {
+	else
 		points = 3;
-	}
 }
 
 void SurveyToolImplementation::sendRadioactiveWarning(CreatureObject* player) {
