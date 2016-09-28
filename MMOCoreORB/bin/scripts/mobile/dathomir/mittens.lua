@@ -7,9 +7,9 @@
 	chanceHit = 75,
 	damageMin = 5850,
 	damageMax = 6750,
-	baseXp = 385000,
-	baseHAM = 515000,
-	baseHAMmax = 550000,
+	baseXp = 500000,
+	baseHAM = 575000,
+	baseHAMmax = 585000,
 	armor = 3,
 	resists = {95,95,95,95,95,95,95,95,95},
 	meatType = "meat_avian",
@@ -58,14 +58,13 @@ lootGroups = {
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"strongpoison","PoisonChance=50"},
-		{"strongDisease","DiseaseChance=50"},
+		{"creatureareapoison","PoisonChance=50"},
+		{"creatureareadisease","DiseaseChance=50"},
  		{"creatureareacombo","stateAccuracyBonus=50"},
  		{"creatureareaknockdown","stateAccuracyBonus=50"},
 		{"creatureareaknockdown","KnockdownChance=50"},
 		{"dizzyattack","DizzyChance=50"},
-		{"intimidationattack","IntimidationChance=50"},
-		{"creatureareapoison","PoisonChance=50"}
+		{"intimidationattack","IntimidationChance=50"}
 
  	}
 }
