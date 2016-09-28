@@ -187,7 +187,7 @@ void GeneticLabratory::setInitialCraftingValues(TangibleObject* prototype, Manuf
 	electricMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::ELECTRICITY,80.0f);
 	acidMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::ACID,80.0f);
 	stunMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::STUN,80.0f);
-	Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::LIGHTSABER,80.0f);
+	saberMax = Genetics::resistanceFormula(phy,pro,men,psy,agr,SharedWeaponObjectTemplate::LIGHTSABER,80.0f);
 
 	// lets clear the special bit if it moved to effective range.
 	if (saberMax == 0) {
