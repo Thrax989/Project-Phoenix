@@ -102,7 +102,7 @@ void GeneticComponentImplementation::updateCraftingValues(CraftingValues* values
 		setSpecialResist(SharedWeaponObjectTemplate::LIGHTSABER);
 
 	if (fortitude > 200) {
-		armorRating = 3;
+		armorRating = 1;
 	}
 	// min - max values
 	if (fortitude > 10000) {
