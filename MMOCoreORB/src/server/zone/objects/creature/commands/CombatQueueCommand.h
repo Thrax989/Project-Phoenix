@@ -177,7 +177,8 @@ public:
 
 						if (targetCreature != NULL) {
 							if (targetCreature->isPlayerCreature()) {
-								if (!CombatManager::instance()->areInDuel(creature, targetCreature) && (!targetCreature->isInBountyMission(creature, targetCreature))) {
+								getCreature->isPlayerCreature()) {
+								if (!CombatManager::instance()->areInDuel(creature, targetCreature) && (!targetCreature->isInBountyMission(creature, targetCreature) && !creature->isInBountyMission(targetCreature, creature))) {
 									PlayerObject* targetGhost = targetCreature->getPlayerObject();
 
 									if (targetGhost != NULL && targetGhost->getFactionStatus() == FactionStatus::OVERT) {
