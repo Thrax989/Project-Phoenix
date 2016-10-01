@@ -188,6 +188,5 @@ includeFile("faction/imperial/stormtrooper_rifleman.lua")
 includeFile("faction/imperial/stormtrooper_sniper.lua")
 includeFile("faction/imperial/stormtrooper_squad_leader.lua")
 includeFile("faction/imperial/veteran_compforce_trooper.lua")
-includeFile("faction/imperial/warden_vinzel_heylon.lua")
 includeFile("faction/imperial/imperial_captain.lua")
 

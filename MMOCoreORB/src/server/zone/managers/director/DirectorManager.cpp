@@ -515,6 +515,7 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	Luna<LuaQuestVectorMap>::Register(luaEngine->getLuaState());
 	Luna<LuaSuiBoxPage>::Register(luaEngine->getLuaState());
 	Luna<LuaPowerupObject>::Register(luaEngine->getLuaState());
+	Luna<LuaWaypointObject>::Register(luaEngine->getLuaState());
 }
 
 int DirectorManager::loadScreenPlays(Lua* luaEngine) {
@@ -2614,7 +2615,7 @@ int DirectorManager::getSpawnPoint(lua_State* L) {
 	Zone* zone = ServerCore::getZoneServer()->getZone(zoneName);
 
 	if (zone == NULL) {
-		instance()->error("Zone is NULL in DirectorManager::getSpawnPoint");
+		instance()->error("Zone is NULL in DirectorManager::getSpawnPoint. zoneName = " + zoneName);
 		return 0;
 	}
 

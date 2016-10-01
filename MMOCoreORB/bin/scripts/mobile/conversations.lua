@@ -72,6 +72,11 @@ includeFile("conversations/themepark/epic_quests/goru_conv.lua")
 includeFile("conversations/themepark/logic/mission_giver_conv.lua")
 includeFile("conversations/themepark/logic/mission_target_conv.lua")
 
+-- Heralds
+includeFile("conversations/tasks/heralds/herald_conv.lua")
+includeFile("conversations/tasks/heralds/herald_lok1_conv.lua")
+includeFile("conversations/tasks/heralds/herald_lok2_conv.lua")
+
 -- ** DUNGEONS **
 
 -- Corellian Corvette
@@ -125,7 +130,6 @@ includeFile("conversations/recruiter/imperial_recruiter_conv.lua")
 
 -- Tasks
 includeFile("conversations/tasks/audience_member_conv.lua")
-includeFile("conversations/tasks/herald_conv.lua")
 includeFile("conversations/tasks/kidnapped_noble_conv.lua")
 includeFile("conversations/tasks/ris_armor_quest_conv.lua")
 includeFile("conversations/tasks/librarian_conv.lua")
@@ -174,6 +178,8 @@ includeFile("conversations/village/phase1/whip_phase1_conv.lua")
 includeFile("conversations/village/phase1/quharek_phase1_conv.lua")
 includeFile("conversations/village/phase1/fs_reflex1_prisoner_conv.lua")
 includeFile("conversations/village/phase2/whip_phase2_conv.lua")
+includeFile("conversations/village/phase2/quharek_phase2_conv.lua")
+includeFile("conversations/village/phase2/qtqc_phase2_conv.lua")
 includeFile("conversations/village/phase2/elder_phase2_conv.lua")
 includeFile("conversations/village/phase2/dageerin_phase2_conv.lua")
 includeFile("conversations/village/phase3/dageerin_phase3_conv.lua")

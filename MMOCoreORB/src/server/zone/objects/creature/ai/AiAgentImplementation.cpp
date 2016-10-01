@@ -3168,12 +3168,16 @@ bool AiAgentImplementation::isAttackableBy(CreatureObject* object) {
 
 		String targetSocialGroup = ai->getSocialGroup().toLowerCase();
 		if (!targetSocialGroup.isEmpty() && targetSocialGroup != "self" && targetSocialGroup == getSocialGroup().toLowerCase()) {
-			return false;
-		}
-	}
-
-	return true;
-}
+ 			return false;
+  		}
+ 
+ 		uint32 targetLairTemplateCRC = ai->getLairTemplateCRC();
+ 		if (targetLairTemplateCRC != 0 && targetLairTemplateCRC == getLairTemplateCRC()) {
+ 			return false;
+ 		}
+  	}
+  
+  	return true;}
 
 void AiAgentImplementation::restoreFollowObject() {
 	Locker locker(&targetMutex);
