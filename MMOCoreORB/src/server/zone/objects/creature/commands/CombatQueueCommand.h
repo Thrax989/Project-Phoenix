@@ -135,30 +135,6 @@ public:
 	int doCombatAction(CreatureObject* creature, const uint64& target, const UnicodeString& arguments = "", ManagedReference<WeaponObject*> weapon = NULL) const {
 		ManagedReference<SceneObject*> targetObject = server->getZoneServer()->getObject(target);
 		PlayerManager* playerManager = server->getPlayerManager();
-/*
-		//Disabled Until I can verify it won't crash
-		ManagedReference<SceneObject*> targetParent;
-		if (targetObject != NULL) {
-			targetParent = targetObject->getRootParent();
-		} else {
-			targetParent = creature->getRootParent();
-		}
-		if (creature->isPet() && targetParent != NULL) {
-			ManagedReference<PetControlDevice*> controlDevice = creature->getControlDevice().castTo<PetControlDevice*>();
-			if (controlDevice != NULL) {
-				ManagedReference<AiAgent*> pet = cast<AiAgent*>(creature);
-				if (pet != NULL) {
-					ManagedReference<CreatureObject*> player = pet->getLinkedCreature().get();
-					if (player != NULL || player->isPlayerCreature() ) {
-						Locker clocker(player, pet);
-						Locker locker(controlDevice);
-						controlDevice->storeObject(player, true);
-						player->sendSystemMessage("You're pet is not allowed to attack indoors and has been stored!");
-					}
-				}
-			}
-			return GENERALERROR;
-		}*/
 
 		if (targetObject == NULL || !targetObject->isTangibleObject() || targetObject == creature)
 			return INVALIDTARGET;
@@ -201,7 +177,7 @@ public:
 
 						if (targetCreature != NULL) {
 							if (targetCreature->isPlayerCreature()) {
-								if (!CombatManager::instance()->areInDuel(creature, targetCreature)) {
+								if (!CombatManager::instance()->areInDuel(creature, targetCreature) && (!targetCreature->isInBountyMission(creature, targetCreature) || !creature->isInBountyMission(targetCreature, creature)))
 									PlayerObject* targetGhost = targetCreature->getPlayerObject();
 
 									if (targetGhost != NULL && targetGhost->getFactionStatus() == FactionStatus::OVERT) {
