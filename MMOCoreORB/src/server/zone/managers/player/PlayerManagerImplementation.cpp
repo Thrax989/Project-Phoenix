@@ -311,6 +311,13 @@ void PlayerManagerImplementation::loadPermissionLevels() {
 
 void PlayerManagerImplementation::finalize() {
 	nameMap = NULL;
+
+	permissionLevelList->removeAll();
+	permissionLevelList = NULL;
+
+	jukeboxSongs.removeAll();
+
+	questInfo.removeAll();
 }
 
 void PlayerManagerImplementation::loadNameMap() {

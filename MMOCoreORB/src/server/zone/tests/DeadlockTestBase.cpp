@@ -47,6 +47,12 @@ public:
 	void TearDown() {
 		// Perform clean up of common constructs here.
 		CLEAR_LOCK_TRACE();
+
+		sceneObject1 = NULL;
+		sceneObject2 = NULL;
+		sceneObject3 = NULL;
+		sceneObject4 = NULL;
+		monitor = NULL;
 	}
 };
 
@@ -204,4 +210,3 @@ void DeadlockDetector::detectDeadlock() {
 			locked.removeElement(lock->lockable);
 	}
 }
-
