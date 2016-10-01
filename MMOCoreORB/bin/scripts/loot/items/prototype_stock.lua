@@ -6,8 +6,8 @@ prototype_stock = {
 	customObjectName = "prototype stock",
 	directObjectTemplate = "object/tangible/component/weapon/stock_advanced.iff",
 	craftingValues = {
-		{"mindamage",85,150,0},
-		{"maxdamage",170,300,0},
+		{"mindamage",10,15,0},
+		{"maxdamage",20,30,0},
 		{"attackspeed",-0.5,-1.0,1},
 		{"woundchance",12,15,5},
 		{"useCount",3,12,0},
