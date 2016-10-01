@@ -6,8 +6,8 @@ prototype_blaster_barrel = {
 	customObjectName = "prototype blaster barrel",
 	directObjectTemplate = "object/tangible/component/weapon/blaster_pistol_barrel_advanced.iff",
 	craftingValues = {
-		{"mindamage",100,150,0},
-		{"maxdamage",200,300,0},
+		{"mindamage",10,15,0},
+		{"maxdamage",20,30,0},
 		{"attackspeed",-0.5,-1.0,1},
 		{"woundchance",12,15,5},
 		{"useCount",5,15,0},
