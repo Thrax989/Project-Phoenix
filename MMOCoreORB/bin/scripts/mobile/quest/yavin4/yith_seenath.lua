@@ -1,7 +1,8 @@
-talon_karrde = Creature:new {
-	objectName = "@mob/creature_names:talon_karrde",
-	socialGroup = "townsperson",
-	faction = "townsperson",
+yith_seenath = Creature:new {
+	objectName = "",
+	customName = "Yith Seenath",
+	socialGroup = "rebel",
+	faction = "rebel",
 	level = 100,
 	chanceHit = 1,
 	damageMin = 645,
@@ -25,12 +26,12 @@ talon_karrde = Creature:new {
 	optionsBitmask = AIENABLED + CONVERSABLE,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/dressed_talon_karrde.iff"},
+	templates = {"object/mobile/dressed_yith_seenath.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "talon_karrde_mission_giver_convotemplate",
+	conversationTemplate = "yith_seenath_mission_giver_convotemplate",
 	attacks = {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(talon_karrde, "talon_karrde")
+CreatureTemplates:addCreatureTemplate(yith_seenath, "yith_seenath")

@@ -1,6 +1,5 @@
-maikeen_storn = Creature:new {
-	objectName = "@mob/creature_names:farmer",
-	customName = "Maikeen Storn",
+dancer_agent_quest_skinkner = Creature:new {
+	objectName = "@mob/creature_names:entertainer",
 	socialGroup = "townsperson",
 	faction = "townsperson",
 	level = 4,
@@ -11,7 +10,7 @@ maikeen_storn = Creature:new {
 	baseHAM = 113,
 	baseHAMmax = 138,
 	armor = 0,
-	resists = {15,15,15,15,15,15,15,-1,-1},
+	resists = {0,0,0,0,0,0,0,-1,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -23,16 +22,14 @@ maikeen_storn = Creature:new {
 	ferocity = 0,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = HERD,
-	optionsBitmask = AIENABLED + CONVERSABLE,
+	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/dressed_commoner_naboo_zabrak_female_02.iff",
-	},
-
+	templates = {"object/mobile/dressed_entertainer_trainer_twk_female_01.iff",},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "melios_purl_mission_target_convotemplate",
-	attacks = brawlermaster
+	conversationTemplate = "",
+	attacks = merge(brawlermaster, teraskasinovice)
 }
 
-CreatureTemplates:addCreatureTemplate(maikeen_storn, "maikeen_storn")
+CreatureTemplates:addCreatureTemplate(dancer_agent_quest_skinkner, "dancer_agent_quest_skinkner")

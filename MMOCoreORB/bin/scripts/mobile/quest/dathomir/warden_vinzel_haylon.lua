@@ -1,13 +1,13 @@
-izaryx = Creature:new {
+warden_vinzel_haylon = Creature:new {
 	objectName = "",
-	customName = "Izaryx",
-	socialGroup = "mtn_clan",
-	faction = "mtn_clan",
+	customName = "Warden Vinzel Haylon",
+	socialGroup = "imperial",
+	faction = "imperial",
 	level = 100,
 	chanceHit = 1,
 	damageMin = 645,
 	damageMax = 1000,
-	baseXp = 0,
+	baseXp = 9429,
 	baseHAM = 24000,
 	baseHAMmax = 30000,
 	armor = 0,
@@ -26,12 +26,11 @@ izaryx = Creature:new {
 	optionsBitmask = AIENABLED + CONVERSABLE,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/dressed_izaryx.iff"},
+	templates = {"object/mobile/dressed_vinzel_haylon.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "theme_park_smc_vhaunda_izaryx_mission_giver_convotemplate",
-	attacks = {
-	}
+	conversationTemplate = "warden_vinzel_haylon_mission_giver_convotemplate",
+	attacks = {}
 }
 
-CreatureTemplates:addCreatureTemplate(izaryx, "izaryx")
+CreatureTemplates:addCreatureTemplate(warden_vinzel_haylon, "warden_vinzel_haylon")

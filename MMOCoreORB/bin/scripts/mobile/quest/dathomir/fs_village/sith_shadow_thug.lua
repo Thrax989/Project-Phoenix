@@ -3,7 +3,7 @@ sith_shadow_thug = Creature:new {
 	socialGroup = "sith_shadow",
 	faction = "sith_shadow",
 	level = 51,
-	chanceHit = 100,
+	chanceHit = 0.47,
 	damageMin = 395,
 	damageMax = 500,
 	baseXp = 5007,
@@ -67,7 +67,7 @@ sith_shadow_thug = Creature:new {
 		}
 	},
 
-	weapons = {"dark_jedi_weapons_gen4"},
+	weapons = {"pirate_weapons_heavy"},
 	conversationTemplate = "",
 	attacks = merge(riflemanmaster,pistoleermaster,carbineermaster,marksmanmaster,brawlermaster)
 }

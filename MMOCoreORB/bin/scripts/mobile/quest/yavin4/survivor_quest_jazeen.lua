@@ -1,6 +1,5 @@
-maikeen_storn = Creature:new {
-	objectName = "@mob/creature_names:farmer",
-	customName = "Maikeen Storn",
+survivor_quest_jazeen = Creature:new {
+	objectName = "@mob/creature_names:crafting_contractor",
 	socialGroup = "townsperson",
 	faction = "townsperson",
 	level = 4,
@@ -26,13 +25,11 @@ maikeen_storn = Creature:new {
 	optionsBitmask = AIENABLED + CONVERSABLE,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/dressed_commoner_naboo_zabrak_female_02.iff",
-	},
-
+	templates = {"object/mobile/dressed_artisan_trainer_02.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "melios_purl_mission_target_convotemplate",
-	attacks = brawlermaster
+	conversationTemplate = "jazeen_thurmm_mission_target_convotemplate",
+	attacks = merge(brawlermaster, teraskasinovice)
 }
 
-CreatureTemplates:addCreatureTemplate(maikeen_storn, "maikeen_storn")
+CreatureTemplates:addCreatureTemplate(survivor_quest_jazeen, "survivor_quest_jazeen")
