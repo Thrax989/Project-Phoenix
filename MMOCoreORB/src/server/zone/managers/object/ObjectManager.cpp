@@ -16,7 +16,6 @@
 #include "server/zone/ZoneProcessServer.h"
 #include "templates/manager/TemplateManager.h"
 #include "templates/SharedObjectTemplate.h"
-#include "server/chat/ChatManager.h"
 #include "engine/db/berkley/BTransaction.h"
 #include "ObjectVersionUpdateManager.h"
 #include "server/ServerCore.h"
@@ -76,6 +75,7 @@ ObjectManager::ObjectManager() : DOBObjectManager() {
 }
 
 ObjectManager::~ObjectManager() {
+
 }
 
 void ObjectManager::registerObjectTypes() {
@@ -1075,13 +1075,15 @@ void ObjectManager::cancelDeleteCharactersTask() {
 
 void ObjectManager::stopUpdateModifiedObjectsThreads() {
 	for (int i = updateModifiedObjectsThreads.size() - 1; i >= 0; --i) {
-		updateModifiedObjectsThreads.get(i)->stopWork();
+		engine::ORB::UpdateModifiedObjectsThread* thread = updateModifiedObjectsThreads.get(i);
+		thread->stopWork();
+		delete thread;
 	}
 }
 
 void ObjectManager::shutdown() {
 	stopUpdateModifiedObjectsThreads();
-	CommitMasterTransactionThread::instance()->cancel();
+	CommitMasterTransactionThread::instance()->shutdown();
 	databaseManager->closeDatabases();
 	databaseManager->finalizeInstance();
 	databaseManager = NULL;

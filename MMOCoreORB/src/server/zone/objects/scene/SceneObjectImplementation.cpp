@@ -502,7 +502,7 @@ void SceneObjectImplementation::sendAttributeListTo(CreatureObject* object) {
 void SceneObjectImplementation::broadcastObjectPrivate(SceneObject* object, SceneObject* selfObject) {
 	ZoneServer* zoneServer = getZoneServer();
 
-	if (zoneServer == NULL || zoneServer->isServerLoading())
+	if (zoneServer == NULL || zoneServer->isServerLoading() || zoneServer->isServerShuttingDown())
 		return;
 
 	if (parent != NULL) {
@@ -557,7 +557,7 @@ void SceneObjectImplementation::broadcastObject(SceneObject* object, bool sendSe
 void SceneObjectImplementation::broadcastDestroyPrivate(SceneObject* object, SceneObject* selfObject) {
 	ZoneServer* zoneServer = getZoneServer();
 
-	if (zoneServer == NULL || zoneServer->isServerLoading())
+	if (zoneServer == NULL || zoneServer->isServerLoading() || zoneServer->isServerShuttingDown())
 		return;
 
 	if (parent.get() != NULL) {
@@ -579,7 +579,7 @@ void SceneObjectImplementation::broadcastDestroyPrivate(SceneObject* object, Sce
 	int maxInRangeObjectCount = 0;
 
 	if (closeobjects == NULL) {
-		info("Null closeobjects vector in SceneObjectImplementation::broadcastDestroyPrivate", true);
+		info("Null closeobjects vector in SceneObjectImplementation::broadcastDestroyPrivate");
 		zone->getInRangeObjects(getPositionX(), getPositionY(), ZoneServer::CLOSEOBJECTRANGE + 64, &closeSceneObjects, true);
 
 		maxInRangeObjectCount = closeSceneObjects.size();
@@ -613,7 +613,7 @@ void SceneObjectImplementation::broadcastDestroy(SceneObject* object, bool sendS
 void SceneObjectImplementation::broadcastMessagePrivate(BasePacket* message, SceneObject* selfObject, bool lockZone) {
 	ZoneServer* zoneServer = getZoneServer();
 
-	if (zoneServer == NULL || zoneServer->isServerLoading()) {
+	if (zoneServer == NULL || zoneServer->isServerLoading() || zoneServer->isServerShuttingDown()) {
 		delete message;
 		return;
 	}
@@ -703,7 +703,7 @@ void SceneObjectImplementation::broadcastMessage(BasePacket* message, bool sendS
 void SceneObjectImplementation::broadcastMessagesPrivate(Vector<BasePacket*>* messages, SceneObject* selfObject) {
 	ZoneServer* zoneServer = getZoneServer();
 
-	if (zoneServer == NULL || zoneServer->isServerLoading()) {
+	if (zoneServer == NULL || zoneServer->isServerLoading() || zoneServer->isServerShuttingDown()) {
 		while (!messages->isEmpty()) {
 			delete messages->remove(0);
 		}
@@ -1081,16 +1081,6 @@ void SceneObjectImplementation::setDirection(const Quaternion& dir) {
 
 void SceneObjectImplementation::rotate(int degrees) {
 	Vector3 unity(0, 1, 0);
-	direction.rotate(unity, degrees);
-}
-
-void SceneObjectImplementation::rotateXaxis(int degrees) {
-        Vector3 unity(1, 0, 0);
-	direction.rotate(unity, degrees);
-}
-
-void SceneObjectImplementation::rotateYaxis(int degrees) {
-        Vector3 unity(0, 0, 1);
 	direction.rotate(unity, degrees);
 }
 
@@ -1689,4 +1679,3 @@ SceneObject* SceneObjectImplementation::asSceneObject() {
 SceneObject* SceneObject::asSceneObject() {
 	return this;
 }
-

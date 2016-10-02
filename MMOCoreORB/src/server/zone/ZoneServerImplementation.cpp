@@ -338,8 +338,6 @@ void ZoneServerImplementation::shutdown() {
 void ZoneServerImplementation::stopManagers() {
 	info("stopping managers..", true);
 
-	guildManager = NULL;
-	cityManager = NULL;
 	missionManager = NULL;
 	radialManager = NULL;
 	auctionManager = NULL;
@@ -351,6 +349,16 @@ void ZoneServerImplementation::stopManagers() {
 	zoneHandler = NULL;
 	configManager = NULL;
 	phandler = NULL;
+
+	if (guildManager != NULL) {
+		guildManager->stop();
+		guildManager = NULL;
+	}
+
+	if (cityManager != NULL) {
+		cityManager->stop();
+		cityManager = NULL;
+	}
 
 	if (chatManager != NULL) {
 		chatManager->stop();
@@ -471,6 +479,9 @@ bool ZoneServerImplementation::handleError(ZoneClientSession* client, Exception&
 
 Reference<SceneObject*> ZoneServerImplementation::getObject(uint64 oid, bool doLock) {
 	Reference<SceneObject*> obj = NULL;
+
+	if (isServerShuttingDown())
+		return obj;
 
 	try {
 		//lock(doLock); ObjectManager has its own mutex
@@ -749,6 +760,16 @@ void ZoneServerImplementation::setServerStateOnline() {
 
 	StringBuffer msg;
 	msg << dec << "server unlocked";
+	info(msg, true);
+}
+
+void ZoneServerImplementation::setServerStateShuttingDown() {
+	Locker locker(_this.getReferenceUnsafeStaticCast());
+
+	serverState = SHUTTINGDOWN;
+
+	StringBuffer msg;
+	msg << dec << "server shutting down";
 	info(msg, true);
 }
 

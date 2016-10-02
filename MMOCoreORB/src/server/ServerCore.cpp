@@ -228,7 +228,7 @@ void ServerCore::shutdown() {
 	ZoneServer* zoneServer = zoneServerRef.get();
 
 	if (zoneServer != NULL) {
-		zoneServer->setServerStateLocked();
+		zoneServer->setServerStateShuttingDown();
 
 		Thread::sleep(2000);
 
@@ -292,11 +292,6 @@ void ServerCore::shutdown() {
 
 	configManager = NULL;
 
-	mysql_thread_end();
-	engine::db::mysql::MySqlDatabase::finalizeLibrary();
-
-	NetworkInterface::finalize();
-
 	if (database != NULL) {
 		delete database;
 		database = NULL;
@@ -311,6 +306,11 @@ void ServerCore::shutdown() {
 		delete features;
 		features = NULL;
 	}
+
+	mysql_thread_end();
+	engine::db::mysql::MySqlDatabase::finalizeLibrary();
+
+	NetworkInterface::finalize();
 
 	Logger::closeGlobalFileLogger();
 
