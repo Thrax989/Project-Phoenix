@@ -94,8 +94,10 @@ void ZoneImplementation::startManagers() {
 }
 
 void ZoneImplementation::stopManagers() {
+	info("Shutting down.. ", true);
+
 	if (creatureManager != NULL) {
-		creatureManager->finalize();
+		creatureManager->stop();
 		creatureManager = NULL;
 	}
 
@@ -103,6 +105,13 @@ void ZoneImplementation::stopManagers() {
 		planetManager->finalize();
 		planetManager = NULL;
 	}
+
+	processor = NULL;
+	server = NULL;
+	mapLocations = NULL;
+	objectMap = NULL;
+	quadTree = NULL;
+	regionTree = NULL;
 }
 
 float ZoneImplementation::getHeight(float x, float y) {

@@ -340,8 +340,6 @@ int StructureManager::placeStructureFromDeed(CreatureObject* creature, Structure
 		return 1;
 	}
 
-	TemplateManager* templateManager = TemplateManager::instance();
-
 	if (ghost != NULL) {
 		String abilityRequired = serverTemplate->getAbilityRequired();
 

@@ -290,7 +290,6 @@ void ZoneServerImplementation::start(int p, int mconn) {
 
 void ZoneServerImplementation::stop() {
 	datagramService->stop();
-	//datagramService->setHandler(NULL);
 
 	shutdown();
 }
@@ -332,6 +331,8 @@ void ZoneServerImplementation::shutdown() {
 
 	printInfo();
 
+	datagramService = NULL;
+
 	info("shut down complete", true);
 }
 
@@ -341,14 +342,28 @@ void ZoneServerImplementation::stopManagers() {
 	resourceManager = NULL;
 	guildManager = NULL;
 	cityManager = NULL;
-	craftingManager = NULL;
-	lootManager = NULL;
 	missionManager = NULL;
 	chatManager = NULL;
 	radialManager = NULL;
 	auctionManager = NULL;
 	petManager = NULL;
 	reactionManager = NULL;
+	creatureTemplateManager = NULL;
+	dnaManager = NULL;
+	stringIdManager = NULL;
+	zoneHandler = NULL;
+	configManager = NULL;
+	phandler = NULL;
+
+	if (craftingManager != NULL) {
+		craftingManager->stop();
+		craftingManager = NULL;
+	}
+
+	if (lootManager != NULL) {
+		lootManager->stop();
+		lootManager = NULL;
+	}
 
 	if (playerManager != NULL) {
 		playerManager->finalize();
@@ -358,6 +373,11 @@ void ZoneServerImplementation::stopManagers() {
 	if (processor != NULL) {
 		processor->finalize();
 		processor = NULL;
+	}
+
+	if (objectManager != NULL) {
+		objectManager->shutdown();
+		objectManager = NULL;
 	}
 
 	info("managers stopped", true);
