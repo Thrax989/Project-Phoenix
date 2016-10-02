@@ -51,6 +51,7 @@ void ResourceManagerImplementation::loadSurveyData() {
 	}
 	info(String::valueOf(i) + " surveys loaded.", true);
 }
+
 int ResourceManagerImplementation::notifyObserverEvent(uint32 eventType, Observable* observable, ManagedObject* arg1, int64 arg2) {
 	if (eventType == ObserverEventType::POSTURECHANGED) {
 		CreatureObject* creature = cast<CreatureObject*>( observable);
@@ -166,8 +167,9 @@ void ResourceManagerImplementation::loadDefaultConfig() {
 }
 
 void ResourceManagerImplementation::stop() {
-
-
+	processor = NULL;
+	zoneServer = NULL;
+	resourceSpawner = NULL;
 }
 
 void ResourceManagerImplementation::startResourceSpawner() {

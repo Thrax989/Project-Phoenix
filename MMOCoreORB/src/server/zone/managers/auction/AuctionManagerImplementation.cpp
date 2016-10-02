@@ -522,11 +522,11 @@ AuctionItem* AuctionManagerImplementation::createVendorItem(CreatureObject* play
 	if(data != NULL && data->get() != NULL && data->get()->isVendorData())
 		vendorData = cast<VendorDataComponent*>(data->get());
 
-	// Someone elses Vendor (making this sell item an offer)
 	if (!vendor->isBazaarTerminal()) {
 		if(vendorData == NULL)
 			return NULL;
 
+		// Someone else's Vendor (making this sell item an offer)
 		if(vendorData->getOwnershipRightsOf(player) == 1) {
 			item->setStatus(AuctionItem::OFFERED);
 			item->setOfferToID(vendorData->getOwnerId());
@@ -543,7 +543,6 @@ AuctionItem* AuctionManagerImplementation::createVendorItem(CreatureObject* play
 
 	updateAuctionOwner(item, player);
 	ObjectManager::instance()->persistObject(item, 0, "auctionitems");
-
 
 	return item;
 }
@@ -1557,11 +1556,17 @@ void AuctionManagerImplementation::expireAuction(AuctionItem* item) {
 	ManagedReference<ChatManager*> cman = zoneServer->getChatManager();
 	ManagedReference<PlayerManager*> pman = zoneServer->getPlayerManager();
 
+	Zone* zone = vendor->getZone();
 	ManagedReference<CityRegion*> city = NULL;
-	String vendorPlanetName("@planet_n:" + vendor->getZone()->getZoneName());
+	String vendorPlanetName;
+
+	if (zone != NULL) {
+		vendorPlanetName = "@planet_n:" + zone->getZoneName();
+	}
+
 	String vendorRegionName = vendorPlanetName;
 
-	if( vendor->getCityRegion() != NULL){
+	if (vendor->getCityRegion() != NULL) {
 		city = vendor->getCityRegion().get();
 		vendorRegionName = city->getRegionName();
 	}
@@ -1574,7 +1579,7 @@ void AuctionManagerImplementation::expireAuction(AuctionItem* item) {
 	item->setExpireTime(availableTime);
 	item->clearAuctionWithdraw();
 
-	if(playername.isEmpty()) {
+	if (playername.isEmpty()) {
 		locker.release();
 		expireBidAuction(item);
 

@@ -30,7 +30,6 @@ VendorDataComponent::VendorDataComponent() : AuctionTerminalDataComponent(), adB
 	awardUsageXP = 0;
 	adBarking = false;
 	mail1Sent = false;
-	mail2Sent = false;
 	barkMessage = "";
 	lastBark = 0;
 	originalDirection = 1000;
@@ -49,7 +48,6 @@ void VendorDataComponent::addSerializableVariables() {
 	addSerializableVariable("lastSuccessfulUpdate", &lastSuccessfulUpdate);
 	addSerializableVariable("adBarking", &adBarking);
 	addSerializableVariable("mail1Sent", &mail1Sent);
-	addSerializableVariable("mail2Sent", &mail2Sent);
 	addSerializableVariable("emptyTimer", &emptyTimer);
 	addSerializableVariable("barkMessage", &barkMessage);
 	addSerializableVariable("barkMood", &barkMood);
@@ -137,20 +135,12 @@ void VendorDataComponent::runVendorUpdate() {
 		String sender = strongParent->getDisplayedName();
 		UnicodeString subject("@auction:vendor_status_subject");
 
-		if (!mail1Sent && time(0) - emptyTimer.getTime() > FIRSTWARNING) {
-			StringIdChatParameter body("@auction:vendor_status_unaccessed");
-			body.setTO(strongParent->getDisplayedName());
-			if (cman != NULL)
-				cman->sendMail(sender, subject, body, owner->getFirstName());
-			mail1Sent = true;
-		}
-
-		else if (!mail2Sent && time(0) - emptyTimer.getTime() > SECONDWARNING) {
+		if (!mail1Sent && time(0) - emptyTimer.getTime() > EMPTYWARNING) {
 			StringIdChatParameter body("@auction:vendor_status_endangered");
 			body.setTO(strongParent->getDisplayedName());
 			if (cman != NULL)
 				cman->sendMail(sender, subject, body, owner->getFirstName());
-			mail2Sent = true;
+			mail1Sent = true;
 		}
 
 		else if (time(0) - emptyTimer.getTime() > EMPTYDELETE) {
@@ -158,13 +148,11 @@ void VendorDataComponent::runVendorUpdate() {
 			if (cman != NULL)
 				cman->sendMail(sender, subject, body, owner->getFirstName());
 			VendorManager::instance()->destroyVendor(vendor);
-			vendorCheckTask->cancel();
 			return;
 		}
 
 	} else {
 		mail1Sent = false;
-		mail2Sent = false;
 		emptyTimer.updateToCurrentTime();
 	}
 
@@ -186,7 +174,6 @@ void VendorDataComponent::runVendorUpdate() {
 			if (cman != NULL)
 				cman->sendMail(sender, subject, body, owner->getFirstName());
 			VendorManager::instance()->destroyVendor(vendor);
-			vendorCheckTask->cancel();
 		}
 
 	} else {
@@ -406,8 +393,13 @@ void VendorDataComponent::scheduleVendorCheckTask(int delay) {
 	if (strongParent == NULL)
 		return;
 
-	if(vendorCheckTask == NULL)
+	if (vendorCheckTask == NULL)
 		vendorCheckTask = new UpdateVendorTask(strongParent);
 
 	vendorCheckTask->schedule(1000 * 60 * delay);
+}
+
+void VendorDataComponent::cancelVendorCheckTask() {
+	if (vendorCheckTask != NULL)
+		vendorCheckTask->cancel();
 }
