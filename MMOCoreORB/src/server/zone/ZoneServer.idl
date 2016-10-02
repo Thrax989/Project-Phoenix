@@ -33,7 +33,6 @@ import server.chat.ChatManager;
 import conf.ConfigManager;
 import server.zone.managers.object.ObjectManager;
 import server.zone.managers.player.PlayerManager;
-import server.zone.managers.objectcontroller.ObjectController;
 import server.zone.managers.radial.RadialManager;
 import server.zone.managers.reaction.ReactionManager;
 import server.zone.managers.skill.SkillManager;

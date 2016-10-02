@@ -10,7 +10,6 @@
 #include "server/zone/objects/scene/SceneObject.h"
 #include "server/zone/objects/player/PlayerObject.h"
 #include "server/zone/ZoneServer.h"
-#include "server/zone/managers/player/PlayerManager.h"
 #include "server/zone/managers/jedi/JediManager.h"
 #include "server/chat/ChatManager.h"
 #include "server/zone/managers/visibility/VisibilityManager.h"
