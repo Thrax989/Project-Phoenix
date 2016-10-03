@@ -8,7 +8,6 @@
 #include "server/zone/objects/scene/SceneObject.h"
 #include "server/zone/objects/structure/StructureObject.h"
 #include "server/zone/managers/structure/StructureManager.h"
-#include "server/zone/objects/building/BuildingObject.h"
 
 class DeclareresidenceCommand : public QueueCommand {
 public:
