@@ -8,7 +8,6 @@
 
 #include "server/zone/objects/scene/SceneObject.h"
 #include "templates/params/creature/CreatureAttribute.h"
-#include "server/chat/ChatManager.h"
 #include "server/zone/managers/stringid/StringIdManager.h"
 #include "server/zone/managers/combat/CombatManager.h"
 #include "server/zone/managers/collision/CollisionManager.h"
@@ -383,7 +382,7 @@ public:
 	}
 
 	float getCommandDuration(CreatureObject* object, const UnicodeString& arguments) const {
-		return defaultTime * 0.0;
+		return defaultTime * 3.0;
 	}
 };
 

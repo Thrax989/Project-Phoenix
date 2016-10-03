@@ -4,14 +4,6 @@
  *  Created on: 16/01/2010
  *      Author: victor
  */
- 
- /*
- * PLEASE DO NOT STEAL OUR WORK
- * ASK BEFOR USING
- * Contact Me Here http://projectphoenix.com.shivtr.com/
- * Modified on: 9/21/2016
- * Authors: Kurdtkobain
- */
 
 #ifndef COMMANDSNEW_H_
 #define COMMANDSNEW_H_
@@ -286,7 +278,6 @@
 #include "GmForceRankCommand.h"
 #include "GmFsVillageCommand.h"
 #include "GmJediStateCommand.h"
-#include "GmPlayClientEffect.h"
 #include "GmReviveCommand.h"
 #include "GotoCommand.h"
 #include "GrantBadgeCommand.h"
@@ -624,7 +615,6 @@
 #include "SetBiographyAdminCommand.h"
 #include "SetBiographyCommand.h"
 #include "SetBoostmoraleCommand.h"
-#include "SetScaleCommand.h"
 #include "SetChargeCommand.h"
 #include "SetCurrentSkillTitleCommand.h"
 #include "SetExperienceCommand.h"
@@ -847,9 +837,9 @@
 #include "InspacereloadCommand.h"
 #include "InspacerrCommand.h"
 #include "RequestSpaceTrainerCommand.h"
-#include "setPvp.h"
 
 
 
 
 #endif /* COMMANDSNEW_H_ */
+

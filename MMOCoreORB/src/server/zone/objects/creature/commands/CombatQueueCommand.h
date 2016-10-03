@@ -22,8 +22,6 @@
 #include "server/zone/objects/creature/commands/effect/CommandEffect.h"
 #include "server/zone/packets/object/CombatSpam.h"
 #include "QueueCommand.h"
-//#include "server/zone/objects/creature/ai/AiAgent.h"
-//#include "server/zone/managers/creature/CreatureManager.h"
 
 class CombatQueueCommand : public QueueCommand {
 protected:
@@ -174,7 +172,7 @@ public:
 
 						if (targetCreature != NULL) {
 							if (targetCreature->isPlayerCreature()) {
-								if (!CombatManager::instance()->areInDuel(creature, targetCreature) && (!targetCreature->isInBountyMission(creature, targetCreature) && !creature->isInBountyMission(targetCreature, creature))) {
+								if (!CombatManager::instance()->areInDuel(creature, targetCreature)) {
 									PlayerObject* targetGhost = targetCreature->getPlayerObject();
 
 									if (targetGhost != NULL && targetGhost->getFactionStatus() == FactionStatus::OVERT) {

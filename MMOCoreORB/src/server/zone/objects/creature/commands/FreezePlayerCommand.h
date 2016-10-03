@@ -75,13 +75,8 @@ public:
 			targetPlayer->setSpeedMultiplierBase(0.f, true);
 
 			if(fullReason.toString().isEmpty()) {
-				//targetPlayer->sendSystemMessage("You have been frozen and muted by " + player->getFirstName() + ".");
-				player->sendSystemMessage(targetPlayer->getFirstName() + " is now frozen and muted.");
-				targetPlayer->playEffect("clienteffect/item_ring_hero_mark.cef");
-				targetPlayer->playEffect("clienteffect/droid_effect_foam.cef");
 				targetPlayer->sendSystemMessage("You have been frozen and muted by " + player->getFirstName() + ".");
-				targetPlayer->sendSystemMessage("You will be unfrozen when the staff is done.");
-				targetPlayer->setPosture(CreaturePosture::CROUCHED);
+				player->sendSystemMessage(targetPlayer->getFirstName() + " is now frozen and muted.");
 			} else {
 				String reason = fullReason.toString();
 				targetGhost->setMutedReason(reason);

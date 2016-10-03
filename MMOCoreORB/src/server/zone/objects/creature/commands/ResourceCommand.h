@@ -24,7 +24,6 @@ public:
 			return INVALIDLOCOMOTION;
 
 		ResourceManager* resMan = creature->getZoneServer()->getResourceManager();
-		ManagedReference<PlayerObject*> admin = creature->getPlayerObject();
 
 		Locker locker(resMan);
 
@@ -39,22 +38,22 @@ public:
 			if(command == "list") {
 				listResources(creature, &args);
 
-			} else if(command == "health" && admin->getAdminLevel() > 10) {
+			} else if(command == "health") {
 				healthCheck(creature, &args);
 
 			} else if(command == "dump") {
 				dumpResources(creature, &args);
 
-			} else if(command == "despawn" && admin->getAdminLevel() > 10) {
+			} else if(command == "despawn") {
 				despawnResource(creature, &args);
 
 			} else if(command == "info") {
 				listResourceInfo(creature, &args);
 
-			} else if(command == "find" && admin->getAdminLevel() > 10) {
+			} else if(command == "find") {
 				findResources(creature, &args);
 
-			} else if(command == "create" && admin->getAdminLevel() > 10) {
+			} else if(command == "create") {
 				giveResource(creature, &args);
 
 			} else {
@@ -64,12 +63,9 @@ public:
 		} catch (Exception& e){
 			creature->sendSystemMessage("invalid arguments for resources command:  /resource <option> [params]");
 			creature->sendSystemMessage("		list <planet> : Lists resources on specified planet");
-			creature->sendSystemMessage("		dump : Updates the resource manager lua with recent spawns");
 			creature->sendSystemMessage("		info <resource name> : Lists Info about a specific resource");
-			if (admin->getAdminLevel() > 10) {
-				creature->sendSystemMessage("		find <class> <attribute> <gt|lt> <value> [<and|or> <attribute> <gt|lt> <value> [...]]");
-				creature->sendSystemMessage("		create <name> [quantity] : Spawns resource in inventory");
-			}
+			creature->sendSystemMessage("		find <class> <attribute> <gt|lt> <value> [<and|or> <attribute> <gt|lt> <value> [...]]");
+			creature->sendSystemMessage("		create <name> [quantity] : Spawns resource in inventory");
 		}
 
 		return SUCCESS;
@@ -154,7 +150,6 @@ public:
 		int hours = ((diff / 60 / 60) % 24);
 		int minutes = ((diff / 60) % 60);
 
-
 		if(despawned > currTime) {
 			creature->sendSystemMessage("Expires in: " + String::valueOf(days) + " days, " + String::valueOf(hours) + " hours, " + String::valueOf(minutes) + " minutes");
 			creature->sendSystemMessage("Pool: " + String::valueOf(spawn->getSpawnPool()));
@@ -167,7 +162,7 @@ public:
 			creature->sendSystemMessage("Expired: " + String::valueOf(days) + " days, " + String::valueOf(hours) + " hours, " + String::valueOf(minutes) + " minutes ago");
 		}
 
-		creature->sendSystemMessage(spawn->getFinalClass());
+
 		for(int i = 0; i < 12; ++i) {
 			String attribute = "";
 			int value = spawn->getAttributeAndValue(attribute, i);

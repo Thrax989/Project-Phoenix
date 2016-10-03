@@ -47,7 +47,7 @@ public:
 
 		ManagedReference<CityRegion*> city = creature->getCityRegion();
 
-		if (city != NULL && city->isClientRegion() && ghost->getAdminLevel() < 15) {
+		if (city != NULL && city->isClientRegion()) {
 			creature->sendSystemMessage("@player_structure:not_permitted"); //Building is not permitted here.
 			return INVALIDPARAMETERS;
 		}
