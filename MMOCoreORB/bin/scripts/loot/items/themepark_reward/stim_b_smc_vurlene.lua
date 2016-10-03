@@ -1,11 +1,11 @@
-stim_b_ns_diax = {
+stim_b_smc_vurlene = {
 	minimumLevel = 0,
 	maximumLevel = 0,
 	customObjectName = "",
 	directObjectTemplate = "object/tangible/medicine/crafted/medpack_damage_b.iff",
 
 	craftingValues = {
-		{"power",75,200,0},
+		{"power",100,250,0},
 		{"charges",5,10,0},
 		{"skillmodmin",35,50,0},
 	},
@@ -13,4 +13,4 @@ stim_b_ns_diax = {
 	customizationValues = {},
 }
 
-addLootItemTemplate("stim_b_ns_diax", stim_b_ns_diax)
+addLootItemTemplate("stim_b_smc_vurlene", stim_b_smc_vurlene)
