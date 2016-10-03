@@ -36,7 +36,6 @@ public:
 				if (ghost == NULL)
 					return GENERALERROR;
 
-
 				if (!ghost->hasAbility("admin")) {
 					if (creature->isDizzied() && System::random(100) < 85) {
 						creature->queueDizzyFallEvent();
