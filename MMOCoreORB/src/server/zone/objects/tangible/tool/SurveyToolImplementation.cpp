@@ -183,9 +183,6 @@ void SurveyToolImplementation::setRange(int r) {
 		points = 5;
 	}
 
-	if (range >= 384) {
-		points = 6;
-	}
 }
 
 void SurveyToolImplementation::sendRadioactiveWarning(CreatureObject* player) {
