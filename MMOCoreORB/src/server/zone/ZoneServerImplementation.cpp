@@ -350,15 +350,6 @@ void ZoneServerImplementation::stopManagers() {
 	configManager = NULL;
 	phandler = NULL;
 
-	if (guildManager != NULL) {
-		guildManager->stop();
-		guildManager = NULL;
-	}
-
-	if (cityManager != NULL) {
-		cityManager->stop();
-		cityManager = NULL;
-	}
 
 	if (chatManager != NULL) {
 		chatManager->stop();
