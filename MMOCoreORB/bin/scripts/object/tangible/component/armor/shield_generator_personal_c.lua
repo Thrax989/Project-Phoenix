@@ -95,6 +95,9 @@ object_tangible_component_armor_shield_generator_personal_c = object_tangible_co
 				"object/mobile/vendor/wookiee_female.iff",
 				"object/mobile/vendor/wookiee_male.iff" },
 	
+	-- Damage types in WeaponObject
+        vulnerability = LIGHTSABER,
+	
 	-- These are default Blue Frog stats
 	healthEncumbrance = 1,
 	actionEncumbrance = 1,
@@ -112,7 +115,7 @@ object_tangible_component_armor_shield_generator_personal_c = object_tangible_co
 	heat = 15,
 	cold = 15,
 	acid = 15,
-	lightSaber = 0,
+	lightSaber = 5,
 
 	numberExperimentalProperties = {1, 1, 1, 2, 2, 2, 2, 2, 1, 1, 2, 1},
 	experimentalProperties = {"XX", "XX", "XX", "OQ", "SR", "OQ", "UT", "MA", "OQ", "MA", "OQ", "MA", "OQ", "XX", "XX", "OQ", "SR", "XX"},
