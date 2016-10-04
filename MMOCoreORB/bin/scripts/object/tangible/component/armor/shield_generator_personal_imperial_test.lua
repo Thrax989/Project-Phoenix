@@ -95,6 +95,9 @@ object_tangible_component_armor_shield_generator_personal_imperial_test = object
 				"object/mobile/vendor/wookiee_female.iff",
 				"object/mobile/vendor/wookiee_male.iff" },
 	
+	-- Damage types in WeaponObject
+        vulnerability = LIGHTSABER,
+	
 	-- These are default Blue Frog stats
 	healthEncumbrance = 1,
 	actionEncumbrance = 1,
