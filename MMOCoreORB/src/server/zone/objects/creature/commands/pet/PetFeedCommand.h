@@ -164,7 +164,7 @@ public:
 		consumable->decreaseUseCount();
 
 		// Set cooldown
-		pet->getCooldownTimerMap()->updateToCurrentAndAddMili("feedCooldown", 5000); // 5 sec
+		pet->getCooldownTimerMap()->updateToCurrentAndAddMili("feedCooldown", 2000); // 2 sec
 
 		return SUCCESS;
 	}
