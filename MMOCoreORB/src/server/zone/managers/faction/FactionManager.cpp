@@ -187,9 +187,9 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 			ghost->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 			if (killerCreature->hasSkill("force_rank_light_novice") && destructedObject->hasSkill("force_rank_dark_novice")) {
 				playerManager->awardExperience(killerCreature, "force_rank_xp", 5000);
-				zBroadcast << "\\#ffd700" << playerName << " \\#00e604 Force User Has Defeated A \\#e60000 Dark Force User \\#00ffdf" << playerName << " Has Been Awarded 5,000 Force Ranking Exp";
+				zBroadcast << "\\#ffd700" << killerName << " \\#00e604 Force User Has Defeated A \\#e60000 Dark Force User \\#00ffdf" << killerName << " Has Been Awarded 5,000 Force Ranking Exp";
 				playerManager->awardExperience(destructedObject, "force_rank_xp", -7500);
-				zBroadcast << "\\#ffd700" << killerName << " \\#00e604 Force User Has Been Defeated By A \\#e60000 Light Force User \\#00ffdf" << playerName << " Be On The Look Out For This Force Ranking Player";
+				zBroadcast << "\\#ffd700" << playerName << " \\#00e604 Force User Has Been Defeated By A \\#e60000 Light Force User \\#00ffdf" << killerName << " Be On The Look Out For This Force Ranking Player";
 			}
 		} else if (killer->isImperial() && destructedObject->isRebel()) {
 			ghost->increaseFactionStanding("imperial", 30);
@@ -205,9 +205,9 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 			zBroadcast << "\\#00e604" << killerName;
 			if (killerCreature->hasSkill("force_rank_dark_novice") && destructedObject->hasSkill("force_rank_light_novice")) {
 				playerManager->awardExperience(killerCreature, "force_rank_xp", 5000);
-				zBroadcast << "\\#ffd700" << playerName << " \\#00e604 Force User Has Defeated A \\#e60000 Light Force User \\#00ffdf" << playerName << " Has Been Awarded 5,000 Force Ranking Exp";
+				zBroadcast << "\\#ffd700" << killerName << " \\#00e604 Force User Has Defeated A \\#e60000 Light Force User \\#00ffdf" << killerName << " Has Been Awarded 5,000 Force Ranking Exp";
 				playerManager->awardExperience(destructedObject, "force_rank_xp", -7500);
-				zBroadcast << "\\#ffd700" << killerName << " \\#00e604 Force User Has Been Defeated By A \\#e60000 Dark Force User \\#00ffdf" << playerName << " Be On The Look Out For This Force Ranking Player";
+				zBroadcast << "\\#ffd700" << playerName << " \\#00e604 Force User Has Been Defeated By A \\#e60000 Dark Force User \\#00ffdf" << killerName << " Be On The Look Out For This Force Ranking Player";
 				ghost->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 			}
 		}
