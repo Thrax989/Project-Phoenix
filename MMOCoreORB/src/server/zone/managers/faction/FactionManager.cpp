@@ -170,7 +170,6 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 		String playerName = destructedObject->getFirstName();
 		String killerName = killerCreature->getFirstName();
 		StringBuffer zBroadcast;
-		zBroadcast << "\\#00e604" << playerName << " \\#e60000 was slain in the GCW by ";
 
 		if (killer->isRebel() && destructedObject->isImperial()) {
 			ghost->increaseFactionStanding("rebel", 30);
@@ -183,13 +182,12 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 				lootManager->createLoot(inventory, "armor_attachments", 300);//, playerName);
 			ghost->decreaseFactionStanding("imperial", 45);
 			killedGhost->decreaseFactionStanding("imperial", 45);
-			zBroadcast << "\\#00cc99" << killerName;
-			ghost->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 			if (killerCreature->hasSkill("force_rank_light_novice") && destructedObject->hasSkill("force_rank_dark_novice")) {
 				playerManager->awardExperience(killerCreature, "force_rank_xp", 5000);
-				zBroadcast << "\\#ffd700" << killerName << " \\#00e604 Force User Has Defeated A \\#e60000 Dark Force User \\#00ffdf" << killerName << " Has Been Awarded 5,000 Force Ranking Exp";
+				zBroadcast  << "\\#ffd700" << killerName << "\\#00e604 Light Force User Has Defeated A \\#e60000 Dark Force User \\#00ffdf" << killerName << "\\#00e604 Has Been Awarded 5,000 Light Force Ranking Exp ";
 				playerManager->awardExperience(destructedObject, "force_rank_xp", -7500);
-				zBroadcast << "\\#ffd700" << playerName << " \\#00e604 Force User Has Been Defeated By A \\#e60000 Light Force User \\#00ffdf" << killerName << " Be On The Look Out For This Force Ranking Player";
+				zBroadcast << "\\#ffd700" <<  playerName << " \\#00e604Has Lost -7,500 Dark Force Ranking Exp By A \\#e60000 Light Force User \\#00e604Be On The Look Out For This Light Force Ranking Player " "\\#00ffdf" << killerName;
+				ghost->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 			}
 		} else if (killer->isImperial() && destructedObject->isRebel()) {
 			ghost->increaseFactionStanding("imperial", 30);
@@ -202,12 +200,11 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 				lootManager->createLoot(inventory, "armor_attachments", 300);//, playerName);
 			ghost->decreaseFactionStanding("rebel", 45);
 			killedGhost->decreaseFactionStanding("rebel", 45);
-			zBroadcast << "\\#00e604" << killerName;
 			if (killerCreature->hasSkill("force_rank_dark_novice") && destructedObject->hasSkill("force_rank_light_novice")) {
 				playerManager->awardExperience(killerCreature, "force_rank_xp", 5000);
-				zBroadcast << "\\#ffd700" << killerName << " \\#00e604 Force User Has Defeated A \\#e60000 Light Force User \\#00ffdf" << killerName << " Has Been Awarded 5,000 Force Ranking Exp";
+				zBroadcast  << "\\#ffd700" << killerName << "\\#00e604 Dark Force User Has Defeated A \\#e60000 Light Force User \\#00ffdf" << killerName << "\\#00e604 Has Been Awarded 5,000 Dark Force Ranking Exp ";
 				playerManager->awardExperience(destructedObject, "force_rank_xp", -7500);
-				zBroadcast << "\\#ffd700" << playerName << " \\#00e604 Force User Has Been Defeated By A \\#e60000 Dark Force User \\#00ffdf" << killerName << " Be On The Look Out For This Force Ranking Player";
+				zBroadcast << "\\#ffd700" <<  playerName << " \\#00e604Has Lost -7,500 Light Force Ranking Exp By A \\#e60000 Dark Force User \\#00e604Be On The Look Out For This Dark Force Ranking Player " "\\#00ffdf" << killerName;
 				ghost->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 			}
 		}
