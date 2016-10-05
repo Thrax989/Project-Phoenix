@@ -257,7 +257,7 @@ void GeneticLabratory::setInitialCraftingValues(TangibleObject* prototype, Manuf
 
 		// determine max percentage
 		craftingValues->setMaxPercentage(title, maxValue/1000.0f);
-		craftingValues->setMaxValue(title,1250);
+		craftingValues->setMaxValue(title,1000);
 
 		// using assembly to accoutn for a 1 +% increase
 		currentPercentage = getAssemblyPercentage(initialValue) * modifier;
@@ -392,7 +392,7 @@ void GeneticLabratory::experimentRow(CraftingValues* craftingValues,int rowEffec
 	}
 	craftingValues->recalculateValues(false);
 	float currentFort = craftingValues->getCurrentValue("fortitude");
-	int armorValue = currentFort/750;
+	int armorValue = currentFort/500;
 	float currentEffective = (int)(((currentFort - (armorValue * 500)) / 50) * 5);
 	title = craftingValues->getExperimentalPropertyTitle("resists");
 	for (int i = 0; i < craftingValues->getExperimentalPropertySubtitleSize(); ++i) {

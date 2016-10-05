@@ -3,7 +3,6 @@
 		See file COPYING for copying conditions.*/
 
 #include "server/zone/objects/tangible/component/genetic/GeneticComponent.h"
-#include "server/zone/objects/manufactureschematic/ManufactureSchematic.h"
 #include "server/zone/objects/tangible/weapon/WeaponObject.h"
 #include "server/zone/objects/creature/ai/CreatureTemplate.h"
 #include "server/zone/managers/crafting/labratories/Genetics.h"
@@ -101,64 +100,64 @@ void GeneticComponentImplementation::updateCraftingValues(CraftingValues* values
 	if (values->getCurrentValue("lightsabereffectiveness") > 0)
 		setSpecialResist(SharedWeaponObjectTemplate::LIGHTSABER);
 
-	if (fortitude > 200) {
-		armorRating = 1;
+	if (fortitude > 500) {
+		armorRating = 0;
 	}
 	// min - max values
-	if (fortitude > 10000) {
-		fortitude = 10000;
+	if (fortitude > 1000) {
+		fortitude = 1000;
 	}
 	if (fortitude < 0)
 		fortitude = 1;
 
-	if (endurance > 10000){
-		endurance = 10000;
+	if (endurance > 1000){
+		endurance = 1000;
 	}
 	if (endurance < 0)
 		endurance = 1;
 
-	if (cleverness > 10000){
-		cleverness = 10000;
+	if (cleverness > 1000){
+		cleverness = 1000;
 	}
 	if (cleverness < 0)
 		cleverness = 1;
 
-	if (courage > 10000){
-		courage = 10000;
+	if (courage > 1000){
+		courage = 1000;
 	}
 	if (courage < 0)
 		courage = 1;
 
-	if (dependency > 10000){
-		dependency = 10000;
+	if (dependency > 1000){
+		dependency = 1000;
 	}
 	if (dependency < 0)
 		dependency = 1;
 
-	if (dexterity > 10000) {
-		dexterity = 10000;
+	if (dexterity > 1000) {
+		dexterity = 1000;
 	}
 	if (dexterity < 0)
 		dexterity = 1;
 
-	if (fierceness > 10000){
-		fierceness = 10000;
+	if (fierceness > 1250){
+		fierceness = 1250;
 	}
 	if (fierceness < 0)
 		fierceness = 1;
-	if (hardiness > 10000) {
-		hardiness = 10000;
+	if (hardiness > 1000) {
+		hardiness = 1000;
 	}
 	if (hardiness < 0)
 		hardiness = 1;
-	if (intelligence > 10000){
-		intelligence = 10000;
+	if (intelligence > 1000){
+		intelligence = 1000;
 	}
 	if (intelligence < 0)
 		intelligence = 1;
 
-	if (power > 10000) {
-		power = 10000;
+	if (power > 1000) {
+		power = 1000;
 	}
 	if (power < 0)
 		power = 1;

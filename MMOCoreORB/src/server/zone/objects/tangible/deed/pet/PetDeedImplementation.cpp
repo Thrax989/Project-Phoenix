@@ -203,7 +203,7 @@ int PetDeedImplementation::calculatePetLevel() {
 	// Regenerate the LEvel
 	int effective = (int)(((fortitude - (armor * 500)) / 50) * 5);
 	int dps = ((damageMax + damageMin) / 2.0f) / attackSpeed;
-	int avgHam = (health + action + mind) / 10000;
+	int avgHam = (health + action + mind) / 10;
 	if (regen == 0) {
 		regen = avgHam / 10;
 	}
@@ -526,7 +526,7 @@ void PetDeedImplementation::setSpecialResist(int type) {
 void PetDeedImplementation::adjustPetLevel(CreatureObject* player, CreatureObject* pet) {
 	int newLevel = calculatePetLevel();
 
-	if (newLevel < 1 || newLevel > 75) {
+	if (newLevel < 1 || newLevel > 85) {
 		player->sendSystemMessage("@bio_engineer:pet_sui_fix_error");
 		return;
 	}
@@ -542,8 +542,8 @@ bool PetDeedImplementation::adjustPetStats(CreatureObject* player, CreatureObjec
 		return false;
 	}
 
-	if (oldLevel > 75) {
-		oldLevel = 75;
+	if (oldLevel > 85) {
+		oldLevel = 85;
 	}
 
 	int ham = DnaManager::instance()->valueForLevel(DnaManager::HAM_LEVEL,oldLevel);
@@ -559,7 +559,7 @@ bool PetDeedImplementation::adjustPetStats(CreatureObject* player, CreatureObjec
 
 	// Adjust Armor Now
 	fortitude = DnaManager::instance()->valueForLevel(DnaManager::ARM_LEVEL,oldLevel);
-	armor = fortitude/100;
+	armor = fortitude/500;
 	float effectiveness = (int)(((fortitude - (armor * 500)) / 50) * 5);
 	if (!isSpecialResist(SharedWeaponObjectTemplate::KINETIC) && kinResist > 0)
 		kinResist = effectiveness;

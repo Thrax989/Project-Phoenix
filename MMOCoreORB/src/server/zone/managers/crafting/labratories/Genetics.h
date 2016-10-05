@@ -213,11 +213,8 @@ public:
 		return value > max ? max : value;
 	}
 
-	// Going by Mirrl's BE guide that dna template stats are 60-85% of original dna
-	// we need to convert the range of the stat values to that required in the SharedLabratory calculation
-	// stat range converted from 1-900 to 900-1500
 	static uint32 initialValue(float maxValue) {
-		return round(((float)(maxValue - 1) / (900 - 1)) * (1500 - 300) + 300);
+		return round(maxValue * ((maxValue/(float)1000)+0.15));
 	}
 
 	static float determineMinResistance(float input) {
@@ -248,7 +245,7 @@ public:
 
 	// convert ham value to score
 	static int hamToValue(float ham, int quality) {
-		int base = round(((ham-50.0)/(25000)) * 1000.0);
+		int base = round(((ham-50.0)/(17950)) * 1000.0);
 		return randomizeValue(base,quality);
 	}
 
@@ -305,7 +302,7 @@ public:
 	}
 	// dps to level range
 	static float calculateDPSLevel(float maxDamage, float minDamage) {
-		float dps = (maxDamage + minDamage)/1.5;
+		float dps = (maxDamage + minDamage)/2;
 		return DnaManager::instance()->levelForScore(DnaManager::DPS_LEVEL,dps);
 	}
 	// ham level
@@ -346,7 +343,7 @@ public:
 		int level = armorLevel + 1;
 		if (level < baseLevel)
 			level = baseLevel;
-		int eff = armorBase/100;
+		int eff = armorBase/50;
 		if (armorBase > 500)
 			eff = (armorBase-500)/50;
 		if (armorBase == 500)
@@ -368,7 +365,7 @@ public:
 		int level = armorLevel + 1;
 		if (level < baseLevel)
 			level = baseLevel;
-		int eff = armorBase/100;
+		int eff = armorBase/50;
 		if (armorBase > 500)
 			eff = (armorBase-500)/50;
 		if (armorBase == 500)
@@ -425,19 +422,19 @@ public:
 	// Calculate the creatures overall level as a pet.
 	static int calculatePetLevel(GeneticComponent* pet) {
 		// reverse the values out.
-		int avgHam = (pet->getHealth() + pet->getAction() + pet->getMind()) / 4;
-		int statLevel = (DnaManager::instance()->levelForScore(DnaManager::HAM_LEVEL, avgHam) + 1) * 5;
-		int damageLevel = DnaManager::instance()->levelForScore(DnaManager::DPS_LEVEL, ((pet->getMaxDamage() + pet->getMinDamage()) / 2.0f) / pet->getSpeed()) * 7;
+		int avgHam = (pet->getHealth() + pet->getAction() + pet->getMind()) / 3;
+		int statLevel = (DnaManager::instance()->levelForScore(DnaManager::HAM_LEVEL, avgHam) + 1) * 6;
+		int damageLevel = DnaManager::instance()->levelForScore(DnaManager::DPS_LEVEL, ((pet->getMaxDamage() + pet->getMinDamage()) / 2.0f) / pet->getSpeed()) * 10;
 		int hitLevel = (DnaManager::instance()->levelForScore(DnaManager::HIT_LEVEL, pet->getHit()) + 1) * 1;
 		int defenseLevel = hitLevel;
-		int regenerationLevel =  (DnaManager::instance()->levelForScore(DnaManager::REG_LEVEL, avgHam / 10) + 1)* 1;
-		int armorLevel = DnaManager::instance()->levelForScore(DnaManager::ARM_LEVEL, (pet->getArmor() * 500) + (( pet->getEffectiveArmor()) * 5.0)  );
+		int regenerationLevel =  (DnaManager::instance()->levelForScore(DnaManager::REG_LEVEL, avgHam / 10) + 1)* 2;
+		int armorLevel = DnaManager::instance()->levelForScore(DnaManager::ARM_LEVEL, (pet->getArmor() * 500) + (( pet->getEffectiveArmor()) * 10.0)  );
 		int armorBase = DnaManager::instance()->valueForLevel(DnaManager::ARM_LEVEL, armorLevel);
 		int baseLevel = (((statLevel) + (damageLevel) + (regenerationLevel) + (hitLevel)) / 19.0) + 0.5;
-		int armorLevel2 = calculateArmorValue(pet, armorLevel, baseLevel, armorBase) * 1.5;
+		int armorLevel2 = calculateArmorValue(pet, armorLevel, baseLevel, armorBase) * 2;
 		if (defenseLevel < baseLevel)
 			defenseLevel = baseLevel;
-		int level = round((((float)(statLevel + damageLevel + hitLevel + defenseLevel + armorLevel + regenerationLevel ))/23.0) + 0.5);
+		int level = round((((float)(statLevel + damageLevel + hitLevel + defenseLevel + armorLevel + regenerationLevel ))/22.0) + 0.5);
 		return level;
 	}
 
