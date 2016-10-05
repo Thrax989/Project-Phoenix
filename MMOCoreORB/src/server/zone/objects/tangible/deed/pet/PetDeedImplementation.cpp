@@ -203,7 +203,7 @@ int PetDeedImplementation::calculatePetLevel() {
 	// Regenerate the LEvel
 	int effective = (int)(((fortitude - (armor * 500)) / 50) * 5);
 	int dps = ((damageMax + damageMin) / 2.0f) / attackSpeed;
-	int avgHam = (health + action + mind) / 3;
+	int avgHam = (health + action + mind) / 10000;
 	if (regen == 0) {
 		regen = avgHam / 10;
 	}
@@ -293,8 +293,8 @@ void PetDeedImplementation::updateCraftingValues(CraftingValues* values, bool fi
 	if (petTemplate != NULL) {
 		// get min CL from the template
 		int skinFactor = petTemplate->getLevel();
-		if (level > 75) {
-			level = 75;
+		if (level > 85) {
+			level = 85;
 		}
 		if (level < skinFactor) {
 			level = skinFactor;
@@ -552,14 +552,14 @@ bool PetDeedImplementation::adjustPetStats(CreatureObject* player, CreatureObjec
 	mind = ham;
 	regen = DnaManager::instance()->valueForLevel(DnaManager::REG_LEVEL,oldLevel);
 	float dps = DnaManager::instance()->valueForLevel(DnaManager::DPS_LEVEL,oldLevel);
-	damageMin = round((dps * 2.0) * 0.5);
-	attackSpeed = 2.0;
-	damageMax = round((dps * 2.0) * 1.5);
+	damageMin = round((dps * 2.25) * 1.50);
+	attackSpeed = 1.25;
+	damageMax = round((dps * 2.25) * 1.75);
 	chanceHit = DnaManager::instance()->valueForLevel(DnaManager::HIT_LEVEL,oldLevel);
 
 	// Adjust Armor Now
 	fortitude = DnaManager::instance()->valueForLevel(DnaManager::ARM_LEVEL,oldLevel);
-	armor = fortitude/500;
+	armor = fortitude/100;
 	float effectiveness = (int)(((fortitude - (armor * 500)) / 50) * 5);
 	if (!isSpecialResist(SharedWeaponObjectTemplate::KINETIC) && kinResist > 0)
 		kinResist = effectiveness;
