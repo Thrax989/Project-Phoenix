@@ -84,7 +84,7 @@ object_building_player_sm_hut_house = object_building_player_shared_sm_hut_house
 		{"crafting_repair", 50},
 		{"weapon_repair", 50},
 		{"combat_medic_effectiveness", 50},
-		{"general_damag", 50},
+		{"general_damage", 50},
 		{"shop_sign", 50},
 		{"sales", 50},
 		{"structure_maintenance_mod", 50}
