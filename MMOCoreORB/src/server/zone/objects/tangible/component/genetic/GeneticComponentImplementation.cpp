@@ -3,6 +3,7 @@
 		See file COPYING for copying conditions.*/
 
 #include "server/zone/objects/tangible/component/genetic/GeneticComponent.h"
+#include "server/zone/objects/manufactureschematic/ManufactureSchematic.h"
 #include "server/zone/objects/tangible/weapon/WeaponObject.h"
 #include "server/zone/objects/creature/ai/CreatureTemplate.h"
 #include "server/zone/managers/crafting/labratories/Genetics.h"
@@ -100,86 +101,86 @@ void GeneticComponentImplementation::updateCraftingValues(CraftingValues* values
 	if (values->getCurrentValue("lightsabereffectiveness") > 0)
 		setSpecialResist(SharedWeaponObjectTemplate::LIGHTSABER);
 
-	if (fortitude > 500) {
+	if (fortitude > 200) {
 		armorRating = 1;
 	}
 	// min - max values
-	if (fortitude > 1000) {
-		fortitude = 1000;
+	if (fortitude > 1250) {
+		fortitude = 1250;
 	}
 	if (fortitude < 0)
 		fortitude = 1;
 
-	if (endurance > 1000){
-		endurance = 1000;
+	if (endurance > 1250){
+		endurance = 1250;
 	}
 	if (endurance < 0)
 		endurance = 1;
 
-	if (cleverness > 1000){
-		cleverness = 1000;
+	if (cleverness > 1250){
+		cleverness = 1250;
 	}
 	if (cleverness < 0)
 		cleverness = 1;
 
-	if (courage > 1000){
-		courage = 1000;
+	if (courage > 1250){
+		courage = 1250;
 	}
 	if (courage < 0)
 		courage = 1;
 
-	if (dependency > 1000){
-		dependency = 1000;
+	if (dependency > 1250){
+		dependency = 1250;
 	}
 	if (dependency < 0)
 		dependency = 1;
 
-	if (dexterity > 1000) {
-		dexterity = 1000;
+	if (dexterity > 1250) {
+		dexterity = 1250;
 	}
 	if (dexterity < 0)
 		dexterity = 1;
 
-	if (fierceness > 1000){
-		fierceness = 1000;
+	if (fierceness > 1250){
+		fierceness = 1250;
 	}
 	if (fierceness < 0)
 		fierceness = 1;
-	if (hardiness > 1000) {
-		hardiness = 1000;
+	if (hardiness > 1250) {
+		hardiness = 1250;
 	}
 	if (hardiness < 0)
 		hardiness = 1;
-	if (intelligence > 1000){
-		intelligence = 1000;
+	if (intelligence > 1250){
+		intelligence = 1250;
 	}
 	if (intelligence < 0)
 		intelligence = 1;
 
-	if (power > 1000) {
-		power = 1000;
+	if (power > 1250) {
+		power = 1250;
 	}
 	if (power < 0)
 		power = 1;
 	// max on resists
-	if (kinResist > 60)
-		kinResist = 60;
-	if (energyResist > 60)
-		energyResist = 60;
-	if (blastResist > 100)
-		blastResist = 100;
-	if (heatResist > 100)
-		heatResist = 100;
-	if (coldResist > 100)
-		coldResist = 100;
-	if (elecResist > 100)
-		elecResist = 100;
-	if (acidResist > 100)
-		acidResist = 100;
-	if (stunResist > 100)
-		stunResist = 100;
-	if (saberResist > 100)
-		saberResist = 100;
+	if (kinResist > 50)
+		kinResist = 50;
+	if (energyResist > 50)
+		energyResist = 50;
+	if (blastResist > 50)
+		blastResist = 50;
+	if (heatResist > 50)
+		heatResist = 50;
+	if (coldResist > 50)
+		coldResist = 50;
+	if (elecResist > 50)
+		elecResist = 50;
+	if (acidResist > 50)
+		acidResist = 50;
+	if (stunResist > 50)
+		stunResist = 50;
+	if (saberResist > 50)
+		saberResist = 50;
 	// Determine other factors
 	// HAM, attack speed, min/max damage toHit
 	// Health: har,dex
@@ -192,20 +193,20 @@ void GeneticComponentImplementation::updateCraftingValues(CraftingValues* values
 	// Strength: har,dep
 	// Quickness: dex,dep
 
-	health = (hardiness * 15)    + (dexterity * 3);
-	action = (dexterity * 15)    + (intelligence * 3);
-	mind   = (intelligence * 15) + (hardiness * 3);
-	stamina = (dexterity*15)     + (endurance * 3);
-	willPower = (intelligence * 15) + (cleverness * 3);
-	constitution = (hardiness * 15)    + (fortitude * 3);
-	focus = (intelligence * 15) + (dependency * 3);
-	strength = (hardiness * 15)    + (dependency * 3);
-	quickness = (dexterity * 15)    + (dependency * 3);
-	hit = 0.19 + (0.55 * ((float)cleverness/1000.0));
+	health = (hardiness * 125)    + (dexterity * 75);
+	action = (dexterity * 125)    + (intelligence * 75);
+	mind   = (intelligence * 125) + (hardiness * 75);
+	stamina = (dexterity * 15)     + (endurance * 5);
+	willPower = (intelligence * 15) + (cleverness * 5);
+	constitution = (hardiness * 15)    + (fortitude * 5);
+	focus = (intelligence * 15) + (dependency * 5);
+	strength = (hardiness * 15)    + (dependency * 5);
+	quickness = (dexterity * 15)    + (dependency * 5);
+	hit = 15.00 + (10.00 * ((float)cleverness/300.0));
 	// dps of pet use to determien min and max value.
-	int dps = ceil((ceil(15.0 + (775.0 * ( ((float)power)/1000.0))))/3.5);
+	int dps = ceil((ceil(15.0 + (1425.0 * ( ((float)power)/675.0))))/2.5);
 	speed = 2.5-((ceil(((float)courage)/10)*10)/1000);
-	maxDam = round(((float)dps * speed) * 1.5);
+	maxDam = round(((float)dps * speed) * 3.5);
 	//minDam = round(((float)dps * speed) * 0.5);
   	// round maxDam down to the closest multiple of 5
 	maxDam = maxDam - (maxDam % 5);
