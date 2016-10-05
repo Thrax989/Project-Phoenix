@@ -163,24 +163,24 @@ void GeneticComponentImplementation::updateCraftingValues(CraftingValues* values
 	if (power < 0)
 		power = 1;
 	// max on resists
-	if (kinResist > 50)
-		kinResist = 50;
-	if (energyResist > 50)
-		energyResist = 50;
-	if (blastResist > 50)
-		blastResist = 50;
-	if (heatResist > 50)
-		heatResist = 50;
-	if (coldResist > 50)
-		coldResist = 50;
-	if (elecResist > 50)
-		elecResist = 50;
-	if (acidResist > 50)
-		acidResist = 50;
-	if (stunResist > 50)
-		stunResist = 50;
-	if (saberResist > 50)
-		saberResist = 50;
+	if (kinResist > 80)
+		kinResist = 80;
+	if (energyResist > 80)
+		energyResist = 80;
+	if (blastResist > 80)
+		blastResist = 80;
+	if (heatResist > 80)
+		heatResist = 80;
+	if (coldResist > 80)
+		coldResist = 80;
+	if (elecResist > 80)
+		elecResist = 80;
+	if (acidResist > 80)
+		acidResist = 80;
+	if (stunResist > 80)
+		stunResist = 80;
+	if (saberResist > 80)
+		saberResist = 80;
 	// Determine other factors
 	// HAM, attack speed, min/max damage toHit
 	// Health: har,dex
