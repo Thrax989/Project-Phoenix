@@ -754,15 +754,16 @@ void PlayerManagerImplementation::killPlayer(TangibleObject* attacker, CreatureO
 	player->sendSystemMessage(stringId);
 
 	player->updateTimeOfDeath();
-	//player->clearBuffs(true);
+	player->clearBuffs(true);
+	player->setFoodFilling(0);
+	player->setDrinkFilling(0);
+
 
 	PlayerObject* ghost = player->getPlayerObject();
 	ghost->setFactionStatus(FactionStatus::ONLEAVE);
 	player->playEffect("clienteffect/holoemote_haunted.cef", "head");
 	PlayMusicMessage* pmm = new PlayMusicMessage("sound/mus_npe2_station_victory.snd");
  	player->sendMessage(pmm);
-	//ghost->setFoodFilling(0);
-	//ghost->setDrinkFilling(0);
 
 	if (ghost != NULL)
 		ghost->resetIncapacitationTimes();
