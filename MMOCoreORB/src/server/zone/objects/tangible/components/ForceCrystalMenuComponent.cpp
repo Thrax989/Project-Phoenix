@@ -34,7 +34,7 @@ void ForceCrystalMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject,
 
 	TangibleObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player);
 
-	menuResponse->addRadialMenuItem(20, 3, "Jedi Visibility");
+	menuResponse->addRadialMenuItem(20, 3, "Jedi Resurrection");
 }
 
 int ForceCrystalMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, CreatureObject* creature, byte selectedID) const {
@@ -43,7 +43,7 @@ int ForceCrystalMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 	ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 	if (ghost == NULL)
 	return 0;
-	if (creature->getPosture() != CreaturePosture::UPRIGHT){
+	if (creature->getPosture() != CreaturePosture::DEAD){
 		creature->sendSystemMessage("@jedi_trials:show_respect");
 		return 0;
 		} else {
@@ -59,7 +59,7 @@ int ForceCrystalMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 			//Broadcast to Server
  			String playerName = creature->getFirstName();
  			StringBuffer zBroadcast;
- 			zBroadcast << "\\#00E604" << playerName << " \\#63C8F9 Has Used A Force Crystal";
+ 			zBroadcast << "\\#00E604" << playerName << " \\#63C8F9 Has Used A Force Crystal To Resurrect Themselves";
  			creature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 			StringBuffer messageVis;
 			messageVis << "\\#00CC00 Your Visibility is at: " << jediVis1;
@@ -68,6 +68,7 @@ int ForceCrystalMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 	}
 
 	creature->playEffect("clienteffect/trap_electric_01.cef", "");
+	creature->setPosture(CreaturePosture::UPRIGHT);
 	sceneObject->destroyObjectFromWorld(true);
 	return 0;
 }
