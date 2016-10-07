@@ -27,6 +27,7 @@ protected:
 
 	int healthHealed;
 	int actionHealed;
+	int mindHealed;
 
 	uint8 woundPool;
 	int woundsHealed;
@@ -49,6 +50,7 @@ public:
 
 		healthHealed = 0;
 		actionHealed = 0;
+		mindHealed = 0;
 
 		woundPool = 0;
 		woundsHealed = 0;
@@ -69,7 +71,7 @@ public:
 			creature->doAnimation("heal_other");
 	}
 
-	void sendHealMessage(CreatureObject* creature, CreatureObject* creatureTarget, int healthDamage, int actionDamage, int mindDamage) const {
+	void sendHealMessage(CreatureObject* creature, CreatureObject* creatureTarget, int healthDamage, int actionDamage) const {
 		if (!creature->isPlayerCreature())
 			return;
 
@@ -77,8 +79,8 @@ public:
 
 		StringBuffer msgPlayer, msgTarget, msgBody, msgTail;
 
-		if (healthDamage > 0 && actionDamage > 0 {
-			msgBody << healthDamage << " health, " << actionDamage << " action";
+		if (healthDamage > 0 && actionDamage > 0) {
+			msgBody << healthDamage << " health and " << actionDamage << " action";
 		} else if (healthDamage > 0) {
 			msgBody << healthDamage << " health";
 		} else if (actionDamage > 0) {
@@ -221,12 +223,12 @@ public:
 				return GENERALERROR;
 			}
 
-			int healPower = round(((float)creature->getSkillMod("healing_injury_treatment") / 2.f + 40.f) * bfScale) + 250;
+			int healPower = round(((float)creature->getSkillMod("healing_injury_treatment") / 3.f + 20.f) * bfScale);
 
 			int healedHealth = creatureTarget->healDamage(creature, CreatureAttribute::HEALTH, healPower);
 			int healedAction = creatureTarget->healDamage(creature, CreatureAttribute::ACTION, healPower, true, false);
 
-			sendHealMessage(creature, creatureTarget, healedHealth, healedAction, healedMind);
+			sendHealMessage(creature, creatureTarget, healedHealth, healedAction);
 		} else if (tendWound) {
 			if (attribute >= CreatureAttribute::MIND)
 				attribute = CreatureAttribute::UNKNOWN;
