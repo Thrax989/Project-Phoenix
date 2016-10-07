@@ -106,6 +106,7 @@ includeFile("dungeon/corellian_corvette/bronell.lua")
 includeFile("dungeon/corellian_corvette/ds_297.lua")
 includeFile("dungeon/corellian_corvette/klaatu.lua")
 includeFile("dungeon/corellian_corvette/lt_lance.lua")
+includeFile("dungeon/teleport_pve.lua")
 
 -- Village
 includeFile("village/village_gm_commands.lua")
