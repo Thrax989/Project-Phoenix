@@ -15,14 +15,13 @@ public:
 			: TendCommand(name, server) {
 		effectName = "clienteffect/healing_healdamage.cef";
 
-		mindCost = 1;
-		mindWoundCost = 40;
+		mindCost = 40;
+		mindWoundCost = 4;
 
 		tendDamage = true;
 
 		healthHealed = 750;
 		actionHealed = 750;
-		mindHealed = 750;
 
 		//defaultTime = 5.0;
 		range = 11.0;

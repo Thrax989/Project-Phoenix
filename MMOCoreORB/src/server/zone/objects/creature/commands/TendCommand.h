@@ -27,7 +27,6 @@ protected:
 
 	int healthHealed;
 	int actionHealed;
-	int mindHealed;
 
 	uint8 woundPool;
 	int woundsHealed;
@@ -50,7 +49,6 @@ public:
 
 		healthHealed = 0;
 		actionHealed = 0;
-		mindHealed = 0;
 
 		woundPool = 0;
 		woundsHealed = 0;
@@ -79,20 +77,12 @@ public:
 
 		StringBuffer msgPlayer, msgTarget, msgBody, msgTail;
 
-		if (healthDamage > 0 && actionDamage > 0 && mindDamage > 0) {
-			msgBody << healthDamage << " health, " << actionDamage << " action, and " << mindDamage << " mind";
-		} else if (healthDamage > 0 && actionDamage > 0) {
-			msgBody << healthDamage << " health and " << actionDamage << " action";
-		} else if (healthDamage > 0 && mindDamage > 0) {
-			msgBody << healthDamage << " health and " << mindDamage << " mind";
-		} else if (actionDamage > 0 && mindDamage > 0) {
-			msgBody << actionDamage << " action and " << mindDamage << " mind";
+		if (healthDamage > 0 && actionDamage > 0 {
+			msgBody << healthDamage << " health, " << actionDamage << " action";
 		} else if (healthDamage > 0) {
 			msgBody << healthDamage << " health";
 		} else if (actionDamage > 0) {
 			msgBody << actionDamage << " action";
-		} else if (mindDamage > 0) {
-			msgBody << mindDamage << " mind";
 		} else {
 			return; //No damage to heal.
 		}
@@ -235,7 +225,6 @@ public:
 
 			int healedHealth = creatureTarget->healDamage(creature, CreatureAttribute::HEALTH, healPower);
 			int healedAction = creatureTarget->healDamage(creature, CreatureAttribute::ACTION, healPower, true, false);
-			int healedMind = creatureTarget->healDamage(creature, CreatureAttribute::MIND, healPower, true, false);
 
 			sendHealMessage(creature, creatureTarget, healedHealth, healedAction, healedMind);
 		} else if (tendWound) {
