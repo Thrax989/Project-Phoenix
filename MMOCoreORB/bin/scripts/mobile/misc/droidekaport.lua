@@ -1,6 +1,6 @@
 droidekaport = Creature:new {
 	objectName = "",
-	customName = "Travel to General Grievous's Corvette",
+	customName = "Test Travel Port",
 	socialGroup = "Townsperson",
 	pvpFaction = "Townsperson",
 	faction = "",
