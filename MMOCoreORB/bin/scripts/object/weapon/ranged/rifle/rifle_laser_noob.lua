@@ -106,13 +106,13 @@ object_weapon_ranged_rifle_rifle_laser_noob = object_weapon_ranged_rifle_shared_
 	forceCost = 0,
 
 	pointBlankRange = 0,
-	pointBlankAccuracy = -30,
+	pointBlankAccuracy = 10,
 
-	idealRange = 52,
-	idealAccuracy = 10,
+	idealRange = 45,
+	idealAccuracy = 20,
 
 	maxRange = 64,
-	maxRangeAccuracy = -60,
+	maxRangeAccuracy = 10,
 
 	minDamage = 65,
 	maxDamage = 155,

@@ -105,17 +105,17 @@ object_weapon_ranged_rifle_rifle_ewok_crossbow = object_weapon_ranged_rifle_shar
 	mindAttackCost = 48,
 	forceCost = 0,
 
-	pointBlankAccuracy = -40,
 	pointBlankRange = 0,
+	pointBlankAccuracy = 10,
 
 	idealRange = 45,
-	idealAccuracy = 0,
+	idealAccuracy = 20,
+
+	maxRange = 64,
+	maxRangeAccuracy = 10,
 	
 	minDamage = 77,
 	maxDamage = 131,
-
-	maxRange = 65,
-	maxRangeAccuracy = -60,
 		
 	attackSpeed = 8,
 

@@ -106,13 +106,13 @@ object_weapon_ranged_rifle_rifle_t21 = object_weapon_ranged_rifle_shared_rifle_t
 	forceCost = 0,
 
 	pointBlankRange = 0,
-	pointBlankAccuracy = -90,
+	pointBlankAccuracy = 15,
 
-	idealRange = 60,
-	idealAccuracy = -25,
+	idealRange = 45,
+	idealAccuracy = 30,
 
 	maxRange = 64,
-	maxRangeAccuracy = -10,
+	maxRangeAccuracy = 20,
 
 	minDamage = 125,
 	maxDamage = 400,

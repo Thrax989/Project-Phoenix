@@ -87,13 +87,13 @@ object_weapon_ranged_rifle_rifle_bowcaster = object_weapon_ranged_rifle_shared_r
 	forceCost = 0,
 
 	pointBlankRange = 0,
-	pointBlankAccuracy = -30,
+	pointBlankAccuracy = 10,
 
 	idealRange = 45,
-	idealAccuracy = 0,
+	idealAccuracy = 20,
 
 	maxRange = 64,
-	maxRangeAccuracy = -80,
+	maxRangeAccuracy = 10,
 
 	minDamage = 110,
 	maxDamage = 180,

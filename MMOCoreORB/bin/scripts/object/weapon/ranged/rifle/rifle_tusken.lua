@@ -106,13 +106,13 @@ object_weapon_ranged_rifle_rifle_tusken = object_weapon_ranged_rifle_shared_rifl
 	forceCost = 0,
 
 	pointBlankRange = 0,
-	pointBlankAccuracy = -60,
+	pointBlankAccuracy = 10,
 
-	idealRange = 60,
+	idealRange = 45,
 	idealAccuracy = 20,
 
 	maxRange = 64,
-	maxRangeAccuracy = -50,
+	maxRangeAccuracy = 10,
 
 	minDamage = 100,
 	maxDamage = 150,

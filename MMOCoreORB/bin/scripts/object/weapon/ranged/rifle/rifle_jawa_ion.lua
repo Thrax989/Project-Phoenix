@@ -106,13 +106,13 @@ object_weapon_ranged_rifle_rifle_jawa_ion = object_weapon_ranged_rifle_shared_ri
 	forceCost = 0,
 
 	pointBlankRange = 0,
-	pointBlankAccuracy = -50,
+	pointBlankAccuracy = 10,
 
-	idealRange = 40,
-	idealAccuracy = 0,
+	idealRange = 45,
+	idealAccuracy = 20,
 
 	maxRange = 64,
-	maxRangeAccuracy = -80,
+	maxRangeAccuracy = 10,
 
 	minDamage = 110,
 	maxDamage = 205,

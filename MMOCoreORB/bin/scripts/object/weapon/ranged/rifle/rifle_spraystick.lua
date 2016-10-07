@@ -106,13 +106,13 @@ object_weapon_ranged_rifle_rifle_spraystick = object_weapon_ranged_rifle_shared_
 	forceCost = 0,
 
 	pointBlankRange = 0,
-	pointBlankAccuracy = -20,
+	pointBlankAccuracy = 10,
 
-	idealRange = 30,
-	idealAccuracy = 0,
+	idealRange = 45,
+	idealAccuracy = 20,
 
 	maxRange = 64,
-	maxRangeAccuracy = -60,
+	maxRangeAccuracy = 10,
 
 	minDamage = 10,
 	maxDamage = 110,
