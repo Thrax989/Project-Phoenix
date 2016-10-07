@@ -1,11 +1,3 @@
---[[NEUTRAL CORVETTE
-Spawning scene objects which will include active areas, elevators
-spawning mobiles to include droids, and possibly more
-will work on getting a simple quest involed
-also going to put a timer on the duration of which one will be in the vet
-
-basic waypoint -20, 0, 0, 4336197]]
-
 teleport_pveScreenPlay = ScreenPlay:new {
 	numberOfActs = 1,
 
