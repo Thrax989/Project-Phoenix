@@ -71,7 +71,7 @@ public:
 			creature->doAnimation("heal_other");
 	}
 
-	void sendHealMessage(CreatureObject* creature, CreatureObject* creatureTarget, int healthDamage, int actionDamage) const {
+	void sendHealMessage(CreatureObject* creature, CreatureObject* creatureTarget, int healthDamage, int actionDamage, int mindDamage) const {
 		if (!creature->isPlayerCreature())
 			return;
 
@@ -79,12 +79,20 @@ public:
 
 		StringBuffer msgPlayer, msgTarget, msgBody, msgTail;
 
-		if (healthDamage > 0 && actionDamage > 0) {
+		if (healthDamage > 0 && actionDamage > 0 && mindDamage > 0) {
+			msgBody << healthDamage << " health, " << actionDamage << " action, and " << mindDamage << " mind";
+		} else if (healthDamage > 0 && actionDamage > 0) {
 			msgBody << healthDamage << " health and " << actionDamage << " action";
+		} else if (healthDamage > 0 && mindDamage > 0) {
+			msgBody << healthDamage << " health and " << mindDamage << " mind";
+		} else if (actionDamage > 0 && mindDamage > 0) {
+			msgBody << actionDamage << " action and " << mindDamage << " mind";
 		} else if (healthDamage > 0) {
 			msgBody << healthDamage << " health";
 		} else if (actionDamage > 0) {
 			msgBody << actionDamage << " action";
+		} else if (mindDamage > 0) {
+			msgBody << mindDamage << " mind";
 		} else {
 			return; //No damage to heal.
 		}
@@ -223,12 +231,13 @@ public:
 				return GENERALERROR;
 			}
 
-			int healPower = round(((float)creature->getSkillMod("healing_injury_treatment") / 3.f + 20.f) * bfScale);
+			int healPower = round(((float)creature->getSkillMod("healing_injury_treatment") / 2.f + 40.f) * bfScale) + 250;
 
 			int healedHealth = creatureTarget->healDamage(creature, CreatureAttribute::HEALTH, healPower);
 			int healedAction = creatureTarget->healDamage(creature, CreatureAttribute::ACTION, healPower, true, false);
+			int healedMind = creatureTarget->healDamage(creature, CreatureAttribute::MIND, healPower, true, false);
 
-			sendHealMessage(creature, creatureTarget, healedHealth, healedAction);
+			sendHealMessage(creature, creatureTarget, healedHealth, healedAction, healedMind);
 		} else if (tendWound) {
 			if (attribute >= CreatureAttribute::MIND)
 				attribute = CreatureAttribute::UNKNOWN;
