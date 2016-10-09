@@ -125,8 +125,8 @@ object_weapon_ranged_rifle_rifle_flame_thrower = object_weapon_ranged_rifle_shar
 	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 	experimentalGroupTitles = {"null", "null", "expDamage", "expDamage", "expDamage", "expDamage", "expEffeciency", "exp_durability", "expRange", "null", "expRange", "expEffeciency", "expEffeciency", "expEffeciency"},
 	experimentalSubGroupTitles = {"null", "null", "mindamage", "maxdamage", "attackspeed", "woundchance", "roundsused", "hitpoints", "zerorangemod", "midrange", "midrangemod", "attackhealthcost", "attackactioncost", "attackmindcost"},
-	experimentalMin = {0, 0, 240, 690, 7.2, 8, 30, 750, 10, 50, -65, 84, 20, 20},
-	experimentalMax = {0, 0, 476, 826, 4.9, 16, 65, 1500, 20, 50, -35, 45, 10, 10},
+	experimentalMin = {0, 0, 80, 200, 5.5, 15, 30, 750, 5, 5, 50, 10, 46, 39, 83},
+	experimentalMax = {0, 0, 115, 375, 2.5, 29, 65, 1500, 25, 35, 50, 10, 25, 21, 45},
 	experimentalPrecision = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }

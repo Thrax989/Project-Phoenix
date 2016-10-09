@@ -126,8 +126,8 @@ object_weapon_ranged_rifle_rifle_berserker = object_weapon_ranged_rifle_shared_r
 	experimentalWeights = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 	experimentalGroupTitles = {"null", "null", "expDamage", "expDamage", "expDamage", "expDamage", "expEffeciency", "exp_durability", "null", "null", "null", "expRange", "expEffeciency", "expEffeciency", "expEffeciency"},
 	experimentalSubGroupTitles = {"null", "null", "mindamage", "maxdamage", "attackspeed", "woundchance", "roundsused", "hitpoints", "zerorangemod", "maxrangemod", "midrange", "midrangemod", "attackhealthcost", "attackactioncost", "attackmindcost"},
-	experimentalMin = {0, 0, 65, 145, 7.8, 8, 30, 750, -20, -80, 25, 26, 13, 28, 46},
-	experimentalMax = {0, 0, 95, 245, 5.2, 25, 65, 1500, -20, -80, 25, 14, 7, 18, 26},
+	experimentalMin = {0, 0, 80, 200, 5.5, 15, 30, 750, 5, 5, 50, 10, 46, 39, 83},
+	experimentalMax = {0, 0, 115, 375, 2.5, 29, 65, 1500, 25, 35, 50, 10, 25, 21, 45},
 	experimentalPrecision = {0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
 	experimentalCombineType = {0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 }
