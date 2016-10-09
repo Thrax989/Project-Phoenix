@@ -66,7 +66,7 @@ object_draft_schematic_chemistry_medpack_enhance_poison_a = object_draft_schemat
    ingredientTitleNames = {"first_organic_element", "second_organic_element", "first_inorganic_element", "second_inorganic_element", "delivery_medium", "drug_duration_compound", "drug_strength_compound"},
    ingredientSlotType = {0, 0, 0, 0, 1, 1, 1},
    resourceTypes = {"organic", "organic", "inorganic", "inorganic", "object/tangible/component/chemistry/shared_solid_delivery_shell.iff", "object/tangible/component/chemistry/shared_release_mechanism_duration.iff", "object/tangible/component/chemistry/shared_biologic_effect_controller.iff"},
-   resourceQuantities = {250, 250, 250, 250, 5, 5, 10},
+   resourceQuantities = {9, 9, 9, 9, 1, 1, 2},
    contribution = {100, 100, 100, 100, 50, 50, 50},
 
 
