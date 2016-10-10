@@ -43,7 +43,9 @@
 
 object_building_tatooine_parking_garage_tatooine_style_1 = object_building_tatooine_shared_parking_garage_tatooine_style_1:new {
 	gameObjectType = 528,
-	planetMapCategory = "garage"
+	planetMapCategory = "garage",
+	zoneComponent = "GarageZoneComponent",
+	dataObjectComponent = "GarageDataComponent",
 }
 
 ObjectTemplates:addTemplate(object_building_tatooine_parking_garage_tatooine_style_1, "object/building/tatooine/parking_garage_tatooine_style_1.iff")
