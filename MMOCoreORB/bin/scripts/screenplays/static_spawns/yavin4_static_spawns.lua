@@ -17,18 +17,12 @@ end
 function Yavin4StaticSpawnsScreenPlay:spawnMobiles()
 
 	-- Light Jedi Enclave (-5575, 4910)
-	spawnMobile("yavin4", "luke_elder", 300, -5575.59, 87.861, 4903.66, -179, 0)
-	--spawnMobile("yavin4", "trainer_rkl", 300, -5570.61, 87.6321, 4904.3, -179, 0)
-	--spawnMobile("yavin4", "trainer_jmt", 300, -5575.96, 87.6923, 4909.53, -179, 0)
-	--spawnMobile("yavin4", "light_jedi_sentinel", 300, -5579.0, 87.7, 4908.5, -179, 0)
---	spawnMobile("yavin4", "light_jedi_sentinel", 300, -5572.6, 87.7, 4908.2, -179, 0)
+	spawnMobile("yavin4", "light_jedi_sentinel", 300, -5579.0, 87.7, 4908.5, -179, 0)
+	spawnMobile("yavin4", "light_jedi_sentinel", 300, -5572.6, 87.7, 4908.2, -179, 0)
 
 	-- Dark Jedi Enclave (5068, 310)
-	spawnMobile("yavin4", "darthvader_elder", 300, 5080.18, 79.4253, 306.668, 90, 0)
-	--spawnMobile("yavin4", "trainer_rkd", 300, 5078.18, 79.0184, 310.551, 90, 0)
-	--spawnMobile("yavin4", "trainer_jmt", 300, 5071.91, 78.9986, 310.073, 90, 0)
-	--spawnMobile("yavin4", "dark_jedi_sentinel", 300, 5074.2, 78.8, 313.9, 90, 0)
---	spawnMobile("yavin4", "dark_jedi_sentinel", 300, 5074.3, 79.2, 306.4, 90, 0)
+	spawnMobile("yavin4", "dark_jedi_sentinel", 300, 5074.2, 78.8, 313.9, 90, 0)
+	spawnMobile("yavin4", "dark_jedi_sentinel", 300, 5074.3, 79.2, 306.4, 90, 0)
 
 	-- Yavin4 Ruins (-6299 -1502)
 	spawnMobile("yavin4", "enhanced_gaping_spider",300,-6299.1,24.7,-1502,0,0)
