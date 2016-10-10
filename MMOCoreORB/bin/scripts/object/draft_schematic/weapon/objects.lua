@@ -4107,4 +4107,3 @@ object_draft_schematic_weapon_shared_turbo_laser = SharedDraftSchematicObjectTem
 }
 
 ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_turbo_laser, "object/draft_schematic/weapon/shared_turbo_laser.iff")
-
