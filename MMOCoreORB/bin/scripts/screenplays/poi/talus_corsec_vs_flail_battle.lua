@@ -23,13 +23,5 @@ function TalusCorsecVsFlailBattleScreenPlay:spawnMobiles()
 	spawnMobile("talus", "corsec_trooper", 300, 3038.3, 30.6, 6104.7, 38, 0)
 	spawnMobile("talus", "corsec_trooper", 300, 3045.9, 30.0, 6102.3, 30, 0)
 	spawnMobile("talus", "corsec_trooper", 300, 3051.9, 29.8, 6099.3, 22, 0)
-	spawnMobile("talus", "corsec_trooper", 300, 3053.1, 31.1, 6108.8, 38, 0)
-
-
-
-
-
-
-
-
+	spawnMobile("talus", "corsec_trooper", 300, 3053.1, 31.1, 6108.8, 38, 0)	
 end

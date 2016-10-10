@@ -15,7 +15,7 @@ end
 
 function SingingMountainClanScreenPlay:spawnMobiles()
 
-	---Structure Entrance. 154, 4573
+	--Structure Entrance. 154, 4573
 
 	spawnMobile("dathomir", "singing_mountain_clan_sentry", 900, -1.5, 2.0, 5.6, 78, 2665879)
 	spawnMobile("dathomir", "singing_mountain_clan_sentry", 900, -1.4, 2.0, 10.1, 81, 2665879)
@@ -135,4 +135,5 @@ function SingingMountainClanScreenPlay:spawnMobiles()
 	spawnMobile("dathomir", "singing_mountain_clan_arch_witch", 600, 375.0, 367.0, 4321.0, -4, 0)
 	spawnMobile("dathomir", "singing_mountain_clan_scout", 600, 432.6, 317.6, 4275.9, 135, 0)
 	spawnMobile("dathomir", "singing_mountain_clan_outcast", 600, 268.7, 226.6, 4154.1, -151, 0)
+
 end
