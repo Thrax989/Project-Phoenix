@@ -1,7 +1,7 @@
 local ObjectManager = require("managers.object.object_manager")
 
 USEDHOLOCRON = "used_holocron"
-HOLOCRONCOOLDOWNTIME = 1 * 60 * 60 * 1000 -- 1 hour
+HOLOCRONCOOLDOWNTIME = 24 * 60 * 60 * 1000 -- 24 hours
 
 VillageJediManagerHolocron = ScreenPlay:new {}
 
@@ -9,31 +9,43 @@ VillageJediManagerHolocron = ScreenPlay:new {}
 -- @param pCreatureObject pointer to the creature object of the player who tries to use the holocron.
 -- @return true if the player can use the holocron.
 function VillageJediManagerHolocron.canUseHolocron(pCreatureObject)
-	return ObjectManager.withCreatureAndPlayerObject(pCreatureObject, function(creatureObject, playerObject)
-		return playerObject:isJedi() and creatureObject:checkCooldownRecovery(USEDHOLOCRON)
-	end)
+	local pGhost = CreatureObject(pCreatureObject):getPlayerObject()
+
+	if (pGhost == nil) then
+		return false
+	end
+
+	return PlayerObject(pGhost):isJedi() and CreatureObject(pCreatureObject):checkCooldownRecovery(USEDHOLOCRON)
 end
 
 -- Checks if the player can replenish the force or not.
 -- @param pCreatureObject pointer to the creature object of the player who should be checked.
 -- @return true if the player can replenish the force.
 function VillageJediManagerHolocron.canReplenishForce(pCreatureObject)
-	return ObjectManager.withCreaturePlayerObject(pCreatureObject, function(playerObject)
-		return playerObject:getForcePower() < playerObject:getForcePowerMax()
-	end)
+	local pGhost = CreatureObject(pCreatureObject):getPlayerObject()
+
+	if (pGhost == nil) then
+		return false
+	end
+
+	return PlayerObject(pGhost):getForcePower() < PlayerObject(pGhost):getForcePowerMax()
 end
 
 -- Use the holocron on the player.
 -- @param pSceneObject pointer to the scene object of the holocron.
 -- @param pCreatureObject pointer to the creature object of the player who is using the holocron.
 function VillageJediManagerHolocron.useTheHolocron(pSceneObject, pCreatureObject)
-	ObjectManager.withCreatureAndPlayerObject(pCreatureObject, function(creatureObject, playerObject)
-		-- The holocrom hums softly as you feel your Force power replenish.
-		creatureObject:sendSystemMessage("@jedi_spam:holocron_force_replenish")
-		playerObject:setForcePower(playerObject:getForcePowerMax());
-		creatureObject:addCooldown(USEDHOLOCRON, HOLOCRONCOOLDOWNTIME)
-		creatureObject:playEffect("clienteffect/pl_force_heal_self.cef", "")
-	end)
+	local pGhost = CreatureObject(pCreatureObject):getPlayerObject()
+
+	if (pGhost == nil) then
+		return
+	end
+
+	-- The holocrom hums softly as you feel your Force power replenish.
+	CreatureObject(pCreatureObject):sendSystemMessage("@jedi_spam:holocron_force_replenish")
+	PlayerObject(pGhost):setForcePower(PlayerObject(pGhost):getForcePowerMax());
+	CreatureObject(pCreatureObject):addCooldown(USEDHOLOCRON, HOLOCRONCOOLDOWNTIME)
+
 	SceneObject(pSceneObject):destroyObjectFromWorld()
 	SceneObject(pSceneObject):destroyObjectFromDatabase()
 end
