@@ -198,7 +198,7 @@ includeFile("events/lifeDay.lua")
 includeFile("events/buffTerminalMenuComponent.lua")
 includeFile("events/race_droid.lua")
 includeFile("events/black_sun.lua")
-includeFile("events/spirit_exar.lua")
+--includeFile("events/spirit_exar.lua")
 includeFile("events/world_exchange_dealer.lua")
 
 -- Hero of Tatooine
@@ -526,7 +526,7 @@ includeFile("tests/tests.lua")
 includeFile("poi/kaas_imperial_garrison.lua")
 
 --Boss Encounters
-includeFile("poi/tatooine_tsking.lua")
+--includeFile("poi/tatooine_tsking.lua")
 includeFile("poi/lok_rvboss.lua")
 
 ---- Merchants
