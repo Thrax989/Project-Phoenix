@@ -75,6 +75,7 @@ public:
 		COLD = 64,
 		ACID = 128,
 		ELECTRICITY = 256
+		FORCEPOWER = 512
 	};
 	
 	// multiple weapon type scenarios
