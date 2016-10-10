@@ -1,6 +1,7 @@
 includeFile("naboo/aggrivated_kaadu_trampler.lua")
 includeFile("naboo/alpha_veermok.lua")
 includeFile("naboo/ankura_gungan.lua")
+includeFile("naboo/apocalypse.lua")
 includeFile("naboo/arrek_von_sarko.lua")
 includeFile("naboo/athok_dinvar.lua")
 includeFile("naboo/ayn_eckener.lua")
