@@ -1,5 +1,6 @@
 package.path = package.path .. ";scripts/screenplays/themepark/?.lua;scripts/screenplays/?.lua;scripts/screenplays/dungeon/corellian_corvette/?.lua"
 require("screenplay")
+require("conv_handler")
 require("themeParkLogic")
 require("screenplayHelper")
 require("corvetteTicketGiverLogic")
