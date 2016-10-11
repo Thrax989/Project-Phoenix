@@ -428,3 +428,4 @@ class ChatRoom extends ManagedObject {
 	}
 
 }
+
