@@ -754,7 +754,7 @@ void PlayerManagerImplementation::killPlayer(TangibleObject* attacker, CreatureO
 	player->sendSystemMessage(stringId);
 
 	player->updateTimeOfDeath();
-	player->clearBuffs(true);
+	//player->clearBuffs(true);
 
 	PlayerObject* ghost = player->getPlayerObject();
 	ghost->setFactionStatus(FactionStatus::ONLEAVE);
@@ -764,8 +764,8 @@ void PlayerManagerImplementation::killPlayer(TangibleObject* attacker, CreatureO
 
 	if (ghost != NULL)
 		ghost->resetIncapacitationTimes();
-		ghost->setFoodFilling(0);
-		ghost->setDrinkFilling(0);
+		//ghost->setFoodFilling(0);
+		//ghost->setDrinkFilling(0);
 	/* NGE BH SYSTEM */
 	if (attacker->isPlayerCreature() && attacker != player) {
 		/*ManagedReference<SuiInputBox*> input = new SuiInputBox(player, SuiWindowType::STRUCTURE_VENDOR_WITHDRAW);

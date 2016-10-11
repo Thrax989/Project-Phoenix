@@ -50,7 +50,7 @@ int LightsaberObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObje
 	if (selectedID == 89) {
 
 		ManagedReference<SceneObject*> parent = weapon->getParent().get();
-		if (parent != NULL && parent->isPlayerCreature() && playObject->getAdminLevel() < 10) {
+		if (parent != NULL && parent->isPlayerCreature()){
 			player->sendSystemMessage("@jedi_spam:saber_not_while_equpped");
 			return 0;
 		}

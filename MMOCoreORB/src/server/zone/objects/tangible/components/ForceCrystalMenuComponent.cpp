@@ -35,6 +35,7 @@ void ForceCrystalMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject,
 	TangibleObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player);
 
 	menuResponse->addRadialMenuItem(20, 3, "Jedi Resurrection");
+	menuResponse->addRadialMenuItem(21, 3, "@quest/force_sensitive/intro:crystal_journal"); // Display Journal
 }
 
 int ForceCrystalMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, CreatureObject* creature, byte selectedID) const {
