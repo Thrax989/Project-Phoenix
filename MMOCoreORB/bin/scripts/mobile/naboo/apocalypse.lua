@@ -105,25 +105,25 @@ apocalypse = Creature:new {
 		},
 		{
 			groups = {
-				{group = "janta_rare", chance = 10000000}
+				{group = "geo_spider_fang", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "janta_rare", chance = 10000000}
+				{group = "geo_spider_fang", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "janta_rare", chance = 10000000}
+				{group = "geo_spider_fang", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "janta_rare", chance = 10000000}
+				{group = "geo_spider_fang", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
@@ -135,25 +135,25 @@ apocalypse = Creature:new {
 		},
 		{
 			groups = {
-				{group = "saberhand27", chance = 10000000}
+				{group = "geo_spider_fang", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 			{
 			groups = {
-				{group = "saberhand27", chance = 10000000}
+				{group = "geo_spider_fang", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 		{
 			groups = {
-				{group = "saberhand27", chance = 10000000}
+				{group = "geo_spider_fang", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 		{
 			groups = {
-				{group = "saberhand27", chance = 10000000}
+				{group = "geo_spider_fang", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
