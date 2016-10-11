@@ -26,7 +26,6 @@
 #include "server/zone/ZoneServer.h"
 
 #include "server/zone/Zone.h"
-#include "server/zone/objects/building/BuildingObject.h"
 #include "server/zone/objects/scene/SceneObjectType.h"
 
 int SlicingSessionImplementation::initializeSession() {
@@ -233,7 +232,7 @@ void SlicingSessionImplementation::endSlicing() {
 	}
 
 	if (tangibleObject->isMissionTerminal())
-		player->addCooldown("slicing.terminal", (1 * (15 * 1000))); // 15 second Cooldown
+		player->addCooldown("slicing.terminal", (2 * (60 * 1000))); // 2min Cooldown
 
 
 	cancelSession();
@@ -488,7 +487,7 @@ void SlicingSessionImplementation::handleSlice(SuiListBox* suiBox) {
 		playerManager->awardExperience(player, "slicing", 250, true); // Container Slice XP
 	} else if (tangibleObject->isMissionTerminal()) {
 		MissionTerminal* term = cast<MissionTerminal*>( tangibleObject.get());
-		playerManager->awardExperience(player, "slicing", 250, true); // Terminal Slice XP
+		playerManager->awardExperience(player, "slicing", 100, true); // Terminal Slice XP
 		term->addSlicer(player);
 		player->sendSystemMessage("@slicing/slicing:terminal_success");
 	} else if (tangibleObject->isWeaponObject()) {
