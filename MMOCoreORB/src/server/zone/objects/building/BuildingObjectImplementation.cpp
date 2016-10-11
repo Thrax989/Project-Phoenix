@@ -43,6 +43,7 @@
 #include "server/zone/objects/player/FactionStatus.h"
 
 #include "server/zone/objects/tangible/terminal/components/TurretControlTerminalDataComponent.h"
+#include "server/zone/objects/installation/InstallationObject.h"
 #include "server/zone/objects/installation/components/TurretDataComponent.h"
 #include "server/zone/managers/creature/CreatureManager.h"
 #include "server/zone/objects/creature/CreatureObject.h"
@@ -327,6 +328,9 @@ void BuildingObjectImplementation::notifyRemoveFromZone() {
 			}
 		}
 	}
+
+	childObjects.removeAll();
+	childCreatureObjects.removeAll();
 
 	if (signObject != NULL) {
 		Locker signLocker(signObject);
