@@ -184,4 +184,4 @@ lootGroups = {
  	}
 }
 
-CreatureTemplates:addCreatureTemplate(krayt_king, "krayt_king")
+CreatureTemplates:addCreatureTemplate(charon, "charon")
