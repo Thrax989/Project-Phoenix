@@ -27,6 +27,7 @@
 #include "server/zone/managers/stringid/StringIdManager.h"
 #include "tasks/StorePetTask.h"
 #include "server/chat/ChatManager.h"
+#include "server/zone/objects/building/BuildingObject.h"
 
 void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 	if (player->isInCombat() || player->isDead() || player->isIncapacitated() || player->getPendingTask("tame_pet") != NULL) {
@@ -48,16 +49,6 @@ void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 
 		if (building == NULL || building->isPrivateStructure()) {
 			player->sendSystemMessage("@pet/pet_menu:private_house"); // You cannot call pets in a private building.
-			return;
-		}
-
-		if (building->isStaticObject() && (building->getObjectTemplate()->getObjectName() == "@building_name:light_enclave" || building->getObjectTemplate()->getObjectName() == "@building_name:dark_enclave")) {
-			player->sendSystemMessage("Pets are not permitted inside the Enclave.");
-			return;
-		}
-		// To disallow players from calling any PETS while inside: DWB, Geo Cave, & The Warren...
-		if (building->isStaticObject() && (building->getClientObjectCRC() == 599067335 || building->getClientObjectCRC() == 3223964695 || building->getClientObjectCRC() == 2436238099)) {
-			player->sendSystemMessage("This facility's defense system inhibits your ability to call pets while inside.");
 			return;
 		}
 	}
@@ -436,7 +427,7 @@ void PetControlDeviceImplementation::storeObject(CreatureObject* player, bool fo
 
 	assert(pet->isLockedByCurrentThread());
 
-	if (!force && pet->isInCombat())
+	if (!force && (pet->isInCombat() || player->isInCombat()))
 		return;
 
 	if (player->isRidingMount() && player->getParent() == pet) {
