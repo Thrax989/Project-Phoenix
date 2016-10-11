@@ -71,7 +71,7 @@ ForceThrow2Command = {
 	poolsToDamage = RANDOM_ATTRIBUTE,
 
 	forceAttack = true,
-	damageType = FORCEPOWER_DAMAGE,
+	damageType = LIGHTSABER_DAMAGE,
 
 	range = 32
 }

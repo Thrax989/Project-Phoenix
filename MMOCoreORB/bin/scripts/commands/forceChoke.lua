@@ -58,7 +58,7 @@ ForceChokeCommand = {
   combatSpam = "forcechoke",
 
   poolsToDamage = RANDOM_ATTRIBUTE,
-  damageType = FORCEPOWER_DAMAGE,
+  damageType = LIGHTSABER_DAMAGE,
 
   range = 32,
 

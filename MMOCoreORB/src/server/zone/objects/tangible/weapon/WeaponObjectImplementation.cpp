@@ -297,9 +297,6 @@ void WeaponObjectImplementation::fillAttributeList(AttributeListMessage* alm, Cr
 	case SharedWeaponObjectTemplate::LIGHTSABER:
 		dmgtxt << "Lightsaber";
 		break;
-	case SharedWeaponObjectTemplate::FORCEPOWER:
-		dmgtxt << "Forcepower";
-		break;
 	default:
 		dmgtxt << "Unknown";
 		break;
