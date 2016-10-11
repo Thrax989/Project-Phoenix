@@ -350,6 +350,15 @@ void ZoneServerImplementation::stopManagers() {
 	configManager = NULL;
 	phandler = NULL;
 
+	if (guildManager != NULL) {
+		guildManager->stop();
+		guildManager = NULL;
+	}
+
+	if (cityManager != NULL) {
+		cityManager->stop();
+		cityManager = NULL;
+	}
 
 	if (chatManager != NULL) {
 		chatManager->stop();
@@ -469,7 +478,13 @@ void ZoneServerImplementation::processMessage(Message* message) {
 	Task* task = zonePacketHandler->generateMessageTask(client, message);
 
 	if (task != NULL) {
-		Core::getTaskManager()->executeTask(task, ((MessageCallback*)task)->getTaskQueue());
+		int queue = ((MessageCallback*)task)->getTaskQueue();
+
+		if (queue >= 0) {
+			Core::getTaskManager()->executeTask(task, queue);
+		} else {
+			Core::getTaskManager()->executeTask(task);
+		}
 	}
 
 	delete message;

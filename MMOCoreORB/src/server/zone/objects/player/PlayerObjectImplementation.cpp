@@ -1301,7 +1301,7 @@ void PlayerObjectImplementation::setTitle(const String& characterTitle, bool not
 	if (title == characterTitle)
 		return;
 
-	if(!characterTitle.isEmpty() ){
+	if(!characterTitle.isEmpty()){
 		Skill* targetSkill = SkillManager::instance()->getSkill(characterTitle);
 
 		if(targetSkill == NULL || !targetSkill->isTitle()) {
@@ -1863,6 +1863,9 @@ void PlayerObjectImplementation::checkForNewSpawns() {
 	Vector<SpawnArea*> spawnAreas;
 	int totalWeighting = 0;
 
+	bool includeWorldSpawnAreas = true;
+	Vector<SpawnArea*> worldSpawnAreas;
+
 	for (int i = 0; i < areas.size(); ++i) {
 		ManagedReference<ActiveArea*> area = areas.get(i);
 
@@ -1876,12 +1879,31 @@ void PlayerObjectImplementation::checkForNewSpawns() {
 			continue;
 		}
 
-		if (!(spawnArea->getTier() & SpawnAreaMap::SPAWNAREA)) {
+				int tier = spawnArea->getTier();
+
+		if (!(tier & SpawnAreaMap::SPAWNAREA)) {
 			continue;
+		}
+
+		if (tier & SpawnAreaMap::WORLDSPAWNAREA) {
+			worldSpawnAreas.add(spawnArea);
+			continue;
+		}
+
+		if (tier & SpawnAreaMap::NOWORLDSPAWNAREA) {
+			includeWorldSpawnAreas = false;
 		}
 
 		spawnAreas.add(spawnArea);
 		totalWeighting += spawnArea->getTotalWeighting();
+	}
+
+	if (includeWorldSpawnAreas) {
+		for (int i = 0; i < worldSpawnAreas.size(); ++i) {
+			SpawnArea* currentWorldSpawnArea = worldSpawnAreas.get(i);
+			spawnAreas.add(currentWorldSpawnArea);
+			totalWeighting += currentWorldSpawnArea->getTotalWeighting();
+		}
 	}
 
 	int choice = System::random(totalWeighting - 1);
