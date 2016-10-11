@@ -64,7 +64,6 @@ void AttachmentImplementation::fillAttributeList(AttributeListMessage* msg, Crea
 	StringBuffer name;
 
 	HashTableIterator<String, int> iterator = skillModMap.iterator();
-	ManagedReference<TangibleObject*> tano = cast<TangibleObject*>(object);
 
 	String key = "";
 	int value = 0;
@@ -75,8 +74,8 @@ void AttachmentImplementation::fillAttributeList(AttributeListMessage* msg, Crea
 		iterator.getNextKeyAndValue(key, value);
 		
 		if(value > last){
-		last = value;
-		tano->setCustomObjectName(key,true);
+			last = value;
+			setCustomObjectName("cat_skill_mod_bonus.@stat_n:" + key,object);
 		}
 
 		name << "cat_skill_mod_bonus.@stat_n:" << key;
