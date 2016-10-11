@@ -97,6 +97,9 @@ int CreateVendorSessionImplementation::initializeSession() {
 void CreateVendorSessionImplementation::handleVendorSelection(byte menuID) {
 	ManagedReference<CreatureObject*> player = this->player.get();
 
+	if (player == NULL)
+		return;
+
 	int hiringMod = player->getSkillMod("hiring");
 	suiSelectVendor->clearOptions();
 	suiSelectVendor->removeAllMenuItems();
@@ -137,6 +140,9 @@ void CreateVendorSessionImplementation::handleVendorSelection(byte menuID) {
 
 void CreateVendorSessionImplementation::createVendor(String& name) {
 	ManagedReference<CreatureObject*> player = this->player.get();
+
+	if (player == NULL)
+		return;
 
 	Locker locker(player);
 
@@ -249,6 +255,10 @@ void CreateVendorSessionImplementation::randomizeVendorLooks(CreatureObject* ven
 }
 
 void CreateVendorSessionImplementation::randomizeVendorClothing(CreatureObject* vendor, VendorCreatureTemplate* vendorTempl) {
+	ManagedReference<CreatureObject*> player = this->player.get();
+
+	if (player == NULL)
+		return;
 
 	String randomOutfit = vendorTempl->getOutfitName(System::random(vendorTempl->getOutfitsSize() -1));
 	if (randomOutfit.isEmpty())
@@ -286,6 +296,10 @@ void CreateVendorSessionImplementation::randomizeVendorClothing(CreatureObject* 
 }
 
 void CreateVendorSessionImplementation::randomizeVendorHair(CreatureObject* vendor, VendorCreatureTemplate* vendorTempl) {
+	ManagedReference<CreatureObject*> player = this->player.get();
+
+	if (player == NULL)
+		return;
 
 	String hairFile = vendorTempl->getHairFile(System::random(vendorTempl->getHairSize() - 1));
 	ManagedReference<SceneObject*> hairSlot = vendor->getSlottedObject("hair");
