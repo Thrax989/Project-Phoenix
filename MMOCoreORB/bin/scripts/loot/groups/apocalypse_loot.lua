@@ -5,12 +5,10 @@ apocalypse_loot = {
 	minimumLevel = 0,
 	maximumLevel = 0,
 	lootItems = {
-		{itemTemplate = "prototype_blaster_barrel", weight = 1666666},
-		{itemTemplate = "prototype_projectile_barrel", weight = 1666666},
-		{itemTemplate = "prototype_blaster_power_handler", weight = 1666666},
-		{itemTemplate = "prototype_projectile_rifle_barrel", weight = 1666668},
-		{itemTemplate = "geo_spider_fang", weight = 1666668},
-		{itemTemplate = "prototype_rifle_blaster_barrel", weight = 1666666}
+		{itemTemplate = "prototype_blaster_barrel", weight = 2500000},
+		{itemTemplate = "prototype_blaster_power_handler", weight = 2500000},
+		{itemTemplate = "geo_spider_fang", weight = 2500000},
+		{itemTemplate = "prototype_rifle_blaster_barrel", weight = 2500000}
 		
 	}
 }

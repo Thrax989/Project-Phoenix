@@ -5,9 +5,12 @@ hk_fu_loot = {
 	minimumLevel = 0,
 	maximumLevel = 0,
 	lootItems = {
-		{itemTemplate = "janta_blood", weight = 3333333},
-		{itemTemplate = "geo_spider_venom_rare", weight = 3333334},
-		{itemTemplate = "rancor_bile", weight = 3333333}
+		{itemTemplate = "janta_blood", weight = 1666666},
+		{itemTemplate = "geo_spider_venom_rare", weight = 1666666},
+		{itemTemplate = "rancor_bile", weight = 1666666},
+		{itemTemplate = "hk_liquid.lua", weight = 1666666},
+		{itemTemplate = "hk_release.lua", weight = 1666668},
+		{itemTemplate = "hk_shell.lua", weight = 1666668}
 		
 	}
 }

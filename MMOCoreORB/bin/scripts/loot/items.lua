@@ -1268,6 +1268,9 @@ includeFile("items/prototype_stock.lua")
 includeFile("items/prototype_blaster_power_handler.lua")
 includeFile("items/prototype_projectile_rifle_barrel.lua")
 includeFile("items/prototype_rifle_blaster_barrel.lua")
+includeFile("items/hk_liquid.lua")
+includeFile("items/hk_release.lua")
+includeFile("items/hk_shell.lua")
 
 -- Custom data
 --AV21 Loot
