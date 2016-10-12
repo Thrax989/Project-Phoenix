@@ -32,97 +32,97 @@ templates = {"object/mobile/som/hk47.iff"},
 	lootGroups = {
 		{
 			groups = {
-				{group = "g_carbine_alliance_needler", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "g_carbine_bounty_ee3", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "g_carbine_charric", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "g_carbine_geo", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "g_carbine_mandalorian", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "g_carbine_proton", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "g_pistol_deathhammer", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "g_pistol_flechette", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "g_pistol_heroic_exar", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "g_pistol_intimidator", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "g_pistol_mandalorian", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "g_rifle_bowcaster_master", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "g_rifle_deathtroopers", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "g_rifle_eweb", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "g_rifle_geo_drill", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "g_rifle_mandalorian", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
@@ -134,25 +134,25 @@ templates = {"object/mobile/som/hk47.iff"},
 		},
 		{
 			groups = {
-				{group = "g_som_rifle_mustafar_disruptor", chance = 10000000}
+				{group = "barc_speeder_deed_group", chance = 10000000}
 			},
-			lootChance = 10000000
+			lootChance = 1000000
 		 },
 			{
 			groups = {
-				{group = "g_rifle_proton", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 		{
 			groups = {
-				{group = "g_ep3_loot_retaliation", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 		{
 			groups = {
-				{group = "g_ep3_loot_retribution", chance = 10000000}
+				{group = "hk_fu_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
