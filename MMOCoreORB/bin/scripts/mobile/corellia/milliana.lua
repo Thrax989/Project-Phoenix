@@ -33,97 +33,97 @@ milliana = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "acklay", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "acklay", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "acklay", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "acklay", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "acklay", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "geonosian_cubes", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "geonosian_cubes", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "geonosian_cubes", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "geonosian_cubes", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "geonosian_cubes", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "geonosian_cubes", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "janta_rare", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "janta_rare", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "janta_rare", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "janta_rare", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "janta_rare", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
@@ -135,31 +135,31 @@ milliana = Creature:new {
 		},
 		{
 			groups = {
-				{group = "nightsister_common", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 			{
 			groups = {
-				{group = "nightsister_common", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 		{
 			groups = {
-				{group = "nightsister_common", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 		{
 			groups = {
-				{group = "nightsister_common", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 		{
 			groups = {
-				{group = "nightsister_common", chance = 10000000}
+				{group = "milliana_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
