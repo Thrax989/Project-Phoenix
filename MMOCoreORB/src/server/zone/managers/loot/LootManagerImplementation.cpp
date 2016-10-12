@@ -455,7 +455,10 @@ TangibleObject* LootManagerImplementation::createLootObject(LootItemTemplate* te
 	delete craftingValues;
 	
 	if(prototype->isAttachment()){
-		VectorMap<String, int>* mods = prototype->getTemplateSkillMods();
+		Attachment* attachment = cast<Attachment*>( prototype.get());
+		HashTable<String, int>* mods = attachment->getSkillMods();
+		HashTableIterator<String, int> iterator = mods->iterator();
+
 		StringId attachmentName;
 
 		String key = "";
@@ -463,15 +466,17 @@ TangibleObject* LootManagerImplementation::createLootObject(LootItemTemplate* te
 		int last = 0;
 
 		for(int i = 0; i < mods->size(); ++i) {
-			VectorMapEntry<String, int> entry = mods->elementAt(i);
-			key = entry.getKey();
-			value = entry.getValue();
+			iterator.getNextKeyAndValue(key, value);
 		
 			if(value > last){
 				last = value;
 				attachmentName.setStringId("stat_n", key);
-				warning("Looted Attachment setting name to: " + attachmentName.toString());
-				prototype->setCustomObjectName(attachmentName.toString(),false);
+				prototype->setObjectName(attachmentName,false);
+				if(attachment->isClothingAttachment()){
+					prototype->setCustomObjectName(prototype->getDisplayedName() + " (" + String::valueOf(value) + ") CA",false);
+				}else{
+					prototype->setCustomObjectName(prototype->getDisplayedName() + " (" + String::valueOf(value) + ") AA",false);
+				}
 			}
 		}
 	}
