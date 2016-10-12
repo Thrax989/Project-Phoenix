@@ -33,97 +33,97 @@ apocalypse = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "wep_comps", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "wep_comps", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "wep_comps", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "wep_comps", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "wep_comps", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "wep_comps", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "wep_comps", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "wep_comps", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "wep_comps", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "wep_comps", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "wep_comps", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "wep_comps", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "geo_spider_fang", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "geo_spider_fang", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "geo_spider_fang", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "geo_spider_fang", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
@@ -135,28 +135,57 @@ apocalypse = Creature:new {
 		},
 		{
 			groups = {
-				{group = "geo_spider_fang", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 			{
 			groups = {
-				{group = "geo_spider_fang", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 		{
 			groups = {
-				{group = "geo_spider_fang", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 		{
 			groups = {
-				{group = "geo_spider_fang", chance = 10000000}
+				{group = "apocalypse_loot", chance = 10000000}
 			},
 			lootChance = 10000000
-		 },
+		{
+			groups = {
+				{group = "apocalypse_loot", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "apocalypse_loot", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "apocalypse_loot", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "apocalypse_loot", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "apocalypse_loot", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
 		},	
 	weapons = {"imperial_weapons_heavy"},
 	reactionStf = "@npc_reaction/slang",

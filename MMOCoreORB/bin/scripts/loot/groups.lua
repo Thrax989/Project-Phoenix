@@ -439,6 +439,7 @@ includeFile("groups/wep_comps.lua")
 includeFile("groups/milliana_loot.lua")
 includeFile("charon_loot.lua")
 includeFile("hk_fu_loot.lua")
+includeFile("apocalypse_loot.lua")
 -- Custom tables
 includeFile("groups/custom/av_21_pp.lua")
 includeFile("groups/custom/av_21_scheme.lua")
