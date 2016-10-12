@@ -459,7 +459,7 @@ TangibleObject* LootManagerImplementation::createLootObject(LootItemTemplate* te
 		HashTable<String, int>* mods = attachment->getSkillMods();
 		HashTableIterator<String, int> iterator = mods->iterator();
 
-		StringId attachmentName;
+		StringIdManager* stringIdManager = StringIdManager::instance();
 
 		String key = "";
 		int value = 0;
@@ -470,8 +470,10 @@ TangibleObject* LootManagerImplementation::createLootObject(LootItemTemplate* te
 		
 			if(value > last){
 				last = value;
-				attachmentName.setStringId("stat_n", key);
-				prototype->setObjectName(attachmentName,false);
+				String statName = "@stat_n:" + key;
+				
+				prototype->setCustomObjectName(stringIdManager->getStringId(statName.hashCode()),false);
+
 				if(attachment->isClothingAttachment()){
 					prototype->setCustomObjectName(prototype->getDisplayedName() + " (" + String::valueOf(value) + ") CA",false);
 				}else{
