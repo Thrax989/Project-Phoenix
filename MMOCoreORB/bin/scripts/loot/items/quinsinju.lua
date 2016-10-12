@@ -6,8 +6,8 @@ quinsinju = {
 	customObjectName = "quinsinju",
 	directObjectTemplate = "object/weapon/melee/polearm/crafted_saber/sword_lightsaber_polearm_pvp_bf.iff",
 	craftingValues = {
-		{"mindamage",350,400,0},
-		{"maxdamage",700,800,0},
+		{"mindamage",400,450,0},
+		{"maxdamage",475,500,0},
 		{"attackspeed",5.5,3.8,1},
 		{"woundchance",20,40,0},
 		{"hitpoints",750,1500,0},
@@ -25,7 +25,7 @@ quinsinju = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 1000,
+	randomDotChance = 10,
 	junkDealerTypeNeeded = JUNKWEAPONS,
 	junkMinValue = 30,
 	junkMaxValue = 55

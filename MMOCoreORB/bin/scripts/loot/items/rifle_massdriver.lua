@@ -6,8 +6,8 @@ rifle_massdriver = {
 	customObjectName = "Massdriver",
 	directObjectTemplate = "object/weapon/ranged/rifle/rifle_e11.iff",
 	craftingValues = {
-		{"mindamage",750,800,0},
-		{"maxdamage",1000,1250,0},
+		{"mindamage",775,800,0},
+		{"maxdamage",825,850,0},
 		{"attackspeed",4.2,2.9,1},
 		{"woundchance",40,50,0},
 		{"hitpoints",750,1500,0},
@@ -24,7 +24,7 @@ rifle_massdriver = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 1000,
+	randomDotChance = 10,
 	junkDealerTypeNeeded = JUNKWEAPONS,
 	junkMinValue = 25,
 	junkMaxValue = 45

@@ -6,8 +6,8 @@ pistol_scatter_blast = {
 	customObjectName = "Scatter Blast",
 	directObjectTemplate = "object/weapon/ranged/pistol/pistol_scatter.iff",
 	craftingValues = {
-		{"mindamage",750,800,0},
-		{"maxdamage",1000,1250,0},
+		{"mindamage",675,700,0},
+		{"maxdamage",725,750,0},
 		{"attackspeed",4.2,2.9,1},
 		{"woundchance",40,50,0},
 		{"hitpoints",750,1500,0},
@@ -24,7 +24,7 @@ pistol_scatter_blast = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 800,
+	randomDotChance = 10,
 	junkDealerTypeNeeded = JUNKWEAPONS,
 	junkMinValue = 30,
 	junkMaxValue = 55

@@ -4,8 +4,8 @@ rifle_lightning_storm = {
 	customObjectName = "Lightning Storm",
 	directObjectTemplate = "object/weapon/ranged/rifle/rifle_lightning.iff",
 	craftingValues = {
-		{"mindamage",750,800,0},
-		{"maxdamage",1000,1250,0},
+		{"mindamage",875,900,0},
+		{"maxdamage",925,950,0},
 		{"attackspeed",4.2,2.9,1},
 		{"woundchance",40,50,0},
 		{"hitpoints",750,1500,0},
@@ -22,7 +22,7 @@ rifle_lightning_storm = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 1000,
+	randomDotChance = 10,
 	junkDealerTypeNeeded = JUNKWEAPONS,
 	junkMinValue = 20,
 	junkMaxValue = 60

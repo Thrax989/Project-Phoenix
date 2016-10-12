@@ -5,8 +5,8 @@ nukefist = {
 	customObjectName = "Nukefist",
 	directObjectTemplate = "object/weapon/melee/special/blasterfist.iff",
 	craftingValues = {
-		{"mindamage",750,800,0},
-		{"maxdamage",1000,1250,0},
+		{"mindamage",600,650,0},
+		{"maxdamage",675,700,0},
 		{"attackspeed",4.2,2.9,1},
 		{"woundchance",40,50,0},
 		{"hitpoints",750,1500,0},
@@ -23,7 +23,7 @@ nukefist = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 500,
+	randomDotChance = 10,
 	junkDealerTypeNeeded = JUNKWEAPONS,
 	junkMinValue = 25,
 	junkMaxValue = 45

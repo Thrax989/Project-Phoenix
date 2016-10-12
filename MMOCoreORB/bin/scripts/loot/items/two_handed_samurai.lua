@@ -4,8 +4,8 @@ two_handed_samurai = {
 	customObjectName = "Samurai Sword",
 	directObjectTemplate = "object/weapon/melee/2h_sword/2h_sword_katana.iff",
 	craftingValues = {
-		{"mindamage",750,800,0},
-		{"maxdamage",1000,1250,0},
+		{"mindamage",650,700,0},
+		{"maxdamage",725,750,0},
 		{"attackspeed",4.2,2.9,1},
 		{"woundchance",40,50,0},
 		{"hitpoints",750,1500,0},
@@ -22,7 +22,7 @@ two_handed_samurai = {
 	customizationValues = {},
 
 	-- randomDotChance: The chance of this weapon object dropping with a random dot on it. Higher number means less chance. Set to 0 to always have a random dot.
-	randomDotChance = 1000,
+	randomDotChance = 10,
 	junkDealerTypeNeeded = JUNKWEAPONS,
 	junkMinValue = 30,
 	junkMaxValue = 55
