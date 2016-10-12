@@ -6,8 +6,8 @@ baton_blast = {
 	customObjectName = "Blasting Baton",
 	directObjectTemplate = "object/weapon/melee/baton/baton_stun.iff",
 	craftingValues = {
-		{"mindamage",650,700,0},
-		{"maxdamage",725,750,0},
+		{"mindamage",500,600,0},
+		{"maxdamage",625,650,0},
 		{"attackspeed",4.2,2.9,1},
 		{"woundchance",40,50,0},
 		{"hitpoints",750,1500,0},

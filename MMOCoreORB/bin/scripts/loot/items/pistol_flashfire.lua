@@ -6,8 +6,8 @@ pistol_flashfire = {
 	customObjectName = "Flashfire",
 	directObjectTemplate = "object/weapon/ranged/pistol/pistol_fwg5.iff",
 	craftingValues = {
-		{"mindamage",675,700,0},
-		{"maxdamage",725,750,0},
+		{"mindamage",575,600,0},
+		{"maxdamage",625,650,0},
 		{"attackspeed",4.2,2.9,1},
 		{"woundchance",40,50,0},
 		{"hitpoints",750,1500,0},

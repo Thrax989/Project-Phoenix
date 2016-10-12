@@ -6,8 +6,8 @@ rifle_massdriver = {
 	customObjectName = "Massdriver",
 	directObjectTemplate = "object/weapon/ranged/rifle/rifle_e11.iff",
 	craftingValues = {
-		{"mindamage",775,800,0},
-		{"maxdamage",825,850,0},
+		{"mindamage",675,700,0},
+		{"maxdamage",725,750,0},
 		{"attackspeed",4.2,2.9,1},
 		{"woundchance",40,50,0},
 		{"hitpoints",750,1500,0},

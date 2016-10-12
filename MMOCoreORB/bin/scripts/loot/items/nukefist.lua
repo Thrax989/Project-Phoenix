@@ -5,8 +5,8 @@ nukefist = {
 	customObjectName = "Nukefist",
 	directObjectTemplate = "object/weapon/melee/special/blasterfist.iff",
 	craftingValues = {
-		{"mindamage",600,650,0},
-		{"maxdamage",675,700,0},
+		{"mindamage",425,475,0},
+		{"maxdamage",500,550,0},
 		{"attackspeed",4.2,2.9,1},
 		{"woundchance",40,50,0},
 		{"hitpoints",750,1500,0},

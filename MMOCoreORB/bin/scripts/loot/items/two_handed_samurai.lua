@@ -4,8 +4,8 @@ two_handed_samurai = {
 	customObjectName = "Samurai Sword",
 	directObjectTemplate = "object/weapon/melee/2h_sword/2h_sword_katana.iff",
 	craftingValues = {
-		{"mindamage",650,700,0},
-		{"maxdamage",725,750,0},
+		{"mindamage",500,600,0},
+		{"maxdamage",625,650,0},
 		{"attackspeed",4.2,2.9,1},
 		{"woundchance",40,50,0},
 		{"hitpoints",750,1500,0},

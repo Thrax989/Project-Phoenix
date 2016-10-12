@@ -4,8 +4,8 @@ rifle_inferno = {
 	customObjectName = "Inferno",
 	directObjectTemplate = "object/weapon/ranged/rifle/rifle_flame_thrower.iff",
 	craftingValues = {
-		{"mindamage",875,900,0},
-		{"maxdamage",925,950,0},
+		{"mindamage",775,800,0},
+		{"maxdamage",825,850,0},
 		{"attackspeed",4.2,2.9,1},
 		{"woundchance",40,50,0},
 		{"hitpoints",750,1500,0},

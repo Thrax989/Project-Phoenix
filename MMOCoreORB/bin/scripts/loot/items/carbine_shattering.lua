@@ -6,8 +6,8 @@ carbine_shattering = {
 	customObjectName = "Shattering Carbine",
 	directObjectTemplate = "object/weapon/ranged/carbine/carbine_ee3.iff",
 	craftingValues = {
-		{"mindamage",775,800,0},
-		{"maxdamage",825,850,0},
+		{"mindamage",675,700,0},
+		{"maxdamage",725,750,0},
 		{"attackspeed",4.2,2.9,1},
 		{"woundchance",40,50,0},
 		{"hitpoints",750,1500,0},
