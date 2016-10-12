@@ -133,37 +133,37 @@ lootGroups = {
 		},
 		{
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "barc_speeder_deed_group", chance = 10000000}
+			},
+			lootChance = 1000000
+		},
+		 {
+			groups = {
+				{group = "g_named_crystals", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "g_named_crystals", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "g_named_crystals", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "g_named_crystals", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-		 {
-			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "g_named_crystals", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
