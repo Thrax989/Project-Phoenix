@@ -65,21 +65,21 @@ void AttachmentImplementation::fillAttributeList(AttributeListMessage* msg, Crea
 
 	HashTableIterator<String, int> iterator = skillModMap.iterator();
 	
-	StringId attachmentName;
+	//StringId attachmentName;
 
 	String key = "";
 	int value = 0;
-	int last = 0;
+	//int last = 0;
 
 	for(int i = 0; i < skillModMap.size(); ++i) {
 
 		iterator.getNextKeyAndValue(key, value);
 		
-		if(value > last){
+		/*if(value > last){
 			last = value;
 			attachmentName.setStringId("stat_n", key);
 			setObjectName(attachmentName,true);
-		}
+		}*/
 
 		name << "cat_skill_mod_bonus.@stat_n:" << key;
 
