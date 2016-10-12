@@ -31,103 +31,103 @@
 lootGroups = {
 		{
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 				 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 				 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 				 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 				 {
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "charon_loot", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},

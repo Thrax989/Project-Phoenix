@@ -1,18 +1,18 @@
-milliana = Creature:new {
+omniveron = Creature:new {
 	objectName = "@mob/creature_names:",
-	customName = "Milliana (Armored Goddess)",
+	customName = "Omniveron (Destruction Incarnate)",
 	socialGroup = "self",
 	pvpFaction = "",
 	faction = "",
 	level = 300,
-	chanceHit = 85,
-	damageMin = 7700,
-	damageMax = 7900,
-	baseXp = 1435409,
-	baseHAM = 25000000,
-	baseHAMmax = 25100000,
+	chanceHit = 90,
+	damageMin = 11500,
+	damageMax = 12000,
+	baseXp = 2000000,
+	baseHAM = 200000000,
+	baseHAMmax = 210000000,
 	armor = 3,
-	resists = {90,90,90,90,90,90,90,90,90},
+	resists = {199,199,199,199,199,199,199,199,199},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -33,97 +33,97 @@ milliana = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
@@ -131,35 +131,41 @@ milliana = Creature:new {
 			groups = {
 				{group = "barc_speeder_deed_group", chance = 10000000}
 			},
-			lootChance = 1000000
+			lootChance = 3000000
+		},
+		 {
+			groups = {
+				{group = "barc_speeder_deed_group", chance = 10000000}
+			},
+			lootChance = 3000000
+		},
+		 {
+			groups = {
+				{group = "barc_speeder_deed_group", chance = 10000000}
+			},
+			lootChance = 3000000
 		},
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 			{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 		{
 			groups = {
-				{group = "milliana", chance = 10000000}
-			},
-			lootChance = 10000000
-		 },
-		{
-			groups = {
-				{group = "milliana", chance = 10000000}
+				{group = "omniveron", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
@@ -169,4 +175,4 @@ milliana = Creature:new {
 	attacks = merge(bountyhuntermaster,marksmanmaster,brawlermaster,pikemanmaster,fencermaster,swordsmanmaster,tkamaster,pistoleermaster,commandomaster)
 }
 
-CreatureTemplates:addCreatureTemplate(milliana, "milliana")
+CreatureTemplates:addCreatureTemplate(omniveron, "omniveron")

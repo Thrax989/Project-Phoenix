@@ -32,97 +32,97 @@ templates = {"object/mobile/som/hk47.iff"},
 	lootGroups = {
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
@@ -140,19 +140,19 @@ templates = {"object/mobile/som/hk47.iff"},
 		 },
 			{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 		{
 			groups = {
-				{group = "hk_fu_loot", chance = 10000000}
+				{group = "hk_fu", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },

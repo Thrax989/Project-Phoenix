@@ -4,7 +4,7 @@ hk_shell = {
 	minimumLevel = 0,
 	maximumLevel = -1,
 	customObjectName = "HK Shell",
-	directObjectTemplate = "object/tangible/component/chemistry/solid_delivery_shell_advanced.iff",
+	directObjectTemplate = "object/tangible/component/chemistry/solid_delivery_shell.iff",
 	craftingValues = {
 		{"power",20,100,0},
 		{"useCount",15,30,0},

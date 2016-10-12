@@ -33,97 +33,97 @@ apocalypse = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
@@ -135,54 +135,54 @@ apocalypse = Creature:new {
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 			{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		 },
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-		{
-			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "apocalypse_loot", chance = 10000000}
+				{group = "apocalypse", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
 		},

@@ -1271,6 +1271,17 @@ includeFile("items/prototype_rifle_blaster_barrel.lua")
 includeFile("items/hk_liquid.lua")
 includeFile("items/hk_release.lua")
 includeFile("items/hk_shell.lua")
+includeFile("items/quinsinju.lua")
+includeFile("items/baton_blast.lua")
+includeFile("items/carbine_shattering.lua")
+includeFile("items/lance_misery.lua")
+includeFile("items/nukefist.lua")
+includeFile("items/pistol_flashfire.lua")
+includeFile("items/pistol_scatter_blast.lua")
+includeFile("items/rifle_inferno.lua")
+includeFile("items/rifle_lightning_storm.lua")
+includeFile("items/rifle_massdriver.lua")
+includeFile("items/two_handed_samurai.lua")
 
 -- Custom data
 --AV21 Loot

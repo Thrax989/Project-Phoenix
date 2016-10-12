@@ -4,7 +4,7 @@ hk_liquid = {
 	minimumLevel = 0,
 	maximumLevel = -1,
 	customObjectName = "HK Liquid",
-	directObjectTemplate = "object/tangible/component/chemistry/liquid_delivery_suspension_advanced.iff",
+	directObjectTemplate = "object/tangible/component/chemistry/liquid_delivery_suspension.iff",
 	craftingValues = {
 		{"power",40,250,0},
 		{"useCount",15,30,0},
