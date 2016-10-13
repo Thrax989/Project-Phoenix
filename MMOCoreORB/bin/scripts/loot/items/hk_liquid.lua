@@ -6,7 +6,9 @@ hk_liquid = {
 	customObjectName = "HK Liquid",
 	directObjectTemplate = "object/tangible/component/chemistry/liquid_delivery_suspension.iff",
 	craftingValues = {
+	craftingValues = {
 		{"power",40,250,0},
+		{"charges",15,30,0},
 		{"useCount",15,30,0},
 	},
 	customizationStringNames = {},
