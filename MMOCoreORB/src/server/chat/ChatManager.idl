@@ -41,6 +41,8 @@ class ChatManager extends ManagedService implements Logger {
 	ChatRoom groupRoom;
 	ChatRoom guildRoom;
 	ChatRoom auctionRoom;
+	ChatRoom generalRoom;
+	ChatRoom supportRoom;
 	ChatRoom systemRoom;
 
 	transient ChatRoomMap roomMap;
@@ -426,6 +428,20 @@ class ChatManager extends ManagedService implements Logger {
 	}
 
 	/*
+	 * Returns the general chat room
+	 */
+	public ChatRoom getGeneralRoom() {
+		return generalRoom;
+	}
+
+	/*
+	 * Returns the support chat room
+	 */
+	public ChatRoom getSupportRoom() {
+		return supportRoom;
+	}
+
+	/*
 	 * Returns the system chat room
 	 */
 	public ChatRoom getSystemRoom() {
@@ -437,4 +453,3 @@ class ChatManager extends ManagedService implements Logger {
 		return socialTypes.get(id);
 	}
 }
-
