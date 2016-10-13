@@ -78,6 +78,7 @@ void ChatManagerImplementation::stop() {
 	guildRoom = NULL;
 	auctionRoom = NULL;
 	generalRoom = NULL;
+	supportRoom = NULL;
 	gameRooms.removeAll();
 }
 
@@ -249,19 +250,15 @@ void ChatManagerImplementation::initiateRooms() {
 	guildRoom = createRoom("guild", systemRoom);
 	guildRoom->setPrivate();
 
-	Reference<ChatRoom*> generalRoom = createRoom("Chat", galaxyRoom);
-	generalRoom->setCanEnter(true);
-	generalRoom->setAllowSubrooms(true);
-	generalRoom->setTitle("public chat for this server, can create rooms here");
-
 	auctionRoom = createRoom("Auction", galaxyRoom);
 	auctionRoom->setCanEnter(true);
 	auctionRoom->setChatRoomType(ChatRoom::AUCTION);
 
 	generalRoom = createRoom("General", galaxyRoom);
 	generalRoom->setCanEnter(true);
-	generalRoom->setChatRoomType(ChatRoom::GENERAL );
 
+	generalRoom = createRoom("Support", galaxyRoom);
+	generalRoom->setCanEnter(true);
 }
 
 void ChatManagerImplementation::initiatePlanetRooms() {
