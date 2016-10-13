@@ -8,9 +8,9 @@ hk_fu = {
 		{itemTemplate = "janta_blood", weight = 1666666},
 		{itemTemplate = "geo_spider_venom_rare", weight = 1666666},
 		{itemTemplate = "rancor_bile", weight = 1666666},
-		{itemTemplate = "hk_liquid.lua", weight = 1666666},
-		{itemTemplate = "hk_release.lua", weight = 1666668},
-		{itemTemplate = "hk_shell.lua", weight = 1666668}
+		{itemTemplate = "hk_liquid", weight = 1666666},
+		{itemTemplate = "hk_release", weight = 1666668},
+		{itemTemplate = "hk_shell", weight = 1666668}
 		
 	}
 }
