@@ -1,6 +1,6 @@
   	charon = Creature:new {
 	objectName = "@mob/creature_names:",
-	customName = "Charon ("Envoy Of Darkness",
+	customName = "Charon (Envoy Of Darkness)",
 	socialGroup = "krayt",
 	faction = "",
 	level = 300,
@@ -28,7 +28,37 @@
 
 	templates = {"object/mobile/canyon_krayt_dragon.iff"},
 	scale = 0.75;
-lootGroups = {
+	lootGroups = {
+		{
+			groups = {
+				{group = "g_named_crystals", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "g_named_crystals", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "g_named_crystals", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "g_named_crystals", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "g_named_crystals", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
 		{
 			groups = {
 				{group = "charon", chance = 10000000}
@@ -41,85 +71,13 @@ lootGroups = {
 			},
 			lootChance = 10000000
 		},
-		 {
+		{
 			groups = {
 				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
 		},
-		 {
-			groups = {
-				{group = "charon", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-		 {
-			groups = {
-				{group = "charon", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-		 {
-			groups = {
-				{group = "charon", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-		 {
-			groups = {
-				{group = "charon", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-		 {
-			groups = {
-				{group = "charon", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-		 {
-			groups = {
-				{group = "charon", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-		 {
-			groups = {
-				{group = "charon", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-		 {
-			groups = {
-				{group = "charon", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-		 {
-			groups = {
-				{group = "charon", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-				 {
-			groups = {
-				{group = "charon", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-				 {
-			groups = {
-				{group = "charon", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-				 {
-			groups = {
-				{group = "charon", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-				 {
+		{
 			groups = {
 				{group = "charon", chance = 10000000}
 			},
@@ -132,42 +90,78 @@ lootGroups = {
 			lootChance = 10000000
 		},
 		{
+			groups = {
+				{group = "charon", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "charon", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "charon", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "charon", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "charon", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "charon", chance = 10000000}
+			},
+			lootChance = 10000000
+		},
+		 {
 			groups = {
 				{group = "barc_speeder_deed_group", chance = 10000000}
 			},
 			lootChance = 1000000
 		},
-		 {
+		{
 			groups = {
-				{group = "g_named_crystals", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
-		},
-		 {
+		 },
+			{
 			groups = {
-				{group = "g_named_crystals", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
-		},
-		 {
+		 },
+		{
 			groups = {
-				{group = "g_named_crystals", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
-		},
-		 {
+		 },
+		{
 			groups = {
-				{group = "g_named_crystals", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
-		},
-		 {
+		 },
+		{
 			groups = {
-				{group = "g_named_crystals", chance = 10000000}
+				{group = "charon", chance = 10000000}
 			},
 			lootChance = 10000000
-		},
-		},
+		 },
+		},	
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {

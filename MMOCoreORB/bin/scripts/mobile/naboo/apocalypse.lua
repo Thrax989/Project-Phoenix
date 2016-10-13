@@ -156,36 +156,13 @@ apocalypse = Creature:new {
 				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
+		 },
 		{
 			groups = {
 				{group = "apocalypse", chance = 10000000}
 			},
 			lootChance = 10000000
-		},
-		{
-			groups = {
-				{group = "apocalypse", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-		{
-			groups = {
-				{group = "apocalypse", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-		{
-			groups = {
-				{group = "apocalypse", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
-		{
-			groups = {
-				{group = "apocalypse", chance = 10000000}
-			},
-			lootChance = 10000000
-		},
+		 },
 		},	
 	weapons = {"imperial_weapons_heavy"},
 	reactionStf = "@npc_reaction/slang",
