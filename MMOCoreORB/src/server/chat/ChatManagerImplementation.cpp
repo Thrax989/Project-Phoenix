@@ -257,8 +257,8 @@ void ChatManagerImplementation::initiateRooms() {
 	generalRoom = createRoom("General", galaxyRoom);
 	generalRoom->setCanEnter(true);
 
-	generalRoom = createRoom("Support", galaxyRoom);
-	generalRoom->setCanEnter(true);
+	supportRoom = createRoom("Support", galaxyRoom);
+	supportRoom->setCanEnter(true);
 }
 
 void ChatManagerImplementation::initiatePlanetRooms() {
