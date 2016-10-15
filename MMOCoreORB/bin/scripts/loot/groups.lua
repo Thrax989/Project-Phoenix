@@ -441,6 +441,7 @@ includeFile("groups/charon.lua")
 includeFile("groups/hk_fu.lua")
 includeFile("groups/apocalypse.lua")
 includeFile("groups/omniveron.lua")
+includeFile("groups/cave_dweller.lua")
 -- Custom tables
 includeFile("groups/custom/av_21_pp.lua")
 includeFile("groups/custom/av_21_scheme.lua")
