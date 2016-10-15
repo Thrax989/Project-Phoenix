@@ -42,7 +42,7 @@ public:
 		Locker locker(creature);
 		Locker crosslocker(player,creature);
 		player->removePendingTask("sampledna");
-		if (!creature->isInRange(player, 16.f) ) {
+		if (!creature->isInRange(player, 25.f) ) {
 			player->sendSystemMessage("@bio_engineer:harvest_dna_out_of_range");
 			resetCreatureStatus();
 			return;
@@ -62,7 +62,7 @@ public:
 			resetCreatureStatus();
 			return;
 		}
-		int mindCost = player->calculateCostAdjustment(CreatureAttribute::FOCUS, 200);
+		int mindCost = player->calculateCostAdjustment(CreatureAttribute::FOCUS, 50);
 		int skillMod = player->getSkillMod("dna_harvesting");
 		int cl = creature->getLevel();
 		switch(currentPhase) {
@@ -119,8 +119,8 @@ public:
 			float rollMod = (((skillMod-cl)/cl))  + (skillMod-cl);
 			rollMod /= 2;
 			// We have the players roll. NOW to determine if success of failure;
-			if (sampleRoll > 50) { // adjust great success ot 50% and above
-				int maxSamples = (int) ceil((float) skillMod / 25.f);
+			if (sampleRoll > 25) { // adjust great success ot 25% and above
+				int maxSamples = (int) ceil((float) skillMod / 15.f);
 				if (creature->getDnaSampleCount() > maxSamples ){
 					creature->setDnaState(CreatureManager::DNASAMPLED);
 					// We took the max samples the shock it too much and kils the creature.
@@ -133,7 +133,7 @@ public:
 			else if (sampleRoll < 5) {
 				// Critical failure, this can always occur
 				result = 1;
-			} else if ( (35 + rollMod) < sampleRoll) { // failure your roll < 50%
+			} else if ( (45 + rollMod) < sampleRoll) { // failure your roll < 45%
 				result = 2;
 			} else { // success
 				int maxSamples = (int)(ceil((double)skillMod / (double)25));
