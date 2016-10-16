@@ -6,8 +6,8 @@ hk_release = {
 	customObjectName = "HK Release",
 	directObjectTemplate = "object/tangible/component/chemistry/release_mechanism_duration_advanced.iff",
 	craftingValues = {
-		{"power",20,100,0},
-		{"charges",15,30,0},
+		{"power",20,30,0},
+		{"charges",5,15,0},
 		{"useCount",15,30,0},
 	},
 	customizationStringNames = {},

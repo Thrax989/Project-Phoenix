@@ -4,7 +4,7 @@ quinsinju = {
 	minimumLevel = 0,
 	maximumLevel = -1,
 	customObjectName = "quinsinju",
-	directObjectTemplate = "object/weapon/melee/polearm/crafted_saber/sword_lightsaber_polearm_pvp_bf.iff",
+	directObjectTemplate = "object/weapon/melee/polearm/crafted_saber/sword_lightsaber_polearm_gen5.iff",
 	craftingValues = {
 		{"mindamage",400,450,0},
 		{"maxdamage",475,500,0},
