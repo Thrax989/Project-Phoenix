@@ -33,6 +33,7 @@
 #include "templates/params/PaletteColorCustomizationVariable.h"
 #include "templates/customization/BasicRangedIntCustomizationVariable.h"
 #include "server/zone/managers/jedi/JediManager.h"
+#include "server/login/account/AccountManager.h"
 
 PlayerCreationManager::PlayerCreationManager() :
 		Logger("PlayerCreationManager") {
@@ -59,6 +60,7 @@ PlayerCreationManager::PlayerCreationManager() :
 }
 
 PlayerCreationManager::~PlayerCreationManager() {
+	zoneServer = NULL;
 }
 
 void PlayerCreationManager::loadRacialCreationData() {
@@ -457,14 +459,13 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 	playerCreature->setBankCredits(startingBank, false);
 
 	if (ghost != NULL) {
-
-		ghost->setAccountID(client->getAccountID());
+		int accID = client->getAccountID();
+		ghost->setAccountID(accID);
+		ghost->initializeAccount();
 
 		if (!freeGodMode) {
 			try {
-				uint32 accID = client->getAccountID();
-
-				ManagedReference<Account*> playerAccount = playerManager->getAccount(accID);
+				ManagedReference<Account*> playerAccount = ghost->getAccount();
 
 				if (playerAccount == NULL) {
 					playerCreature->destroyPlayerCreatureFromDatabase(true);
@@ -477,7 +478,7 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 				if(accountPermissionLevel > 0 && (accountPermissionLevel == 9 || accountPermissionLevel == 10 || accountPermissionLevel == 12 || accountPermissionLevel == 15)) {
 					playerManager->updatePermissionLevel(playerCreature, accountPermissionLevel);
 
-					/*
+
 					Reference<ShipControlDevice*> shipControlDevice = zoneServer->createObject(STRING_HASHCODE("object/intangible/ship/sorosuub_space_yacht_pcd.iff"), 1).castTo<ShipControlDevice*>();
 					//ShipObject* ship = (ShipObject*) server->createObject(STRING_HASHCODE("object/ship/player/player_sorosuub_space_yacht.iff"), 1);
 					Reference<ShipObject*> ship = zoneServer->createObject(STRING_HASHCODE("object/ship/player/player_basic_tiefighter.iff"), 1).castTo<ShipObject*>();
@@ -497,7 +498,7 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 						shipControlDevice->destroyObjectFromDatabase(true);
 						error("could not get datapad from player");
 					}
-					*/
+
 				}
 
 				if (accountPermissionLevel < 9) {
@@ -598,40 +599,6 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 
 	playerManager->addPlayer(playerCreature);
 
-	// Copy claimed veteran rewards from player's alt character
-	uint32 accID = client->getAccountID();
-	ManagedReference<Account*> playerAccount = playerManager->getAccount(accID);
-	if (playerAccount != NULL && ghost != NULL) {
-
-		// Find the first alt character
-		ManagedReference<CreatureObject*> altPlayer = NULL;
-		CharacterList* characters = playerAccount->getCharacterList();
-		for(int i = 0; i < characters->size(); ++i) {
-			CharacterListEntry* entry = &characters->get(i);
-			if(entry->getGalaxyID() == zoneServer.get()->getGalaxyID() &&
-		       entry->getFirstName() != playerCreature->getFirstName() ) {
-
-				altPlayer = playerManager->getPlayer(entry->getFirstName());
-				if( altPlayer != NULL ){
-					break;
-				}
-			}
-		}
-
-		// Record the rewards if alt player was found
-		if( altPlayer != NULL && altPlayer->getPlayerObject() != NULL){
-
-			Locker alocker( altPlayer );
-			for( int i = 0; i < playerManager->getNumVeteranRewardMilestones(); i++ ){
-				int milestone = playerManager->getVeteranRewardMilestone(i);
-				String claimedReward = altPlayer->getPlayerObject()->getChosenVeteranReward(milestone);
-				if( !claimedReward.isEmpty() ){
-					ghost->addChosenVeteranReward(milestone,claimedReward);
-				}
-			}
-		}
-	}
-
 	client->addCharacter(playerCreature->getObjectID(), zoneServer.get()->getGalaxyID());
 
 	JediManager::instance()->onPlayerCreated(playerCreature);
@@ -649,7 +616,6 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 	StringBuffer zBroadcast;
 	zBroadcast << "\\#00ace6" << playerName << " \\#ffb90f Has Joined The Project Phoenix Server!";
 	playerCreature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
-
 	ghost->addSuiBox(box);
 	playerCreature->sendMessage(box->generateMessage());
 
@@ -862,14 +828,14 @@ void PlayerCreationManager::addHair(CreatureObject* creature,
 		return;
 	}
 
-/*	if (hairAssetData->getServerPlayerTemplate()
+	if (hairAssetData->getServerPlayerTemplate()
 			!= creature->getObjectTemplate()->getFullTemplateString()) {
 		error(
 				"hair " + hairTemplate
 						+ " is not compatible with this creature player "
 						+ creature->getObjectTemplate()->getFullTemplateString());
 		return;
-	} */
+	}
 
 	if (!hairAssetData->isAvailableAtCreation()) {
 		error("hair " + hairTemplate + " not available at creation");
