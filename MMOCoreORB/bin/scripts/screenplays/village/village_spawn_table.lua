@@ -38,7 +38,7 @@ villageMobileSpawns = {
 
 	[1] = {
 		{ "captain_sarguillo", 5313.9, 78.5, -4161.5, -72, "", "villageSarguilloPhase1ConvoTemplate" },
-		{ "rohak_village_elder", 5306, 78, -4145, 0, "", "villageElderPhase1ConvoTemplate" },
+		--{ "rohak_village_elder", 5306, 78, -4145, 0, "", "villageElderPhase1ConvoTemplate" },
 		{ "quharek", 5373.7, 78.5, -4181.4, -69, "", "villageQuharekPhase1ConvoTemplate" },
 		{ "whip", 5283.66, 78.5, -4226.31, -143, "", "villageWhipPhase1ConvoTemplate" },
 		{ "sivarra_mechaux", 5391.5, 78.5, -4075.7, -110, "", "villageSivarraPhase1ConvoTemplate" },
