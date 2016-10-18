@@ -25,7 +25,6 @@
 #include "server/zone/objects/creature/buffs/PerformanceBuff.h"
 #include "server/zone/objects/creature/buffs/PerformanceBuffType.h"
 #include "server/zone/objects/mission/MissionTypes.h"
-#include "server/zone/objects/building/BuildingObject.h"
 
 void EntertainingSessionImplementation::doEntertainerPatronEffects() {
 	ManagedReference<CreatureObject*> creo = entertainer.get();
@@ -630,8 +629,8 @@ void EntertainingSessionImplementation::addEntertainerBuffDuration(CreatureObjec
 
 	buffDuration += duration;
 
-	if (buffDuration > (120.0f + (10.0f / 60.0f)) ) // 2 hrs 10 seconds
-		buffDuration = (120.0f + (10.0f / 60.0f)); // 2hrs 10 seconds
+	if (buffDuration > (110.0f + (10.0f / 60.0f)) ) // 1 hr 50 min 10 seconds, default is 2h 10 sec
+		buffDuration = (185.0f + (10.0f / 60.0f)); // 2hrs 10 seconds
 
 	setEntertainerBuffDuration(creature, performanceType, buffDuration);
 }
