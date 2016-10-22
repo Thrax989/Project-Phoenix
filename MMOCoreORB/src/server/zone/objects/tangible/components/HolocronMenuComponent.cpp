@@ -42,51 +42,47 @@ int HolocronMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Crea
 		return 0;
 
 	ManagedReference<PlayerObject*> playerObject = creature->getPlayerObject();
-	if (playerObject == NULL)
-		return 0;
-
-	//We will check for the holocron cooldown
-	if (!creature->checkCooldownRecovery("used_holocron"))
-		//Message player + visibilty message
+	int jediVis1 = playerObject->getVisibility();
+	StringBuffer messageVis;
+	
+	if (!creature->checkCooldownRecovery("used_holocron")) {
 		creature->sendSystemMessage("@jedi_spam:holocron_no_effect");
-		//Visibility message
-		int jediVis1 = playerObject->getVisibility();
-		StringBuffer messageVis;
 		messageVis << "\\#00CC00 Your Visibility is at: " << jediVis1;
 		creature->sendSystemMessage(messageVis.toString());
 		return 0;
-	
-	//If you're not a Jedi, don't let them use it.
-	if (playerObject->getJediState() < 2)
-		creature->sendSystemMessage("@jedi_spam:holocron_no_effect");
-		return 0;
-	
-	//full force ? visibility : fillForce
-	if (playerObject->getForcePower() >= playerObject->getForcePowerMax()) {
-		//Message player
-		creature->sendSystemMessage("@jedi_spam:holocron_force_max");
-	} else {
-		//Refil force + Message player
-		creature->sendSystemMessage("@jedi_spam:holocron_force_replenish");
-		playerObject->setForcePower(playerObject->getForcePowerMax(), true);
-		//Set cooldown
-		creature->addCooldown("used_holocron", 1 * 3600000); //3,600,000 = 1 hr
-		//Destroy object
-		sceneObject->destroyObjectFromWorld(true);
-		//Music + Effect
-		creature->playEffect("clienteffect/pl_force_absorb_hit.cef");
-		PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_become_light_jedi.snd");
-  		playerObject->sendMessage(pmm);
-		//Broadcast to Server
-		Zone* zone = creature->getZone();
- 		String playerName = creature->getFirstName();
- 		StringBuffer zBroadcast;
- 		zBroadcast << "\\#00E604" << playerName << " \\#63C8F9 Has Used A Holocron";
-		creature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 	}
-	
-	//After the holocron fills, or doesn't fill your force bar it will tell you your visibility
-	messageVis << "\\#00CC00 Your Visibility is at: " << jediVis1;
-	creature->sendSystemMessage(messageVis.toString());
+
+	if (playerObject != NULL && playerObject->getJediState() >= 2) {
+		//No matter what, display your visibilty if you're a jedi
+		messageVis << "\\#00CC00 Your Visibility is at: " << jediVis1;
+		creature->sendSystemMessage(messageVis.toString());
+		//You're a jedi, and not on cooldown && forceFull ? fillForce : FullForceString
+		if (playerObject->getForcePower() <= playerObject->getForcePowerMax()) {
+			//Refil force + Message player
+			creature->sendSystemMessage("@jedi_spam:holocron_force_replenish");
+			playerObject->setForcePower(playerObject->getForcePowerMax(), true);
+			//Set cooldown
+			creature->addCooldown("used_holocron", 1 * 3600000); //3,600,000 = 1 hr
+			//Destroy object
+			sceneObject->destroyObjectFromWorld(true);
+			//Music + Effect
+			creature->playEffect("clienteffect/pl_force_absorb_hit.cef");
+			PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_become_light_jedi.snd");
+  			playerObject->sendMessage(pmm);
+			//Broadcast to Server
+			Zone* zone = creature->getZone();
+ 			String playerName = creature->getFirstName();
+ 			StringBuffer zBroadcast;
+ 			zBroadcast << "\\#00E604" << playerName << " \\#63C8F9 Has Used A Holocron";
+			creature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
+		} else {
+			//You have max force
+			creature->sendSystemMessage("@jedi_spam:holocron_force_max"); 
+		}
+	} else {
+		//You're not a jedi yet
+		creature->sendSystemMessage("@jedi_spam:holocron_no_effect");
+	}
+
 	return 0;
 }
