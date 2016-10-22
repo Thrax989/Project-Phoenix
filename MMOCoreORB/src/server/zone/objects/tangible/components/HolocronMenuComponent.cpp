@@ -44,11 +44,16 @@ int HolocronMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Crea
 	ManagedReference<PlayerObject*> playerObject = creature->getPlayerObject();
 	int jediVis1 = playerObject->getVisibility();
 	StringBuffer messageVis;
+	//put to 0 after test
+	int test = 1;
 	
 	if (!creature->checkCooldownRecovery("used_holocron")) {
 		creature->sendSystemMessage("@jedi_spam:holocron_no_effect");
 		messageVis << "\\#00CC00 Your Visibility is at: " << jediVis1;
 		creature->sendSystemMessage(messageVis.toString());
+		if (test == 1) {
+			creature->sendSystemMessage("This is the check for used_holocron");
+		}
 		return 0;
 	}
 
@@ -56,13 +61,16 @@ int HolocronMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Crea
 		//No matter what, display your visibilty if you're a jedi
 		messageVis << "\\#00CC00 Your Visibility is at: " << jediVis1;
 		creature->sendSystemMessage(messageVis.toString());
+		if (test == 1) {
+			creature->sendSystemMessage("Your jedi state is >= 2");
+		}
 		//You're a jedi, and not on cooldown && forceFull ? fillForce : FullForceString
 		if (playerObject->getForcePower() <= playerObject->getForcePowerMax()) {
 			//Refil force + Message player
 			creature->sendSystemMessage("@jedi_spam:holocron_force_replenish");
 			playerObject->setForcePower(playerObject->getForcePowerMax(), true);
 			//Set cooldown
-			creature->addCooldown("used_holocron", 1 * 3600000); //3,600,000 = 1 hr
+			creature->addCooldown("used_holocron", 1 * 18000);//1 * 3600000); //3,600,000 = 1 hr
 			//Destroy object
 			sceneObject->destroyObjectFromWorld(true);
 			//Music + Effect
@@ -75,13 +83,22 @@ int HolocronMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Crea
  			StringBuffer zBroadcast;
  			zBroadcast << "\\#00E604" << playerName << " \\#63C8F9 Has Used A Holocron";
 			creature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
+			if (test == 1) {
+				creature->sendSystemMessage("your force has been refilled");
+			}
 		} else {
 			//You have max force
-			creature->sendSystemMessage("@jedi_spam:holocron_force_max"); 
+			creature->sendSystemMessage("@jedi_spam:holocron_force_max");
+			if (test == 1) {
+				creature->sendSystemMessage("You're full force, can't add");
+			}
 		}
 	} else {
 		//You're not a jedi yet
 		creature->sendSystemMessage("@jedi_spam:holocron_no_effect");
+		if (test == 1) {
+			creature->sendSystemMessage("You're not a jedi");
+		}
 	}
 
 	return 0;
