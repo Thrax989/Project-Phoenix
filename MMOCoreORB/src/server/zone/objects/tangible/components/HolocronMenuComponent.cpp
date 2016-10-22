@@ -52,7 +52,7 @@ int HolocronMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Crea
 	}
 	
 	if (!creature->checkCooldownRecovery("used_holocron")) {
-		if (playerObject->getForcePower() < playerObject->getForcePowerMax()) {
+		if (playerObject->getForcePower() >= playerObject->getForcePowerMax()) {
 			creature->sendSystemMessage("@jedi_spam:holocron_force_max");
 		} else {
 			creature->sendSystemMessage("@jedi_spam:holocron_no_effect");
