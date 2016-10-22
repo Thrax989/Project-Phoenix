@@ -45,7 +45,11 @@ int HolocronMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Crea
 	int jediVis1 = playerObject->getVisibility();
 	StringBuffer messageVis;
 	//put to 0 after test
-	int test = 1;
+	int test = 0;
+	
+	if (playerObject->getAdminLevel() >= 6) {
+		test = 1;
+	}
 	
 	if (!creature->checkCooldownRecovery("used_holocron")) {
 		creature->sendSystemMessage("@jedi_spam:holocron_no_effect");
@@ -65,7 +69,7 @@ int HolocronMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Crea
 			creature->sendSystemMessage("Your jedi state is >= 2");
 		}
 		//You're a jedi, and not on cooldown && forceFull ? fillForce : FullForceString
-		if (playerObject->getForcePower() <= playerObject->getForcePowerMax()) {
+		if (playerObject->getForcePower() < playerObject->getForcePowerMax()) {
 			//Refil force + Message player
 			creature->sendSystemMessage("@jedi_spam:holocron_force_replenish");
 			playerObject->setForcePower(playerObject->getForcePowerMax(), true);
