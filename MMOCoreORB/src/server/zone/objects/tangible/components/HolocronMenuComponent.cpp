@@ -47,6 +47,8 @@ int HolocronMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Crea
 	
 	if (!creature->checkCooldownRecovery("used_holocron")) {
 		creature->sendSystemMessage("@jedi_spam:holocron_no_effect");
+		messageVis << "\\#00CC00 Your Visibility is at: " << jediVis1;
+		creature->sendSystemMessage(messageVis.toString());
 		return 0;
 	}
 
