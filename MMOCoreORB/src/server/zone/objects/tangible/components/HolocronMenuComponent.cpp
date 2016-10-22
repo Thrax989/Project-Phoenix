@@ -52,12 +52,18 @@ int HolocronMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Crea
 	}
 	
 	if (!creature->checkCooldownRecovery("used_holocron")) {
-		creature->sendSystemMessage("@jedi_spam:holocron_no_effect");
-		messageVis << "\\#00CC00 Your Visibility is at: " << jediVis1;
-		creature->sendSystemMessage(messageVis.toString());
+		if (playerObject->getForcePower() < playerObject->getForcePowerMax()) {
+			creature->sendSystemMessage("@jedi_spam:holocron_force_max");
+		} else {
+			creature->sendSystemMessage("@jedi_spam:holocron_no_effect");
+		}
+		
 		if (test == 1) {
 			creature->sendSystemMessage("This is the check for used_holocron");
 		}
+		
+		messageVis << "\\#00CC00 Your Visibility is at: " << jediVis1;
+		creature->sendSystemMessage(messageVis.toString());
 		return 0;
 	}
 
@@ -74,7 +80,7 @@ int HolocronMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Crea
 			creature->sendSystemMessage("@jedi_spam:holocron_force_replenish");
 			playerObject->setForcePower(playerObject->getForcePowerMax(), true);
 			//Set cooldown
-			creature->addCooldown("used_holocron", 1 * 18000);//1 * 3600000); //3,600,000 = 1 hr
+			creature->addCooldown("used_holocron", 1 * 1800000); //3,600,000 = 1 hr
 			//Destroy object
 			sceneObject->destroyObjectFromWorld(true);
 			//Music + Effect
