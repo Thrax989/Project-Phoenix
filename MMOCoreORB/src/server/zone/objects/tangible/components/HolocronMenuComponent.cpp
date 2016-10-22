@@ -41,8 +41,8 @@ int HolocronMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Crea
 	if (!sceneObject->isASubChildOf(creature))
 		return 0;
 
-	ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
-	if (ghost == NULL)
+	ManagedReference<PlayerObject*> playerObject = creature->getPlayerObject();
+	if (playerObject == NULL)
 		return 0;
 
 	//We will check for the holocron cooldown
@@ -50,14 +50,14 @@ int HolocronMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Crea
 		//Message player + visibilty message
 		creature->sendSystemMessage("@jedi_spam:holocron_no_effect");
 		//Visibility message
-		int jediVis1 = ghost->getVisibility();
+		int jediVis1 = playerObject->getVisibility();
 		StringBuffer messageVis;
 		messageVis << "\\#00CC00 Your Visibility is at: " << jediVis1;
 		creature->sendSystemMessage(messageVis.toString());
 		return 0;
 	
 	//If you're not a Jedi, don't let them use it.
-	if (playerObject != NULL && playerObject->getJediState() < 2)
+	if (playerObject->getJediState() < 2)
 		creature->sendSystemMessage("@jedi_spam:holocron_no_effect");
 		return 0;
 	
@@ -76,7 +76,7 @@ int HolocronMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Crea
 		//Music + Effect
 		creature->playEffect("clienteffect/pl_force_absorb_hit.cef");
 		PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_become_light_jedi.snd");
-  		ghost->sendMessage(pmm);
+  		playerObject->sendMessage(pmm);
 		//Broadcast to Server
 		Zone* zone = creature->getZone();
  		String playerName = creature->getFirstName();
@@ -86,8 +86,6 @@ int HolocronMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Crea
 	}
 	
 	//After the holocron fills, or doesn't fill your force bar it will tell you your visibility
-	int jediVis1 = ghost->getVisibility();
-	StringBuffer messageVis;
 	messageVis << "\\#00CC00 Your Visibility is at: " << jediVis1;
 	creature->sendSystemMessage(messageVis.toString());
 	return 0;
