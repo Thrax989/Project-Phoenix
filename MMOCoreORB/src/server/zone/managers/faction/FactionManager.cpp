@@ -156,7 +156,7 @@ void FactionManager::awardFactionStanding(CreatureObject* player, const String& 
 }
 
 
-void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObject* destructedObject) {
+void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObject* destructedObject, AttributeListMessage* alm) {
 	if (killer->isPlayerCreature() && destructedObject->isPlayerCreature()) {
 		CreatureObject* killerCreature = cast<CreatureObject*>(killer);
 		ManagedReference<PlayerObject*> ghost = killerCreature->getPlayerObject();
@@ -170,6 +170,10 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 		String playerName = destructedObject->getFirstName();
 		String killerName = killerCreature->getFirstName();
 		StringBuffer zBroadcast;
+		
+		TangibleObjectImplementation::fillAttributeList(alm, destructedobject);
+		String Braid = "object/tangible/mission/quest_item/luthik_uwyr_q3_needed.iff";
+		ManagedReference<SceneObject*> Braid = zserv->createObject(Braid.hashCode(), 1);
 
 		if (killer->isRebel() && destructedObject->isImperial()) {
 			ghost->increaseFactionStanding("rebel", 30);
@@ -177,7 +181,13 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 			PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
  			killer->sendMessage(pmm);
 			lootManager->createLoot(inventory, "holocron_light", 300);//, playerName);
-			lootManager->createLoot(inventory, "task_loot_padawan_braid", 300);//, playerName);
+			//lootManager->createLoot(inventory, "task_loot_padawan_braid", 300);//, playerName);
+			if (inventory->transferObject(Braid, -1)) {
+				inventory->broadcastObject(Braid, true);
+				alm->insertAttribute("Killed Player:", destructedObject->getDisplayedName());
+			} else {
+				Braid->destroyObjectFromDatabase(true);
+			}
 			lootManager->createLoot(inventory, "clothing_attachments", 300);//, playerName);
 				lootManager->createLoot(inventory, "armor_attachments", 300);//, playerName);
 			ghost->decreaseFactionStanding("imperial", 45);
@@ -195,7 +205,13 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 			PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
  			killer->sendMessage(pmm);
 			lootManager->createLoot(inventory, "holocron_dark", 300);//, playerName);
-			lootManager->createLoot(inventory, "task_loot_padawan_braid", 300);//, playerName);
+			//lootManager->createLoot(inventory, "task_loot_padawan_braid", 300);//, playerName);
+			if (inventory->transferObject(Braid, -1)) {
+				inventory->broadcastObject(Braid, true);
+				alm->insertAttribute("Killed Player:", destructedObject->getDisplayedName());
+			} else {
+				Braid->destroyObjectFromDatabase(true);
+			}
 			lootManager->createLoot(inventory, "clothing_attachments", 300);//, playerName);
 				lootManager->createLoot(inventory, "armor_attachments", 300);//, playerName);
 			ghost->decreaseFactionStanding("rebel", 45);
