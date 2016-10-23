@@ -172,7 +172,6 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 		StringBuffer zBroadcast;
 		
 		ZoneServer* zserv = destructedObject->getZoneServer();
-		TangibleObjectImplementation::fillAttributeList(alm, destructedObject);
 		String Braid = "object/tangible/mission/quest_item/luthik_uwyr_q3_needed.iff";
 		ManagedReference<SceneObject*> Braid = zserv->createObject(Braid.hashCode(), 1);
 
