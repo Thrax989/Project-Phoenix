@@ -174,6 +174,14 @@ public:
 							if (targetCreature->isPlayerCreature()) {
 								if (!CombatManager::instance()->areInDuel(creature, targetCreature) && (!targetCreature->isInBountyMission(creature, targetCreature) && !creature->isInBountyMission(targetCreature, creature))) {
 									PlayerObject* targetGhost = targetCreature->getPlayerObject();
+											Reference<CellObject*> targetCell = targetObject->getParent().castTo<CellObject*>();
+
+									if (targetCell != NULL) {
+										if (!targetCell->checkContainerPermission(creature, ContainerPermissions::WALKIN)) {
+											pet->showFlyText("npc_reaction/flytext","confused", 204, 0, 0);  // "?!!?!?!"
+											return INVALIDTARGET;
+									}
+								}
 
 									if (targetGhost != NULL && targetGhost->getFactionStatus() == FactionStatus::OVERT) {
 										ghost->doFieldFactionChange(FactionStatus::OVERT);
