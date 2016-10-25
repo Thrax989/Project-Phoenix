@@ -28,6 +28,13 @@
 #include "server/zone/objects/player/sui/callbacks/BountyHuntSuiCallback.h"
 #include "server/zone/objects/player/sui/inputbox/SuiInputBox.h"
 #include "server/zone/packets/player/PlayMusicMessage.h"
+#include "server/zone/objects/creature/commands/QueueCommand.h"
+#include "server/zone/objects/creature/ai/DroidObject.h"
+#include "server/zone/managers/creature/PetManager.h"
+#include "server/zone/managers/visibility/VisibilityManager.h"
+#include "server/zone/managers/combat/CombatManager.h"
+
+
 
 void BountyMissionObjectiveImplementation::setNpcTemplateToSpawn(SharedObjectTemplate* sp) {
 	npcTemplateToSpawn = sp;
@@ -551,6 +558,7 @@ bool BountyMissionObjectiveImplementation::isPlayerTarget() {
 void BountyMissionObjectiveImplementation::handleNpcTargetKilled(Observable* observable) {
 	CreatureObject* target =  cast<CreatureObject*>(observable);
 	ManagedReference<CreatureObject*> owner = getPlayerOwner();
+	ManagedReference<AiAgent*> pet = cast<AiAgent*>(observable);
 
 	if (owner == NULL || target == NULL)
 		return;
@@ -571,8 +579,33 @@ void BountyMissionObjectiveImplementation::handleNpcTargetKilled(Observable* obs
 		owner->sendSystemMessage("@mission/mission_generic:failed"); // Mission failed
 		abort();
 		removeMissionFromPlayer();
-	}
-}
+		}
+
+	if (owner != NULL && owner->getObjectID() == owner->getObjectID() && owner->isPlayerCreature()) {
+  		//Target killed by player, complete mission.
+  		complete();
+	} else if (owner != NULL && owner->isPet()) {
+		// Target killed by pet
+		ManagedReference<CreatureObject*> petOwner = owner->getLinkedCreature().get();
+	if (pet->isInCombat())
+		CombatManager::instance()->attemptPeace(pet);
+		//Broadcast to Server
+ 		String playerName = target->getFirstName();
+		StringBuffer zBroadcast;
+ 		zBroadcast << "\\#00E604" << playerName << " \\#63C8F9 Is Attempting To Exploit With A Pet";
+ 		target->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
+
+		if (petOwner != NULL && petOwner->getObjectID() == owner->getObjectID()) {
+			// Pet is owned by mission owner, complete mission.
+			complete();
+		}
+  	} else {
+  		//Target killed by other player, fail mission.
+  		owner->sendSystemMessage("@mission/mission_generic:failed"); // Mission failed
+ 		abort();
+ 		removeMissionFromPlayer();
+ 	}
+ }
 
 int BountyMissionObjectiveImplementation::handleNpcTargetReceivesDamage(ManagedObject* arg1) {
 	CreatureObject* target = NULL;
