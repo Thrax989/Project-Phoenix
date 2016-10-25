@@ -1,11 +1,20 @@
 # Project-Phoenix
+
+
 Project Phoenix Discord Server
+
 
 https://discordapp.com/invite/2yzXXbd
 
+
 Join Our Discord Server Today To Talk With The Community
 
+
 This Project Consist Of many Collaborators Over The Years Who Brought The Project To Its Current State.
+
+
+https://github.com/TheAnswer/Core3/network/members
+
 
 Collaboration Credit Is Given To The Following Contributors
 * https://github.com/Thrax989 - Project Lead Creator
@@ -62,53 +71,54 @@ Collaboration Credit Is Given To The Following Contributors
 * Yoshimo - Random NPC Additions / Loot /game Balanace Tweaks
 
 All Contributors from Core3 Base server core code
-@TheAnswer TheAnswer / Core3
-  @aamedina aamedina / Core3
-  @Asnokat Asnokat / Core3
-  @bobyblack26 bobyblack26 / Core3
-  @c0pp3r c0pp3r / Core3
-    @bastrad bastrad / Core3
-  @Chilastra-Reborn Chilastra-Reborn / Core3
-  @collinsg collinsg / Core3
-  @diamondragon16 diamondragon16 / Core3
-  @Dreadlow Dreadlow / Core3
-  @er1c er1c / Core3
-  @EU-Cerberus EU-Cerberus / Core3
-    @ste-bah ste-bah / Core3
-  @freedom24 freedom24 / Core3
-  @Ivojedi Ivojedi / Core3
-  @kiale02 kiale02 / Daystar
-  @KiritoShadowfang KiritoShadowfang / Core3
-  @kissofdarknes kissofdarknes / Core3
-  @Koushi009 Koushi009 / Core3
-  @kurdtkobain kurdtkobain / Core3
-  @LarelO LarelO / Core3
-  @Levarrishawk Levarrishawk / Core3
-  @lexun lexun / Core3
-  @loswut loswut / Core3
-  @merik444 merik444 / Core3
-  @Mesagoppinmypants Mesagoppinmypants / Core3
-    @Marott1 Marott1 / Core3
-  @Miztah Miztah / Core3
-  @Neetoo Neetoo / Core3
-  @newtempest newtempest / Core3
-  @Nifdoolb Nifdoolb / Core3
-  @nikkokale nikkokale / Core3
-  @Owebb Owebb / Core3
-  @PlaySWG PlaySWG / Core3
-  @Scanlon21 Scanlon21 / Core3
-  @steve541 steve541 / Core3
-  @ussefferus ussefferus / Core3
-  @Viaron Viaron / Core3
-  @Vision9 Vision9 / Core3
-  @Vorns Vorns / Core3
-  @Warfeather Warfeather / Core3
-  @washu washu / Core3
-  @wwhitehead wwhitehead / Core3
-  @Xela-TheCreation Xela-TheCreation / Core3
+* TheAnswer TheAnswer / Core3
+* aamedina aamedina / Core3
+* Asnokat Asnokat / Core3
+* bobyblack26 bobyblack26 / Core3
+* c0pp3r c0pp3r / Core3
+* bastrad bastrad / Core3
+* Chilastra-Reborn Chilastra-Reborn / Core3
+* collinsg collinsg / Core3
+* diamondragon16 diamondragon16 / Core3
+* Dreadlow Dreadlow / Core3
+* er1c er1c / Core3
+* EU-Cerberus EU-Cerberus / Core3
+* ste-bah ste-bah / Core3
+* freedom24 freedom24 / Core3
+* Ivojedi Ivojedi / Core3
+* kiale02 kiale02 / Daystar
+* KiritoShadowfang KiritoShadowfang / Core3
+* kissofdarknes kissofdarknes / Core3
+* Koushi009 Koushi009 / Core3
+* kurdtkobain kurdtkobain / Core3
+* LarelO LarelO / Core3
+* Levarrishawk Levarrishawk / Core3
+* lexun lexun / Core3
+* loswut loswut / Core3
+* merik444 merik444 / Core3
+* Mesagoppinmypants Mesagoppinmypants / Core3
+* Marott1 Marott1 / Core3
+* Miztah Miztah / Core3
+* Neetoo Neetoo / Core3
+* newtempest newtempest / Core3
+* Nifdoolb Nifdoolb / Core3
+* nikkokale nikkokale / Core3
+* Owebb Owebb / Core3
+* PlaySWG PlaySWG / Core3
+* Scanlon21 Scanlon21 / Core3
+* steve541 steve541 / Core3
+* ussefferus ussefferus / Core3
+* Viaron Viaron / Core3
+* Vision9 Vision9 / Core3
+* Vorns Vorns / Core3
+* Warfeather Warfeather / Core3
+* washu washu / Core3
+* wwhitehead wwhitehead / Core3
+* Xela-TheCreation Xela-TheCreation / Core3
+
 
 Please PM Me Your Addition To The Project To Have Full Credit For Your Contribution
-Message Me On SKYPE -
-Thereaper989
+Message Me On SKYPE - Thereaper989
+
 
 Over The Course Of A Few Years Each Individual Has Added Some Portion To The Frame Work Or Code That Is Currently In This Repository.
