@@ -47,11 +47,11 @@ public:
 
 			if (player->isBleeding() || player->isPoisoned() || player->isDiseased()) {
 				if (player->isBleeding() && meditateMod >= 15)
-					player->healDot(CreatureState::BLEEDING, (25 + (meditateMod * 2)));
+					player->healDot(CreatureState::BLEEDING, (25 + (meditateMod * 2 )));
 				else if (player->isPoisoned() && meditateMod >= 30)
-					player->healDot(CreatureState::POISONED, (25 + (meditateMod * 2)));
+					player->healDot(CreatureState::POISONED, (25 + (meditateMod * 2 )));
 				else if (player->isDiseased() && meditateMod >= 45)
-					player->healDot(CreatureState::DISEASED, (25 + (meditateMod * 2)));
+					player->healDot(CreatureState::DISEASED, (25 + (meditateMod * 2 )));
 
 			} else if (meditateMod >= 75) { // Meditate SkillMod +75 for wound Healing..
 
