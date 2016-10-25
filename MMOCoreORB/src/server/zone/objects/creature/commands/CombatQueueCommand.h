@@ -22,6 +22,14 @@
 #include "server/zone/objects/creature/commands/effect/CommandEffect.h"
 #include "server/zone/packets/object/CombatSpam.h"
 #include "QueueCommand.h"
+#include "server/zone/objects/creature/commands/QueueCommand.h"
+#include "server/zone/objects/creature/ai/AiAgent.h"
+#include "server/zone/objects/creature/ai/DroidObject.h"
+#include "server/zone/managers/creature/PetManager.h"
+#include "server/chat/ChatManager.h"
+#include "server/zone/managers/visibility/VisibilityManager.h"
+#include "server/zone/objects/player/sui/callbacks/BountyHuntSuiCallback.h"
+#include "server/zone/objects/player/sui/inputbox/SuiInputBox.h"
 
 class CombatQueueCommand : public QueueCommand {
 protected:
@@ -165,6 +173,7 @@ public:
 					return GENERALERROR;
 
 				ManagedReference<TangibleObject*> targetTano = targetObject.castTo<TangibleObject*>();
+				ManagedReference<AiAgent*> pet = cast<AiAgent*>(creature);
 
 				if (targetTano != NULL && creature->getFaction() != 0 && targetTano->getFaction() != 0 && targetTano->getFaction() != creature->getFaction() && ghost->getFactionStatus() != FactionStatus::OVERT) {
 					if (targetTano->isCreatureObject()) {
@@ -174,14 +183,13 @@ public:
 							if (targetCreature->isPlayerCreature()) {
 								if (!CombatManager::instance()->areInDuel(creature, targetCreature) && (!targetCreature->isInBountyMission(creature, targetCreature) && !creature->isInBountyMission(targetCreature, creature))) {
 									PlayerObject* targetGhost = targetCreature->getPlayerObject();
-											Reference<CellObject*> targetCell = targetObject->getParent().castTo<CellObject*>();
-
-									if (targetCell != NULL) {
-										if (!targetCell->checkContainerPermission(creature, ContainerPermissions::WALKIN)) {
-											pet->showFlyText("npc_reaction/flytext","confused", 204, 0, 0);  // "?!!?!?!"
-											return INVALIDTARGET;
-									}
-								}
+									if (pet->isInCombat())
+									CombatManager::instance()->attemptPeace(pet);
+									//Broadcast to Server
+ 									String playerName = creature->getFirstName();
+									StringBuffer zBroadcast;
+ 									zBroadcast << "\\#00E604" << playerName << " \\#63C8F9 Is Attempting To Exploit With A Pet";
+ 									creature->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 
 									if (targetGhost != NULL && targetGhost->getFactionStatus() == FactionStatus::OVERT) {
 										ghost->doFieldFactionChange(FactionStatus::OVERT);
