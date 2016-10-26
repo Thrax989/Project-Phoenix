@@ -177,7 +177,7 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 			PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
  			killer->sendMessage(pmm);
 			lootManager->createLoot(inventory, "holocron_light", 300);//, playerName);
-			if(ghost->isJedi()){
+			if(ghost->getJediState() >= 2){
 				lootManager->createNamedLoot(inventory, "task_loot_padawan_braid", playerName, 300);//, playerName);
 			}else{
 				lootManager->createNamedLoot(inventory, "playerDatapad", playerName, 300);//, playerName);
@@ -199,7 +199,7 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 			PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
  			killer->sendMessage(pmm);
 			lootManager->createLoot(inventory, "holocron_dark", 300);//, playerName);
-			if(ghost->isJedi()){
+			if(ghost->getJediState() >= 2){
 				lootManager->createNamedLoot(inventory, "task_loot_padawan_braid", playerName, 300);//, playerName);
 			}else{
 				lootManager->createNamedLoot(inventory, "playerDatapad", playerName, 300);//, playerName);
