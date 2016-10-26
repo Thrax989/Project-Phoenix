@@ -180,8 +180,8 @@ void ForageManagerImplementation::finishForaging(CreatureObject* player, int for
 		chance = (int)(15 + (skillMod * 0.6));
 		break;
 	default:
-		skillMod = 20;
-		chance = (int)(15 + (skillMod * 0.6));
+		skillMod = 40;
+		chance = (int)(16 + (skillMod * 0.6));
 		break;
 	}
 
