@@ -1,10 +1,10 @@
 /*
  * BountyMissionObjectiveImplementation.cpp
  * PLEASE DO NOT STEAL OUR WORK
- * ASK BEFOR USING OUR WORK
+ * ASK BEFOR USING
  * Contact Me Here http://projectphoenix.com.shivtr.com/
  * Created on: 20/08/2010
- * Re Created on: 10/25/2016 4:27am
+ * Re Created on: 9/12/2016
  * Authors: dannuic , TOXIC
  */
 
@@ -28,7 +28,13 @@
 #include "server/zone/objects/player/sui/callbacks/BountyHuntSuiCallback.h"
 #include "server/zone/objects/player/sui/inputbox/SuiInputBox.h"
 #include "server/zone/packets/player/PlayMusicMessage.h"
-#include "server/zone/managers/loot/LootManager.h"
+#include "server/zone/objects/creature/commands/QueueCommand.h"
+#include "server/zone/objects/creature/ai/DroidObject.h"
+#include "server/zone/managers/creature/PetManager.h"
+#include "server/zone/managers/visibility/VisibilityManager.h"
+#include "server/zone/managers/combat/CombatManager.h"
+
+
 
 void BountyMissionObjectiveImplementation::setNpcTemplateToSpawn(SharedObjectTemplate* sp) {
 	npcTemplateToSpawn = sp;
@@ -120,22 +126,10 @@ void BountyMissionObjectiveImplementation::complete() {
 		return;
 
 	ManagedReference<CreatureObject*> owner = getPlayerOwner();
-	ManagedReference<SceneObject*> inventory = owner->getSlottedObject("inventory");
-	ManagedReference<LootManager*> lootManager = owner->getZoneServer()->getLootManager();
 	//Award bountyhunter xp.
 	owner->getZoneServer()->getPlayerManager()->awardExperience(owner, "bountyhunter", mission->getRewardCredits() / 10, true, 1);
 
 	owner->getZoneServer()->getMissionManager()->completePlayerBounty(mission->getTargetObjectId(), owner->getObjectID());
-	lootManager->createLoot(inventory, "clothing_attachments", 300);//, playerName);
-	lootManager->createLoot(inventory, "bh_token", 300);//, playerName);
-	owner->sendSystemMessage("You have defeated a Jedi, keep up the good work!");
-	//Broadcast to Server
-	String playerName = owner->getFirstName();
-	StringBuffer zBroadcast;
-	zBroadcast << "\\#ffd700" << playerName << " \\#00e604 BountyHunter  Has Defeated A \\#e60000 Jedi! \\#00ffdf" << playerName << " Has Been Awarded a BountyHunter Token ";
-	owner->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
-	PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
- 	owner->sendMessage(pmm);
 
 	removeFromBountyLock(true);
 
@@ -564,6 +558,7 @@ bool BountyMissionObjectiveImplementation::isPlayerTarget() {
 void BountyMissionObjectiveImplementation::handleNpcTargetKilled(Observable* observable) {
 	CreatureObject* target =  cast<CreatureObject*>(observable);
 	ManagedReference<CreatureObject*> owner = getPlayerOwner();
+	ManagedReference<AiAgent*> pet = cast<AiAgent*>(observable);
 
 	if (owner == NULL || target == NULL)
 		return;
@@ -584,8 +579,33 @@ void BountyMissionObjectiveImplementation::handleNpcTargetKilled(Observable* obs
 		owner->sendSystemMessage("@mission/mission_generic:failed"); // Mission failed
 		abort();
 		removeMissionFromPlayer();
-	}
-}
+		}
+
+	if (owner != NULL && owner->getObjectID() == owner->getObjectID() && owner->isPlayerCreature()) {
+  		//Target killed by player, complete mission.
+  		complete();
+	} else if (owner != NULL && owner->isPet()) {
+		// Target killed by pet
+		ManagedReference<CreatureObject*> petOwner = owner->getLinkedCreature().get();
+	if (pet->isInCombat())
+		CombatManager::instance()->attemptPeace(pet);
+		//Broadcast to Server
+ 		String playerName = target->getFirstName();
+		StringBuffer zBroadcast;
+ 		zBroadcast << "\\#00E604" << playerName << " \\#63C8F9 Is Attempting To Exploit With A Pet";
+ 		target->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
+
+		if (petOwner != NULL && petOwner->getObjectID() == owner->getObjectID()) {
+			// Pet is owned by mission owner, complete mission.
+			complete();
+		}
+  	} else {
+  		//Target killed by other player, fail mission.
+  		owner->sendSystemMessage("@mission/mission_generic:failed"); // Mission failed
+ 		abort();
+ 		removeMissionFromPlayer();
+ 	}
+ }
 
 int BountyMissionObjectiveImplementation::handleNpcTargetReceivesDamage(ManagedObject* arg1) {
 	CreatureObject* target = NULL;
@@ -645,11 +665,9 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 							xpLoss = maxXpLoss;
 
 						owner->getZoneServer()->getPlayerManager()->awardExperience(target, "jedi_general", xpLoss, true);
-						owner->getZoneServer()->getPlayerManager()->awardExperience(target, "force_rank_xp", xpLoss, true);
 						StringIdChatParameter message("base_player","prose_revoke_xp");
 						message.setDI(xpLoss * -1);
 						message.setTO("exp_n", "jedi_general");
-						message.setTO("exp_n", "force_rank_xp");
 						target->sendSystemMessage(message);
 					}
 				}
