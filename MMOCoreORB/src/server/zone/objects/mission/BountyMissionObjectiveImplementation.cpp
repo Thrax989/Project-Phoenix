@@ -135,12 +135,11 @@ void BountyMissionObjectiveImplementation::complete() {
 
 	owner->getZoneServer()->getMissionManager()->completePlayerBounty(mission->getTargetObjectId(), owner->getObjectID());
 	lootManager->createLoot(inventory, "clothing_attachments", 300);//, playerName);
-	lootManager->createLoot(inventory, "bh_token", 300);//, playerName);
-	owner->sendSystemMessage("You have defeated a Jedi, keep up the good work!");
+	owner->sendSystemMessage("You have defeated your Target, keep up the good work!");
 	//Broadcast to Server
 	String playerName = owner->getFirstName();
 	StringBuffer zBroadcast;
-	zBroadcast << "\\#ffd700" << playerName << " \\#00e604 BountyHunter  Has Defeated A \\#e60000 Jedi! \\#00ffdf" << playerName << " Has Been Awarded a BountyHunter Token ";
+	zBroadcast << "\\#ffd700" << playerName << " \\#00e604 BountyHunter Has Defeated His \\#e60000 Target! \\#ffd700" << playerName << " \\#00ffdf Is Still Out Hunting People Be On The Look Out For This Ruthless BountyHunter";
 	owner->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 	PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
  	owner->sendMessage(pmm);
