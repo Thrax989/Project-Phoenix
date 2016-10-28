@@ -1,6 +1,5 @@
 <img src="http://i.imgur.com/Ks9CrJQ.png">
 # Project-Phoenix
-http://projectphoenix.com.shivtr.com/
 <img src="http://i.imgur.com/OB4Pa6a.png">
 <img src="https://stats.revelationonline.net/badge/phoenix">
 
@@ -12,6 +11,12 @@ https://discordapp.com/invite/2yzXXbd
 
 
 Join Our Discord Server Today To Talk With The Community
+
+
+Main Server Website
+
+
+http://projectphoenix.com.shivtr.com/
 
 
 This Project Consist Of many Collaborators Over The Years Who Brought The Project To Its Current State.
