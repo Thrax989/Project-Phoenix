@@ -20,7 +20,7 @@ function exar_yavinScreenplay:start()
 end
 
 function exar_yavinScreenplay:spawnMobiles(spawnList)
-	for k,v in ipairs(spawnList)
+	for k,v in ipairs(spawnList) do
 		local pBoss = spawnMobile("yavin4", "spirit_exar", -1, math.random(v.radius) + v.x, 0, math.random(v.radius) + v.y, math.random(360), 0)
 		local creature = CreatureObject(pBoss)
 		creature:setScreenPlayState(k, "exar_yavinScreenplay")
