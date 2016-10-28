@@ -39,6 +39,7 @@ Luna<LuaTangibleObject>::RegType LuaTangibleObject::Register[] = {
 		{ "setOptionBit", &LuaTangibleObject::setOptionBit},
 		{ "clearOptionBit", &LuaTangibleObject::clearOptionBit},
 		{ "getCraftersName", &LuaTangibleObject::getCraftersName},
+		{ "getJunkValue", &LuaTangibleObject::getJunkValue},
 		{ 0, 0 }
 };
 
@@ -278,3 +279,12 @@ int LuaTangibleObject::getCraftersName(lua_State* L) {
 
 	return 1;
 }
+
+int LuaTangibleObject::getJunkValue(lua_State* L){
+ 	uint32 value = realObject->getJunkValue();
+ 
+ 	lua_pushinteger(L, value);
+ 
+ 	return 1;
+ 
+ }
