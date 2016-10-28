@@ -253,4 +253,4 @@ legendary_kimogila = Creature:new {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(legendary_Kimogila, "legendary_Kimogila")
+CreatureTemplates:addCreatureTemplate(legendary_kimogila, "legendary_kimogila")
