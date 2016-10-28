@@ -152,4 +152,11 @@ class AuctionManager extends ManagedService implements Logger {
 	public ZoneServer getZoneServer() {
 		return zoneServer;
 	}
+
+	@local
+ 	public native void bazaarBotListItem(CreatureObject player, SceneObject objectToSell, SceneObject vendor, final unicode description, int price);
+ 	
+ 	@local
+ 	public native void bazaarBotLogSale(final string playerName, final string itemName, int price);
+
 }
