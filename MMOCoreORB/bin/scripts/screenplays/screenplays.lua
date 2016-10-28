@@ -564,4 +564,3 @@ includeFile("enclaves/yavin4_dark_enclave.lua")
 -- Custom Content
 includeFile("custom_content/screenplays.lua")
 includeFile("tools/BuffTerminal.lua")
-includeFile("bazaarbot/BazaarBot.lua")
