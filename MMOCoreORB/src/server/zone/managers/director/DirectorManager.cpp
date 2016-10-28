@@ -80,12 +80,6 @@
 #include "server/zone/objects/tangible/powerup/PowerupObject.h"
 #include "server/zone/objects/resource/ResourceSpawn.h"
 #include "server/zone/objects/tangible/component/Component.h"
-#include "server/zone/objects/manufactureschematic/ManufactureSchematic.h"
-#include "server/zone/objects/draftschematic/DraftSchematic.h"
-#include "server/zone/objects/factorycrate/FactoryCrate.h"
-#include "server/zone/managers/crafting/CraftingManager.h"
-#include "server/zone/managers/stringid/StringIdManager.h"
-#include "server/zone/managers/resource/ResourceManager.h"
 
 int DirectorManager::DEBUG_MODE = 0;
 int DirectorManager::ERROR_CODE = NO_ERROR;
@@ -352,12 +346,6 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	lua_register(luaEngine->getLuaState(), "getQuestVectorMap", getQuestVectorMap);
 	lua_register(luaEngine->getLuaState(), "createQuestVectorMap", createQuestVectorMap);
 	lua_register(luaEngine->getLuaState(), "removeQuestVectorMap", removeQuestVectorMap);
-	lua_register(luaEngine->getLuaState(), "bazaarBotListItem", bazaarBotListItem);
-	lua_register(luaEngine->getLuaState(), "bazaarBotMakeCraftedItem", bazaarBotMakeCraftedItem);
-	lua_register(luaEngine->getLuaState(), "bazaarBotMakeLootItem", bazaarBotMakeLootItem);
-	lua_register(luaEngine->getLuaState(), "bazaarBotMakeResources", bazaarBotMakeResources);
-	lua_register(luaEngine->getLuaState(), "getRandomInSpawnResource", getRandomInSpawnResource);
-	lua_register(luaEngine->getLuaState(), "logToFile", logToFile);
 	lua_register(luaEngine->getLuaState(), "adminPlaceStructure", adminPlaceStructure);
 
 	luaEngine->setGlobalInt("POSITIONCHANGED", ObserverEventType::POSITIONCHANGED);
@@ -3191,130 +3179,6 @@ void DirectorManager::removeQuestVectorMap(const String& keyString) {
 
 	if (questMap != NULL)
 		ObjectManager::instance()->destroyObjectFromDatabase(questMap->_getObjectID());
-}
-
-// Create a stack of resources
-// bazaarBotMakeResourceStack(pBazaarBot, string resourceName, quantity)
-int DirectorManager::bazaarBotMakeResources(lua_State* L) {
-	ManagedReference<CreatureObject*> creature = (CreatureObject*)lua_touserdata(L, -3);
-	String resourceString = lua_tostring(L, -2);
-	int quantity = lua_tonumber(L, -1);
-	
-	resourceString = resourceString.toLowerCase();
-	
-	ManagedReference<SceneObject*> inventory = creature->getSlottedObject("inventory");
-
-	if (inventory == NULL){
-		Logger::console.info("BazaarBot: Error locating target inventory");
-		return 0;
-	}
-	
-	ResourceManager* resourceManager = creature->getZoneServer()->getResourceManager();
-	
-	if (resourceManager == NULL){
-		Logger::console.info("BazaarBot: Error getting resource manager");
-		return 0;
-	}
-	
-	resourceManager->givePlayerResource(creature, resourceString, quantity);
-	
-	// Find the resource container we just put into BazaarBot's inventory
-	for (int i = 0; i < inventory->getContainerObjectsSize(); ++i) {
-		ManagedReference<SceneObject*> obj = inventory->getContainerObject(i);
-
-		if (obj == NULL || !obj->isResourceContainer())
-			continue;
-
-		ResourceContainer* resourceContainer = cast<ResourceContainer*>( obj.get());
-		
-		if (resourceContainer->getSpawnName().toLowerCase() == resourceString && resourceContainer->getQuantity() == quantity){
-			lua_pushlightuserdata(L, resourceContainer);
-			return 1;
-		}
-	}
-	
-	Logger::console.info("BazaarBot Error: Didn't find resource container in inventory");
-	return 0;
-}
-
-// Return the name of a resource of the given class that is currently in spawn
-// Returns nil if no resource of the given class is in spawn
-int DirectorManager::getRandomInSpawnResource(lua_State* L){
-	String resourceType = lua_tostring(L, -1);
-	
-	ResourceManager* resMan = ServerCore::getZoneServer()->getResourceManager();
-	
-	if (resMan == NULL){
-		Logger::console.info("BazaarBot: Error getting resource manager");
-		return 0;
-	}
-	
-	ResourceSpawner* resSpawner = resMan->getResourceSpawner();
-	
-	if (resSpawner == NULL){
-		Logger::console.info("BazaarBot: Error getting resource spawner");
-		return 0;
-	}
-	
-	ResourceMap* map = resSpawner->getResourceMap();
-	
-	if (map == NULL){
-		Logger::console.info("BazaarBot: Error getting resource map");
-		return 0;
-	}
-	
-	Reference<ResourceMap*> resultsMap = new ResourceMap();
-	map->getTypeSubset(*resultsMap, resourceType);
-
-	if (resultsMap->isEmpty()) {
-		Logger::console.info("BazaarBot Error: No results from resource type.");
-		return 0;
-	}
-	
-	String currentSpawns[50];
-	int numOfSpawns = 0;
-	
-	for (int i = 0; i < resultsMap->size(); i++) {
-		ResourceSpawn* spawn = resultsMap->get(i);
-		
-		if (spawn->inShift()){
-			currentSpawns[numOfSpawns] = spawn->getName();
-			numOfSpawns++;
-		}
-	}
-	
-	int roll = System::random(numOfSpawns);
-	String retString = currentSpawns[roll];
-	
-	if (retString == ""){
-		lua_pushnil(L);
-	} else {
-		lua_pushstring(L, retString.toCharArray());
-	}
-	
-	return 1;
-}
-
-// Append a date and time stamped string message to any file on the server
-int DirectorManager::logToFile(lua_State* L){
-	String message = lua_tostring(L, -2);
-	String pathAndFileName = lua_tostring(L, -1);
-	
-	time_t now = time(0);
-	String dt = ctime(&now);
-	String timeStamp = dt.replaceAll("\n", "");
-	 
-	StringBuffer msg;
-	msg << timeStamp << ": " << message << endl;
-	
-	File* file = new File(pathAndFileName);
-	FileWriter* writer = new FileWriter(file, true); // true for append new lines
-	writer->write(msg.toString());
-	writer->close();
-	delete file;
-	delete writer;
-	
-	return 0;
 }
 
 int DirectorManager::adminPlaceStructure(lua_State* L) {
