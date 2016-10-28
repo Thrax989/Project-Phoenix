@@ -110,6 +110,7 @@ includeFile("dungeon/corellian_corvette/lt_lance.lua")
 includeFile("dungeon/teleport_pve.lua")
 includeFile("dungeon/teleport_tatooine_pve.lua")
 includeFile("dungeon/teleport_talus_pve.lua")
+includeFile("dungeon/teleport_yavin4_pve.lua")
 
 -- Village
 includeFile("village/village_gm_commands.lua")
