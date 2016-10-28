@@ -49,7 +49,6 @@ namespace tangible {
 		int setOptionBit(lua_State* L);
 		int clearOptionBit(lua_State* L);
 		int getCraftersName(lua_State* L);
-		int getJunkValue(lua_State* L);
 
 	protected:
 		TangibleObject* realObject;
