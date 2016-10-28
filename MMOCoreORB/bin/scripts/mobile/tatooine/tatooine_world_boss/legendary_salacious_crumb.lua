@@ -1,6 +1,6 @@
-legendary_bearded_jax = Creature:new {
+legendary_salacious_crumb = Creature:new {
 	objectName = "@mob/creature_names:",
-	customName = "Legendary Bearded Jax",
+	customName = "Legendary Salacious Crumb",
 	socialGroup = "",
 	pvpFaction = "",
 	faction = "",
@@ -27,7 +27,7 @@ legendary_bearded_jax = Creature:new {
 	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
 	scale = 50.0,
-	templates = {"object/mobile/bearded_jax.iff"},
+	templates = {"object/mobile/salacious_crumb.iff"},
 	lootGroups = {
 		{
 			groups = {
@@ -253,4 +253,4 @@ legendary_bearded_jax = Creature:new {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(legendary_bearded_jax, "legendary_bearded_jax")
+CreatureTemplates:addCreatureTemplate(legendary_salacious_crumb, "legendary_salacious_crumb")
