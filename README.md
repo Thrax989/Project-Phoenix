@@ -1,7 +1,8 @@
+<img src="http://www.swgemu.com/forums/attachment.php?attachmentid=12201&stc=1">
 # Project-Phoenix
-<center><img src="http://i.imgur.com/OB4Pa6a.png">
+<img src="http://i.imgur.com/OB4Pa6a.png">
 <img src="https://stats.revelationonline.net/badge/phoenix">
-</center>
+
 
 Project Phoenix Discord Server
 
