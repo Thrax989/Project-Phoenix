@@ -45,7 +45,7 @@ function KraytGraveyardScreenPlay:spawnMobiles()
 	spawnMobile("tatooine", "krayt_dragon_ancient", 300, 4978.2, 29.2097, 4251.56, -91, 0)
 	spawnMobile("tatooine", "krayt_dragon_ancient", 300, 6138.01, 48.9556, 4146.06, -91, 0)
 	
-	spawnMobile("tatooine", "krayt_dragon_ancient_elder", 300, -4709, 35.4978, -4420.17, -91, 0)
+	spawnMobile("tatooine", "krayt_dragon_ancient_elder", 300, -4661.97, 44.1355, -4411.18, -91, 0)
 	spawnMobile("tatooine", "krayt_dragon_ancient_elder", 300, -4597.69, 40.2448, -4451.34, -91, 0)
 	spawnMobile("tatooine", "krayt_dragon_ancient_elder", 300, -4738.21, 51.6275, -4316.59, -91, 0)
 	spawnMobile("tatooine", "krayt_dragon_ancient_elder", 300, -4738.21, 51.6275, -4316.59, -91, 0)
