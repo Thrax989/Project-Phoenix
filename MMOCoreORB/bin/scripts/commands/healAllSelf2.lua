@@ -43,20 +43,13 @@
 
 HealAllSelf2Command = {
         name = "healallself2",
-	healStates = STUNNED_STATE + BLINDED_STATE,
-	healDisease = 100,
-	healPoison = 100,
-	healBleeding = 100,
-	healFire = 100,
-	forceCost = 475,
+	forceCost = (1500 * 3)/9.5,
 	healAmount = 1500,
+	forceCostDivisor = 9.5,
 	healAttributes = HEALTH_ATTRIBUTE + MIND_ATTRIBUTE + ACTION_ATTRIBUTE,
-	healWoundAttributes = HEALTH_ATTRIBUTE + MIND_ATTRIBUTE + ACTION_ATTRIBUTE,
-	healBattleFatigue = 100,
-	healWoundAmount = 100,
-	forceCostDivisor = 10.0,
-	speed = 0
+	range = 0
 
 }
 
 AddCommand(HealAllSelf2Command)
+

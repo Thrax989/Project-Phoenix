@@ -676,6 +676,7 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 			killer->playEffect("clienteffect/holoemote_sparky.cef", "head");
 			}
 			fail();
+		}
 	}
 }
 
