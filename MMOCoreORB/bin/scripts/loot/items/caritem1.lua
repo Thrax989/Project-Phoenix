@@ -3,9 +3,9 @@
 caritem1 = {
 	minimumLevel = 0,
 	maximumLevel = -1,
-	customObjectName = "",
+	customObjectName = "Halloween Gift",
 	directObjectTemplate = "object/tangible/veteran_reward/resource.iff",
-	customizationStringNames = {Halloween Gift},
+	customizationStringNames = {},
 	craftingValues = {},
 }
 
