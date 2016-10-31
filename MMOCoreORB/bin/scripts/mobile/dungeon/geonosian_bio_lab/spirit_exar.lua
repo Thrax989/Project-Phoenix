@@ -1,18 +1,18 @@
 spirit_exar = Creature:new {
 	objectName = "@mob/creature_names:",
 	customName = "Reincarnated Possessed Spirit",
-	socialGroup = "dark_jedi",
+	socialGroup = "nightsister",
 	pvpFaction = "",
 	faction = "",
 	level = 300,
-	chanceHit = 100.00,
-	damageMin = 1800,
-	damageMax = 4310,
-	baseXp = 27849,
+	chanceHit = 65.00,
+	damageMin = 1500,
+	damageMax = 3500,
+	baseXp = 27849000,
 	baseHAM = 5021000,
 	baseHAMmax = 5920000,
 	armor = 3,
-	resists = {100,100,100,100,100,100,100,100,100},
+	resists = {35,35,35,35,35,35,35,35,35},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -42,6 +42,46 @@ spirit_exar = Creature:new {
 				{group = "pearls_flawless", chance = 5000000},
 				{group = "g_pistol_heroic_exar", chance = 2500000},
 				{group = "clothing_attachments", chance = 2500000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "halloweenevent1", chance = 5000000},
+				{group = "halloweenevent2", chance = 2500000},
+				{group = "halloweenevent3", chance = 2500000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "halloweenevent4", chance = 5000000},
+				{group = "halloweenevent5", chance = 2500000},
+				{group = "halloweenevent6", chance = 2500000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "halloweenevent7", chance = 5000000},
+				{group = "halloweenevent8", chance = 2500000},
+				{group = "halloweenevent9", chance = 2500000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "halloweenevent10", chance = 5000000},
+				{group = "halloweenevent11", chance = 2500000},
+				{group = "halloweenevent12", chance = 2500000}
+			},
+			lootChance = 10000000
+		},
+		{
+			groups = {
+				{group = "halloweenevent13", chance = 5000000},
+				{group = "halloweenevent14", chance = 2500000},
+				{group = "halloweenevent15", chance = 2500000}
 			},
 			lootChance = 10000000
 		},
@@ -227,7 +267,7 @@ spirit_exar = Creature:new {
 		},
 		  {
 			groups = {
-				{group = "saberhand1", chance = 10000000}
+				{group = "saberhand8", chance = 10000000}
 			},
 			lootChance = 10000000
 		},

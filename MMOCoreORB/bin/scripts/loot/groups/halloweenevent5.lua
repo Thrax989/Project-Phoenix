@@ -5,7 +5,29 @@ halloweenevent5 = {
 	minimumLevel = 0,
 	maximumLevel = 0,
 	lootItems = {
-		{itemTemplate = "halloween5", weight = 10000000}
+		{itemTemplate = "be_poster", weight = 434783},
+		{itemTemplate = "art_lg_s1", weight = 434783},
+		{itemTemplate = "freedom_painting", weight = 434783},
+		{itemTemplate = "art_crate", weight = 434783},
+		{itemTemplate = "painting_han_wanted", weight = 434783},
+		{itemTemplate = "art_lg_s1", weight = 434783},
+		{itemTemplate = "art_sm_s4", weight = 434783},
+		{itemTemplate = "art_sm_s3", weight = 434783},
+		{itemTemplate = "art_sm_s2", weight = 434783},
+		{itemTemplate = "art_sm_s1", weight = 434783},
+		{itemTemplate = "art_lg_s2", weight = 434783},
+		{itemTemplate = "mandalorian_wine_schematic", weight = 434783},
+		{itemTemplate = "injector_tank", weight = 434783},
+		{itemTemplate = "caritem1", weight = 434783},
+		{itemTemplate = "nightsister01", weight = 434782},
+		{itemTemplate = "nightsister02", weight = 434782},
+		{itemTemplate = "nightsister03", weight = 434782},
+		{itemTemplate = "nightsister04", weight = 434782},
+		{itemTemplate = "nightsister05", weight = 434782},
+		{itemTemplate = "nightsister06", weight = 434782},
+		{itemTemplate = "cyborgitem1", weight = 434782},
+		{itemTemplate = "cyborgitem2", weight = 434782},
+		{itemTemplate = "cyborgitem3", weight = 434782}
 	}
 }
 

@@ -4,14 +4,9 @@ caritem1 = {
 	minimumLevel = 0,
 	maximumLevel = -1,
 	customObjectName = "",
-	directObjectTemplate = "object/tangible/container/loot/player_loot_crate.iff",
-	craftingValues = {
-	},
-	customizationStringNames = {},
-	customizationValues = {},
-	junkDealerTypeNeeded = JUNKGENERIC,
-	junkMinValue = 10,
-	junkMaxValue = 100,
+	directObjectTemplate = "object/tangible/veteran_reward/resource.iff",
+	customizationStringNames = {Halloween Gift},
+	craftingValues = {},
 }
 
 addLootItemTemplate("caritem1", caritem1)

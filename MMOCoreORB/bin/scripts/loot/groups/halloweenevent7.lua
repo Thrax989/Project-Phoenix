@@ -5,7 +5,29 @@ halloweenevent7 = {
 	minimumLevel = 0,
 	maximumLevel = 0,
 	lootItems = {
-		{itemTemplate = "halloween7", weight = 10000000}
+		{itemTemplate = "necklace_adorned_beads", weight = 434783},
+		{itemTemplate = "necklace_blue_gadget", weight = 434783},
+		{itemTemplate = "necklace_brass_charm", weight = 434783},
+		{itemTemplate = "necklace_brass_charm", weight = 434783},
+		{itemTemplate = "necklace_complex_pattern", weight = 434783},
+		{itemTemplate = "necklace_crushed_brooch", weight = 434783},
+		{itemTemplate = "necklace_flashy_choker", weight = 434783},
+		{itemTemplate = "necklace_hologram_locket", weight = 434783},
+		{itemTemplate = "necklace_ice_pendant", weight = 434783},
+		{itemTemplate = "necklace_iron_brooch", weight = 434783},
+		{itemTemplate = "necklace_iron_choker", weight = 434783},
+		{itemTemplate = "necklace_knickknack", weight = 434783},
+		{itemTemplate = "necklace_living_chains", weight = 434783},
+		{itemTemplate = "caritem1", weight = 434783},
+		{itemTemplate = "nightsister01", weight = 434782},
+		{itemTemplate = "nightsister02", weight = 434782},
+		{itemTemplate = "nightsister03", weight = 434782},
+		{itemTemplate = "nightsister04", weight = 434782},
+		{itemTemplate = "nightsister05", weight = 434782},
+		{itemTemplate = "nightsister06", weight = 434782},
+		{itemTemplate = "cyborgitem1", weight = 434782},
+		{itemTemplate = "cyborgitem2", weight = 434782},
+		{itemTemplate = "cyborgitem3", weight = 434782}
 	}
 }
 
