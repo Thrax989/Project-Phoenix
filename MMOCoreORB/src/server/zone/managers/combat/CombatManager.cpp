@@ -1537,7 +1537,7 @@ int CombatManager::getHitChance(TangibleObject* attacker, CreatureObject* target
 	if (damage > 0) {
 		ManagedReference<WeaponObject*> targetWeapon = targetCreature->getWeapon();
 		Vector<String>* defenseAccMods = targetWeapon->getDefenderSecondaryDefenseModifiers();
-		const String& def = defenseAccMods->get(0); // FIXME: this is hacky, but a lot faster than using contains()
+		String def = defenseAccMods->get(0);
 
 		// saber block is special because it's just a % chance to block based on the skillmod
 		if (def == "saber_block") {
