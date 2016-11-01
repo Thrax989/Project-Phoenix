@@ -165,3 +165,4 @@ class CreatureManager extends ZoneManager {
 	public native boolean addWearableItem(CreatureObject creature, TangibleObject clothing);
 
 }
+
