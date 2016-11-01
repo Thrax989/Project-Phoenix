@@ -34,7 +34,6 @@ import system.util.SynchronizedSortedVector;
 include server.login.account.GalaxyAccountInfo;
 include server.zone.objects.creature.variables.Skill;
 include server.zone.objects.draftschematic.DraftSchematic;
-include server.zone.objects.manufactureschematic.ManufactureSchematic;
 include server.zone.objects.player.badges.Badge;
 include server.zone.objects.player.badges.Badges;
 include server.zone.objects.player.events.BountyHunterTefRemovalTaskMap;
@@ -204,8 +203,6 @@ class PlayerObject extends IntangibleObject {
 
 	protected int pvpRating;
 
-	protected int factionStatus;
-
 	@dereferenced
 	protected Vector<byte> hologrindProfessions;
 
@@ -263,6 +260,9 @@ class PlayerObject extends IntangibleObject {
 
 	@dereferenced
 	protected SortedVector<unsigned long> currentEventPerks;
+
+	@weakReference
+	protected transient SceneObject currentClientPathWaypoint;
 
 	/**
 	 * the key is the quest.hashCode()
@@ -332,8 +332,6 @@ class PlayerObject extends IntangibleObject {
 
 		accountID = 0;
 
-		factionStatus = 0;
-
 		clientLastMovementStamp = 0;
 
 		maximumLots = 10;
@@ -372,6 +370,10 @@ class PlayerObject extends IntangibleObject {
 
 	public void finalize() {
 
+	}
+
+	public void setClientPathWaypoint(SceneObject obj) {
+		currentClientPathWaypoint = obj;
 	}
 	
 	public native void initializeAccount();
@@ -532,14 +534,14 @@ class PlayerObject extends IntangibleObject {
 		return waypointList.contains(objectID);
 	}
 
+	public WaypointObject getWaypointAt(float x, float y, string planet) {
+		return waypointList.getWaypointAt(x, y, planet);
+	}
+
 	@dirty
 	public void insertWaypointListToMessage(BaseMessage msg) {
 		waypointList.insertToMessage(msg);
 	}
-
-	public WaypointObject getWaypointAt(float x, float y, string planet) {
- 		return waypointList.getWaypointAt(x, y, planet);
- 	}
 
 	@dirty
 	public int getWaypointListSize() {
@@ -932,8 +934,7 @@ class PlayerObject extends IntangibleObject {
 	 * @post { }
 	 */
 	public native void notifyOnline();
-	public native int numSpecificSkills(CreatureObject 	creature, final string reqSkillName);
-
+	
 	public native void doDigest(int fillingReduction);
 	
 	@dirty
@@ -1519,13 +1520,6 @@ class PlayerObject extends IntangibleObject {
 	public void setAccountID(unsigned int id) {
 		accountID = id;
 	}
-
-	@read
-	public int getFactionStatus() {
-		return factionStatus;
-	}
-
-	public native void setFactionStatus(int status);
 
 	@read
 	public unsigned int getClientLastMovementStamp() {

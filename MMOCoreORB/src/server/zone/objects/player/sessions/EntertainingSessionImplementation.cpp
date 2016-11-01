@@ -81,7 +81,7 @@ void EntertainingSessionImplementation::doEntertainerPatronEffects() {
 		unsigned int healerFaction = creo->getFaction();
 		PlayerObject* ghost = creo->getPlayerObject();
 
-		if (ghost != NULL && healerFaction != 0 && healerFaction == buildingFaction && ghost->getFactionStatus() == FactionStatus::OVERT) {
+		if (healerFaction != 0 && healerFaction == buildingFaction && creo->getFactionStatus() == FactionStatus::OVERT) {
 			woundHealingSkill += factionPerkSkill;
 			playerShockHealingSkill += factionPerkSkill;
 		}
