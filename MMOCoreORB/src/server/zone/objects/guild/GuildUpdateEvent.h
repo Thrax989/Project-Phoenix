@@ -36,7 +36,7 @@ public:
 		Locker locker(guild);
 
 		if (server->isServerLoading()) {
-			guild->rescheduleUpdateEvent(10);
+			guild->rescheduleUpdateEvent(10000);
 			return;
 		}
 
