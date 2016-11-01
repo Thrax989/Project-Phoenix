@@ -483,12 +483,12 @@ void CombatManager::applyDots(CreatureObject* attacker, CreatureObject* defender
 		return;
 
 	for (int i = 0; i < dotEffects->size(); i++) {
-		DotEffect effect = dotEffects->get(i);
+		const DotEffect& effect = dotEffects->get(i);
 
 		if (defender->hasDotImmunity(effect.getDotType()) || effect.getDotDuration() == 0 || System::random(100) > effect.getDotChance())
 			continue;
 
-		Vector<String> defenseMods = effect.getDefenderStateDefenseModifers();
+		const Vector<String>& defenseMods = effect.getDefenderStateDefenseModifers();
 		int resist = 0;
 
 		for (int j = 0; j < defenseMods.size(); j++)
@@ -681,7 +681,7 @@ int CombatManager::getAttackerAccuracyModifier(TangibleObject* attacker, Creatur
 	Vector<String>* creatureAccMods = weapon->getCreatureAccuracyModifiers();
 
 	for (int i = 0; i < creatureAccMods->size(); ++i) {
-		String mod = creatureAccMods->get(i);
+		const String& mod = creatureAccMods->get(i);
 		attackerAccuracy += creoAttacker->getSkillMod(mod);
 		attackerAccuracy += creoAttacker->getSkillMod("private_" + mod);
 
@@ -741,7 +741,7 @@ int CombatManager::getDefenderDefenseModifier(CreatureObject* defender, WeaponOb
 	Vector<String>* defenseAccMods = weapon->getDefenderDefenseModifiers();
 
 	for (int i = 0; i < defenseAccMods->size(); ++i) {
-		String mod = defenseAccMods->get(i);
+		const String& mod = defenseAccMods->get(i);
 		targetDefense += defender->getSkillMod(mod);
 		targetDefense += defender->getSkillMod("private_" + mod);
 	}
@@ -757,7 +757,7 @@ int CombatManager::getDefenderDefenseModifier(CreatureObject* defender, WeaponOb
 
 	// SL bonuses go on top of hardcap
 	for (int i = 0; i < defenseAccMods->size(); ++i) {
-		String mod = defenseAccMods->get(i);
+		const String& mod = defenseAccMods->get(i);
 		targetDefense += defender->getSkillMod("private_group_" + mod);
 	}
 
@@ -779,7 +779,7 @@ int CombatManager::getDefenderSecondaryDefenseModifier(CreatureObject* defender)
 	Vector<String>* defenseAccMods = weapon->getDefenderSecondaryDefenseModifiers();
 
 	for (int i = 0; i < defenseAccMods->size(); ++i) {
-		String mod = defenseAccMods->get(i);
+		const String& mod = defenseAccMods->get(i);
 		targetDefense += defender->getSkillMod(mod);
 		targetDefense += defender->getSkillMod("private_" + mod);
 	}
@@ -905,14 +905,6 @@ float CombatManager::applyDamageModifiers(CreatureObject* attacker, WeaponObject
 		damage *= damageMultiplier;
 
 	int damageDivisor = attacker->getSkillMod("private_damage_divisor");
-
-	// Verify Attacker has valid damageDivisor
-	if (damageDivisor > 1) {
-		if (!attacker->hasState(CreatureState::INTIMIDATED) || !attacker->hasBuff(BuffCRC::JEDI_FORCE_RUN_2) || !attacker->hasBuff(BuffCRC::JEDI_FORCE_RUN_3))
-			//damageDivisor = 0;
-			info(attacker->getFirstName() + " has private_damage_divisor " + String::valueOf(damageDivisor) + " when they shouldn't!");
-			//attacker->addSkillMod(SkillModManager::BUFF, "private_damage_divisor", -damageDivisor);
-	}
 
 	if (damageDivisor != 0)
 		damage /= damageDivisor;
@@ -1104,35 +1096,15 @@ int CombatManager::getArmorReduction(TangibleObject* attacker, WeaponObject* wea
 		return damage;
 	}
 
-	float rawDamage = damage;
-	ManagedReference<PlayerObject*> defenderGhost = defender->getPlayerObject();
-	int forceControl = 0;
-	if(defenderGhost->getJediState() == 4) {
-		forceControl = defender->getSkillMod("force_control_light");
-	} else if (defenderGhost->getJediState() == 8) {
-		forceControl = defender->getSkillMod("force_control_dark");
-	}
-
 	if (!data.isForceAttack()) {
 		// Force Armor
+		float rawDamage = damage;
 
 		int forceArmor = defender->getSkillMod("force_armor");
 		if (forceArmor > 0) {
-			float dmgAbsorbed = ((forceArmor + (forceControl / 3)) / 100.f) * rawDamage;
-			float dmgInfo = damage *= 1.f;
+			float dmgAbsorbed = rawDamage - (damage *= 1.f - (forceArmor / 100.f));
 			defender->notifyObservers(ObserverEventType::FORCEBUFFHIT, attacker, dmgAbsorbed);
 			sendMitigationCombatSpam(defender, NULL, (int)dmgAbsorbed, FORCEARMOR);
-			StringBuffer dmgAbsorbedInfo;
-			dmgAbsorbedInfo
-			<< "((forceArmor:"
-			<< forceArmor
-			<< " + (forceControl:"
-			<< forceControl
-			<< " / 3)) / 100.f) * rawDamage:"
-			<< rawDamage
-			<< "; = "
-			<< dmgAbsorbed;
-			//info(dmgAbsorbedInfo, true);
 		}
 	} else {
 		float jediBuffDamage = 0;
@@ -1141,14 +1113,14 @@ int CombatManager::getArmorReduction(TangibleObject* attacker, WeaponObject* wea
 		// Force Shield
 		int forceShield = defender->getSkillMod("force_shield");
 		if (forceShield > 0) {
-			jediBuffDamage = ((forceShield + (forceControl / 3)) / 100.f) * rawDamage;
+			jediBuffDamage = rawDamage - (damage *= 1.f - (forceShield / 100.f));
 			sendMitigationCombatSpam(defender, NULL, (int)jediBuffDamage, FORCESHIELD);
 		}
 
 		// Force Feedback
 		int forceFeedback = defender->getSkillMod("force_feedback");
 		if (forceFeedback > 0 && (defender->hasBuff(BuffCRC::JEDI_FORCE_FEEDBACK_1) || defender->hasBuff(BuffCRC::JEDI_FORCE_FEEDBACK_2))) {
-			float feedbackDmg = ((forceFeedback + (forceControl / 3)) / 100.f) * rawDamage;
+			float feedbackDmg = rawDamage * (forceFeedback / 100.f);
 			float splitDmg = feedbackDmg / 3;
 
 			attacker->inflictDamage(defender, CreatureAttribute::HEALTH, splitDmg, true, true, true);
@@ -1161,9 +1133,7 @@ int CombatManager::getArmorReduction(TangibleObject* attacker, WeaponObject* wea
 		// Force Absorb
 		if (defender->getSkillMod("force_absorb") > 0 && defender->isPlayerCreature()) {
 			ManagedReference<PlayerObject*> playerObject = defender->getPlayerObject();
-			//int forceFeedback = defender->getSkillMod("force_absorb");
 			if (playerObject != NULL) {
-				//float forceAbsorbDmg = ((forceFeedback + (forceControl / 3)) / 100.f) * rawDamage;
 				playerObject->setForcePower(playerObject->getForcePower() + (damage * 0.5));
 				sendMitigationCombatSpam(defender, NULL, (int)damage * 0.5, FORCEABSORB);
 				defender->playEffect("clienteffect/pl_force_absorb_hit.cef", "");
@@ -1537,17 +1507,13 @@ int CombatManager::getHitChance(TangibleObject* attacker, CreatureObject* target
 	if (damage > 0) {
 		ManagedReference<WeaponObject*> targetWeapon = targetCreature->getWeapon();
 		Vector<String>* defenseAccMods = targetWeapon->getDefenderSecondaryDefenseModifiers();
-		String def = defenseAccMods->get(0); // FIXME: this is hacky, but a lot faster than using contains()
+		const String& def = defenseAccMods->get(0); // FIXME: this is hacky, but a lot faster than using contains()
 
 		// saber block is special because it's just a % chance to block based on the skillmod
 		if (def == "saber_block") {
-            int block_mod = targetCreature->getSkillMod(def);
-            if (targetCreature->isIntimidated()) {
-                block_mod = (block_mod / 2);
-            }
-            if (!attacker->isTurret() && (weapon->getAttackType() == SharedWeaponObjectTemplate::RANGEDATTACK) && ((System::random(100)) < block_mod))
-                return RICOCHET;
-            else return HIT;
+			if (!attacker->isTurret() && (weapon->getAttackType() == SharedWeaponObjectTemplate::RANGEDATTACK) && ((System::random(100)) < targetCreature->getSkillMod(def)))
+				return RICOCHET;
+			else return HIT;
 		}
 
 		targetDefense = getDefenderSecondaryDefenseModifier(targetCreature);
@@ -1734,7 +1700,7 @@ void CombatManager::applyStates(CreatureObject* creature, CreatureObject* target
 
 	// loop through all the states in the command
 	for (int i = 0; i < stateEffects->size(); i++) {
-		StateEffect effect = stateEffects->get(i);
+		const StateEffect& effect = stateEffects->get(i);
 		bool failed = false;
 		uint8 effectType = effect.getEffectType();
 
@@ -1747,7 +1713,7 @@ void CombatManager::applyStates(CreatureObject* creature, CreatureObject* target
 			failed = true;
 
 		if(!failed) {
-			Vector<String> exclusionTimers = effect.getDefenderExclusionTimers();
+			const Vector<String>& exclusionTimers = effect.getDefenderExclusionTimers();
 			// loop through any exclusion timers
 			for (int j = 0; j < exclusionTimers.size(); j++)
 				if (!targetCreature->checkCooldownRecovery(exclusionTimers.get(j))) failed = true;
@@ -1757,7 +1723,7 @@ void CombatManager::applyStates(CreatureObject* creature, CreatureObject* target
 
 		// if recovery timer conditions aren't satisfied, it won't matter
 		if (!failed) {
-			Vector<String> defenseMods = effect.getDefenderStateDefenseModifiers();
+			const Vector<String>& defenseMods = effect.getDefenderStateDefenseModifiers();
 			// add up all defenses against the state the target has
 			for (int j = 0; j < defenseMods.size(); j++)
 				targetDefense += targetCreature->getSkillMod(defenseMods.get(j));
@@ -1772,7 +1738,7 @@ void CombatManager::applyStates(CreatureObject* creature, CreatureObject* target
 			// and only perform second roll if the character is a Jedi
 			if (!failed && targetCreature->isPlayerCreature() && targetCreature->getPlayerObject()->isJedi()) {
 				targetDefense = 0.f;
-				Vector<String> jediMods = effect.getDefenderJediStateDefenseModifiers();
+				const Vector<String>& jediMods = effect.getDefenderJediStateDefenseModifiers();
 				// second chance for jedi, roll against their special defense "jedi_state_defense"
 				for (int j = 0; j < jediMods.size(); j++)
 					targetDefense += targetCreature->getSkillMod(jediMods.get(j));
@@ -2104,7 +2070,9 @@ void CombatManager::broadcastCombatSpam(TangibleObject* attacker, TangibleObject
 		closeObjects.removeAll(vec->size(), 10);
 		vec->safeCopyTo(closeObjects);
 	} else {
+#ifdef COV_DEBUG
 		info("Null closeobjects vector in CombatManager::broadcastCombatSpam", true);
+#endif
 		zone->getInRangeObjects(attacker->getWorldPositionX(), attacker->getWorldPositionY(), COMBAT_SPAM_RANGE, &closeObjects, true);
 	}
 
@@ -2120,7 +2088,7 @@ void CombatManager::broadcastCombatSpam(TangibleObject* attacker, TangibleObject
 }
 
 void CombatManager::broadcastCombatAction(CreatureObject * attacker, TangibleObject * defenderObject, WeaponObject* weapon, const CreatureAttackData & data, int damage, uint8 hit, uint8 hitLocation) {
-	String animation = data.getCommand()->getAnimation(attacker, defenderObject, weapon, hitLocation, damage);
+	const String& animation = data.getCommand()->getAnimation(attacker, defenderObject, weapon, hitLocation, damage);
 
 	uint32 animationCRC = 0;
 
@@ -2163,7 +2131,7 @@ void CombatManager::broadcastCombatAction(CreatureObject * attacker, TangibleObj
 	if(data.changesAttackerPosture())
 		attacker->updatePostures(false);
 
-	String effect = data.getCommand()->getEffectString();
+	const String& effect = data.getCommand()->getEffectString();
 
 	if (!effect.isEmpty())
 		attacker->playEffect(effect);
@@ -2511,7 +2479,9 @@ Reference<SortedVector<ManagedReference<TangibleObject*> >* > CombatManager::get
 			closeObjects.removeAll(vec->size(), 10);
 			vec->safeCopyTo(closeObjects);
 		} else {
+#ifdef COV_DEBUG
 			attacker->info("Null closeobjects vector in CombatManager::getAreaTargets", true);
+#endif
 			zone->getInRangeObjects(attacker->getWorldPositionX(), attacker->getWorldPositionY(), 128, &closeObjects, true);
 		}
 
