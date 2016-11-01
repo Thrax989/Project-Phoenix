@@ -79,7 +79,6 @@ namespace creature {
 		int getFactionRank(lua_State* L);
 		int getCashCredits(lua_State* L);
 		int subtractCashCredits(lua_State* L);
-		int subtractBankCredits(lua_State* L);
 		int addCashCredits(lua_State* L);
 		int removeScreenPlayState(lua_State* L);
 		int setLootRights(lua_State* L);
@@ -113,11 +112,15 @@ namespace creature {
 		int enhanceCharacter(lua_State* L);
 		int setWounds(lua_State* L);
 		int setShockWounds(lua_State* L);
+		int getForceSensitiveSkillCount(lua_State* L);
+		int villageKnightPrereqsMet(lua_State* L);
+		int getDamageDealerList(lua_State* L);
+		int getHealingThreatList(lua_State* L);
+		int subtractBankCredits(lua_State* L);
 		int buffSingleStat(lua_State* L);
 		int removeBuffs(lua_State* L);
 		int emptyStomach(lua_State* L);
-		int getActivePetsSize(lua_State* L);
-		int getActivePet(lua_State* L);
+
 	private:
 		// The pointer to the 'real object' defined in object.cc
 		CreatureObject* realObject;

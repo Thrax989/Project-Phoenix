@@ -16,3 +16,4 @@ class InformantMissionConversationObserver extends ConversationObserver {
 
 	public native InformantMissionConversationObserver(unsigned int convoTemplateCRC);
 }
+
