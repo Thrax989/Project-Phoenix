@@ -212,3 +212,4 @@ void LoginServerImplementation::populateGalaxyList() {
 
     enumClusterMessage->finish();
 }
+
