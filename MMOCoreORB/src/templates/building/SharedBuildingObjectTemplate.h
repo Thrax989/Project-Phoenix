@@ -50,14 +50,14 @@ public:
 		return true;
 	}
 
-	inline bool isPublicStructure() const {
+	inline bool isPublicStructure() {
 		if (alwaysPublic)
 			return true;
 
 		return publicStructure;
 	}
 
-	inline bool isAlwaysPublic() const {
+	inline bool isAlwaysPublic() {
 		return alwaysPublic;
 	}
 
@@ -69,7 +69,7 @@ public:
 		return medicalRating;
 	}
 
-	inline int getChildCreatureObjectsSize() const  {
+	inline int getChildCreatureObjectsSize(){
 		return childCreatureObjects.size();
 	}
 
@@ -77,27 +77,23 @@ public:
 		return &childCreatureObjects.get(indx);
 	}
 
-	inline String getTerrainModificationFile() const {
+	inline String getTerrainModificationFile() {
 		return terrainModificationFileName.get();
 	}
 
-	inline String getInteriorLayoutFileName() const {
-		return interiorLayoutFileName.get();
-	}
-
-	inline const Vector3& getEjectionPoint() const {
+	inline Vector3 getEjectionPoint() {
 		return ejectionPoint;
 	}
 
-	inline int getFactionBaseType() const {
+	inline int getFactionBaseType() {
 		return factionBaseType;
 	}
 
-	inline int getShopSignsSize() const {
+	inline int getShopSignsSize() {
 		return shopSigns.size();
 	}
 
-	inline SignTemplate* getShopSign(int idx) const {
+	inline SignTemplate* getShopSign(int idx) {
 		return &shopSigns.get(idx);
 	}
 };

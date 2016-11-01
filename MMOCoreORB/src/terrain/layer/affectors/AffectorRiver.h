@@ -9,7 +9,6 @@
 #define AFFECTORRIVER_H_
 
 #include "../ProceduralRule.h"
-#include "terrain/layer/affectors/AffectorProceduralRule.h"
 #include "../Road.h"
 #include "../Hdta.h"
 
@@ -17,11 +16,11 @@ class Point2D  {
 public:
 	float x, y;
 
-	inline float getX() const {
+	inline float getX() {
 		return x;
 	}
 
-	inline float getY() const {
+	inline float getY() {
 		return y;
 	}
 };

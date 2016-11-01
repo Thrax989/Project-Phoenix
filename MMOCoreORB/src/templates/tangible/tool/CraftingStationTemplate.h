@@ -40,9 +40,7 @@ public:
 		return complexityLevel;
 	}
 
-	bool isCraftingStationTemplate() {
-		return true;
-	}
+
 };
 
 #endif /* CRAFTINGSTATIONTEMPLATE_H_ */

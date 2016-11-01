@@ -71,21 +71,21 @@ void DynamicSpawnObserverImplementation::spawnInitialMobiles(SceneObject* buildi
 
 	for (int i = 0; i < totalNumberToSpawn; i++) {
 		int num = System::random(mobiles->size() - 1);
-		const String& mob = mobiles->get(num);
+		String mob = mobiles->get(num);
 
-		int find = objectsToSpawn.find(mob);
-
-		if (find != -1) {
-			int& value = objectsToSpawn.elementAt(find).getValue();
-			++value;
+		if (objectsToSpawn.contains(mob)) {
+			int value = objectsToSpawn.get(mob);
+			objectsToSpawn.drop(mob);
+			objectsToSpawn.put(mob, value + 1);
 		} else {
 			objectsToSpawn.put(mob, 1);
 		}
 	}
 
-	for (int i = 0; i < objectsToSpawn.size(); ++i) {
-		const String& templateToSpawn = objectsToSpawn.elementAt(i).getKey();
-		int numberToSpawn = objectsToSpawn.elementAt(i).getValue();
+	for(int i = 0; i < objectsToSpawn.size(); ++i) {
+
+		String templateToSpawn = objectsToSpawn.elementAt(i).getKey();
+		int numberToSpawn = objectsToSpawn.get(templateToSpawn);
 
 		CreatureTemplate* creatureTemplate = CreatureTemplateManager::instance()->getTemplate(templateToSpawn);
 

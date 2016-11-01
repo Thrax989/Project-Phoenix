@@ -38,10 +38,6 @@ public:
 	{
 	    return craftingTabsSupported;
 	}
-
-	bool isFactoryObjectTemplate() {
-		return true;
-	}
 };
 
 #endif /* FACTORYOBJECTTEMPLATE_H_ */

@@ -79,7 +79,9 @@ void CraftingValues::recalculateValues(bool initial) {
 	bool hidden = false;
 
 	for (int i = 0; i < getSubtitleCount(); ++i) {
+
 		attributeName = getExperimentalPropertySubtitle(i);
+
 		experimentalPropTitle = getExperimentalPropertyTitle(attributeName);
 
 		min = getMinValue(attributeName);
@@ -87,7 +89,7 @@ void CraftingValues::recalculateValues(bool initial) {
 
 		hidden = isHidden(attributeName);
 
-		percentage = getCurrentPercentage(attributeName);
+		percentage = getCurrentPercentage(attributeName);//experimentalPropTitle);
 
 		oldValue = getCurrentValue(attributeName);
 
@@ -107,9 +109,12 @@ void CraftingValues::recalculateValues(bool initial) {
 
 		if (initial || (newValue != oldValue && !initial && !hidden)) {
 			setCurrentValue(attributeName, newValue);
+
 			valuesToSend.add(attributeName);
 		}
 	}
+
+	//toString();
 }
 
 void CraftingValues::clearAll() {

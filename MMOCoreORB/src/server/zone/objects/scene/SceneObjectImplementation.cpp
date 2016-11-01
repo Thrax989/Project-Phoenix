@@ -525,9 +525,7 @@ void SceneObjectImplementation::broadcastObjectPrivate(SceneObject* object, Scen
 	int maxInRangeObjectCount = 0;
 
 	if (closeobjects == NULL) {
-#ifdef COV_DEBUG
 		info("Null closeobjects vector in SceneObjectImplementation::broadcastObjectPrivate", true);
-#endif
 		zone->getInRangeObjects(getPositionX(), getPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeSceneObjects, true);
 
 		maxInRangeObjectCount = closeSceneObjects.size();
@@ -581,9 +579,7 @@ void SceneObjectImplementation::broadcastDestroyPrivate(SceneObject* object, Sce
 	int maxInRangeObjectCount = 0;
 
 	if (closeobjects == NULL) {
-#ifdef COV_DEBUG
-		info("Null closeobjects vector in SceneObjectImplementation::broadcastDestroyPrivate", true);
-#endif
+		info("Null closeobjects vector in SceneObjectImplementation::broadcastDestroyPrivate");
 		zone->getInRangeObjects(getPositionX(), getPositionY(), ZoneServer::CLOSEOBJECTRANGE + 64, &closeSceneObjects, true);
 
 		maxInRangeObjectCount = closeSceneObjects.size();
@@ -649,9 +645,7 @@ void SceneObjectImplementation::broadcastMessagePrivate(BasePacket* message, Sce
 
 	try {
 		if (closeobjects == NULL) {
-#ifdef COV_DEBUG
 			info(String::valueOf(getObjectID()) + " Null closeobjects vector in SceneObjectImplementation::broadcastMessagePrivate", true);
-#endif
 			closeSceneObjects = new SortedVector<ManagedReference<QuadTreeEntry*> >();
 			zone->getInRangeObjects(getPositionX(), getPositionY(), ZoneServer::CLOSEOBJECTRANGE, closeSceneObjects, true);
 
@@ -749,9 +743,7 @@ void SceneObjectImplementation::broadcastMessagesPrivate(Vector<BasePacket*>* me
 	try {
 
 		if (closeobjects == NULL) {
-#ifdef COV_DEBUG
 			info(String::valueOf(getObjectID()) + " Null closeobjects vector in SceneObjectImplementation::broadcastMessagesPrivate", true);
-#endif
 			zone->getInRangeObjects(getPositionX(), getPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeSceneObjects, true);
 
 			maxInRangeObjectCount = closeSceneObjects.size();
@@ -807,9 +799,7 @@ int SceneObjectImplementation::inRangeObjects(unsigned int gameObjectType, float
 	int maxInRangeObjectCount = 0;
 
 	if (closeobjects == NULL) {
-#ifdef COV_DEBUG
 		info("Null closeobjects vector in SceneObjectImplementation::inRangeObjects", true);
-#endif
 		zone->getInRangeObjects(getPositionX(), getPositionY(), range, &closeSceneObjects, true);
 
 		maxInRangeObjectCount = closeSceneObjects.size();
@@ -1699,28 +1689,3 @@ SceneObject* SceneObjectImplementation::asSceneObject() {
 SceneObject* SceneObject::asSceneObject() {
 	return this;
 }
-
-Vector<Reference<MeshData*> > SceneObjectImplementation::getTransformedMeshData(const Matrix4* parentTransform) {
-	const AppearanceTemplate *appearance = getObjectTemplate()->getAppearanceTemplate();
-	if(appearance == NULL) {
-		Vector<Reference<MeshData*> > emptyData;
-		return emptyData;
-	}
-
-	Matrix4 transform;
-	transform.setRotationMatrix(direction.toMatrix3());
-	transform.setTranslation(getPositionX(), getPositionZ(), -getPositionY());
-
-	return appearance->getTransformedMeshData(transform * *parentTransform );
-}
-
-const BaseBoundingVolume* SceneObjectImplementation::getBoundingVolume() {
-	if (templateObject != NULL) {
-		AppearanceTemplate *appr = templateObject->getAppearanceTemplate();
-		if (appr != NULL) {
-			return appr->getBoundingVolume();
-		}
-	}
-	return NULL;
-}
-

@@ -80,9 +80,6 @@
 #include "server/zone/objects/tangible/powerup/PowerupObject.h"
 #include "server/zone/objects/resource/ResourceSpawn.h"
 #include "server/zone/objects/tangible/component/Component.h"
-#include "server/zone/objects/pathfinding/NavMeshRegion.h"
-#include "server/zone/managers/collision/NavMeshManager.h"
-
 
 int DirectorManager::DEBUG_MODE = 0;
 int DirectorManager::ERROR_CODE = NO_ERROR;
@@ -130,9 +127,9 @@ void DirectorManager::loadPersistentEvents() {
 			Reference<PersistentEvent*> event = Core::getObjectBroker()->lookUp(objectID).castTo<PersistentEvent*>();
 			++i;
 
-			Reference<PersistentEvent*> oldEvent = persistentEvents.put(event->getEventName().hashCode(), event);
-
-			if (event != NULL && oldEvent != NULL) {
+						Reference<PersistentEvent*> oldEvent = persistentEvents.put(event->getEventName().hashCode(), event);
+ 
+ 			if (event != NULL && oldEvent != NULL) {
 				error("duplicate persistent event " + event->getEventName() + " loading from database!");
 			} else if (event != NULL) {
 				event->loadTransientTask();
@@ -345,15 +342,11 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	lua_register(luaEngine->getLuaState(), "getControllingFaction", getControllingFaction);
 	lua_register(luaEngine->getLuaState(), "getImperialScore", getImperialScore);
 	lua_register(luaEngine->getLuaState(), "getRebelScore", getRebelScore);
-	lua_register(luaEngine->getLuaState(), "getWinningFactionDifficultyScaling", getWinningFactionDifficultyScaling);
 	lua_register(luaEngine->getLuaState(), "playClientEffectLoc", playClientEffectLoc);
 	lua_register(luaEngine->getLuaState(), "getQuestVectorMap", getQuestVectorMap);
 	lua_register(luaEngine->getLuaState(), "createQuestVectorMap", createQuestVectorMap);
 	lua_register(luaEngine->getLuaState(), "removeQuestVectorMap", removeQuestVectorMap);
 	lua_register(luaEngine->getLuaState(), "adminPlaceStructure", adminPlaceStructure);
-
-	//Navigation Mesh Management
-	lua_register(luaEngine->getLuaState(), "createNavMesh", createNavMesh);
 
 	luaEngine->setGlobalInt("POSITIONCHANGED", ObserverEventType::POSITIONCHANGED);
 	luaEngine->setGlobalInt("CLOSECONTAINER", ObserverEventType::CLOSECONTAINER);
@@ -383,7 +376,7 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	luaEngine->setGlobalInt("OBJECTNAMECHANGED", ObserverEventType::OBJECTNAMECHANGED);
 	luaEngine->setGlobalInt("SURVEY", ObserverEventType::SURVEY);
 	luaEngine->setGlobalInt("GETATTRIBUTESBATCHCOMMAND", ObserverEventType::GETATTRIBUTESBATCHCOMMAND);
-	luaEngine->setGlobalInt("HEALINGRECEIVED", ObserverEventType::HEALINGRECEIVED);
+	luaEngine->setGlobalInt("HEALINGPERFORMED", ObserverEventType::HEALINGPERFORMED);
 	luaEngine->setGlobalInt("STARTCOMBAT", ObserverEventType::STARTCOMBAT);
 	luaEngine->setGlobalInt("DEFENDERADDED", ObserverEventType::DEFENDERADDED);
 	luaEngine->setGlobalInt("DEFENDERDROPPED", ObserverEventType::DEFENDERDROPPED);
@@ -452,8 +445,8 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	luaEngine->setGlobalInt("TEF", CreatureFlag::TEF);
 	luaEngine->setGlobalInt("PLAYER", CreatureFlag::PLAYER);
 	luaEngine->setGlobalInt("ENEMY", CreatureFlag::ENEMY);
-	luaEngine->setGlobalInt("WILLBEDECLARED", CreatureFlag::WILLBEDECLARED);
-	luaEngine->setGlobalInt("WASDECLARED", CreatureFlag::WASDECLARED);
+	luaEngine->setGlobalInt("CHANGEFACTIONSTATUS", CreatureFlag::CHANGEFACTIONSTATUS);
+	luaEngine->setGlobalInt("BLINK_GREEN", CreatureFlag::BLINK_GREEN);
 
 	luaEngine->setGlobalInt("CONVERSABLE", OptionBitmask::CONVERSE);
 	luaEngine->setGlobalInt("AIENABLED", OptionBitmask::AIENABLED);
@@ -1290,11 +1283,11 @@ int DirectorManager::spatialMoodChat(lua_State* L) {
 	if (lua_isuserdata(L, -3)) {
 		StringIdChatParameter* message = (StringIdChatParameter*)lua_touserdata(L, -3);
 
-		chatManager->broadcastChatMessage(creature, *message, 0, chatType, moodType);
+		chatManager->broadcastChatMessage(creature, *message, 0, moodType, chatType);
 	} else {
 		String message = lua_tostring(L, -3);
 
-		chatManager->broadcastChatMessage(creature, message, 0, chatType, moodType);
+		chatManager->broadcastChatMessage(creature, message, 0, moodType, chatType);
 	}
 
 	return 0;
@@ -2403,9 +2396,8 @@ ConversationScreen* DirectorManager::runScreenHandlers(const String& luaClass, C
 void DirectorManager::activateEvent(ScreenPlayTask* task) {
 	ManagedReference<SceneObject*> obj = task->getSceneObject();
 	const String& play = task->getScreenPlay();
-	const String& key = task->getTaskKey();
-	const String& args = task->getArgs();
-
+ 	const String& key = task->getTaskKey();
+ 	const String& args = task->getArgs();
 	Reference<PersistentEvent*> persistentEvent = task->getPersistentEvent();
 
 	if (persistentEvent != NULL) {
@@ -2426,7 +2418,7 @@ void DirectorManager::activateEvent(ScreenPlayTask* task) {
 	try {
 		LuaFunction startScreenPlay(lua->getLuaState(), play, key, 0);
 		startScreenPlay << obj.get();
-		startScreenPlay << args.toCharArray();
+ 		startScreenPlay << args.toCharArray();
 
 		startScreenPlay.callFunction();
 	} catch (Exception& e) {
@@ -2665,9 +2657,9 @@ int DirectorManager::getSpawnPoint(lua_State* L) {
 
 	if (zone == NULL) {
 		String err = "Zone is NULL in DirectorManager::getSpawnPoint. zoneName = " + zoneName;
-		luaL_traceback(L, L, err.toCharArray(), 0);
-		String trace = lua_tostring(L, -1);
-		instance()->error(trace);
+ 		luaL_traceback(L, L, err.toCharArray(), 0);
+ 		String trace = lua_tostring(L, -1);
+ 		instance()->error(trace);
 		return 0;
 	}
 
@@ -3037,31 +3029,6 @@ int DirectorManager::getRebelScore(lua_State* L) {
 	return 1;
 }
 
-int DirectorManager::getWinningFactionDifficultyScaling(lua_State* L) {
-	if (checkArgumentCount(L, 1) == 1) {
-		instance()->error("incorrect number of arguments passed to DirectorManager::getWinningFactionDifficultyScaling");
-		ERROR_CODE = INCORRECT_ARGUMENTS;
-		return 0;
-	}
-
-	String zoneName = lua_tostring(L, -1);
-
-	Zone* zone = ServerCore::getZoneServer()->getZone(zoneName);
-	if (zone == NULL) {
-		lua_pushinteger(L, 0);
-		return 1;
-	}
-
-	GCWManager* gcwMan = zone->getGCWManager();
-	if (gcwMan == NULL) {
-		lua_pushinteger(L, 0);
-	} else {
-		lua_pushinteger(L, gcwMan->getWinningFactionDifficultyScaling());
-	}
-
-	return 1;
-}
-
 int DirectorManager::playClientEffectLoc(lua_State* L) {
 	uint64 playerId = lua_tointeger(L, -7);
 	String effect = lua_tostring(L, -6);
@@ -3214,43 +3181,34 @@ void DirectorManager::removeQuestVectorMap(const String& keyString) {
 		ObjectManager::instance()->destroyObjectFromDatabase(questMap->_getObjectID());
 }
 
-int DirectorManager::createNavMesh(lua_State *L) {
+int DirectorManager::adminPlaceStructure(lua_State* L) {
+	Reference<CreatureObject*> creature = (CreatureObject*)lua_touserdata(L, -2);
+	String templateString = lua_tostring(L, -1);
 
-    if (checkArgumentCount(L, 6) == 1) {
-        instance()->error("incorrect number of arguments passed to DirectorManager::createNavMesh");
-        ERROR_CODE = INCORRECT_ARGUMENTS;
-        return 0;
-    }
-    String name  = lua_tostring(L, -1);
-    bool dynamic = lua_toboolean(L, -2);
-    float radius = lua_tonumber(L, -3);
-    float z      = lua_tonumber(L, -4);
-    float x      = lua_tonumber(L, -5);
-    String zoneName  = lua_tostring(L, -6);
+	ManagedReference<Zone*> zone = creature->getZone();
 
-    Zone* zone = ServerCore::getZoneServer()->getZone(zoneName);
+	if (zone == NULL)
+		return 0;
 
-    if (zone == NULL) {
-       instance()-> error("Zone == NULL in DirectorManager::createNavMesh (" + zoneName + ")");
-        ERROR_CODE = INCORRECT_ARGUMENTS;
-        return 0;
-    }
+	if (creature->getParent() != NULL) {
+			DirectorManager::instance()->error("adminPlaceStructure - You were not outside.");
+			return 0;
+	}
 
-    ManagedReference<NavMeshRegion*> navmeshRegion = ServerCore::getZoneServer()->createObject(STRING_HASHCODE("object/region_navmesh.iff"), 0).castTo<NavMeshRegion*>();
-    if (name.length() == 0) {
-        name = String::valueOf(navmeshRegion->getObjectID());
-    }
+	int angle = creature->getDirectionAngle();
 
-    Core::getTaskManager()->scheduleTask([=]{
-        String str = name;
-        Vector3 position = Vector3(x, 0, z);
+	if (templateString.contains("housing_tatt_style02_med") || templateString.contains("player/city/cloning") || templateString.contains("player/city/hospital"))
+		angle -= 90; // Correct unusual default POB rotation
 
-		Locker locker(navmeshRegion);
+	if (templateString.contains("guild_theater"))
+		angle -= 180; // Correct unusual default POB rotation
 
-        navmeshRegion->disableMeshUpdates(!dynamic);
-        navmeshRegion->initializeNavRegion(position, radius, zone, str);
-        zone->transferObject(navmeshRegion, -1, false);
-    }, "create_lua_navmesh", 1000);
-    lua_pushlightuserdata(L, navmeshRegion);
-    return 1;
+	float x = creature->getPositionX();
+	float y = creature->getPositionY();
+	int persistenceLevel = 1;
+
+	// Create Structure
+	StructureObject* structureObject = StructureManager::instance()->placeStructure(creature, templateString, x, y, angle, persistenceLevel);
+
+	return 0;
 }

@@ -19,8 +19,7 @@
 #include "server/zone/managers/planet/PlanetManager.h"
 #include "terrain/manager/TerrainManager.h"
 #include "templates/building/SharedBuildingObjectTemplate.h"
-#include "server/zone/objects/staticobject/StaticObject.h"
-#include "server/zone/objects/pathfinding/NavMeshRegion.h"
+
 
 void ZoneComponent::notifyInsertToZone(SceneObject* sceneObject, Zone* newZone) const {
 	info("inserting to zone");
@@ -507,13 +506,11 @@ void ZoneComponent::destroyObjectFromWorld(SceneObject* sceneObject, bool sendSe
 			} catch (...) {
 			}
 		} else {
-#ifdef COV_DEBUG
+
 			String templateName = "none";
 			if (sceneObject->getObjectTemplate() != NULL)
 				templateName = sceneObject->getObjectTemplate()->getTemplateFileName();
-
 			sceneObject->info("Null closeobjects vector in ZoneComponent::destroyObjectFromWorld with template: " + templateName + " and OID: " + String::valueOf(sceneObject->getObjectID()), true);
-#endif
 
 			rootZone->getInRangeObjects(sceneObject->getPositionX(), sceneObject->getPositionY(), ZoneServer::CLOSEOBJECTRANGE + 64, &closeSceneObjects, false);
 
@@ -537,25 +534,10 @@ void ZoneComponent::destroyObjectFromWorld(SceneObject* sceneObject, bool sendSe
 				Locker _alocker(sceneObject->getContainerLock());
 				ManagedReference<ActiveArea*> area = activeAreas->get(0);
 				activeAreas->remove(0);
-
+			
 				_alocker.release();
-
+			
 				area->enqueueExitEvent(sceneObject);
-			}
-		} else if (sceneObject->isStaticObjectClass()) {
-			// hack to get around notifyEnter/Exit only working with tangible objects
-			Vector3 worldPos = sceneObject->getWorldPosition();
-			SortedVector<ActiveArea* > objects;
-			rootZone->getInRangeActiveAreas(worldPos.getX(), worldPos.getY(), 5, &objects, false);
-
-			for(auto& area : objects) {
-				if(area->isNavRegion()) {
-					NavMeshRegion *mesh = area->asNavRegion();
-
-					if(mesh->containsPoint(worldPos.getX(), worldPos.getY())) {
-						mesh->updateNavMesh(sceneObject, true);
-					}
-				}
 			}
 		}
 	}

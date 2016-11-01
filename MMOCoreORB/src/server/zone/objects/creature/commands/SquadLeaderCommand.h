@@ -84,23 +84,33 @@ public:
 		if (leaderGhost == NULL)
 			return false;
 
-		CreatureObject* targetCreo = target;
+		PlayerObject* targetGhost = NULL;
 
-		if (allowPet && target->isPet())
-			targetCreo = target->getLinkedCreature().get();
+		if (allowPet && target->isPet()) {
+			ManagedReference<CreatureObject*> owner = target->getLinkedCreature().get();
+
+			if (owner != NULL && owner->isPlayerCreature()) {
+				targetGhost = owner->getPlayerObject();
+			}
+		} else {
+			targetGhost = target->getPlayerObject();
+		}
+
+		if (targetGhost == NULL)
+			return false;
 
 		if (leader->getFaction() != 0 && target->getFaction() != 0) {
-			if (leader->getFaction() != target->getFaction() && targetCreo->getFactionStatus() != FactionStatus::ONLEAVE)
+			if (leader->getFaction() != target->getFaction() && targetGhost->getFactionStatus() != FactionStatus::ONLEAVE)
 				return false;
 
-			if (leader->getFaction() == target->getFaction() && leader->getFactionStatus() == FactionStatus::COVERT && targetCreo->getFactionStatus() == FactionStatus::OVERT)
+			if (leader->getFaction() == target->getFaction() && leaderGhost->getFactionStatus() == FactionStatus::COVERT && targetGhost->getFactionStatus() == FactionStatus::OVERT)
 				return false;
 
-			if (leader->getFactionStatus() == FactionStatus::ONLEAVE && targetCreo->getFactionStatus() != FactionStatus::ONLEAVE)
+			if (leaderGhost->getFactionStatus() == FactionStatus::ONLEAVE && targetGhost->getFactionStatus() != FactionStatus::ONLEAVE)
 				return false;
 		}
 
-		if (leader->getFaction() == 0 && target->getFaction() != 0 && targetCreo->getFactionStatus() != FactionStatus::ONLEAVE)
+		if (leader->getFaction() == 0 && target->getFaction() != 0 && targetGhost->getFactionStatus() != FactionStatus::ONLEAVE)
 			return false;
 
 		return true;

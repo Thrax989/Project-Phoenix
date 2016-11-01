@@ -485,6 +485,7 @@ void CommandConfigManager::registerGlobals() {
 	setGlobalInt("BLAST_DAMAGE", SharedWeaponObjectTemplate::BLAST);
 	setGlobalInt("STUN_DAMAGE", SharedWeaponObjectTemplate::STUN);
 	setGlobalInt("LIGHTSABER_DAMAGE", SharedWeaponObjectTemplate::LIGHTSABER);
+	setGlobalInt("FORCEPOWER_DAMAGE", SharedWeaponObjectTemplate::FORCEPOWER);
 	setGlobalInt("HEAT_DAMAGE", SharedWeaponObjectTemplate::HEAT);
 	setGlobalInt("COLD_DAMAGE", SharedWeaponObjectTemplate::COLD);
 	setGlobalInt("ACID_DAMAGE", SharedWeaponObjectTemplate::ACID);
@@ -1599,7 +1600,7 @@ void CommandConfigManager::registerCommands() {
 	commandFactory.registerCommand<InspacereloadCommand>(String("inspacereload").toLowerCase());
 	commandFactory.registerCommand<InspacerrCommand>(String("inspacerr").toLowerCase());
 	commandFactory.registerCommand<RequestSpaceTrainerCommand>(String("requestSpaceTrainer").toLowerCase());
-
+	
 	//Custom
 	commandFactory.registerCommand<setPvpCommand>(String("setPvp").toLowerCase());
 

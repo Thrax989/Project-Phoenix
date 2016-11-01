@@ -18,4 +18,3 @@ class TrainerConversationObserver extends ConversationObserver {
 
 	protected abstract native void createConversationSession(CreatureObject conversingPlayer, CreatureObject npc);
 }
-

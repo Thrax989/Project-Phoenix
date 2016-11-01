@@ -42,6 +42,7 @@
 
 
 object_mobile_dressed_marksman_trainer_01 = object_mobile_shared_dressed_marksman_trainer_01:new {
+	planetMapCategory = "trainer_marksman",
 	objectMenuComponent = "TrainerMenuComponent"
 }
 

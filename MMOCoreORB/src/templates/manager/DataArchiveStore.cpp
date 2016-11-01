@@ -127,4 +127,3 @@ IffStream* DataArchiveStore::openIffFile(const String& fileName) {
 
 	return iffStream;
 }
-

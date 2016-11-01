@@ -1,43 +1,43 @@
 --Copyright (C) 2007 <SWGEmu>
- 
+
 --This File is part of Core3.
- 
---This program is free software; you can redistribute 
---it and/or modify it under the terms of the GNU Lesser 
+
+--This program is free software; you can redistribute
+--it and/or modify it under the terms of the GNU Lesser
 --General Public License as published by the Free Software
---Foundation; either version 2 of the License, 
+--Foundation; either version 2 of the License,
 --or (at your option) any later version.
- 
---This program is distributed in the hope that it will be useful, 
---but WITHOUT ANY WARRANTY; without even the implied warranty of 
---MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+
+--This program is distributed in the hope that it will be useful,
+--but WITHOUT ANY WARRANTY; without even the implied warranty of
+--MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 --See the GNU Lesser General Public License for
 --more details.
- 
---You should have received a copy of the GNU Lesser General 
+
+--You should have received a copy of the GNU Lesser General
 --Public License along with this program; if not, write to
 --the Free Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA
- 
---Linking Engine3 statically or dynamically with other modules 
---is making a combined work based on Engine3. 
---Thus, the terms and conditions of the GNU Lesser General Public License 
+
+--Linking Engine3 statically or dynamically with other modules
+--is making a combined work based on Engine3.
+--Thus, the terms and conditions of the GNU Lesser General Public License
 --cover the whole combination.
- 
---In addition, as a special exception, the copyright holders of Engine3 
---give you permission to combine Engine3 program with free software 
---programs or libraries that are released under the GNU LGPL and with 
---code included in the standard release of Core3 under the GNU LGPL 
---license (or modified versions of such code, with unchanged license). 
---You may copy and distribute such a system following the terms of the 
---GNU LGPL for Engine3 and the licenses of the other code concerned, 
---provided that you include the source code of that other code when 
+
+--In addition, as a special exception, the copyright holders of Engine3
+--give you permission to combine Engine3 program with free software
+--programs or libraries that are released under the GNU LGPL and with
+--code included in the standard release of Core3 under the GNU LGPL
+--license (or modified versions of such code, with unchanged license).
+--You may copy and distribute such a system following the terms of the
+--GNU LGPL for Engine3 and the licenses of the other code concerned,
+--provided that you include the source code of that other code when
 --and as the GNU LGPL requires distribution of source code.
- 
---Note that people who make modified versions of Engine3 are not obligated 
---to grant this special exception for their modified versions; 
---it is their choice whether to do so. The GNU Lesser General Public License 
---gives permission to release a modified version without this exception; 
---this exception also makes it possible to release a modified version 
+
+--Note that people who make modified versions of Engine3 are not obligated
+--to grant this special exception for their modified versions;
+--it is their choice whether to do so. The GNU Lesser General Public License
+--gives permission to release a modified version without this exception;
+--this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
 --Time, in seconds, that a shuttle is away for
@@ -52,6 +52,7 @@ starportLandingTime = 14
 shuttleportLandedTime = 7776000
 starportLandedTime = 7776000
 
+
 corellia = {
 
 	weatherEnabled = 1,
@@ -61,11 +62,12 @@ corellia = {
 		{name = "Coronet Shuttle B", x = -329.76605, z = 28, y = -4641.23, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
 		{name = "Coronet Shuttle A", x = -25.671804, z = 28, y = -4409.7847, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
 		{name = "Coronet Starport", x = -66.760902, z = 28, y = -4711.3281, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
-		{name = "Vreni Island Shuttle", x = -5551.9473, z = 15.890146, y = -6059.9673, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
-		{name = "Tyrena Shuttle B", x = -5600.6367, z = 21, y = -2790.7429, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
-		{name = "Tyrena Shuttle A", x = -5005.354, z = 21, y = -2386.9819, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
+		{name = "Vreni Island Shuttleport", x = -5551.9473, z = 15.890146, y = -6059.9673, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
+		{name = "Tyrena Shuttleport B", x = -5600.6367, z = 21, y = -2790.7429, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
+		{name = "Tyrena Shuttleport A", x = -5005.354, z = 21, y = -2386.9819, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
 		{name = "Tyrena Starport", x = -5003.0649, z = 21, y = -2228.3665, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
-		{name = "Kor Vella Shuttleport", x = -3775.2546, z = 31, y = 3234.2202, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
+		{name = "Kor Vella Shuttleport A", x = -3775.2546, z = 31, y = 3234.2202, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
+		{name = "Kor Vella Shuttleport B", x = -3551.26, z = 101, y = 3408, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
 		{name = "Kor Vella Starport", x = -3157.2834, z = 31, y = 2876.2029, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
 		{name = "Doaba Guerfel Shuttleport", x = 3085.4963, z = 280, y = 4993.0098, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
 		{name = "Doaba Guerfel Starport", x = 3349.8933, z = 308, y = 5598.1362, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
@@ -81,20 +83,25 @@ corellia = {
 		{"badge_tyrena_theater",-5418,-6248,30,80},
 	},
 
-	navAreas = {
-		{"imperial_detachment_hq",-2977,2908,50},
-		{"lonely_wall",2547,4744,40},
-		{"lord_nyaxs_cult",1357,-323,50},
-		{"rebel_hideout",-6504,5993,100},
-		{"rogue_corsec_base",5222,1588,100},
-		{"stronghold",4665,-5781,100},
-	},
-
 	planetObjects = {
 		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = -0.664289, oz = 0, ow = 0.747476, x = -133.192, z = 28, y = -4711.16, parentid = 0},
 		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.346712, oz = 0, ow = 0.937972, x = -5049.64, z = 21, y = -2304.52, parentid = 0},
 		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.290803, oz = 0, ow = 0.956783, x = 3330.38, z = 308, y = 5517.14, parentid = 0},
-		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = -0.666281, oz = 0, ow = 0.745701, x = -136.437, z = 28, y = -4730.23, parentid = 0}
+		{templateFile = "object/tangible/terminal/terminal_mission_bounty.iff", ox = 0, oy = -0.666281, oz = 0, ow = 0.745701, x = -136.437, z = 28, y = -4730.23, parentid = 0},
+		{templateFile = "object/building/player/city/shuttleport_corellia.iff", ox = 0, oy = 0, oz = 0, ow = 0, x = -3551.26, z = 101, y = 3408, parentid = 0},
+		
+		--{templateFile = "object/tangible/jedi/force_shrine_stone.iff", ox = 0, oy = 0.973494, oz = 0, ow = 0.228713, x = -204.373, z = 28, y = -4726.19, parentid = 0},
+		--{templateFile = "object/static/structure/dantooine/dant_jedi_temple_altar.iff", ox = 0, oy = 0.999299, oz = 0, ow = -0.0374291, x = -198.388, z = 15, y = -4724.74, parentid = 0},
+		--{templateFile = "object/building/yavin/light_enclave.iff", x = -204.569, z = 29.7, y = -4675.53, ow = 0.00872665, ox = 1.45519e-11, oz = 0, oy = 0.999962, parentid = 0},
+		--{templateFile = "object/installation/battlefield/destructible/bfield_column_strong.iff", x = -410.276, z = 28, y = -4245.65, ow = -0.920505, ox = 0, oz = 0, oy = 0.390731, parentid = 0}, --Socome Jail
+		--{templateFile = "object/installation/battlefield/destructible/bfield_column_strong.iff", x = -425.165, z = 33, y = -4265.04, ow = -0.999848, ox = 0, oz = 0, oy = -0.0174524, parentid = 0}, --Socome Jail
+		--{templateFile = "object/installation/battlefield/destructible/bfield_column_strong.iff", x = -469.136, z = 28, y = -4245.7, ow = -0.515038, ox = 0, oz = 0, oy = 0.857167, parentid = 0}, --Socome Jail
+		--{templateFile = "object/installation/battlefield/destructible/antenna_tatt_style_1.iff", x = -415.15, z = 14, y = -4323.84, ow = -0.996917, ox = 0, oz = 0, oy = 0.078459, parentid = 0}, --Socome Jail
+		--{templateFile = "object/tangible/beta/beta_terminal_xp.iff", x = -164.835, z = 28, y = -4732.61, ow = 1, ox = 0, oz = 0, oy = 0, parentid = 0}, --TestCenter DISABLE for live
+		--{templateFile = "object/tangible/jedi/force_shrine_stone.iff", x = -171.276, z = 28, y = -4732.63, ow = 1, ox = 0, oz = 0, oy = 0, parentid = 0}, --TestCenter DISABLE for live
+		--{templateFile = "object/tangible/terminal/terminal_character_builder.iff", x = -177.222, z = 28, y = -4732.36, ow = 1, ox = 0, oz = 0, oy = 0, parentid = 0}, --TestCenter DISABLE for live
+		--{templateFile = "object/installation/battlefield/destructible/bfield_column_impl_med.iff", x = -178.815, z = 28, y = -4733.98, ow = -0.0436194, ox = 0, oz = 0, oy = 0.999048, parentid = 0}, --TestCenter DISABLE for live
+		--{templateFile = "object/installation/battlefield/destructible/bfield_column_impl_med.iff", x = -161.59, z = 28, y = -4734.08, ow = -0.700909, ox = 0, oz = 0, oy = 0.71325, parentid = 0}, --TestCenter DISABLE for live
 	}
 }
 
@@ -114,18 +121,6 @@ dantooine = {
 		{"badge_dantari_village2",-7185,-883,30,85},
 		{"badge_jedi_temple",4195,5203,30,30},
 		{"badge_rebel_base",-6836,5520,30,31},
-	},
-
-	navAreas = {
-		{"abandoned_rebel_base",-6882,5540,300},
-		{"dantari_village_east",5559,-654,75},
-		{"dantari_village_sw",-3836,-5720,100},
-		{"dantari_village_west",-7185,-861,100},
-		{"jedi_temple_ruins",4203,5222,100},
-		{"mokk_stronghold",-7046,-3332,50},
-		{"native_village",7181,887,75},
-		{"ris_armor_hut",-6805,6021,32},
-		{"the_warren",-550,-3834,50},
 	},
 
 	planetObjects = {
@@ -155,39 +150,6 @@ dathomir = {
 		{"badge_tarpit",652,-4888,30,25},
 	},
 
-	navAreas = {
-		{"ancient_stone_hut",3490,-395,64},
-		{"burial_site_nw",-5259,1299,32},
-		{"ceremonial_site",1072,-4485,50},
-		{"destroyed_rebel_base",-4705,-4772,50},
-		{"empty_hut",-6894,-4854,32},
-		{"fenced_building",50,-164,32},
-		{"floating_rocks_ne",3000,-5145,32},
-		{"floating_rocks_sw_2",-6603,-745,60},
-		{"free_slaves_and_huts",7205,5560,32},
-		{"lookout_station",-4573,-6556,32},
-		{"nightsister_beach_tower",915,6858,32},
-		{"nightsister_guard_camp",-4179,-854,32},
-		{"nightsister_outcast_camp",-2597,4953,32},
-		{"nightsister_outcasts_home",-3250,-6585,32},
-		{"nightsister_stalkers_home",-2933,-1025,32},
-		{"nightsister_stronghold",-4050,-175,200},
-		{"singing_mountain_clan_arch",1125,-1022,32},
-		{"singing_mountain_clan_hut",5556,-688,32},
-		{"singing_mountain_clan_outcasts_hut",7480,-912,32},
-		{"singing_mountain_clan_rock_se",5205,-3084,32},
-		{"singing_mountain_clan_rock_sw",-2419,-3111,32},
-		{"singing_mountain_clan_village",530,4205,100},
-		{"singing_mountain_clan_village_nw",-7081,5888,50},
-		{"spiderclan_floating_rocks",-7120,2931,32},
-		{"spiderclan_stone_arch",7070,-6440,32},
-		{"torch",-2610,-4861,32},
-		{"tower_and_stones",-443,-1156,32},
-		{"tree_hut",-5045,-2773,32},
-		{"wall",7442,-3024,32},
-		{"worship_stone",-6953,-3032,32},
-	},
-
 	planetObjects = {
 		{templateFile = "object/building/player/city/shuttleport_naboo.iff", x = 5219.5, z = 79.38, y = -4050.03, ow = 0.258819, ox = 0, oz = 0, oy = 0.965926, parentid = 0},
 		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.701463, oz = 0, ow = 0.712705, x = 592.612, z = 6, y = 3089.84, parentid = 0},
@@ -214,24 +176,13 @@ endor = {
 		{"badge_lake_villlage",1454,-3272,30,87},
 	},
 
-	navAreas = {
-		{"donkuwah_hut",4032,-7669,32},
-		{"dulok_village_nw",-1205,2965,100},
-		{"dulok_village_se",6063,-2473,100},
-		{"ewok_lake_village_s",-575,-5066,128},
-		{"ewok_lake_village_se",1432,-3268,160},
-		{"ewok_tree_village_north",82,39,60},
-		{"ewok_tree_village_east",4551,-2409,100},
-		{"marauder_stronghold",-4628,-2273,100},
-		{"merek_spawns",3901,5780,50},
-		{"panshee_hut",-5452,-2185,32},
-		{"panshee_shaman_hut",-7559,4457,32},
-		{"pubam_shaman_hut",-6880,1364,32},
-	},
-
 	planetObjects = {
 		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.932952, oz = 0, ow = -0.360002, x = -963.537, z = 73, y = 1556.86, parentid = 0},
 		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.723459, oz = 0, ow = -0.690367, x = 3240.5, z = 24, y = -3484.79, parentid = 0},
+		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.932952, oz = 0, ow = -0.360002, x = -963.537, z = 73, y = 1556.86, parentid = 0},
+		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.723459, oz = 0, ow = -0.690367, x = 3240.5, z = 24, y = -3484.79, parentid = 0}
+		-- TEMPORARY
+		--{templateFile = "object/tangible/terminal/terminal_character_builder.iff", ox = 0, oy = 0.723459, oz = 0, ow = -0.690367, x = -4676.78, z = 12.9066, y = 4327.25, parentid = 0}
 	}
 }
 
@@ -250,24 +201,28 @@ lok = {
 		{"badge_volcano",3091,-4638,10,24},
 	},
 
-	navAreas = {
-		{"abandoned_camp",-234,-457,32},
-		{"broken_wall",-4433,-5750,32},
-		{"camp_ruins",5075,-4117,15},
-		{"canyon_corsair_stronghold",-3868,-3820,128},
-		{"downed_blood_razor_transport",3640,2178,128},
-		{"great_maze",3827,-540,50},
-		{"gurk_camp",-3763,-3477,32},
-		{"imperial_lookout",-2569,-861,32},
-		{"imperial_outpost",-1913,-3082,150},
-		{"kimogila_town",-78,2710,50},
-		{"lokkian_fountain",6399,5102,32},
-		{"rebel_house",-4751,3525,75},
-		{"torches_and_arches",716,-3380,32},
-	},
-
 	planetObjects = {
-		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.999879, oz = 0, ow = 0.015506, x = 464.677, z = 8.75806, y = 5506.49, parentid = 0}
+		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.999879, oz = 0, ow = 0.015506, x = 464.677, z = 8.75806, y = 5506.49, parentid = 0},
+		{templateFile = "object/installation/battlefield/destructible/bfield_column_strong.iff", x = 3758.69, z = 11.9317, y = -3100.65, ow = 0.951057, ox = 0, oz = 0, oy = 0.309017, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/installation/battlefield/destructible/bfield_column_strong.iff", x = 3794.47, z = 11.9614, y = -3099.64, ow = -0.477159, ox = 0, oz = 0, oy = 0.878817, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/installation/battlefield/destructible/bfield_column_strong.iff", x = 3808.24, z = 12.0905, y = -3087.38, ow = 0.951057, ox = 0, oz = 0, oy = 0.309017, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/installation/battlefield/destructible/bfield_column_strong.iff", x = 3806.2, z = 12.016, y = -3071.07, ow = 0.725374, ox = 0, oz = 0, oy = 0.688355, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/installation/battlefield/destructible/bfield_column_strong.iff", x = 3810.62, z = 11.5139, y = -3062.34, ow = 0.75471, ox = 0, oz = 0, oy = 0.656059, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/installation/battlefield/destructible/bfield_column_strong.iff", x = 3809.84, z = 11.6597, y = -3053.35, ow = 0.748956, ox = 0, oz = 0, oy = 0.66262, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/installation/battlefield/destructible/bfield_column_strong.iff", x = 3790.79, z = 11.9474, y = -3042.43, ow = -0.026177, ox = 0, oz = 0, oy = 0.999657, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/installation/battlefield/destructible/bfield_column_strong.iff", x = 3780.3, z = 11.8429, y = -3029.56, ow = -0.156434, ox = 0, oz = 0, oy = 0.987688, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/installation/battlefield/destructible/bfield_column_strong.iff", x = 3771.07, z = 11.9279, y = -3028.35, ow = 0.819152, ox = 0, oz = 0, oy = 0.573576, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/installation/battlefield/destructible/bfield_column_strong.iff", x = 3765.16, z = 11.6566, y = -3047.15, ow = 0.942641, ox = 0, oz = 0, oy = 0.333807, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/installation/battlefield/destructible/bfield_column_strong.iff", x = 3752.94, z = 11.9551, y = -3050.97, ow = -0.601815, ox = 0, oz = 0, oy = 0.798635, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/installation/battlefield/destructible/bfield_column_strong.iff", x = 3755.88, z = 11.6712, y = -3059.3, ow = -0.292372, ox = 0, oz = 0, oy = 0.956305, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/installation/battlefield/destructible/bfield_column_strong.iff", x = 3750.35, z = 11.7006, y = -3066.79, ow = 0.21644, ox = 0, oz = 0, oy = 0.976296, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/installation/battlefield/destructible/bfield_column_strong.iff", x = 3812.62, z = 11.9474, y = -3043.85, ow = -0.354892, ox = 0, oz = 0, oy = 0.934907, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/tangible/gravestone/gravestone04.iff", x = 3812.04, z = 11.9474, y = -3046.14, ow = -0.354892, ox = 0, oz = 0, oy = 0.934907, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/tangible/gravestone/gravestone03.iff", x = 3812.89, z = 11.9704, y = -3048.04, ow = -0.531233, ox = 0, oz = 0, oy = 0.847226, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/tangible/gravestone/gravestone04.iff", x = 3813.34, z = 12.1122, y = -3050.34, ow = 0.736155, ox = 0, oz = 0, oy = -0.676813, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/tangible/furniture/decorative/foodcart.iff", x = 3758.43, z = 11.9495, y = -3070.69, ow = 0.811235, ox = 0, oz = 0, oy = 0.58472, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/installation/battlefield/destructible/imperial_gate_house.iff", x = 3777.79, z = 12.0975, y = -3045.03, ow = -0.0958457, ox = 0, oz = 0, oy = -0.995396, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
+		{templateFile = "object/tangible/furniture/decorative/campfire.iff", x = 3787.76, z = 11.7937, y = -3046.39, ow = 0.29359, ox = 0, oz = 0, oy = 0.955932, parentid = 0}, --Socome & BeetleJuice EndGame Dungeon
 	}
 }
 
@@ -299,29 +254,6 @@ naboo = {
 		{"badge_theed_falls_bottom",-4614,4261,10,75},
 	},
 
-	navAreas = {
-		{"amidalas_beach",-5526,-31,128},
-		{"beach_gungan_ruins",7570,6968,32},
-		{"broken_wall",3485,-2882,32},
-		{"crashed_escape_pod",-2433,-2492,32},
-		{"emperors_retreat",2415,-3921,100},
-		{"fire_and_pillars",-1775,-487,32},
-		{"fishing_pond",-6312,-5086,32},
-		{"gate_and_gazebo",-258,-61,32},
-		{"gungan_ruins",0,-1866,32},
-		{"gungan_sacred_place",-1991,-5422,200},
-		{"mauler_stronghold",2912,1118,50},
-		{"imperial_outpost",-4769,-3982,32},
-		{"naboo_pirate_outpost",-1496,-1728,50},
-		{"pillars",7263,-2973,32},
-		{"ruined_gate",-7324,-4149,32},
-		{"ruined_walls",-3586,-880,32},
-		{"statue_and_ruins",-189,-905,32},
-		{"statue_heads",3422, 5080, 32},
-		{"statues_with_fire",-1634,-4035,32},
-		{"weapon_development_faciliy",-6505,-3310,96},
-	},
-
 	planetObjects = {
 		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.715602, oz = 0, ow = -0.698509, x = 4824.53, z = 4.17, y = -4704.9, parentid = 0},
 		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.309582, oz = 0, ow = 0.950873, x = -4876.99, z = 6, y = 4142.12, parentid = 0},
@@ -348,55 +280,6 @@ rori = {
 		{"badge_imp_hyperdrive_fac",-1130,4544,10,97},
 		{"badge_kobala_spice_mine",7304,63,10,94},
 		{"badge_rebel_outpost",3664,-6501,10,95}
-	},
-
-	navAreas = {
-		{"4_columns",-432,3264,32},
-		{"bounty_hunter_camp",-3650,5531,32},
-		{"cobral_tent",-4972,-670,32},
-		{"crashed_corvette",0,2012,50},
-		{"crashed_escape_pod_east",4272,2509,32},
-		{"crashed_escape_pod_north",959,6899,32},
-		{"debris",-989,-315,32},
-		{"flooded_ruins",2528,7260,32},
-		{"gate",2996,-3668,32},
-		{"gazebo",3783,-4473,32},
-		{"graveyard",-1710,6144,32},
-		{"imperial_encampment",-5565,-5660,75},
-		{"narmle_militia_estate",5207,1023,32},
-		{"partially_buried_gazebo",1001,5360,32},
-		{"rancher_and_pets",-431,-5434,32},
-		{"rebel_outpost",-5348,5042,75},
-		{"rorgungan_gravestones",1163,698,32},
-		{"rorgungan_monument_north",-70,5229,64},
-		{"rorgungan_monument_nw",-5819,5826,32},
-		{"rorgungan_ruins_east_1",3593,345,32},
-		{"rorgungan_ruins_east_2",6119,-509,32},
-		{"rorgungan_ruins_central",-1491,1684,32},
-		{"rorgungan_ruins_ne",3379,5861,32},
-		{"rorgungan_ruins_north",956,4049,32},
-		{"rorgungan_ruins_se",3462,-2174,32},
-		{"rorgungan_ruins_south",-2641,-752,32},
-		{"rorgungan_ruins_sw",-6967,-5642,32},
-		{"rorgungan_shield",-5507,2096,32},
-		{"rorgungan_swamp_town",-2069,3301,100},
-		{"ruined_outpost",5083,4676,32},
-		{"ruins_east",5584,2436,32},
-		{"ruins_ne",6684,6882,32},
-		{"ruins_north",958,6521,32},
-		{"ruins_nw_1",-4706,3580,32},
-		{"ruins_nw_2",-2713,4486,32},
-		{"ruins_south",-760,-4085,32},
-		{"ruins_in_lake",1871,1761,32},
-		{"small_imperial_base",6520,-4766,64},
-		{"spike",-3392,-2098,32},
-		{"statue",-2902,2588,32},
-		{"statue_head_north_1",1116,3833,32},
-		{"statue_head_north_2",961,4493,32},
-		{"statue_head_west",-2140,614,32},
-		{"sunken_ruins",5961,-2598,32},
-		{"wall_1",959,5080,64},
-		{"wall_2",-1230,-3207,64},
 	},
 
 	planetObjects = {
@@ -426,62 +309,6 @@ talus = {
 		{"badge_imp_vs_reb_battle",-2595,3724,30,92},
 	},
 
-	navAreas = {
-		{"atst_cabin",-2771,1568,32},
-		{"aqualish_fishing_spot",5348,4545,32},
-		{"backbone",-5730,2856,32},
-		{"binyare_pirate_bunker",5583,-4080,32},
-		{"bridge",-150,323,32},
-		{"bridge_and_debris",5480,1085,50},
-		{"broken_atat",-2434,-2218,32},
-		{"broken_bridge",-4046,3663,32},
-		{"broken_flora_harvester",-4350,1542,32},
-		{"broken_walls",1115,1489,32},
-		{"burning_rocks",4310,2563,32},
-		{"crashed_escape_pod",-4984,5753,32},
-		{"crashed_transport",-2400,2033,32},
-		{"debris_central",-1729,-2886,32},
-		{"debris_sw",-1011,-5092,32},
-		{"detainment_center",4989,-6037,50},
-		{"diseased_debris",-5139,3706,32},
-		{"diseased_ruins",-5117,3213,96},
-		{"erran_sif",2147,-5632,32},
-		{"flag",-3460,1550,32},
-		{"fountain",-3153,-922,32},
-		{"four_stone_fire",-1832,1438,32},
-		{"gas_harvester",-1470,1231,32},
-		{"gateway",2338,2936,32},
-		{"generator",-5647,-2370,32},
-		{"geyser",-4595,5707,32},
-		{"imperial_house_central",1718,1610,32},
-		{"imperial_house_east",5985,-1185,32},
-		{"imperial_watch_tower",3209,1262,32},
-		{"kahmurra_biogenetic_research_station",-4799,-4752,32},
-		{"large_broken_tower",-5517,1064,32},
-		{"lake_monument",2445,2485,32},
-		{"lost_aqualish_house",17,-910,32},
-		{"lost_village_of_durbin",4215,1003,165},
-		{"pillar",618,1100,32},
-		{"pillars_ruins",4974,3849,32},
-		{"quarantined_building",3886,-2848,32},
-		{"rebel_camp",3100,-4044,32},
-		{"rebel_installation",2371,-4989,50},
-		{"red_fire",-1833,1437,32},
-		{"ruined_lookout_tower",-4382,2673,32},
-		{"ruins_central_1",-1394,2117,32},
-		{"ruins_central_2",-1600,-540,32},
-		{"ruins_east",5190,-1735,32},
-		{"ruins_nw",-3492,3697,32},
-		{"scientist_camp",-3640,6332,32},
-		{"selonian_camp",145,-5583,32},
-		{"small_moisture_farm",-4916,-4510,32},
-		{"sunken_ruins",-4575,4356,32},
-		{"three_stones",-1362,1060,32},
-		{"weapons_depot",-4925,-3119,64},
-		{"wind_generators",-4557,-2906,32},
-		{"worship_stone",-861,1020,32},
-	},
-
 	planetObjects = {
 		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.996369, oz = 0, ow = -0.0851417, x = 4447.08, z = 2, y = 5286.96, parentid = 0},
 		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.692641, oz = 0, ow = 0.721282, x = 329.666, z = 6, y = -2924.69, parentid = 0}
@@ -498,7 +325,7 @@ tatooine = {
 		{name = "Mos Eisley Starport", x = 3599.894, z = 5, y = -4780.4487, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
 		{name = "Bestine Starport", x = -1361.1917, z = 12, y = -3600.0254, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
 		{name = "Bestine Shuttleport", x = -1098.4836, z = 12, y = -3563.5342, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
-		{name = "Mos Espa Shuttleport South", x = -2897.0933, z = 5, y = 1933.4144, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
+		{name = "Mos Espa Shuttleport South", x = -2897.0933, z = 5, y = 1933.4144, interplanetaryTravelAllowed = 0, incomingTravelAllowed = 1},
 		{name = "Mos Espa Shuttleport West", x = -3112.1296, z = 5, y = 2176.9607, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
 		{name = "Mos Espa Starport", x = -2833.1609, z = 5, y = 2107.3787, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
 		{name = "Mos Espa Shuttleport East", x = -2803.511, z = 5, y = 2182.9648, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
@@ -516,32 +343,6 @@ tatooine = {
 		{"badge_lars_homestead",-2579,-5500,10,17},
 		{"badge_sarlacc_pit",-6176,-3372,10,16},
 		{"badge_tusken_pool",-3969,6267,10,13},
-	},
-
-	navAreas = {
-		{"bounty_hunter_camp",7044,7047,32},
-		{"broken_house",2315,3255,32},
-		{"broken_machinery",-4698,5456,32},
-		{"broken_walls",2980,6465,32},
-		{"building_ruins_1",588,348,50},
-		{"building_ruins_2",6395,195,32},
-		{"buried_building",-2041,2593,32},
-		{"crashed_escape_pod_2",-6174,5886,32},
-		{"darklighter_estate",-695,-6721,164},
-		{"fort_tusken",-3981,6261,128},
-		{"imperial_oasis",-5315,2685,128},
-		{"jawa_traders",-6120,1872,100},
-		{"makeshift_camp",-4464,5784,32},
-		{"mark_of_honor_ranch",5002,-4684,75},
-		{"pirate_camp",-4931,1260,32},
-		{"tatooine_maze",-3029,-5113,32},
-		{"tusken_bunker",-1476,-180,32},
-		{"tusken_king_outpost",-5315,-4440,60},
-		{"tusken_outpost_east",5693,1871,75},
-		{"ranchers_camp",-3168,3638,32},
-		{"rock_pillar",-6449,2614,32},
-		{"ruined_building",-4878,2950,32},
-		{"ruins_and_skeletons",-5723,6483,32},
 	},
 
 	planetObjects = {
@@ -569,17 +370,6 @@ yavin4 = {
 		{"badge_yav_temple_blueleaf",-875,-2047,30,22},
 	},
 
-	navAreas = {
-		{"dark_jedi_enclave",5080,306,100},
-		{"geonosian_lab",-6440,-388,75},
-		{"light_jedi_enclave",-5575,4901,100},
-		{"massassi_temple",-3050,-2950,250},
-		{"temple_blueleaf",-830,-2056,150},
-		{"temple_exar_kun",5035,5537,150},
-		{"woolamander_palace",547,-643,128},
-		{"yavin4_imperial_base",4036,-6233,75},
-	},
-
 	planetObjects = {
 		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = -0.705623, oz = 0, ow = 0.708587, x = -6917.18, z = 73, y = -5732.25, parentid = 0},
 		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.723339, oz = 0, ow = -0.690493, x = 4057.69, z = 37, y = -6217.54, parentid = 0},
@@ -599,6 +389,25 @@ kaas = {
 		{templateFile = "object/tangible/jedi/force_shrine_stone.iff", ox = 0, oy = 0.0, oz = 0, ow = 0.0, x = -1123.2, z = 129.0, y = -4768.8, parentid = 0}
 	}
 }
+
+taanab = {
+	weatherEnabled = 1,
+
+		planetTravelPoints = {
+		{name = "North Starport", x = -475, z = 58, y = 5849, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
+		{name = "South Starport", x = -3237, z = 53, y = -5707, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1}
+	}
+}
+
+ghomrassen = {
+	weatherEnabled = 1,
+
+		planetTravelPoints = {
+		{name = "Mos Rassen", x = -3383, z = 0, y = -5176, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1},
+		{name = "Mos Rassen Shuttleport", x = -3198, z = 0, y = -5294, interplanetaryTravelAllowed = 1, incomingTravelAllowed = 1}
+	}
+}
+
 space_corellia = {
 
 	weatherEnabled = 0,

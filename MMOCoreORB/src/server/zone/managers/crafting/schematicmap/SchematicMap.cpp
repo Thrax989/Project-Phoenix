@@ -18,7 +18,7 @@
 //ZoneServer* SchematicMap::zoneServer = NULL;
 
 SchematicMap::SchematicMap() : objectManager(NULL) {
-	setLoggingName("SchematicMap");
+
 	info("Loading schematics...");
 
 	Lua::init();
@@ -33,6 +33,8 @@ SchematicMap::~SchematicMap() {
 		delete group;
 		groupMap.remove(0);
 	}
+
+	zoneServer = NULL;
 }
 
 void SchematicMap::initialize(ZoneServer* server) {
@@ -162,7 +164,7 @@ void SchematicMap::buildSchematicGroups() {
 
 	while(iffGroupMap.size() > 0) {
 		VectorMapEntry<uint32, String> entry = iffGroupMap.remove(0);
-		const String& groupName = entry.getValue();
+		String groupName = entry.getValue();
 
 		DraftSchematic* schematic = schematicCrcMap.get(entry.getKey());
 
@@ -185,14 +187,16 @@ void SchematicMap::buildSchematicGroups() {
 }
 
 bool SchematicMap::addSchematics(PlayerObject* playerObject,
-		const Vector<String>& schematicgroups, bool updateClient) {
+		Vector<String> schematicgroups, bool updateClient) {
 
 	Vector<ManagedReference<DraftSchematic* > > schematics;
 
 	for (int i = 0; i < schematicgroups.size(); ++i) {
-		const String& groupName = schematicgroups.get(i);
+
+		String groupName = schematicgroups.get(i);
 
 		if (groupMap.contains(groupName)) {
+
 			DraftSchematicGroup* dsg = groupMap.get(groupName);
 
 			for(int j = 0; j < dsg->size(); ++j)
@@ -207,12 +211,13 @@ bool SchematicMap::addSchematics(PlayerObject* playerObject,
 }
 
 void SchematicMap::removeSchematics(PlayerObject* playerObject,
-		const Vector<String>& schematicgroups, bool updateClient) {
+		Vector<String> schematicgroups, bool updateClient) {
 
 	Vector<ManagedReference<DraftSchematic* > > schematics;
 
 	for (int i = 0; i < schematicgroups.size(); ++i) {
-		const String& groupName = schematicgroups.get(i);
+
+		String groupName = schematicgroups.get(i);
 
 		if (groupMap.contains(groupName)) {
 

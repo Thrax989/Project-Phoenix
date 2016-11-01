@@ -11,7 +11,6 @@
 #include "templates/params/PaletteColorCustomizationVariable.h"
 #include "templates/customization/AssetCustomizationManagerTemplate.h"
 #include "templates/appearance/PaletteTemplate.h"
-#include "server/zone/objects/player/FactionStatus.h"
 
 const char LuaTangibleObject::className[] = "LuaTangibleObject";
 
@@ -23,17 +22,12 @@ Luna<LuaTangibleObject>::RegType LuaTangibleObject::Register[] = {
 		{ "setPvpStatusBit", &LuaTangibleObject::setPvpStatusBit },
 		{ "getPvpStatusBitmask", &LuaTangibleObject::getPvpStatusBitmask },
 		{ "isChangingFactionStatus", &LuaTangibleObject::isChangingFactionStatus },
-		{ "setFutureFactionStatus", &LuaTangibleObject::setFutureFactionStatus },
-		{ "isOnLeave", &LuaTangibleObject::isOnLeave },
-		{ "isOvert", &LuaTangibleObject::isOvert },
-		{ "isCovert", &LuaTangibleObject::isCovert },
 		{ "setCustomizationVariable", &LuaTangibleObject::setCustomizationVariable },
 		{ "getPaletteColorCount", &LuaTangibleObject::getPaletteColorCount },
 		{ "setConditionDamage", &LuaTangibleObject::setConditionDamage },
 		{ "setMaxCondition", &LuaTangibleObject::setMaxCondition },
 		{ "setFaction", &LuaTangibleObject::setFaction },
 		{ "getFaction", &LuaTangibleObject::getFaction },
-		{ "setFactionStatus", &LuaTangibleObject::setFactionStatus },
 		{ "isImperial", &LuaTangibleObject::isImperial },
 		{ "isRebel", &LuaTangibleObject::isRebel },
 		{ "isNeutral", &LuaTangibleObject::isNeutral },
@@ -157,33 +151,7 @@ int LuaTangibleObject::getPvpStatusBitmask(lua_State* L) {
 }
 
 int LuaTangibleObject::isChangingFactionStatus(lua_State* L) {
-	lua_pushboolean(L, realObject->getFutureFactionStatus() != 0);
-
-	return 1;
-}
-
-int LuaTangibleObject::setFutureFactionStatus(lua_State* L) {
-	float status = lua_tonumber(L, -1);
-
-	realObject->setFutureFactionStatus(status);
-
-	return 0;
-}
-
-int LuaTangibleObject::isOnLeave(lua_State* L) {
-	lua_pushboolean(L, realObject->getFactionStatus() == FactionStatus::ONLEAVE);
-
-	return 1;
-}
-
-int LuaTangibleObject::isOvert(lua_State* L) {
-	lua_pushboolean(L, realObject->getFactionStatus() == FactionStatus::OVERT);
-
-	return 1;
-}
-
-int LuaTangibleObject::isCovert(lua_State* L) {
-	lua_pushboolean(L, realObject->getFactionStatus() == FactionStatus::COVERT);
+	lua_pushboolean(L, realObject->getPvpStatusBitmask() & CreatureFlag::CHANGEFACTIONSTATUS);
 
 	return 1;
 }
@@ -310,12 +278,3 @@ int LuaTangibleObject::getCraftersName(lua_State* L) {
 
 	return 1;
 }
-
-int LuaTangibleObject::setFactionStatus(lua_State* L) {
-	int status = lua_tointeger(L, -1);
-
-	realObject->setFactionStatus(status);
-
-	return 0;
-}
-

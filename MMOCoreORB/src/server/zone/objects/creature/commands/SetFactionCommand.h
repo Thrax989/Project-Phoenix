@@ -58,7 +58,10 @@ public:
 			msg << "PvPStatusbitmask = " << String::valueOf(pvpStatus) << endl;
 			msg << "Optionsbitmask = " << String::valueOf(optionsBitmask) << endl;
 			msg <<  "Faction = " << String::valueOf(intFaction) << endl;
-			msg << "Faction Status: " << String::valueOf(tano->getFactionStatus());
+
+
+			if (targetPlayerObject != NULL)
+				msg << "Faction Status: " << String::valueOf(targetPlayerObject->getFactionStatus());
 
 			creature->sendSystemMessage(msg.toString());
 			return SUCCESS;
@@ -93,11 +96,11 @@ public:
 
 			if (targetPlayerObject != NULL) {
 				if ( status == "overt") {
-					tano->setFactionStatus(FactionStatus::OVERT);
+					targetPlayerObject->setFactionStatus(FactionStatus::OVERT);
 				} else  if (status == "covert"){
-					tano->setFactionStatus(FactionStatus::COVERT);
+					targetPlayerObject->setFactionStatus(FactionStatus::COVERT);
 				} else if (status == "onleave") {
-					tano->setFactionStatus(FactionStatus::ONLEAVE);
+					targetPlayerObject->setFactionStatus(FactionStatus::ONLEAVE);
 				}
 
 			}  else {

@@ -678,9 +678,9 @@ TEST_F(LuaMobileTest, LuaSpawnManagerTest) {
 	lua->init();
 
 	for (int i = 0; i < zoneNames.size(); i++) {
-		// Verify regions
-		lua->runFile("scripts/managers/spawn_manager/" + zoneNames.get(i) + "_regions.lua");
+		lua->runFile("scripts/managers/spawn_manager/" + zoneNames.get(i) + ".lua");
 
+		// Verify regions
 		LuaObject regions = lua->getGlobalObject(zoneNames.get(i) + "_regions");
 
 		ASSERT_TRUE( regions.isValidTable() ) << "Regions table in " << zoneNames.get(i).toCharArray() << " spawn manager is invalid.";
@@ -718,8 +718,6 @@ TEST_F(LuaMobileTest, LuaSpawnManagerTest) {
 		regions.pop();
 
 		// Verify static spawns
-		lua->runFile("scripts/managers/spawn_manager/" + zoneNames.get(i) + "_static_spawns.lua");
-
 		LuaObject spawns = lua->getGlobalObject(zoneNames.get(i) + "_static_spawns");
 
 		ASSERT_TRUE( spawns.isValidTable() ) << "Static spawns table in " << zoneNames.get(i).toCharArray() << " spawn manager is invalid.";

@@ -757,6 +757,7 @@ void CityManagerImplementation::processCityUpdate(CityRegion* city) {
 				ghost->addExperience("political", 750, true);
 			}
 		}
+
 		updateCityVoting(city);
 
 		int citizens = city->getCitizenCount();
@@ -1358,8 +1359,6 @@ void CityManagerImplementation::destroyCity(CityRegion* city) {
 	city->cancelTasks();
 
 	unregisterCity(city, NULL);
-
-	city->destroyNavRegion();
 
 	for (int i = CityManager::METROPOLIS; i > 0; i--) {
 		city->destroyAllStructuresForRank(uint8(i), false);

@@ -52,7 +52,6 @@ protected:
 	int meatAmount;
 
 	String objectName;
-	uint32 planetMapCategory;
 	int randomNameType;
 	bool randomNameTag;
 	String socialGroup;
@@ -243,10 +242,6 @@ public:
 
 	inline String getObjectName() {
 		return objectName;
-	}
-
-	inline uint32 getPlanetMapCategory() {
-		return planetMapCategory;
 	}
 
 	inline int getRandomNameType() {

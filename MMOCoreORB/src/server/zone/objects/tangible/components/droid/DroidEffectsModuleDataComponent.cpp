@@ -196,7 +196,7 @@ String DroidEffectsModuleDataComponent::getCurrentAnimation(){
 		return "";
 	}
 
-	const String& effectName = configuredEffects.get(currentEffectIndex);
+	String effectName = configuredEffects.get(currentEffectIndex);
 	return installedEffects.get( effectName );
 
 }

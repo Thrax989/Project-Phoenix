@@ -599,6 +599,7 @@ int CreatureManagerImplementation::notifyDestruction(TangibleObject* destructor,
 	ThreatMap copyThreatMap(*threatMap);
 
 	threatMap->removeObservers();
+	threatMap->removeAll(); // we can clear the original one
 
 	if (destructedObject != destructor)
 		destructor->unlock();

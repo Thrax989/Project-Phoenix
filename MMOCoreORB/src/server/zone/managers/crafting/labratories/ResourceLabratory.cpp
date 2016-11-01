@@ -201,9 +201,9 @@ bool ResourceLabratory::applyComponentStats(TangibleObject* prototype, Manufactu
 		} else {
 
 			for (int j = 0; j < component->getPropertyCount(); ++j) {
-				property = component->getProperty(j);
-				modified = true;
 
+				property = component->getProperty(j); // charges
+				modified = true;
 				if (craftingValues->hasProperty(property)) {
 					max = craftingValues->getMaxValue(property);
 					min = craftingValues->getMinValue(property);
@@ -252,8 +252,6 @@ bool ResourceLabratory::applyComponentStats(TangibleObject* prototype, Manufactu
 							currentvalue = max;
 
 						craftingValues->setCurrentValue(property, currentvalue);
-
-						modified = false;
 						break;
 					default:
 						break;

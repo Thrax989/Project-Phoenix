@@ -13,7 +13,6 @@
 class PortalLayout;
 class FloorMesh;
 class AppearanceTemplate;
-class InteriorLayoutTemplate;
 
 class PortalLayoutMap : public HashTable<String, Reference<PortalLayout*> > {
 public:
@@ -32,13 +31,6 @@ public:
 class AppearanceMap : public HashTable<String, Reference<AppearanceTemplate*> > {
 public:
 	AppearanceMap() {
-		setNullValue(NULL);
-	}
-};
-
-class InteriorMap : public HashTable<String, Reference<InteriorLayoutTemplate*> > {
-public:
-	InteriorMap() {
 		setNullValue(NULL);
 	}
 };

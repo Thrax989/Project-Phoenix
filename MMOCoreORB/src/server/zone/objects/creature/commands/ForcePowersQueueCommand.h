@@ -1,4 +1,4 @@
-/*
+ /*
  * ForcePowersQueueCommand.h
  *
  *  Created on: 24/05/2010
@@ -43,7 +43,7 @@ public:
 				return TOOFAR;
 
 			if (!CollisionManager::checkLineOfSight(creature, targetObject)) {
-				creature->sendSystemMessage("@cbt_spam:los_fail");// "You lost sight of your target."
+				creature->sendSystemMessage("@container_error_message:container18");
 				return GENERALERROR;
 			}
 

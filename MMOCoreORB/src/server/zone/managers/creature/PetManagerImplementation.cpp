@@ -111,7 +111,7 @@ short PetManagerImplementation::checkMountEligibility(PetControlDevice* petContr
 	if( pet == NULL )
 		return PetManager::INVALIDCREATURE;
 
-	//Check if the pet's species is able to be trained as a mount
+	//Check if the pet's species is able to be trained as a mount REMOVE This For Initial Function To Allow All Pets To Be Mounts Make Sure You Rewrite The Function To Allow All Pets To Be Mounts NOTES For Later Reminder
 	if (!pet->hasSlotDescriptor("rider"))
 		return PetManager::INVALIDCREATURE;
 

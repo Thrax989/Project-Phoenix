@@ -26,10 +26,6 @@ class BoundaryPolygon : public ProceduralRule<'BPOL'>,  public Boundary {
 	float minX, minY, maxX, maxY;
 
 public:
-	const Vector<Point2D*>& getVertices() const {
-		return vertices;
-	}
-
 	BoundaryPolygon() : localWaterTableEnabled(0), localWaterTableHeight(0), shaderSize(0) {
 		//ruleType = BOUNDARYPOLYGON;
 
@@ -95,7 +91,7 @@ public:
 		}
 	}
 
-	float checkInfluence(float x, float y) {
+	float process(float x, float y) {
 		Point2D* lastPoint = NULL;
 
 		float result = 0;
@@ -121,7 +117,7 @@ public:
 
 			if ((point->y <= y && y < lastPoint->y) || (lastPoint->y <= y && y < point->y)) {
 				if ( (y - point->y) * (lastPoint->x - point->x) / (lastPoint->y - point->y)
-				     + point->x > (double)x ) {
+						+ point->x > (double)x ) {
 
 					v50 = v50 == 0;
 
@@ -191,10 +187,6 @@ public:
 		}
 
 		return result;
-	}
-
-	float process(float x, float y) {
-		return checkInfluence(x, y);
 	}
 
 	bool containsPoint(float px, float py) {
@@ -313,7 +305,7 @@ public:
 		initialize();
 	}
 
-	float getLocalWaterTableHeight() const {
+	float getLocalWaterTableHeight() {
 		return localWaterTableHeight;
 	}
 
@@ -321,19 +313,19 @@ public:
 		return informationHeader.isEnabled();
 	}
 
-	float getMinX() const {
+	float getMinX() {
 		return minX;
 	}
 
-	float getMaxX() const {
+	float getMaxX() {
 		return maxX;
 	}
 
-	float getMinY() const {
+	float getMinY() {
 		return minY;
 	}
 
-	float getMaxY() const {
+	float getMaxY() {
 		return maxY;
 	}
 };
