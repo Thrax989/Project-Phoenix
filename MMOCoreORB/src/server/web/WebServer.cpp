@@ -45,6 +45,8 @@ WebServer::~WebServer() {
 	while(activeSessions.size() > 0) {
 		delete activeSessions.remove(0).getValue();
 	}
+
+	zoneServer = NULL;
 }
 
 void WebServer::start(ConfigManager* conf) {
