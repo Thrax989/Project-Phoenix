@@ -16,4 +16,3 @@ class DeliverMissionConversationObserver extends ConversationObserver {
 
 	public native DeliverMissionConversationObserver(unsigned int convoTemplateCRC);
 }
-
