@@ -79,12 +79,11 @@ public:
 					continue;
 				}
 
-				ManagedReference<CityRegion*> city = shuttle->getCityRegion().get();
-
-				if(city == NULL) {
+				if(shuttle->getCityRegion() == NULL){
 					message->insertInt(0);
 					continue;
 				}
+				ManagedReference<CityRegion*> city = shuttle->getCityRegion().get();
 
 				if (ptp == origin)
 					message->insertInt(city->getTravelTax());
