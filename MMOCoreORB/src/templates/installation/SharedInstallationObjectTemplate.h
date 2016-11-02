@@ -24,7 +24,6 @@ class SharedInstallationObjectTemplate : public SharedStructureObjectTemplate {
 	float lightSaber;
 	float chanceHit;
 	String weapon;
-	String factionString;
 
 public:
 	SharedInstallationObjectTemplate() {
@@ -42,7 +41,6 @@ public:
 		lightSaber = 0;
 		weapon = "";
 		chanceHit = 0;
-		factionString = "";
 	}
 
 	~SharedInstallationObjectTemplate() {
@@ -65,7 +63,6 @@ public:
 		lightSaber = templateData->getFloatField("lightSaber");
 		weapon = templateData->getStringField("weapon");
 		chanceHit = templateData->getFloatField("chanceHit");
-		factionString = templateData->getStringField("factionString");
 	}
 
 	void readObject(IffStream* iffStream) {
@@ -150,29 +147,27 @@ public:
 			return heat;
 	}
 
-	inline float getCold() {
+	inline float getCold(){
 		return cold;
 	}
 
-	inline float getAcid() {
+	inline float getAcid(){
 		return acid;
 	}
 
-	inline float getLightSaber() {
+	inline float getLightSaber(){
 		return lightSaber;
 	}
 
-	inline const String& getWeapon() {
+	inline String getWeapon(){
 		return weapon;
 	}
 
-	inline float getChanceHit() {
+	inline float getChanceHit(){
 		return chanceHit;
 	}
 
-	inline const String& getFactionString() {
-		return factionString;
-	}
+
 };
 
 
