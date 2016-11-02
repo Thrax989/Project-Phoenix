@@ -290,21 +290,18 @@ int CombatManager::doTargetCombatAction(CreatureObject* attacker, WeaponObject* 
 
 int CombatManager::doTargetCombatAction(CreatureObject* attacker, WeaponObject* weapon, CreatureObject* defender, const CreatureAttackData& data) {
 	if (weapon->getMinDamage() < 1 ||
-
 			weapon->getMinDamage() > 50000 ||
 			weapon->getMaxDamage() < 1 ||
 			weapon->getMaxDamage() > 50000) {
 		Locker locker(weapon);
 		weapon->setMinDamage(5);
 		weapon->setMaxDamage(10);
-
 			weapon->getMinDamage() > 50000||
 			weapon->getMaxDamage() < 1 ||
 			weapon->getMaxDamage() > 50000) {
 		Locker locker(weapon);
 		weapon->setMinDamage(5);
 		weapon->setMaxDamage(10);
-
 		info(attacker->getFirstName() + " was found using a bugged weapon!!", true);
 	}
 	if (defender->isEntertaining())
