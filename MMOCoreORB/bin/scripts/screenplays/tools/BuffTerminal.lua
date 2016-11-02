@@ -14,14 +14,14 @@ BuffTerminal = ScreenPlay:new {
 	buffs = {
 		-- Legend: {name, price, duration in hours, health, strength, constitution, action, quickness, stamina, mind, focus, willpower},
 		{"Starter Buff", 0, 2, 500, 250, 250, 500, 250, 250, 500, 250, 250}, -- Free!
-		{"Basic Buff", 0, 2, 650, 500, 400, 650, 500, 400, 650, 500, 400},
-		{"Advanced Buff", 0, 3, 800, 600, 600, 800, 600, 600, 800, 600, 600},
-		{"Halloween Uber Event Buffs", 0, 4, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000}, --Used For Special Events
+		{"Basic Buff", 5000, 2, 650, 500, 400, 650, 500, 400, 650, 500, 400},
+		{"Advanced Buff", 10000, 3, 800, 600, 600, 800, 600, 600, 800, 600, 600},
+		--{"Apply Uber Buff", 25000, 4, 1200, 750, 750, 1200, 750, 750, 1200, 750, 750}, -- commented out for example
 	},
 	termModel = "object/tangible/terminal/terminal_light_enclave_voting.iff",
-	termName = "Halloween Event Medical Services Terminal",
+	termName = "Medical Services Terminal",
 	terminals = {
-		{planetName = "yavin4", x = -293.367, z = 35, y = 4854.52, ow = 0.999974, oy = 0.00721678}, -- Yavin4
+		{planetName = "tatooine", x = 1256.39, z = 7, y = 2949.38, ow = 0.707107, oy = 0.707107}, -- Mos Entha starport
 	}
 }
 
