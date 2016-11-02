@@ -5,29 +5,7 @@ halloweenevent9 = {
 	minimumLevel = 0,
 	maximumLevel = 0,
 	lootItems = {
-		{itemTemplate = "be_poster", weight = 434783},
-		{itemTemplate = "twilek_painting_lg_quest_04", weight = 434783},
-		{itemTemplate = "twilek_painting_lg_quest_03", weight = 434783},
-		{itemTemplate = "twilek_painting_lg_quest_02", weight = 434783},
-		{itemTemplate = "twilek_painting_lg_quest_01", weight = 434783},
-		{itemTemplate = "blacksunhelm01", weight = 434783},
-		{itemTemplate = "painting_luke_wanted", weight = 434783},
-		{itemTemplate = "atat_helmet", weight = 434783},
-		{itemTemplate = "atat_suit", weight = 434783},
-		{itemTemplate = "party_poster", weight = 434783},
-		{itemTemplate = "b_wing_pilot_survival_suit", weight = 434783},
-		{itemTemplate = "tie_suit", weight = 434783},
-		{itemTemplate = "tie_helmet", weight = 434783},
-		{itemTemplate = "caritem1", weight = 434783},
-		{itemTemplate = "nightsister01", weight = 434782},
-		{itemTemplate = "nightsister02", weight = 434782},
-		{itemTemplate = "nightsister03", weight = 434782},
-		{itemTemplate = "nightsister04", weight = 434782},
-		{itemTemplate = "nightsister05", weight = 434782},
-		{itemTemplate = "nightsister06", weight = 434782},
-		{itemTemplate = "cyborgitem1", weight = 434782},
-		{itemTemplate = "cyborgitem2", weight = 434782},
-		{itemTemplate = "cyborgitem3", weight = 434782}
+		{itemTemplate = "halloween9", weight = 10000000}
 	}
 }
 
