@@ -5,6 +5,7 @@ import engine.core.ManagedObject;
 import engine.core.ManagedReference;
 import engine.log.Logger;
 import server.login.account.AccountManager;
+import server.zone.ZoneClientSession;
 import system.util.VectorMap;
 import system.lang.Time;
 import system.lang.System;
