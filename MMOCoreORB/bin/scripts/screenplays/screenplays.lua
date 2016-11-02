@@ -207,9 +207,6 @@ includeFile("events/black_sun.lua")
 --includeFile("events/spirit_exar.lua")
 includeFile("events/exar_yavin.lua")
 includeFile("events/world_exchange_dealer.lua")
-includeFile("events/halloween_witches_yavin.lua")
-includeFile("events/witches_yavin.lua")
-includeFile("events/witch_yavin.lua")
 
 -- Hero of Tatooine
 includeFile("tasks/hero_of_tatooine/conversations/hermitConvoHandler.lua")
