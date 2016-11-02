@@ -94,7 +94,6 @@ void ObjectManager::registerObjectTypes() {
 	objectFactory.registerObject<SpawnArea>(SceneObjectType::SPAWNAREA);
 	objectFactory.registerObject<CampSiteActiveArea>(SceneObjectType::CAMPAREA);
 	objectFactory.registerObject<Region>(SceneObjectType::REGIONAREA);
-	objectFactory.registerObject<NavMeshRegion>(SceneObjectType::NAVMESHAREA);
 	objectFactory.registerObject<StaticObject>(SceneObjectType::STATICOBJECT);
 	objectFactory.registerObject<Creature>(SceneObjectType::CREATURE);
 	objectFactory.registerObject<NonPlayerCreatureObject>(SceneObjectType::NPCCREATURE);
