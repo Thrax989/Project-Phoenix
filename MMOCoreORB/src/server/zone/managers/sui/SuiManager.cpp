@@ -31,7 +31,6 @@
 #include "server/zone/objects/tangible/ticket/TicketObject.h"
 #include "server/zone/objects/installation/InstallationObject.h"
 #include "server/zone/objects/installation/factory/FactoryObject.h"
-#include "server/zone/objects/manufactureschematic/ManufactureSchematic.h"
 #include "server/zone/objects/player/sui/keypadbox/SuiKeypadBox.h"
 #include "server/zone/objects/player/sui/callbacks/LuaSuiCallback.h"
 #include "server/zone/objects/tangible/terminal/characterbuilder/CharacterBuilderTerminal.h"
@@ -428,24 +427,6 @@ void SuiManager::handleCharacterBuilderSelectItem(CreatureObject* player, SuiBox
 
 		String templatePath = node->getTemplatePath();
 
-		int galaxyid = zserv->getGalaxyID();
-
-		if (galaxyid == 2) {
-			if ((templatePath == "unlearn_all_skills"
-			|| templatePath == "cleanse_character"
-			|| templatePath == "reset_buffs"
-			|| templatePath == "enhance_character"
-			|| templatePath == "apply_dots"
-			|| templatePath == "clear_dots"
-			|| templatePath == "language"
-			|| templatePath == "social_politician_master") && ghost->getAdminLevel() < 15) {
-			} else if (ghost->getAdminLevel() < 15) {
-				info("WARNING! " + player->getFirstName() + " attempted to use a character builder", true);
-				player->sendSystemMessage("You Do Not Have Permission To Do That!");
-				return;
-			}
-		}
-
 		if (templatePath.indexOf(".iff") < 0) { // Non-item selections
 
 			if (templatePath == "unlearn_all_skills") {
@@ -584,11 +565,22 @@ void SuiManager::handleCharacterBuilderSelectItem(CreatureObject* player, SuiBox
 			} else if (templatePath == "language") {
 				bluefrog->giveLanguages(player);
 
-			} else if (templatePath == "apply_dots") {
-				ManagedReference<SceneObject*> scob = cbSui->getUsingObject();
+			} else if (templatePath == "apply_all_dots") {
 				player->addDotState(player, CreatureState::POISONED, scob->getObjectID(), 100, CreatureAttribute::UNKNOWN, 60, -1, 0);
 				player->addDotState(player, CreatureState::BLEEDING, scob->getObjectID(), 100, CreatureAttribute::UNKNOWN, 60, -1, 0);
 				player->addDotState(player, CreatureState::DISEASED, scob->getObjectID(), 100, CreatureAttribute::UNKNOWN, 60, -1, 0);
+				player->addDotState(player, CreatureState::ONFIRE, scob->getObjectID(), 100, CreatureAttribute::UNKNOWN, 60, -1, 0, 20);
+
+			} else if (templatePath == "apply_poison_dot") {
+				player->addDotState(player, CreatureState::POISONED, scob->getObjectID(), 100, CreatureAttribute::UNKNOWN, 60, -1, 0);
+
+			} else if (templatePath == "apply_bleed_dot") {
+				player->addDotState(player, CreatureState::BLEEDING, scob->getObjectID(), 100, CreatureAttribute::UNKNOWN, 60, -1, 0);
+
+			} else if (templatePath == "apply_disease_dot") {
+				player->addDotState(player, CreatureState::DISEASED, scob->getObjectID(), 100, CreatureAttribute::UNKNOWN, 60, -1, 0);
+
+			} else if (templatePath == "apply_fire_dot") {
 				player->addDotState(player, CreatureState::ONFIRE, scob->getObjectID(), 100, CreatureAttribute::UNKNOWN, 60, -1, 0, 20);
 
 			} else if (templatePath == "clear_dots") {

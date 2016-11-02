@@ -36,7 +36,7 @@ class StateBuff extends Buff {
 	public void deactivate(boolean removeModifiers) {
 		super.deactivate(removeModifiers);
 
-		//Logger.info("deactivating state buff", true);
+	//	Logger.info("deatctivating state buff", true);
 
 		super.creature.clearState(stateApplied);
 	}

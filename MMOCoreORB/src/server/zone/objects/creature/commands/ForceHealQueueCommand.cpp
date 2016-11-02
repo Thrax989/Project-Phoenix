@@ -410,7 +410,7 @@ int ForceHealQueueCommand::calculateForceCost(CreatureObject* creature, Creature
 void ForceHealQueueCommand::sendHealMessage(CreatureObject* creature, CreatureObject* target, int attribute, const int amount, const bool wound) const {
 	if (creature == NULL || target == NULL || amount <= 0) return;
 
-	// store if we are healing ourselfs or not
+	// store if we are healing ourself or not
 	const bool isSame = creature == target;
 
 	StringIdChatParameter message("jedi_spam", (isSame)?"heal_self": "heal_other_self");
@@ -426,7 +426,7 @@ void ForceHealQueueCommand::sendHealMessage(CreatureObject* creature, CreatureOb
 	}
 
 	if (!isSame)
-		message.setTT(target->getFirstName());
+		message.setTT(target->getDisplayedName());
 
 	message.setDI(amount);
 	creature->sendSystemMessage(message);
@@ -539,13 +539,13 @@ int ForceHealQueueCommand::runCommandWithTarget(CreatureObject* creature, Creatu
 		return TOOFAR;
 
 	if (!CollisionManager::checkLineOfSight(creature, targetCreature)) {
-		creature->sendSystemMessage("@container_error_message:container18"); // not in sight?!?
+		creature->sendSystemMessage("@healing:no_line_of_sight"); // You cannot see your target.
 		return GENERALERROR;
 	}
 
 	if (!targetCreature->isHealableBy(creature)) {
 		// TEF etc.? Do we need extra TEF checks?
-		creature->sendSystemMessage("@healing:pvp_no_help");
+		creature->sendSystemMessage("@healing:pvp_no_help"); // It would be unwise to help such a patient.
 		return GENERALERROR;
 	}
 	// continue with the common path
@@ -765,4 +765,3 @@ void ForceHealQueueCommand::applyForceCost(CreatureObject* creature, int calcula
 	//This seems like a logical place to put this to me
 	VisibilityManager::instance()->increaseVisibility(creature, visMod);
 }
-

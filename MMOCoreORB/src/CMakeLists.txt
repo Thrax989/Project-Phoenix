@@ -30,3 +30,4 @@ target_link_libraries(core3
 
 # Install core3 binary
 install(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/core3 DESTINATION bin)
+

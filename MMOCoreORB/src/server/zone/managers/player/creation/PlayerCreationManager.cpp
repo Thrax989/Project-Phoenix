@@ -60,7 +60,6 @@ PlayerCreationManager::PlayerCreationManager() :
 }
 
 PlayerCreationManager::~PlayerCreationManager() {
-	zoneServer = NULL;
 }
 
 void PlayerCreationManager::loadRacialCreationData() {

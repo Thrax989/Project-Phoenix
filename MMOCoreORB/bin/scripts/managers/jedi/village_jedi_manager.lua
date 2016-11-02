@@ -66,14 +66,15 @@ function VillageJediManager:onPlayerLoggedIn(pCreatureObject)
 		QuestManager.resetQuest(pCreatureObject, QuestManager.quests.FS_PHASE_3_CRAFT_SHIELDS_01)
 		QuestManager.resetQuest(pCreatureObject, QuestManager.quests.FS_PHASE_3_CRAFT_SHIELDS_02)
 	end
-	
+
 	if (not VillageCommunityCrafting:isOnActiveCrafterList(pCreatureObject)) then
 		VillageCommunityCrafting:removeSchematics(pCreatureObject, 2)
 		VillageCommunityCrafting:removeSchematics(pCreatureObject, 3)
 	end
 
 	-- Any quests below are run from township because they are not a standard task
-	if (VillageJediManagerTownship:getCurrentPhase() ~= 1) then
+	local currentPhase = VillageJediManagerTownship:getCurrentPhase()
+	if (currentPhase ~= 1) then
 		if (QuestManager.hasActiveQuest(pCreatureObject, QuestManager.quests.FS_MEDIC_PUZZLE_QUEST_01) or
 			QuestManager.hasActiveQuest(pCreatureObject, QuestManager.quests.FS_MEDIC_PUZZLE_QUEST_02) or
 			QuestManager.hasActiveQuest(pCreatureObject, QuestManager.quests.FS_MEDIC_PUZZLE_QUEST_03)) then
@@ -83,13 +84,55 @@ function VillageJediManager:onPlayerLoggedIn(pCreatureObject)
 			QuestManager.hasCompletedQuest(pCreatureObject, QuestManager.quests.FS_CRAFT_PUZZLE_QUEST_00)) then
 			FsCrafting1:doPhaseChangeFail(pCreatureObject)
 		end
-	elseif (VillageJediManagerTownship:getCurrentPhase() ~= 2) then
+	end
+	if (currentPhase ~= 2) then
 		if (QuestManager.hasActiveQuest(pCreatureObject, QuestManager.quests.FS_QUESTS_SAD_TASKS)) then
 			FsSad:doPhaseChangeFail(pCreatureObject)
 		end
 	end
+	if (currentPhase ~= 4) then
+		FsVillageDefense:doPhaseChangeFail(pCreatureObject)
+	end
+end
 
+--Check for force skill prerequisites
+function VillageJediManager:canLearnSkill(pPlayer, skillName)
+	if string.find(skillName, "force_sensitive") ~= nil then
+		local index = string.find(skillName, "0")
+		if index ~= nil then
+			local skillNameFinal = string.sub(skillName, 1, string.len(skillName) - 3)
+			if CreatureObject(pPlayer):getScreenPlayState("VillageUnlockScreenPlay:" .. skillNameFinal) < 2 then
+				return false
+			end
+		end
+	end
 
+	if skillName == "force_title_jedi_rank_01" and CreatureObject(pPlayer):getForceSensitiveSkillCount(false) < 24 then
+		return false
+	end
+
+	if skillName == "force_title_jedi_rank_03" and not CreatureObject(pPlayer):villageKnightPrereqsMet("") then
+		return false
+	end
+
+	return true
+end
+
+--Check to ensure force skill prerequisites are maintained
+function VillageJediManager:canSurrenderSkill(pPlayer, skillName)
+	if skillName == "force_title_jedi_novice" and CreatureObject(pPlayer):getForceSensitiveSkillCount(true) > 0 then
+		return false
+	end
+
+	if string.find(skillName, "force_sensitive_") and CreatureObject(pPlayer):hasSkill("force_title_jedi_rank_01") and CreatureObject(pPlayer):getForceSensitiveSkillCount(false) <= 24 then
+		return false
+	end
+
+	if string.find(skillName, "force_discipline_") and CreatureObject(pPlayer):hasSkill("force_title_jedi_rank_03") and not CreatureObject(pPlayer):villageKnightPrereqsMet(skillName) then
+		return false
+	end
+
+	return true
 end
 
 -- Handling of the onFSTreesCompleted event.
@@ -98,10 +141,10 @@ function VillageJediManager:onFSTreeCompleted(pCreatureObject, branch)
 	if (pCreatureObject == nil) then
 		return
 	end
-	
+
 	-- Remove the "_04" from the end of the skill...
 	local branchSub = string.sub(branch, 0, (string.len(branch) - 3))
-	
+
 	-- Set the screenplaystate...
 	CreatureObject(pCreatureObject):setScreenPlayState(4, "VillageUnlockScreenPlay:" .. branchSub)
 

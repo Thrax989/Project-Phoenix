@@ -24,10 +24,10 @@
 #include "server/zone/objects/creature/events/DroidSkillModTask.h"
 #include "server/zone/objects/creature/events/DroidPowerTask.h"
 #include "server/zone/objects/tangible/weapon/WeaponObject.h"
+#include "server/zone/objects/building/BuildingObject.h"
 #include "server/zone/managers/stringid/StringIdManager.h"
 #include "tasks/StorePetTask.h"
 #include "server/chat/ChatManager.h"
-#include "server/zone/objects/building/BuildingObject.h"
 
 void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 	if (player->isInCombat() || player->isDead() || player->isIncapacitated() || player->getPendingTask("tame_pet") != NULL) {
@@ -91,7 +91,7 @@ void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 			return;
 		}
 
-		if (player->getFaction() != petFaction || ghost->getFactionStatus() == FactionStatus::ONLEAVE) {
+		if (player->getFaction() != petFaction || player->getFactionStatus() == FactionStatus::ONLEAVE) {
 			StringIdChatParameter message("@faction_perk:prose_be_declared_faction"); // You must be a declared %TO to use %TT.
 			message.setTO(pet->getFactionString());
 			message.setTT(pet->getDisplayedName());
@@ -162,7 +162,7 @@ void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 		}
 
 	} else if (petType == PetManager::FACTIONPET){
-		maxPets = 1;
+		maxPets = 3;
 	}
 
 	for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
@@ -458,7 +458,7 @@ void PetControlDeviceImplementation::storeObject(CreatureObject* player, bool fo
 
 	Reference<StorePetTask*> task = new StorePetTask(player, pet);
 
-	// Store non-faction pets immediately.  Store faction pets after 5sec delay.
+	// Store non-faction pets immediately.  Store faction pets after 3sec delay.
 	if( petType != PetManager::FACTIONPET || force || player->getPlayerObject()->isPrivileged()){
 		task->execute();
 	}
@@ -505,7 +505,7 @@ bool PetControlDeviceImplementation::growPet(CreatureObject* player, bool force,
 
 	Time currentTime;
 	uint32 timeDelta = currentTime.getTime() - lastGrowth.getTime();
-	int stagesToGrow = timeDelta / 60; // 1 Minute
+	int stagesToGrow = timeDelta / 60; // 1 minute
 
 	if (adult)
 		stagesToGrow = 10;

@@ -487,7 +487,7 @@ void CraftingSessionImplementation::addIngredient(TangibleObject* tano, int slot
 		return;
 	}
 
-	
+
 	ManagedReference<SceneObject*> craftingComponentsSatchel = craftingTool->getCraftedComponentsSatchel();
 
 	// Lock the craft and satchel as well
@@ -649,8 +649,12 @@ void CraftingSessionImplementation::initialAssembly(int clientCounter) {
 	int custpoints = int(crafter->getSkillMod(custskill));
 
 	// Determine the outcome of the craft, Amazing through Critical
-	assemblyResult = craftingManager.get()->calculateAssemblySuccess(crafter,
-			draftSchematic, craftingTool->getEffectiveness());
+	assemblyResult = craftingManager.get()->calculateAssemblySuccess(crafter, draftSchematic, craftingTool->getEffectiveness());
+
+	if (assemblyResult != CraftingManager::AMAZINGSUCCESS && craftingTool->getForceCriticalAssembly() > 0) {
+		assemblyResult = CraftingManager::AMAZINGSUCCESS;
+		craftingTool->setForceCriticalAssembly(craftingTool->getForceCriticalAssembly() - 1);
+	}
 
 	Locker locker(prototype);
 	//Set initial crafting percentages
@@ -911,8 +915,12 @@ void CraftingSessionImplementation::experiment(int rowsAttempted, const String& 
 
 		if (experimentationPointsUsed <= experimentationPointsTotal) {
 			// Set the experimentation result ie:  Amazing Success
-			experimentationResult = craftingManager->calculateExperimentationSuccess(
-					crafter, manufactureSchematic->getDraftSchematic(), failure);
+			experimentationResult = craftingManager->calculateExperimentationSuccess(crafter, manufactureSchematic->getDraftSchematic(), failure);
+
+			if (experimentationResult != CraftingManager::AMAZINGSUCCESS && craftingTool->getForceCriticalExperiment() > 0) {
+				experimentationResult = CraftingManager::AMAZINGSUCCESS;
+				craftingTool->setForceCriticalExperiment(craftingTool->getForceCriticalExperiment() - 1);
+			}
 		} else {
 			// If this code is reached, they have likely tried to hack to
 			// get more experimenting points, so lets just give them a failure
@@ -1199,6 +1207,7 @@ void CraftingSessionImplementation::createPrototype(int clientCounter, bool crea
 			// This is for practicing
 			startCreationTasks(1, true); // 1 Second tool countdown to make sure it works with the client.
 			xp *= 1.75f; // Default 1.05f for 5%
+			xp = round(xp * 1.05f);
 		}
 
 		Reference<PlayerManager*> playerManager = crafter->getZoneServer()->getPlayerManager();
