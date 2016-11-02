@@ -1,5 +1,6 @@
 --New Content
 includeFile("custom_content/serverobjects.lua")
+
 --Children folder includes
 includeFile("battlefield_marker/serverobjects.lua")
 includeFile("building/serverobjects.lua")
@@ -33,10 +34,8 @@ includeFile("weapon/serverobjects.lua")
 includeFile("active_area.lua")
 includeFile("camp_area.lua")
 includeFile("badge_area.lua")
-includeFile("region_navmesh.lua")
 includeFile("region_area.lua")
 includeFile("mission_spawn_area.lua")
 includeFile("mission_recon_area.lua")
 includeFile("sarlacc_area.lua")
 includeFile("spawn_area.lua")
-includeFile("fs_village_area.lua")
