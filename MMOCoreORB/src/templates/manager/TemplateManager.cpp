@@ -21,7 +21,6 @@
 #include "templates/building/HospitalBuildingObjectTemplate.h"
 #include "templates/building/RecreationBuildingObjectTemplate.h"
 #include "templates/building/SharedBuildingObjectTemplate.h"
-#include "templates/building/InteriorLayoutTemplate.h"
 
 #include "templates/creature/NonPlayerCreatureObjectTemplate.h"
 #include "templates/creature/PlayerCreatureTemplate.h"
@@ -154,7 +153,6 @@ TemplateManager::TemplateManager() {
 	portalLayoutMap = new PortalLayoutMap();
 	floorMeshMap = new FloorMeshMap();
 	appearanceMap = new AppearanceMap();
-	interiorMap = new InteriorMap();
 
 	registerFunctions();
 	registerGlobals();
@@ -180,9 +178,6 @@ TemplateManager::~TemplateManager() {
 
 	delete floorMeshMap;
 	floorMeshMap = NULL;
-
-	delete interiorMap;
-	interiorMap = NULL;
 
 	delete appearanceMap;
 	appearanceMap = NULL;
@@ -611,7 +606,7 @@ void TemplateManager::registerGlobals() {
 	luaTemplatesInstance->setGlobalInt("COLD", SharedWeaponObjectTemplate::COLD);
 	luaTemplatesInstance->setGlobalInt("ACID", SharedWeaponObjectTemplate::ACID);
 	luaTemplatesInstance->setGlobalInt("LIGHTSABER", SharedWeaponObjectTemplate::LIGHTSABER);
-
+	luaTemplatesInstance->setGlobalInt("FORCEPOWER", SharedWeaponObjectTemplate::FORCEPOWER);
 	luaTemplatesInstance->setGlobalInt("NONE", SharedWeaponObjectTemplate::NONE);
 	luaTemplatesInstance->setGlobalInt("LIGHT", SharedWeaponObjectTemplate::LIGHT);
 	luaTemplatesInstance->setGlobalInt("MEDIUM", SharedWeaponObjectTemplate::MEDIUM);
@@ -623,8 +618,8 @@ void TemplateManager::registerGlobals() {
 	luaTemplatesInstance->setGlobalInt("TEF", CreatureFlag::TEF);
 	luaTemplatesInstance->setGlobalInt("PLAYER", CreatureFlag::PLAYER);
 	luaTemplatesInstance->setGlobalInt("ENEMY", CreatureFlag::ENEMY);
-	luaTemplatesInstance->setGlobalInt("WILLBEDECLARED", CreatureFlag::WILLBEDECLARED);
-	luaTemplatesInstance->setGlobalInt("WASDECLARED", CreatureFlag::WASDECLARED);
+	luaTemplatesInstance->setGlobalInt("CHANGEFACTIONSTATUS", CreatureFlag::CHANGEFACTIONSTATUS);
+	luaTemplatesInstance->setGlobalInt("BLINK_GREEN", CreatureFlag::BLINK_GREEN);
 
 	luaTemplatesInstance->setGlobalInt("CONVERSABLE", OptionBitmask::CONVERSE);
 	luaTemplatesInstance->setGlobalInt("AIENABLED", OptionBitmask::AIENABLED);
@@ -671,9 +666,9 @@ void TemplateManager::registerGlobals() {
 	luaTemplatesInstance->setGlobalInt("PLAYERCLONED", ObserverEventType::PLAYERCLONED);
 	luaTemplatesInstance->setGlobalInt("CRAFTINGASSEMBLY", ObserverEventType::CRAFTINGASSEMBLY);
 	luaTemplatesInstance->setGlobalInt("CRAFTINGEXPERIMENTATION", ObserverEventType::CRAFTINGEXPERIMENTATION);
-	luaTemplatesInstance->setGlobalInt("HEALINGRECEIVED", ObserverEventType::HEALINGRECEIVED);
+	luaTemplatesInstance->setGlobalInt("HEALINGPERFORMED", ObserverEventType::HEALINGPERFORMED);
 	luaTemplatesInstance->setGlobalInt("ENHANCINGPERFORMED", ObserverEventType::ENHANCINGPERFORMED);
-	luaTemplatesInstance->setGlobalInt("WOUNDHEALINGRECEIVED", ObserverEventType::WOUNDHEALINGRECEIVED);
+	luaTemplatesInstance->setGlobalInt("WOUNDHEALINGPERFORMED", ObserverEventType::WOUNDHEALINGPERFORMED);
 	luaTemplatesInstance->setGlobalInt("XPAWARDED", ObserverEventType::XPAWARDED);
 	luaTemplatesInstance->setGlobalInt("SPICEDOWNERACTIVATED", ObserverEventType::SPICEDOWNERACTIVATED);
 	luaTemplatesInstance->setGlobalInt("MEDPACKUSED", ObserverEventType::MEDPACKUSED);
@@ -960,33 +955,7 @@ PortalLayout* TemplateManager::getPortalLayout(const String& fileName) {
 	}
 
 	return portalLayout;
-}
-
-InteriorLayoutTemplate* TemplateManager::getInteriorLayout(const String& fileName) {
-	Locker _locker(&appearanceMapLock);
-
-	InteriorLayoutTemplate* interior = interiorMap->get(fileName);
-
-	if (interior == NULL) {
-		IffStream* iffStream = openIffFile(fileName);
-
-		if (iffStream != NULL) {
-			try {
-				interior = new InteriorLayoutTemplate();
-				interior->readObject(iffStream);
-			} catch (Exception& e) {
-				delete interior;
-				interior = NULL;
-			}
-
-			delete iffStream;
-			iffStream = NULL;
-
-			interiorMap->put(fileName, interior);
-		}
-	}
-
-	return interior;
+	//return NULL;
 }
 
 SharedObjectTemplate* TemplateManager::getTemplate(uint32 key) {
@@ -1075,10 +1044,6 @@ int TemplateManager::addClientTemplate(lua_State* L) {
 
 	TemplateManager::instance()->clientTemplateCRCMap->put(crc, ascii);
 	return 0;
-}
-
-void TemplateManager::addClientTemplate(uint32 crc, const String& name) {
-	clientTemplateCRCMap->put(crc, name);
 }
 
 StructureFootprint* TemplateManager::loadStructureFootprint(const String& filePath) {
