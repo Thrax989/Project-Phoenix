@@ -265,8 +265,14 @@ function ThemeParkLogic:isOnLeave(pPlayer)
 	if (pPlayer == nil) then
 		return false
 	end
-	
-	return CreatureObject(pPlayer):isOnLeave()
+
+	local pGhost = CreatureObject(pPlayer):getPlayerObject()
+
+	if (pGhost == nil) then
+		return false
+	end
+
+	return PlayerObject(pGhost):isOnLeave()
 end
 
 function ThemeParkLogic:hasEnoughFaction(pPlayer)
@@ -2030,12 +2036,12 @@ function ThemeParkLogic:followPlayer(pConversingNpc, pConversingPlayer)
 	AiAgent(pConversingNpc):setFollowObject(pConversingPlayer)
 
 	local playerFaction = CreatureObject(pConversingPlayer)
-	if (playerFaction == FACTIONREBEL or playerFaction == FACTIONIMPERIAL) and not CreatureObject(pConversingPlayer):isOnLeave() then
+	if (playerFaction == FACTIONREBEL or playerFaction == FACTIONIMPERIAL) and not PlayerObject(pGhost):isOnLeave() then
 		CreatureObject(pConversingNpc):setFaction(playerFaction)
 
-		if CreatureObject(pConversingPlayer):isOvert() then
+		if PlayerObject(pGhost):isOvert() then
 			CreatureObject(pConversingNpc):setPvpStatusBitmask(5)
-		elseif CreatureObject(pConversingPlayer):isCovert() then
+		elseif PlayerObject(pGhost):isCovert() then
 			CreatureObject(pConversingNpc):setPvpStatusBitmask(1)
 		end
 	end
