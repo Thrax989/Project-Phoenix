@@ -11,7 +11,6 @@
 #include "server/zone/managers/resource/ResourceManager.h"
 #include "server/zone/managers/planet/PlanetManager.h"
 #include "server/zone/managers/structure/StructureManager.h"
-#include "server/zone/managers/faction/FactionManager.h"
 
 #include "server/zone/packets/installation/InstallationObjectMessage3.h"
 #include "server/zone/packets/installation/InstallationObjectDeltaMessage3.h"
@@ -38,7 +37,6 @@
 #include "server/zone/objects/tangible/wearables/ArmorObject.h"
 #include "templates/params/OptionBitmask.h"
 #include "templates/params/creature/CreatureFlag.h"
-#include "server/zone/objects/creature/ai/AiAgent.h"
 
 void InstallationObjectImplementation::loadTemplateData(SharedObjectTemplate* templateData) {
 	StructureObjectImplementation::loadTemplateData(templateData);
@@ -703,19 +701,6 @@ bool InstallationObjectImplementation::isAggressiveTo(CreatureObject* target) {
 	if (getFaction() != 0 && target->getFaction() != 0 && getFaction() != target->getFaction())
 		return true;
 
-	SharedInstallationObjectTemplate* instTemplate = templateObject.castTo<SharedInstallationObjectTemplate*>();
-
-	if (instTemplate != NULL) {
-		String factionString = instTemplate->getFactionString();
-
-		if (!factionString.isEmpty() && target->isAiAgent()) {
-			AiAgent* targetAi = target->asAiAgent();
-
-			if (FactionManager::instance()->isEnemy(factionString, targetAi->getFactionString()))
-				return true;
-		}
-	}
-
 	return false;
 }
 
@@ -742,25 +727,20 @@ bool InstallationObjectImplementation::isAttackableBy(CreatureObject* object) {
 
 		return isAttackableBy(owner);
 
-	} else if (object->isPlayerCreature() && thisFaction != 0) {
-		if (object->getFactionStatus() == 0) {
+	} else if (object->isPlayerCreature()) {
+		ManagedReference<PlayerObject*> ghost = object->getPlayerObject();
+		if (ghost == NULL) {
 			return false;
 		}
 
-		if ((getPvpStatusBitmask() & CreatureFlag::OVERT) && object->getFactionStatus() != FactionStatus::OVERT) {
-			return false;
-		}
-	}
-
-	SharedInstallationObjectTemplate* instTemplate = templateObject.castTo<SharedInstallationObjectTemplate*>();
-
-	if (instTemplate != NULL) {
-		String factionString = instTemplate->getFactionString();
-
-		if (!factionString.isEmpty()) {
-
-			if (!object->isAiAgent() || !FactionManager::instance()->isEnemy(factionString, object->asAiAgent()->getFactionString()))
+		if (thisFaction != 0) {
+			if (ghost->getFactionStatus() == 0) {
 				return false;
+			}
+
+			if ((getPvpStatusBitmask() & CreatureFlag::OVERT) && ghost->getFactionStatus() != FactionStatus::OVERT) {
+				return false;
+			}
 		}
 	}
 
