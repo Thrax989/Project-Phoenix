@@ -27,7 +27,7 @@ public:
 			if (creature != NULL && threatMapObserver != NULL) {
 				Locker clocker(creature);
 
-				creature->dropObserver(ObserverEventType::HEALINGRECEIVED, threatMapObserver);
+				creature->dropObserver(ObserverEventType::HEALINGPERFORMED, threatMapObserver);
 			}
 
 			threatMap.remove(0);
