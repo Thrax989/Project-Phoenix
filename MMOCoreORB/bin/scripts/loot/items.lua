@@ -1303,7 +1303,7 @@ includeFile("items/halloween12.lua")
 includeFile("items/halloween13.lua")
 includeFile("items/halloween14.lua")
 includeFile("items/halloween15.lua")
-includeFile("items/solohand1.lua")
+
 --mandalorian_armor
 includeFile("items/custom/mandalorian_belt_scheme.lua")
 includeFile("items/custom/mandalorian_bicep_l_scheme.lua")
