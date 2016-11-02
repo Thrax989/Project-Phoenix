@@ -32,10 +32,15 @@ public:
 
 		uint32 pvpStatusBitmask = player->getPvpStatusBitmask();
 
-		if (player->getFutureFactionStatus() != FactionStatus::ONLEAVE)
+		if (pvpStatusBitmask & CreatureFlag::CHANGEFACTIONSTATUS)
 			return;
 
-		int curStatus = player->getFactionStatus();
+		ManagedReference<PlayerObject*> ghost = player->getPlayerObject();
+
+		if (ghost == NULL)
+			return;
+
+		int curStatus = ghost->getFactionStatus();
 
 		if (curStatus == newStatus)
 			return;
@@ -46,8 +51,8 @@ public:
 				return;
 			}
 
-			player->sendSystemMessage("@gcw:handle_go_covert"); // You will be flagged as a Combatant in 30 seconds.
-			player->setFutureFactionStatus(FactionStatus::COVERT);
+			player->sendSystemMessage("@gcw:handle_go_covert"); // You will be flagged as a Combatant in 1 seconds.
+			player->setPvpStatusBit(CreatureFlag::CHANGEFACTIONSTATUS);
 
 			ManagedReference<CreatureObject*> creo = player->asCreatureObject();
 
@@ -55,22 +60,32 @@ public:
 				if(creo != NULL) {
 					Locker locker(creo);
 
-					creo->setFactionStatus(FactionStatus::COVERT);
+					PlayerObject* ghost = creo->getPlayerObject();
+					if (ghost != NULL)
+						ghost->setFactionStatus(FactionStatus::COVERT);
 				}
-			}, "UpdateFactionStatusTask", 30000);
+			}, "UpdateFactionStatusTask", 1000);
 		} else if (newStatus == FactionStatus::OVERT) {
-			player->sendSystemMessage("You will be flagged as Special Forces in 5 minutes."); // No string available for overt.
-			player->setFutureFactionStatus(FactionStatus::OVERT);
+			player->sendSystemMessage("You will be flagged as Special Forces in 1 second."); // No string available for overt.
+			player->setPvpStatusBit(CreatureFlag::CHANGEFACTIONSTATUS);
 
 			ManagedReference<CreatureObject*> creo = player->asCreatureObject();
+ 			//Broadcast to Server
+			String playerName = player->getFirstName();
+			StringBuffer zBroadcast;
+			zBroadcast << "\\#00e604" << playerName << " \\#669999 Has Started A GCW Battle";
+			player->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
+			player->playEffect("clienteffect/combat_special_defender_rally.cef", "Head");
 
 			Core::getTaskManager()->scheduleTask([creo]{
 				if(creo != NULL) {
 					Locker locker(creo);
 
-					creo->setFactionStatus(FactionStatus::OVERT);
+					PlayerObject* ghost = creo->getPlayerObject();
+					if (ghost != NULL)
+						ghost->setFactionStatus(FactionStatus::OVERT);
 				}
-			}, "UpdateFactionStatusTask", 300000);
+			}, "UpdateFactionStatusTask", 1000);
 		}
 	}
 };
