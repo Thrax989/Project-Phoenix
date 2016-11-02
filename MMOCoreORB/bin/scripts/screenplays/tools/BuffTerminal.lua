@@ -9,8 +9,8 @@
 BuffTerminal = ScreenPlay:new {
 	numberOfActs = 1,
 	healingFee = 0, -- Optional fee (in Credits) for healing wounds and battle fatigue
-	buffPets = 1, -- 0 = No, 1 = Yes. Will buff all the player's active pets Health/Action/Mind with the same boost as the player.
-	buffPetSecondaryStats = 1, -- 0 = No, 1 = Yes. Will also buff the pet's secondary stats.
+	buffPets = 0, -- 0 = No, 1 = Yes. Will buff all the player's active pets Health/Action/Mind with the same boost as the player.
+	buffPetSecondaryStats = 0, -- 0 = No, 1 = Yes. Will also buff the pet's secondary stats.
 	buffs = {
 		-- Legend: {name, price, duration in hours, health, strength, constitution, action, quickness, stamina, mind, focus, willpower},
 		{"Starter Buff", 0, 2, 500, 250, 250, 500, 250, 250, 500, 250, 250}, -- Free!
