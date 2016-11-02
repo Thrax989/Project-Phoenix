@@ -60,7 +60,7 @@ public:
 		insertInt(ghost->getLotsRemaining()); //Lots Remaining
 
 		insertInt(player->getFaction()); //Faction CRC (or hashCode?)
-		insertInt(player->getFactionStatus()); //Faction Status
+		insertInt(ghost->getFactionStatus()); //Faction Status
 
 		setCompression(true);
 	}
