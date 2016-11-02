@@ -5,8 +5,8 @@
  *      Author: TheAnswer
  */
 
-#ifndef PATHEDGE_H_
-#define PATHEDGE_H_
+#ifndef SRC_SERVER_ZONE_TEMPLATES_APPEARANCE_PATHEDGE_H_
+#define SRC_SERVER_ZONE_TEMPLATES_APPEARANCE_PATHEDGE_H_
 
 #include "engine/engine.h"
 
@@ -45,4 +45,4 @@ public:
 
 };
 
-#endif /* PATHEDGE_H_ */
+#endif /* SRC_SERVER_ZONE_TEMPLATES_APPEARANCE_PATHEDGE_H_ */

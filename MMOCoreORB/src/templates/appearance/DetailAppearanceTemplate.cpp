@@ -1,4 +1,3 @@
-
 /*
  * DetailAppearanceTemplate.cpp
  *
@@ -26,14 +25,22 @@ void DetailAppearanceTemplate::parse(IffStream* iffStream) {
 	//}
 
 	Chunk* infoChunk = iffStream->openChunk('INFO');
-	
+
+	/*                int totalINFOSize = infoChunk->getDataSize();
+
+        for (int i = 0; i < totalINFOSize; i += 12) {
+            int var1 = iffStream->getInt();
+            float var2 = iffStream->getFloat();
+            float var3 = iffStream->getFloat();
+        }
+	 */
 	iffStream->closeChunk('INFO');
 
 	Chunk* dataChunk = iffStream->openForm('DATA');
 
 	int subChunks = dataChunk->getChunksSize();
 
-	//loading last child only
+	//loading first child only
 	for (int i = 0; i < subChunks; ++i) {
 		iffStream->openChunk('CHLD');
 
@@ -44,7 +51,8 @@ void DetailAppearanceTemplate::parse(IffStream* iffStream) {
 
 		if (i == subChunks - 1) {
 			AppearanceTemplate* templ = TemplateManager::instance()->getAppearanceTemplate("appearance/" + meshFile);
-			firstMesh = templ;
+
+			firstMesh = templ->getFirstMesh();
 		}
 
 		iffStream->closeChunk('CHLD');

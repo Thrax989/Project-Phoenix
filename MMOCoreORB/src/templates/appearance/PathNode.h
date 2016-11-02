@@ -15,7 +15,6 @@
 class PathGraph;
 
 class PathNode : public Object {
-public:
 	enum PathNodeType
 	{
 		CellPortal           = 0,
@@ -36,7 +35,6 @@ public:
 
 		Invalid              = 12,
 	};
-protected:
 
 	Vector<PathNode*> children;
 
@@ -61,17 +59,15 @@ public:
 	}
 
 	void readObject(IffStream* iffStream) {
-		id = iffStream->getInt(); // index
-		var2 = iffStream->getInt(); // ID
-		globalGraphNodeID = iffStream->getInt(); // Key
-		type = static_cast<PathNodeType>(iffStream->getInt()); // type
+		id = iffStream->getInt();
+		var2 = iffStream->getInt();
+		globalGraphNodeID = iffStream->getInt();
+		type = static_cast<PathNodeType>(iffStream->getInt());
 
-		x = iffStream->getFloat(); // position
+		x = iffStream->getFloat();
 		z = iffStream->getFloat();
 		y = iffStream->getFloat();
-		radius = iffStream->getFloat(); //radius
-		if(radius == 0.0f)
-			radius = 0.5f;
+		radius = iffStream->getFloat();
 	}
 
 	inline float getX() const {

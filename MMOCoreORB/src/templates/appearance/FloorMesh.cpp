@@ -10,61 +10,45 @@
 #include "templates/appearance/MeshAppearanceTemplate.h"
 
 void FloorMeshTriangleNode::readObject(IffStream* iffStream) {
-	indicies[0] = iffStream->getInt(); // Corner Index[0]
-	indicies[1] = iffStream->getInt(); // Corner Index[1]
-	indicies[2] = iffStream->getInt(); // Corner Index[2]
+	int pointA = iffStream->getInt();
+	int pointB = iffStream->getInt();
+	int pointC = iffStream->getInt();
 
-	Vector3 tri[3];
-	tri[0] = mesh->getVertex(indicies[0])->getPosition();
-	tri[1] = mesh->getVertex(indicies[1])->getPosition();
-	tri[2] = mesh->getVertex(indicies[2])->getPosition();
-	set(tri);
+	Vert* vert1 = mesh->getVertex(pointA);
+	Vert* vert2 = mesh->getVertex(pointB);
+	Vert* vert3 = mesh->getVertex(pointC);
 
-	triangleID = iffStream->getUnsignedInt(); // Triangle Index
+	Vector3 trian[3];
+	trian[0] = Vector3(vert1->getX(), vert1->getY(), vert1->getZ());
+	trian[1] = Vector3(vert2->getX(), vert2->getY(), vert2->getZ());
+	trian[2] = Vector3(vert3->getX(), vert3->getY(), vert3->getZ());
 
-	edges[0].neighbor = iffStream->getInt(); 
-	edges[1].neighbor = iffStream->getInt(); 
-	edges[2].neighbor = iffStream->getInt();
+	set(trian);
 
-	normal.setX(iffStream->getFloat());
-	normal.setY(iffStream->getFloat());
-	normal.setZ(iffStream->getFloat());
+	id = iffStream->getUnsignedInt();
+	northWestTriangle = iffStream->getInt();
+	northEastTriangle = iffStream->getInt();
+	southTriangle = iffStream->getInt();
 
-	edges[0].flags = iffStream->getByte();
-	edges[1].flags = iffStream->getByte();
-	edges[2].flags = iffStream->getByte();
+	var8 = iffStream->getFloat();
+	var9 = iffStream->getFloat();
+	var10 = iffStream->getFloat();
 
-	nonSolid = (bool)iffStream->getByte();
+	uint8 hasNorthWestTriangle = iffStream->getByte();
+	uint8 hasNorthEastTriangle = iffStream->getByte();
+	uint8 hasSouthTriangle = iffStream->getByte();
+	var14 = iffStream->getByte();
 
-	tag = iffStream->getInt();
-
-	edges[0].portalID = iffStream->getInt(); 
-	edges[1].portalID = iffStream->getInt(); 
-	edges[2].portalID = iffStream->getInt();
-
-	for(int i=0; i<3; i++) {
-		EdgeID edgeID(triangleID, i);
-		switch(edges[i].flags) {
-			case 0:
-				mesh->uncrossableEdges.put(edgeID);
-				break;
-			case 1:
-				mesh->connectedEdges.put(edgeID);
-				break;
-			case 2:
-				mesh->blockingEdges.put(edgeID);
-				break;
-		}
-	}
+	var15 = iffStream->getInt();
+	var16 = iffStream->getInt();
+	var17 = iffStream->getInt();
+	var18 = iffStream->getInt();
 }
 
 FloorMesh::FloorMesh() {
 	setLoggingName("FloorMesh");
 	pathGraph = NULL;
 	aabbTree = NULL;
-	connectedEdges.setInsertPlan(SortedVector<EdgeID>::NO_DUPLICATE);
-	uncrossableEdges.setInsertPlan(SortedVector<EdgeID>::NO_DUPLICATE);
-	blockingEdges.setInsertPlan(SortedVector<EdgeID>::NO_DUPLICATE);
 
 	cellID = -1;
 }
@@ -105,12 +89,15 @@ void FloorMesh::readObject(IffStream* iffStream) {
 
 	for (int i = 0; i < tris.size(); ++i) {
 		FloorMeshTriangleNode* tri = tris.get(i);
-		const FloorMeshTriangleNode::Edge* edges = tri->getEdges();
 
-		for(int i=0; i<3; i++) {
-			if (edges[i].neighbor != -1)
-				tri->addNeighbor(tris.get(edges[i].neighbor));
-		}
+		if (tri->hasSouthTriangle())
+			tri->addNeighbor(tris.get(tri->getSouthTriangle()));
+
+		if (tri->hasNorthEastTriangle())
+			tri->addNeighbor(tris.get(tri->getNorthEastTriangle()));
+
+		if (tri->hasNorthWestTriangle())
+			tri->addNeighbor(tris.get(tri->getNorthWestTriangle()));
 
 		triangles.add(tri);
 	}
@@ -307,7 +294,19 @@ void FloorMesh::parseBEDG(IffStream* iffStream) {
 	Vector<Bedg> edges;
 
 	iffStream->openChunk('BEDG');
-	// TODO: Remove completely - obsolete
+
+	int edgeSize = iffStream->getInt();
+
+	for (int i = 0; i < edgeSize; ++i) {
+		Bedg bedg;
+
+		bedg.readObject(iffStream);
+
+		//edges.add(bedg);
+
+		tris.get(bedg.getTriangleID())->setEdge(true);
+	}
+
 	iffStream->closeChunk('BEDG');
 }
 
