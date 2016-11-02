@@ -205,7 +205,7 @@ void MissionManagerImplementation::handleMissionAccept(MissionTerminal* missionT
 	}
 
 	//Limit to two missions (only one of them can be a bounty mission)
-	if (missionCount >= 2 || (hasBountyMission && mission->getTypeCRC() == MissionTypes::BOUNTY)) {
+	if (missionCount >= 10 || (hasBountyMission && mission->getTypeCRC() == MissionTypes::BOUNTY)) {
 		StringIdChatParameter stringId("mission/mission_generic", "too_many_missions");
 		player->sendSystemMessage(stringId);
 		return;
@@ -707,13 +707,25 @@ void MissionManagerImplementation::randomizeGenericDestroyMission(CreatureObject
 		messageDifficulty = "_medium";
 	else
 		messageDifficulty = "_hard";
+		
+	String groupSuffix;
 
-	if (lairTemplateObject->getMobType() == LairTemplate::NPC)
+	if (lairTemplateObject->getMobType() == LairTemplate::NPC){
 		missionType = "_npc";
-	else
+		groupSuffix = " camp.";
+	} else {
 		missionType = "_creature";
+		groupSuffix = " lair.";
+	}
+		
+	VectorMap<String, int>* mobiles = lairTemplateObject->getMobiles();
+	String mobileName = "mysterious";
+	
+	if (mobiles->size() > 0) {
+		mobileName = mobiles->elementAt(0).getKey();
+	}
 
-	mission->setMissionTitle("mission/mission_destroy_neutral" + messageDifficulty + missionType, "m" + String::valueOf(randTexts) + "t");
+	mission->setMissionTitle("CL" + String::valueOf(diffDisplay), " Destroy the " + mobileName.replaceAll("_", " ") + groupSuffix);
 	mission->setMissionDescription("mission/mission_destroy_neutral" +  messageDifficulty + missionType, "m" + String::valueOf(randTexts) + "d");
 
 	switch (faction) {
@@ -935,8 +947,6 @@ void MissionManagerImplementation::randomizeGenericBountyMission(CreatureObject*
 		mission->setMissionTitle(stfFile + diffString, "m" + String::valueOf(randTexts) + "t");
 		mission->setMissionDescription(stfFile + diffString, "m" + String::valueOf(randTexts) + "d");
 	} else {
-		Locker listLocker(&playerBountyListMutex);
-
 		BountyTargetListElement* target = getRandomPlayerBounty(player);
 
 		if (target != NULL) {
@@ -1345,7 +1355,7 @@ void MissionManagerImplementation::randomizeGenericHuntingMission(CreatureObject
 		return;
 	}
 
-	const String& serverTemplate = templatesNames.get(0);
+	String serverTemplate = templatesNames.get(0);
 
 	SharedObjectTemplate* sharedTemplate = TemplateManager::instance()->getTemplate(serverTemplate.hashCode());
 
@@ -1372,24 +1382,56 @@ void MissionManagerImplementation::randomizeGenericHuntingMission(CreatureObject
 	mission->setMissionTargetName(creatureTemplate->getObjectName());
 	mission->setTargetTemplate(sharedTemplate);
 
-	//50% easy missions, 33% medium missions, 17% hard missions.
+	// 50% easy missions, 33% medium missions, 17% hard missions.
 	int difficulty = System::random(5) + 1;
 	String diffString;
+	
+	// Difficulty based on the number of creatures
 	if (difficulty <= 3) {
 		difficulty = 1;
-		diffString = "easy";
+		diffString = "easy"; // 15 animals
 	} else if (difficulty <= 5) {
 		difficulty = 2;
-		diffString = "medium";
+		diffString = "medium"; // 30 animals
 	} else {
 		difficulty = 3;
-		diffString = "hard";
+		diffString = "hard"; // 45 animals
 	}
+	
+	// Prevent every mission for same animal type from having almost exactly the same payout.
+	float diffRange = randomLairSpawn->getMaxDifficulty() - randomLairSpawn->getMinDifficulty() + 1.0f;
+	
+	float creatureLevelPart = 12900.0f * (MIN(90.0f + System::random(9.0f), (float)randomLairSpawn->getMinDifficulty() + System::random(diffRange)) / 99.0f);
+	float critterNumberPart = 100.0f; // 100 only used if randomLairSpawn->getMaxDifficulty() is null/broken
+	
+	// Throttle bonus for num of creatures based on how easy they are to kill
+	if (randomLairSpawn->getMaxDifficulty() < 12) {
+		critterNumberPart = 1000.0f * ((float)difficulty / 3.0f);
+	} else if (randomLairSpawn->getMaxDifficulty() < 45){
+		critterNumberPart = 5000.0f * ((float)difficulty / 3.0f);
+	} else if (randomLairSpawn->getMaxDifficulty() < 65){
+		critterNumberPart = 8000.0f * ((float)difficulty / 3.0f);
+	} else if (randomLairSpawn->getMaxDifficulty() > 64) {
+		critterNumberPart = 12000.0f * ((float)difficulty / 3.0f);
+	}
+	
+	float initialReward = creatureLevelPart + critterNumberPart + System::random(100.0f); // 12,900 + 12,000 + 100 = 25,000
+	
+	// Scout and Ranger bonuses
+	float forageBonus = initialReward * (MIN(125.0f, player->getSkillMod("foraging") + 1.0f) / 1250.0f); // Upto +10% = 2,500
+	float knowledgeBonus = initialReward * (MIN(125.0f, player->getSkillMod("creature_knowledge") + 1.0f) / 1250.0f); // Upto +10% = 2,500
+	
+	// Max possible payout: 30,000 Credits
+	float finalReward = initialReward + forageBonus + knowledgeBonus;
 
-	int baseReward = 500 + (difficulty * 100 * randomLairSpawn->getMinDifficulty());
-	mission->setRewardCredits(baseReward + System::random(100));
+	mission->setRewardCredits((int)finalReward);
 	mission->setMissionDifficulty(difficulty);
-	mission->setMissionTitle("mission/mission_npc_hunting_neutral_" + diffString, "m" + String::valueOf(randTexts) + "t");
+
+	// Format short desc text so output looks like [CL12]: Kill 45 nuna
+	UnicodeString mobName = StringIdManager::instance()->getStringId(String::hashCode(creatureTemplate->getObjectName()));
+	String details = " Kill " + String::valueOf(difficulty * 15) + " " + mobName.toString().replaceAll("a ", "");
+	
+	mission->setHuntingMissionTitle("CL" + String::valueOf(randomLairSpawn->getMaxDifficulty()), details);
 	mission->setMissionDescription("mission/mission_npc_hunting_neutral_" + diffString, "m" + String::valueOf(randTexts) + "o");
 
 	mission->setTypeCRC(MissionTypes::HUNTING);
@@ -1525,7 +1567,9 @@ void MissionManagerImplementation::generateRandomFactionalDestroyMissionDescript
 	int randomMax;
 
 	if (player->getFaction() == Factions::FACTIONIMPERIAL || player->getFaction() == Factions::FACTIONREBEL) {
-		if (player->getFactionStatus() == FactionStatus::OVERT || player->getFactionStatus() == FactionStatus::COVERT) {
+		ManagedReference<PlayerObject*> ghost = player->getPlayerObject();
+
+		if (ghost->getFactionStatus() == FactionStatus::OVERT || ghost->getFactionStatus() == FactionStatus::COVERT) {
 			difficultyString += "_military";
 			randomMax = 49;
 		} else {
@@ -1611,7 +1655,9 @@ LairSpawn* MissionManagerImplementation::getRandomLairSpawn(CreatureObject* play
 			bool neutralMission = true;
 
 			if (player->getFaction() != 0 && player->getFaction() == faction) {
-				if (player->getFactionStatus() == FactionStatus::OVERT || player->getFactionStatus() == FactionStatus::COVERT) {
+				ManagedReference<PlayerObject*> ghost = player->getPlayerObject();
+
+				if (ghost->getFactionStatus() == FactionStatus::OVERT || ghost->getFactionStatus() == FactionStatus::COVERT) {
 					neutralMission = false;
 				}
 			}
@@ -1935,7 +1981,6 @@ void MissionManagerImplementation::completePlayerBounty(uint64 targetId, uint64 
 		}
 
 		playerBountyList.remove(playerBountyList.find(targetId));
-		delete target;
 	}
 }
 

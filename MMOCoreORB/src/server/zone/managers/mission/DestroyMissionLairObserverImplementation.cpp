@@ -100,14 +100,12 @@ bool DestroyMissionLairObserverImplementation::checkForNewSpawns(TangibleObject*
 
 		for (int i = 0; i < amountToSpawn; i++) {
 			int num = System::random(mobiles->size() - 1);
-			const String& mob = mobiles->get(num);
+			String mob = mobiles->get(num);
 
-			int find = objectsToSpawn.find(mob);
-
-			if (find != -1) {
-				int& value = objectsToSpawn.elementAt(find).getValue();
-
-				++value;
+			if (objectsToSpawn.contains(mob)) {
+				int value = objectsToSpawn.get(mob);
+				objectsToSpawn.drop(mob);
+				objectsToSpawn.put(mob, value + 1);
 			} else {
 				objectsToSpawn.put(mob, 1);
 			}
@@ -122,7 +120,7 @@ bool DestroyMissionLairObserverImplementation::checkForNewSpawns(TangibleObject*
 			return true;
 
 		String templateToSpawn = objectsToSpawn.elementAt(i).getKey();
-		int numberToSpawn = objectsToSpawn.elementAt(i).getValue();
+		int numberToSpawn = objectsToSpawn.get(templateToSpawn);
 
 		CreatureTemplate* creatureTemplate = CreatureTemplateManager::instance()->getTemplate(templateToSpawn);
 
@@ -180,4 +178,3 @@ bool DestroyMissionLairObserverImplementation::checkForNewSpawns(TangibleObject*
 
 	return objectsToSpawn.size() > 0;
 }
-
