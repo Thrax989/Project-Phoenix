@@ -35,7 +35,7 @@ protected:
 	VectorMap<String, int> skillMods;
 
 public:
-	LootItemTemplate(const String& name) : craftingValues() {
+	LootItemTemplate(const String& name) {
 		templateName = name;
 		randomDotChance = -1;
 		staticDotChance = -1;

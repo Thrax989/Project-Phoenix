@@ -94,7 +94,6 @@ protected:
 	SortedVector<String> loadedDerivedFiles;
 
 	bool noTrade;
-	bool updatesNavMesh;
 
 public:
 	const static int SHOT = 'SHOT';
@@ -705,53 +704,32 @@ public:
 	virtual bool isRecycleToolTemplate() {
 	    	return false;
 	}
-
 	virtual bool isVehicleCustomKitTemplate() {
 	    	return false;
 	}
-
 	virtual bool isDnaSampleTemplate() {
 	    	return false;
 	}
-
 	virtual bool isPetDeedTemplate() {
 		return false;
 	}
-
 	virtual bool isDroidCustomKitTemplate() {
 	    	return false;
 	}
-
 	virtual bool isDroidComponentTemplate() {
 	    	return false;
 	}
-
 	virtual bool isDroidCraftingModuleTemplate() {
 	    	return false;
 	}
-
 	virtual bool isDroidEffectsModuleTemplate() {
 	    	return false;
 	}
-
 	virtual bool isVehicleObjectTemplate() {
 		return false;
 	}
-
 	virtual bool isPlayerCreatureTemplate() {
 		return false;
-	}
-
-	virtual bool isCraftingStationTemplate() {
-		return false;
-	}
-
-	virtual bool isFactoryObjectTemplate() {
-		return false;
-	}
-
-	virtual bool isNavUpdatesEnabled() {
-		return updatesNavMesh;
 	}
 };
 
