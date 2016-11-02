@@ -19,7 +19,7 @@ BuffTerminal = ScreenPlay:new {
 		{"Halloween Uber Event Buffs", 0, 4, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000, 10000}, --Used For Special Events
 	},
 	termModel = "object/tangible/terminal/terminal_light_enclave_voting.iff",
-	termName = "Hasppy Halloween Event Medical Services Terminal",
+	termName = "Halloween Event Medical Services Terminal",
 	terminals = {
 		{planetName = "yavin4", x = -293.367, z = 35, y = 4854.52, ow = 0.999974, oy = 0.00721678}, -- Yavin4
 	}
