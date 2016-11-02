@@ -211,8 +211,8 @@ int StructureManager::placeStructureFromDeed(CreatureObject* creature, Structure
 		creature->sendSystemMessage("@player_structure:wrong_planet"); //That deed cannot be used on this planet.
 		return 1;
 	}
-
-	if (!planetManager->isBuildingPermittedAt(x, y, creature)) {
+	ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
+	if (!planetManager->isBuildingPermittedAt(x, y, creature) && ghost->getAdminLevel() < 15) {
 		creature->sendSystemMessage("@player_structure:not_permitted"); //Building is not permitted here.
 		return 1;
 	}
@@ -225,7 +225,7 @@ int StructureManager::placeStructureFromDeed(CreatureObject* creature, Structure
 	for (int i = 0; i < objects.size(); ++i) {
 		ActiveArea* area = objects.get(i).get();
 
-		if (!area->isRegion() || area->isNavRegion())
+		if (!area->isRegion())
 			continue;
 
 		city = dynamic_cast<Region*>(area)->getCityRegion();
@@ -308,7 +308,7 @@ int StructureManager::placeStructureFromDeed(CreatureObject* creature, Structure
 	}
 
 	if (city != NULL) {
-		if (city->isZoningEnabled() && !city->hasZoningRights(creature->getObjectID())) {
+		if (city->isZoningEnabled() && !city->hasZoningRights(creature->getObjectID()) && ghost->getAdminLevel() < 15) {
 			creature->sendSystemMessage("@player_structure:no_rights"); //You don't have the right to place that structure in this city. The mayor or one of the city milita must grant you zoning rights first.
 			return 1;
 		}
@@ -340,8 +340,6 @@ int StructureManager::placeStructureFromDeed(CreatureObject* creature, Structure
 		creature->sendSystemMessage("@player_structure:no_possession"); //You no longer are in possession of the deed for this structure. Aborting construction.
 		return 1;
 	}
-
-	ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 
 	if (ghost != NULL) {
 		String abilityRequired = serverTemplate->getAbilityRequired();
@@ -982,8 +980,10 @@ void StructureManager::reportStructureStatus(CreatureObject* creature,
 
 		status->addMenuItem(
 				"@player_structure:items_in_building_prompt "
-						+ String::valueOf(
-								building->getCurrentNumberOfPlayerItems())); //Number of Items in Building:
+				+ String::valueOf(building->getCurrentNumberOfPlayerItems())
+				+ "/"
+				+ String::valueOf(building->getMaximumNumberOfPlayerItems())
+		); 
 	}
 
 	ghost->addSuiBox(status);
