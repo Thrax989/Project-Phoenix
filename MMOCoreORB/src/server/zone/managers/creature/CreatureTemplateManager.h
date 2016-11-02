@@ -105,11 +105,11 @@ public:
 		return conversations.get(crc).get();
 	}
 
-	const Vector<String>& getWeapons(uint32 crc) {
+	Vector<String> getWeapons(uint32 crc) {
 		return weaponMap.get(crc);
 	}
 
-	const Vector<String>& getWeapons(const String& ascii) {
+	Vector<String> getWeapons(String ascii) {
 		return weaponMap.get(ascii.hashCode());
 	}
 
