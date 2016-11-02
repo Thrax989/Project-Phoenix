@@ -46,7 +46,7 @@ public:
 			return GENERALERROR;
 
 		if (!CollisionManager::checkLineOfSight(creature, targetCreature)) {
-			creature->sendSystemMessage("@cbt_spam:los_fail");// You lost sight of your target.
+			creature->sendSystemMessage("@container_error_message:container18");
 			return GENERALERROR;
 		}
 

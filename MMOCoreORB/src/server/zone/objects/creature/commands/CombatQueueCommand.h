@@ -121,9 +121,7 @@ public:
 	void onFail(uint32 actioncntr, CreatureObject* creature, uint32 errorNumber) const {
 		// evidence shows that this has a custom OOR message.
 		if (errorNumber == TOOFAR) {
-			creature->sendSystemMessage("@error_message:target_out_of_range"); //Your target is out of range for this action.
-			CombatSpam* spam = new CombatSpam(creature, NULL, creature, NULL, 0, "cbt_spam", "out_of_range", 10); // That target is out of range. (red)
-			creature->sendMessage(spam);
+			creature->sendSystemMessage("@cbt_spam:out_of_range_single"); // That target is out of range.
 			QueueCommand::onFail(actioncntr, creature, GENERALERROR);
 		} else {
 			QueueCommand::onFail(actioncntr, creature, errorNumber);
@@ -168,28 +166,36 @@ public:
 
 				ManagedReference<TangibleObject*> targetTano = targetObject.castTo<TangibleObject*>();
 
-				if (targetTano != NULL && creature->getFaction() != 0 && targetTano->getFaction() != 0 && targetTano->getFaction() != creature->getFaction() && creature->getFactionStatus() != FactionStatus::OVERT) {
+				if (targetTano != NULL && creature->getFaction() != 0 && targetTano->getFaction() != 0 && targetTano->getFaction() != creature->getFaction() && ghost->getFactionStatus() != FactionStatus::OVERT) {
 					if (targetTano->isCreatureObject()) {
 						ManagedReference<CreatureObject*> targetCreature = targetObject.castTo<CreatureObject*>();
 
 						if (targetCreature != NULL) {
 							if (targetCreature->isPlayerCreature()) {
-								if (!CombatManager::instance()->areInDuel(creature, targetCreature) && targetCreature->getFactionStatus() == FactionStatus::OVERT) {
+								if (!CombatManager::instance()->areInDuel(creature, targetCreature) && (!targetCreature->isInBountyMission(creature, targetCreature) && !creature->isInBountyMission(targetCreature, creature))) {
+									PlayerObject* targetGhost = targetCreature->getPlayerObject();
+
+									if (targetGhost != NULL && targetGhost->getFactionStatus() == FactionStatus::OVERT) {
 										ghost->doFieldFactionChange(FactionStatus::OVERT);
+									}
 								}
 							} else if (targetCreature->isPet()) {
 								ManagedReference<CreatureObject*> targetOwner = targetCreature->getLinkedCreature().get();
 
-								if (targetOwner != NULL && !CombatManager::instance()->areInDuel(creature, targetOwner) && targetOwner->getFactionStatus() == FactionStatus::OVERT) {
+								if (targetOwner != NULL && !CombatManager::instance()->areInDuel(creature, targetOwner)) {
+									PlayerObject* targetGhost = targetOwner->getPlayerObject();
+
+									if (targetGhost != NULL && targetGhost->getFactionStatus() == FactionStatus::OVERT) {
 										ghost->doFieldFactionChange(FactionStatus::OVERT);
+									}
 								}
 							} else {
-								if (creature->getFactionStatus() == FactionStatus::ONLEAVE)
+								if (ghost->getFactionStatus() == FactionStatus::ONLEAVE)
 									ghost->doFieldFactionChange(FactionStatus::COVERT);
 							}
 						}
 					} else {
-						if (creature->getFactionStatus() == FactionStatus::ONLEAVE && !(targetTano->getPvpStatusBitmask() & CreatureFlag::OVERT))
+						if (ghost->getFactionStatus() == FactionStatus::ONLEAVE && !(targetTano->getPvpStatusBitmask() & CreatureFlag::OVERT))
 							ghost->doFieldFactionChange(FactionStatus::COVERT);
 						else if ((targetTano->getPvpStatusBitmask() & CreatureFlag::OVERT))
 							ghost->doFieldFactionChange(FactionStatus::OVERT);
@@ -211,7 +217,7 @@ public:
 			return TOOCLOSE;
 
 		if (!CollisionManager::checkLineOfSight(creature, targetObject)) {
-			creature->sendSystemMessage("@cbt_spam:los_fail"); // "You lost sight of your target."
+			creature->sendSystemMessage("@container_error_message:container18");
 			return GENERALERROR;
 		}
 
@@ -223,7 +229,7 @@ public:
 
 				if (!perms->hasInheritPermissionsFromParent()) {
 					if (!targetCell->checkContainerPermission(creature, ContainerPermissions::WALKIN)) {
-						creature->sendSystemMessage("@combat_effects:cansee_fail"); // You cannot see your target.
+						creature->sendSystemMessage("@container_error_message:container18");
 						return GENERALERROR;
 					}
 				}
@@ -325,7 +331,7 @@ public:
 		return range;
 	}
 
-	inline const String& getAccuracySkillMod() const {
+	inline String getAccuracySkillMod() const {
 		return accuracySkillMod;
 	}
 
@@ -421,7 +427,7 @@ public:
 		this->areaRange = i;
 	}
 
-	void setEffectString(const String& s) {
+	void setEffectString(String s) {
 		this->effectString = s;
 	}
 
@@ -441,7 +447,7 @@ public:
 		return animType;
 	}
 
-	const String& getAnimationString() const {
+	String getAnimationString() const {
 		return animation;
 	}
 
@@ -548,11 +554,11 @@ public:
 		return generateAnimation(hitLocation, ((uint32)weapon->getMaxDamage()) >> 2, damage);
 	}
 
-	inline const String& getEffectString() const {
+	inline String getEffectString() const {
 		return effectString;
 	}
 
-	inline const String& getCombatSpam() const {
+	inline String getCombatSpam() const {
 		return combatSpam;
 	}
 
@@ -568,11 +574,11 @@ public:
 		return &(const_cast<CombatQueueCommand*>(this)->dotEffects);
 	}
 
-	void setAnimationString(const String& anim) {
+	void setAnimationString(String anim) {
 		this->animation = anim;
 	}
 
-	void setCombatSpam(const String& combatSpam) {
+	void setCombatSpam(String combatSpam) {
 		this->combatSpam = combatSpam;
 	}
 
@@ -588,11 +594,11 @@ public:
 		stateEffects.put(stateEffect.getEffectType(), stateEffect);
 	}
 
-	const StateEffect& getStateEffect(uint8 type) const {
+	StateEffect getStateEffect(uint8 type) const {
 		return const_cast<CombatQueueCommand*>(this)->stateEffects.get(type);
 	}
 
-	void setDotEffects(const Vector<DotEffect>& dotEffects) {
+	void setDotEffects(Vector<DotEffect> dotEffects) {
 		this->dotEffects = dotEffects;
 	}
 
@@ -620,7 +626,7 @@ public:
 		this->damageType = dm;
 	}
 
-	void addDotEffect(const DotEffect& dotEffect) {
+	void addDotEffect(DotEffect dotEffect) {
 		dotEffects.add(dotEffect);
 	}
 
@@ -632,7 +638,7 @@ public:
 		this->range = i;
 	}
 
-	void setAccuracySkillMod(const String& acc) {
+	void setAccuracySkillMod(String acc) {
 		this->accuracySkillMod = acc;
 	}
 

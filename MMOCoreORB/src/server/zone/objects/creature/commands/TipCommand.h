@@ -43,12 +43,12 @@ private:
 
 		StringIdChatParameter tiptarget("base_player", "prose_tip_pass_target"); // %TT tips you %DI credits.
 		tiptarget.setDI(amount);
-		tiptarget.setTT(player->getCreatureName());
+		tiptarget.setTT(player->getObjectID());
 		targetPlayer->sendSystemMessage(tiptarget);
 
 		StringIdChatParameter tipself("base_player", "prose_tip_pass_self"); // You successfully tip %DI credits to %TT.
 		tipself.setDI(amount);
-		tipself.setTT(targetPlayer->getCreatureName());
+		tipself.setTT(targetPlayer->getObjectID());
 		player->sendSystemMessage(tipself);
 
 		return SUCCESS;

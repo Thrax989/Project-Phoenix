@@ -206,11 +206,11 @@ public:
 		int rank = 0;
 
 		if (target->isImperial() || target->isRebel()) {
-			if (target->getFactionStatus() == FactionStatus::ONLEAVE)
+			if (targetGhost->getFactionStatus() == FactionStatus::ONLEAVE)
 				body << " (On Leave)" << endl;
-			else if (target->getFactionStatus() == FactionStatus::OVERT)
+			else if (targetGhost->getFactionStatus() == FactionStatus::OVERT)
 				body << " (Overt)" << endl;
-			else if (target->getFactionStatus() == FactionStatus::COVERT)
+			else if (targetGhost->getFactionStatus() == FactionStatus::COVERT)
 				body << " (Covert)" << endl;
 
 			rank = target->getFactionRank();
