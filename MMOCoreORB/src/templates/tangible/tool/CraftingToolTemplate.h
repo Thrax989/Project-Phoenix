@@ -13,11 +13,11 @@
 class CraftingToolTemplate : public SharedTangibleObjectTemplate {
 private:
 
-	int toolType, complexityLevel, forceCritAssembly, forceCritExperiment;
+	int toolType, complexityLevel;
 	Vector<uint32> tabs;
 
 public:
-	CraftingToolTemplate() : toolType(0), complexityLevel(0), forceCritAssembly(0), forceCritExperiment(0) {
+	CraftingToolTemplate() : toolType(0), complexityLevel(0) {
 
 	}
 
@@ -30,8 +30,6 @@ public:
 
 		toolType = templateData->getIntField("toolType");
 		complexityLevel = templateData->getIntField("complexityLevel");
-		forceCritAssembly = templateData->getIntField("forceCriticalAssembly");
-		forceCritExperiment = templateData->getIntField("forceCriticalExperiment");
 
 		LuaObject tabList = templateData->getObjectField("enabledTabs");
 
@@ -48,14 +46,6 @@ public:
 
 	int getComplexityLevel() {
 		return complexityLevel;
-	}
-
-	int getForceCriticalAssembly() {
-		return forceCritAssembly;
-	}
-
-	int getForceCriticalExperiment() {
-		return forceCritExperiment;
 	}
 
 	Vector<uint32> getTabs() {
