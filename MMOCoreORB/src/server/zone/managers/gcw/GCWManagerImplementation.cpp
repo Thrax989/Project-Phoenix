@@ -162,14 +162,6 @@ void GCWManagerImplementation::loadLuaConfig() {
 
 	strongholdsObject.pop();
 
-	LuaObject difficulties = lua->getGlobalObject("difficutlyScalingThresholds");
-	if (difficulties.isValidTable()) {
-		for (int i = 1; i <= difficulties.getTableSize(); ++i) {
-			difficultyScalingThresholds.add(difficulties.getIntAt(i));
-		}
-	}
-	difficulties.pop();
-
 	info("Loaded " + String::valueOf(imperialStrongholds.size()) + " imperial strongholds and " + String::valueOf(rebelStrongholds.size()) + " rebel strongholds.");
 
 	delete lua;
@@ -185,6 +177,12 @@ void GCWManagerImplementation::stop() {
 
 void GCWManagerImplementation::performGCWTasks() {
 	Locker locker(_this.getReferenceUnsafeStaticCast());
+
+	if (gcwBaseList.size() == 0) {
+		setRebelBaseCount(0);
+		setImperialBaseCount(0);
+		return;
+	}
 
 	int totalBase = gcwBaseList.size();
 
@@ -291,28 +289,6 @@ int GCWManagerImplementation::getBaseCount(CreatureObject* creature) {
 	}
 
 	return baseCount;
-}
-
-void GCWManagerImplementation::updateWinningFaction()  {
-	int score = 0;
-	int rebelScore = getRebelScore();
-	int imperialScore = getImperialScore();
-
-	if (rebelScore > imperialScore) {
-		winningFaction = Factions::FACTIONREBEL;
-		score = rebelScore - imperialScore;
-	} else if (imperialScore > rebelScore) {
-		winningFaction = Factions::FACTIONIMPERIAL;
-		score = imperialScore - rebelScore;
-	}
-
-	int scaling = 0;
-	for (int i = 0; i < difficultyScalingThresholds.size(); i++) {
-		if (score >= difficultyScalingThresholds.get(i)) {
-			scaling++;
-		}
-	}
-	winnerDifficultyScaling = scaling;
 }
 
 bool GCWManagerImplementation::hasTooManyBasesNearby(int x, int y) {
@@ -937,14 +913,14 @@ bool GCWManagerImplementation::canUseTerminals(CreatureObject* creature, Buildin
 
 	// check for PvP base
 	if (building->getPvpStatusBitmask() & CreatureFlag::OVERT) {
-		if (creature->getFactionStatus() != FactionStatus::OVERT) {
+		if (ghost->getFactionStatus() != FactionStatus::OVERT) {
 			creature->sendSystemMessage("@hq:declared_only"); // Only Special Forces personnel may access this terminal!
 			return false;
 		}
 	}
 	// check for PvE base
 	else {
-		if (creature->getFactionStatus() < FactionStatus::COVERT) {
+		if (ghost->getFactionStatus() < FactionStatus::COVERT) {
 			creature->sendSystemMessage("You must be at least combatant");
 			return false;
 		}
@@ -1191,12 +1167,14 @@ void GCWManagerImplementation::sendDNASampleMenu(CreatureObject* creature, Build
 	if (ghost->hasSuiBoxWindowType(SuiWindowType::HQ_TERMINAL))
 		ghost->closeSuiWindowType(SuiWindowType::HQ_TERMINAL);
 
-	if (baseData->getDnaStrand().size() == 0) {
+	Vector<String> dnaStrand = baseData->getDnaStrand();
+
+	if (dnaStrand.size() == 0) {
 		constructDNAStrand(building);
+		dnaStrand = baseData->getDnaStrand();
 	}
 
-	const Vector<String>& dnaStrand = baseData->getDnaStrand();
-	const Vector<int>& dnaLocks = baseData->getDnaLocks();
+	Vector<int> dnaLocks = baseData->getDnaLocks();
 
 	ManagedReference<SuiListBox*> status = new SuiListBox(creature, SuiWindowType::HQ_TERMINAL);
 	status->setPromptTitle("DNA SEQUENCING");
@@ -1208,14 +1186,14 @@ void GCWManagerImplementation::sendDNASampleMenu(CreatureObject* creature, Build
 	Vector<String> dnaEntries;
 
 	for (int i = 0; i < dnaStrand.size(); i++) {
-		const String& dna = dnaStrand.get(i);
+		String dna = dnaStrand.get(i);
 
 		if (dnaLocks.get(i) == 0) {
 			dnaEntries.add(dna);
 		} else {
 			numLocks++;
 			for (int j = 0; j < dnaPairs.size(); j++) {
-				const String& pair = dnaPairs.get(j);
+				String pair = dnaPairs.get(j);
 
 				if (pair.beginsWith(dna)) {
 					dnaEntries.add("\\#00FF00" + pair + " \\#.");
@@ -1280,12 +1258,12 @@ void GCWManagerImplementation::processDNASample(CreatureObject* creature, Tangib
 
 	Locker clocker(building, creature);
 
-	const Vector<String>& dnaStrand = baseData->getDnaStrand();
-	Vector<int>& dnaLocks = baseData->getDnaLocks();
+	Vector<String> dnaStrand = baseData->getDnaStrand();
+	Vector<int> dnaLocks = baseData->getDnaLocks();
 	int newLocks = 0;
 
 	if (index > -1) {
-		const String& chain = baseData->getCurrentDnaChain();
+		String chain = baseData->getCurrentDnaChain();
 
 		for (int i = 0; i < chain.length(); i++) {
 			int idx = index + i;
@@ -1301,7 +1279,7 @@ void GCWManagerImplementation::processDNASample(CreatureObject* creature, Tangib
 			}
 		}
 
-		//baseData->setDnaLocks(dnaLocks); dnaLocks is a ref
+		baseData->setDnaLocks(dnaLocks);
 	}
 
 	int totalLocks = 0;
@@ -1368,7 +1346,9 @@ void GCWManagerImplementation::sendPowerRegulatorControls(CreatureObject* creatu
 	if (ghost->hasSuiBoxWindowType(SuiWindowType::HQ_TERMINAL))
 		ghost->closeSuiWindowType(SuiWindowType::HQ_TERMINAL);
 
-	if (baseData->getPowerSwitchStates().size() == 0)
+	Vector<bool> switchStates = baseData->getPowerSwitchStates();
+
+	if (switchStates.size() == 0)
 		randomizePowerRegulatorSwitches(building);
 
 	ManagedReference<SuiListBox*> status = new SuiListBox(creature, SuiWindowType::HQ_TERMINAL);
@@ -1484,7 +1464,7 @@ void GCWManagerImplementation::flipPowerSwitch(BuildingObject* building, Vector<
 	if (baseData == NULL)
 		return;
 
-	const Vector<int>& rules = baseData->getPowerSwitchRules();
+	Vector<int> rules = baseData->getPowerSwitchRules();
 
 	switchStates.get(flipSwitch) = !switchStates.get(flipSwitch);
 
@@ -1598,9 +1578,7 @@ void GCWManagerImplementation::broadcastBuilding(BuildingObject* building, Strin
 
 	SortedVector<QuadTreeEntry*> closeObjects;
 	if (building->getCloseObjects() == NULL) {
-#ifdef COV_DEBUG
 		building->info("Null closeobjects vector in GCWManagerImplementation::broadcastBuilding", true);
-#endif
 		zone->getInRangeObjects(building->getPositionX(), building->getPositionY(), range, &closeObjects, true);
 	} else {
 		CloseObjectsVector* closeVector = (CloseObjectsVector*) building->getCloseObjects();
