@@ -12,6 +12,16 @@ function CityScreenPlay:spawnGcwMobiles()
 	if (isZoneEnabled(self.planet)) then
 		local controllingFaction = getControllingFaction(self.planet)
 
+		if controllingFaction == FACTIONNEUTRAL then
+			local rand = getRandomNumber(1, 2)
+
+			if rand == 1 then
+				controllingFaction = FACTIONIMPERIAL
+			else
+				controllingFaction = FACTIONREBEL
+			end
+		end
+
 		for i = 1, #self.gcwMobs do
 			self:spawnMob(i, controllingFaction)
 		end
@@ -27,21 +37,19 @@ function CityScreenPlay:spawnMob(num, controllingFaction)
 
 	local mobTable = mobsTable[num]
 	local pNpc = nil
-	local npcTemplate = ""
-	local npcMood = ""
 
 	if controllingFaction == FACTIONIMPERIAL then
-		npcTemplate = mobTable[1]
-		npcMood = mobTable[8]
+		pNpc = spawnMobile(self.planet, mobTable[1], 0, mobTable[3], mobTable[4], mobTable[5], mobTable[6], mobTable[7])
+
+		if pNpc ~= nil and mobTable[8] ~= "" then
+			self:setMoodString(pNpc, mobTable[8])
+		end
 	elseif controllingFaction == FACTIONREBEL then
-		npcTemplate = mobTable[2]
-		npcMood = mobTable[9]
-	end
+		pNpc = spawnMobile(self.planet, mobTable[2], 0, mobTable[3], mobTable[4], mobTable[5], mobTable[6], mobTable[7])
 
-	pNpc = spawnMobile(self.planet, npcTemplate, 0, mobTable[3], mobTable[4], mobTable[5], mobTable[6], mobTable[7])
-
-	if pNpc ~= nil and npcMood ~= "" then
-		self:setMoodString(pNpc, npcMood)
+		if pNpc ~= nil and mobTable[9] ~= "" then
+			self:setMoodString(pNpc, mobTable[9])
+		end
 	end
 
 	if pNpc ~= nil then
@@ -60,14 +68,27 @@ function CityScreenPlay:onDespawn(pAiAgent)
 	local mobNumber = readData(oid)
 	deleteData(oid)
 
-	createEvent(300000, self.screenplayName, "respawn", nil, tostring(mobnumber))
+	local controllingFaction = getControllingFaction(self.planet)
+
+	if controllingFaction == FACTIONNEUTRAL then
+		controllingFaction = TangibleObject(pAiAgent):getFaction()
+	end
+
+	local args = mobNumber .. "," .. controllingFaction
+	createEvent(300000, self.screenplayName, "respawn", nil, args)
 
 	return 1
 end
 
 function CityScreenPlay:respawn(pAiAgent, args)
-	local mobNumber = tonumber(args)
-	local controllingFaction = getControllingFaction(self.planet)
+	local mobNumber = 0
+	local controllingFaction = 0
+	local comma = string.find(args, ",")
+
+	if comma ~= nil then
+		mobNumber = tonumber(string.sub(args, 1, comma - 1))
+		controllingFaction = tonumber(string.sub(args, comma + 1))
+	end
 
 	self:spawnMob(mobNumber, controllingFaction)
 end
