@@ -135,11 +135,12 @@ void BountyMissionObjectiveImplementation::complete() {
 
 	owner->getZoneServer()->getMissionManager()->completePlayerBounty(mission->getTargetObjectId(), owner->getObjectID());
 	lootManager->createLoot(inventory, "clothing_attachments", 300);//, playerName);
-	owner->sendSystemMessage("You have defeated your Target, keep up the good work!");
+	lootManager->createLoot(inventory, "armor_attachments", 300);//, playerName);
+	owner->sendSystemMessage("You have defeated a Jedi, keep up the good work!");
 	//Broadcast to Server
 	String playerName = owner->getFirstName();
 	StringBuffer zBroadcast;
-	zBroadcast << "\\#ffd700" << playerName << " \\#00e604 BountyHunter Has Defeated His \\#e60000 Target! \\#ffd700" << playerName << " \\#00ffdf Is Still Out Hunting People Be On The Look Out For This Ruthless BountyHunter";
+	zBroadcast << "\\#ffd700" << playerName << " \\#00e604 BountyHunter  Has Defeated A \\#e60000 Target! \\#00ffdf" << playerName << " Be On The Look Out For This Player ";
 	owner->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 	PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
  	owner->sendMessage(pmm);
@@ -668,14 +669,17 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 			//Broadcast to Server
 			String playerName = killer->getFirstName();
 			StringBuffer zBroadcast;
-			zBroadcast << "\\#ffd700" << playerName << " \\#00e604 Force User Has Defeated A \\#e60000 Bounty Hunter!";
+			zBroadcast << "\\#ffd700" << playerName << " \\#00e604 Force User Has Defeated A \\#e60000 Bounty Hunter! \\#00ffdf" << playerName << " Has Been Awarded 5,000 Force Ranking Exp";
 			killer->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 			PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
  			killer->sendMessage(pmm);
 			killer->playEffect("clienteffect//holoemote_brainstorm.cef", "head");
 			killer->playEffect("clienteffect/holoemote_sparky.cef", "head");
+			if (killer->hasSkill("force_rank_light_novice") || killer->hasSkill("force_rank_dark_novice")) {
+				killer->getZoneServer()->getPlayerManager()->awardExperience(killer, "force_rank_xp", 5000);
 			}
 			fail();
+		}
 	}
 }
 
