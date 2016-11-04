@@ -13,7 +13,7 @@ g_named_crystals = {
    		{itemTemplate = "crystal_kenobis_legacy", weight = 526300},
    		{itemTemplate = "crystal_kits_ferocity", weight = 526300},
    		{itemTemplate = "crystal_kuns_blood", weight = 526300},
-   		{itemTemplate = "crystal_mauls_vengeance", weight = 526400},
+   		{itemTemplate = "crystal_mauls_vengence", weight = 526400},
   		{itemTemplate = "crystal_mundis_response", weight = 526300},
    		{itemTemplate = "crystal_prowess_of_plo_koon", weight = 526300},
    		{itemTemplate = "crystal_qui_gons_devotion", weight = 526300},
