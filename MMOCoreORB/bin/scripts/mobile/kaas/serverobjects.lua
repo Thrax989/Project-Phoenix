@@ -11,5 +11,4 @@ includeFile("kaas/insane_vitiate_cultist.lua")
 includeFile("kaas/kell_dragon.lua")
 includeFile("kaas/sariss.lua")
 includeFile("kaas/yun.lua")
-includeFile("kaas/kaas_world_boss/legendary_hk77.lua
-")
+includeFile("kaas/kaas_world_boss/legendary_hk77.lua")
