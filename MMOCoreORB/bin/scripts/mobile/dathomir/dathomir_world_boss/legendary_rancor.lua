@@ -26,7 +26,7 @@ legendary_rancor = Creature:new {
 	creatureBitmask = KILLER + STALKER,
 	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
-	scale = 50.0,
+	scale = 25.0,
 	templates = {"object/mobile/rancor.iff"},
 	lootGroups = {
 		{

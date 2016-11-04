@@ -26,7 +26,7 @@ legendary_kwi = Creature:new {
 	creatureBitmask = KILLER + STALKER,
 	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
-	scale = 20.0,
+	scale = 25.0,
 	templates = {"object/mobile/kwi.iff"},
 	lootGroups = {
 		{

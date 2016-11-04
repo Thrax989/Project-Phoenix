@@ -26,7 +26,7 @@ legendary_krayt = Creature:new {
 	creatureBitmask = KILLER + STALKER,
 	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
-	scale = 10.0,
+	scale = 25.0,
 	templates = {"object/mobile/krayt_dragon.iff"},
 	lootGroups = {
 		{
