@@ -114,6 +114,11 @@ includeFile("dungeon/corellian_corvette/lt_lance.lua")
 --includeFile("dungeon/teleport_naboo_pve.lua")
 --includeFile("dungeon/teleport_rori_pve.lua")
 --includeFile("dungeon/teleport_lok_pve.lua")
+--includeFile("dungeon/teleport_corellia_pve.lua")
+--includeFile("dungeon/teleport_dantooine_pve.lua")
+--includeFile("dungeon/teleport_dathomir_pve.lua")
+--includeFile("dungeon/teleport_endor_pve.lua")
+--includeFile("dungeon/teleport_kaas_pve.lua")
 
 -- Village
 includeFile("village/village_gm_commands.lua")
