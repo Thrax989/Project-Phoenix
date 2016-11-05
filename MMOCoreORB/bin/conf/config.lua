@@ -141,10 +141,11 @@ ZonesEnabled = {
 TrePath = "/home/swgemu/workspace/tre"
 
 TreFiles = {
+	"sytners_sat_maps_2.tre",
 	"phoenix_patch_1.tre",
+	"lasko_publish_06_01.tre",
 	"nw_001.tre",
 	"lasko_hotfix_01.tre",
-	"lasko_publish_06_01.tre",
 	"lasko_publish_05_01.tre",
 	"lasko_publish_04_02.tre",
 	"lasko_publish_04_01.tre",
