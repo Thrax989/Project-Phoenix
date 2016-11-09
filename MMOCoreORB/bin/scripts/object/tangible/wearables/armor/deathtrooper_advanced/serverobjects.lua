@@ -45,7 +45,6 @@
 --Children folder includes
 
 -- Server Objects
-includeFile("tangible/wearables/armor/deathtrooper_advanced/armor_deathtrooper_advanced_belt.lua")
 includeFile("tangible/wearables/armor/deathtrooper_advanced/armor_deathtrooper_advanced_bicep_l.lua")
 includeFile("tangible/wearables/armor/deathtrooper_advanced/armor_deathtrooper_advanced_bicep_r.lua")
 includeFile("tangible/wearables/armor/deathtrooper_advanced/armor_deathtrooper_advanced_bracer_l.lua")

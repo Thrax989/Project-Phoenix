@@ -41,7 +41,7 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_tangible_wearables_armor_deathtrooper_advanced_armor_deathtrooper_advanced_bracer_r = object_tangible_wearables_armor_deathtrooper_advanced_shared_armor_deathtrooper_advanced_bracer_r:new {
+object_tangible_wearables_armor_deathtrooper_armor_deathtrooper_advanced_bracer_r = object_tangible_wearables_armor_deathtrooper_shared_armor_deathtrooper_advanced_bracer_r:new {
 	templateType = ARMOROBJECT,
 
 
@@ -122,4 +122,4 @@ object_tangible_wearables_armor_deathtrooper_advanced_armor_deathtrooper_advance
 	lightSaber = 65
 }
 
-ObjectTemplates:addTemplate(object_tangible_wearables_armor_deathtrooper_advanced_armor_deathtrooper_advanced_bracer_r, "object/tangible/wearables/armor/deathtrooper_advanced/armor_deathtrooper_advanced_bracer_r.iff")
+ObjectTemplates:addTemplate(object_tangible_wearables_armor_deathtrooper_armor_deathtrooper_advanced_bracer_r, "object/tangible/wearables/armor/deathtrooper/armor_deathtrooper_advanced_bracer_r.iff")
