@@ -53,16 +53,7 @@ object_tangible_wearables_jacket_jacket_lifeday_figrin_dan = object_tangible_wea
 				"object/creature/player/zabrak_male.iff",
 				"object/creature/player/zabrak_female.iff" },
 
-				customName = "Shatterpoint Cloak (Hood)",
-
-				skillMods = {
- 				    {"jedi_force_power_max", 250},
-				    {"jedi_force_power_regen", 10}
-				},
-
-				objectMenuComponent = "RobeObjectMenuComponent",
-				certificationsRequired = {"force_title_jedi_rank_02"},
-				attributeListComponent = "JediRobeAttributeListComponent",
+				customName = "Love Day Jacket"
 
 }
 
