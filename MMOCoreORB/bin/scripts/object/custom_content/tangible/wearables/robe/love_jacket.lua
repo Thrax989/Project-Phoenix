@@ -1,4 +1,4 @@
-object_tangible_wearables_robe_cape_rebel_01 = object_tangible_wearables_robe_shared_cape_rebel_01:new {
+object_tangible_wearables_jacket_jacket_lifeday_figrin_dan = object_tangible_wearables_jacket_shared_jacket_lifeday_figrin_dan:new {
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/smc_female.iff",
 				"object/creature/player/smc_male.iff",
@@ -52,9 +52,18 @@ object_tangible_wearables_robe_cape_rebel_01 = object_tangible_wearables_robe_sh
 				"object/creature/player/wookiee_female.iff",
 				"object/creature/player/zabrak_male.iff",
 				"object/creature/player/zabrak_female.iff" },
-				
-				faction = "rebel"
+
+				customName = "Shatterpoint Cloak (Hood)",
+
+				skillMods = {
+ 				    {"jedi_force_power_max", 250},
+				    {"jedi_force_power_regen", 10}
+				},
+
+				objectMenuComponent = "RobeObjectMenuComponent",
+				certificationsRequired = {"force_title_jedi_rank_02"},
+				attributeListComponent = "JediRobeAttributeListComponent",
 
 }
 
-ObjectTemplates:addTemplate(object_tangible_wearables_robe_cape_rebel_01, "object/tangible/wearables/robe/cape_rebel_01.iff")
+ObjectTemplates:addTemplate(object_tangible_wearables_jacket_jacket_lifeday_figrin_dan, "object/tangible/wearables/jacket/jacket_lifeday_figrin_dan.iff")

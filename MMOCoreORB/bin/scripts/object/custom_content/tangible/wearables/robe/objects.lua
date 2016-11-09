@@ -50,3 +50,8 @@ object_tangible_wearables_robe_shared_robe_s33_h1 = SharedTangibleObjectTemplate
 }
 ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_s33_h1, "object/tangible/wearables/robe/shared_robe_s33_h1.iff")
 --*********************************************************************************
+object_tangible_wearables_jacket_jacket_lifeday_figrin_dan = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/jacket/shared_jacket_lifeday_figrin_dan.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_jacket_jacket_lifeday_figrin_dan, "object/tangible/wearables/jacket/shared_jacket_lifeday_figrin_dan.iff")
+--*********************************************************************************

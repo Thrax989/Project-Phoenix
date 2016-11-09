@@ -1,4 +1,4 @@
-object_tangible_wearables_cape_cape_imperial_01.lua = object_tangible_wearables_cape_shared_cape_imperial_01.lua:new {
+object_tangible_wearables_robe_cape_imperial_01 = object_tangible_wearables_robe_shared_cape_imperial_01:new {
 	playerRaces = { "object/creature/player/bothan_male.iff",
 				"object/creature/player/smc_female.iff",
 				"object/creature/player/smc_male.iff",
@@ -53,9 +53,8 @@ object_tangible_wearables_cape_cape_imperial_01.lua = object_tangible_wearables_
 				"object/creature/player/zabrak_male.iff",
 				"object/creature/player/zabrak_female.iff" },
 				
-				--faction = "imperial"
+				faction = "imperial"
 
-				noTrade = 1
 }
 
-ObjectTemplates:addTemplate(object_tangible_wearables_cape_cape_imperial_01, "object/tangible/wearables/cape/cape_imperial_01.iff")
+ObjectTemplates:addTemplate(object_tangible_wearables_robe_cape_imperial_01, "object/tangible/wearables/robe/cape_imperial_01.iff")

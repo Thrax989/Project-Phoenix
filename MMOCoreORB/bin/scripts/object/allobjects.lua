@@ -129,7 +129,7 @@ includeFile("custom_content/tangible/wearables/armor/assault_trooper/objects.lua
 includeFile("custom_content/tangible/wearables/armor/clone_trooper/objects.lua")
 includeFile("custom_content/tangible/wearables/armor/scout_trooper/objects.lua")
 includeFile("custom_content/tangible/wearables/backpack/objects.lua")
---includeFile("custom_content/tangible/wearables/cape/objects.lua")
+includeFile("custom_content/tangible/wearables/cape/objects.lua")
 includeFile("custom_content/tangible/wearables/robe/objects.lua")
 includeFile("custom_content/weapon/melee/objects.lua")
 includeFile("custom_content/weapon/ranged/objects.lua")
