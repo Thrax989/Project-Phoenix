@@ -41,25 +41,10 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_mobile_vehicle_pod_racer_balta_podracer = object_mobile_vehicle_shared_pod_racer_balta_podracer:new {
+	templateType = VEHICLE,
+	decayRate = 25, -- Damage tick per decay cycle
+	decayCycle = 600 -- Time in seconds per cycle
+}
 
---Children folder includes
-
--- Server Objects
-includeFile("tangible/deed/vehicle_deed/barc_speeder_imperial_deed.lua")
-includeFile("tangible/deed/vehicle_deed/barc_speeder_rebel_deed.lua")
-includeFile("tangible/deed/vehicle_deed/jetpack_deed.lua")
-includeFile("tangible/deed/vehicle_deed/barc_speeder_deed.lua")
-includeFile("tangible/deed/vehicle_deed/pod_racer_two_deed.lua")
-includeFile("tangible/deed/vehicle_deed/pod_racer_one_deed.lua")
-includeFile("tangible/deed/vehicle_deed/landspeeder_av21_deed.lua")
-includeFile("tangible/deed/vehicle_deed/landspeeder_x31_deed.lua")
-includeFile("tangible/deed/vehicle_deed/landspeeder_x34_deed.lua")
-includeFile("tangible/deed/vehicle_deed/speederbike_deed.lua")
-includeFile("tangible/deed/vehicle_deed/speederbike_flash_deed.lua")
-includeFile("tangible/deed/vehicle_deed/speederbike_swoop_deed.lua")
-includeFile("tangible/deed/vehicle_deed/vehicle_deed_base.lua")
-includeFile("tangible/deed/vehicle_deed/vehicular_prototype_bike_deed.lua")
-includeFile("tangible/deed/vehicle_deed/vehicular_prototype_deed.lua")
-includeFile("tangible/deed/vehicle_deed/balta_podracer_deed.lua")
-includeFile("tangible/deed/vehicle_deed/ipg_longtail_deed.lua")
-includeFile("tangible/deed/vehicle_deed/podracer_anakin_deed.lua")
+ObjectTemplates:addTemplate(object_mobile_vehicle_pod_racer_balta_podracer, "object/mobile/vehicle/pod_racer_balta_podracer.iff")

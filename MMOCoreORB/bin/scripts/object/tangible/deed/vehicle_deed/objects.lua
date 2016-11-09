@@ -655,3 +655,18 @@ object_tangible_deed_vehicle_deed_shared_pod_racer_two_deed = SharedTangibleObje
 	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_pod_racer_two_deed.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_pod_racer_two_deed, "object/tangible/deed/vehicle_deed/shared_pod_racer_two_deed.iff")
+
+object_tangible_deed_vehicle_deed_shared_pod_racer_balta_podracer_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_pod_racer_balta_podracer_deed.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_pod_racer_balta_podracer_deed, "object/tangible/deed/vehicle_deed/shared_pod_racer_balta_podracer_deed.iff")
+
+object_tangible_deed_vehicle_deed_shared_pod_racer_ipg_longtail_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_pod_racer_ipg_longtail_deed.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_pod_racer_ipg_longtail_deed, "object/tangible/deed/vehicle_deed/shared_pod_racer_ipg_longtail_deed.iff")
+
+object_tangible_deed_vehicle_deed_shared_podracer_anakin_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_podracer_anakin_deed.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_podracer_anakin_deed, "object/tangible/deed/vehicle_deed/shared_podracer_anakin_deed.iff")

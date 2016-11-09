@@ -41,25 +41,12 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_tangible_deed_vehicle_deed_pod_racer_ipg_longtail_deed = object_tangible_deed_vehicle_deed_shared_pod_racer_ipg_longtail_deed:new {
 
---Children folder includes
+	templateType = VEHICLEDEED,	
+	noTrade = 1,
+	controlDeviceObjectTemplate = "object/intangible/vehicle/pod_racer_ipg_longtail_pcd.iff",
+	generatedObjectTemplate = "object/mobile/vehicle/pod_racer_ipg_longtail.iff"
+}
 
--- Server Objects
-includeFile("tangible/deed/vehicle_deed/barc_speeder_imperial_deed.lua")
-includeFile("tangible/deed/vehicle_deed/barc_speeder_rebel_deed.lua")
-includeFile("tangible/deed/vehicle_deed/jetpack_deed.lua")
-includeFile("tangible/deed/vehicle_deed/barc_speeder_deed.lua")
-includeFile("tangible/deed/vehicle_deed/pod_racer_two_deed.lua")
-includeFile("tangible/deed/vehicle_deed/pod_racer_one_deed.lua")
-includeFile("tangible/deed/vehicle_deed/landspeeder_av21_deed.lua")
-includeFile("tangible/deed/vehicle_deed/landspeeder_x31_deed.lua")
-includeFile("tangible/deed/vehicle_deed/landspeeder_x34_deed.lua")
-includeFile("tangible/deed/vehicle_deed/speederbike_deed.lua")
-includeFile("tangible/deed/vehicle_deed/speederbike_flash_deed.lua")
-includeFile("tangible/deed/vehicle_deed/speederbike_swoop_deed.lua")
-includeFile("tangible/deed/vehicle_deed/vehicle_deed_base.lua")
-includeFile("tangible/deed/vehicle_deed/vehicular_prototype_bike_deed.lua")
-includeFile("tangible/deed/vehicle_deed/vehicular_prototype_deed.lua")
-includeFile("tangible/deed/vehicle_deed/balta_podracer_deed.lua")
-includeFile("tangible/deed/vehicle_deed/ipg_longtail_deed.lua")
-includeFile("tangible/deed/vehicle_deed/podracer_anakin_deed.lua")
+ObjectTemplates:addTemplate(object_tangible_deed_vehicle_deed_pod_racer_ipg_longtail_deed, "object/tangible/deed/vehicle_deed/pod_racer_ipg_longtail_deed.iff")

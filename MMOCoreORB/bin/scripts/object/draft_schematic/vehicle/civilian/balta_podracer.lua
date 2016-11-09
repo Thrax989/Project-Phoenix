@@ -41,25 +41,42 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_draft_schematic_vehicle_civilian_pod_racer_balta_podracer = object_draft_schematic_vehicle_civilian_shared_pod_racer_balta_podracer:new {
 
---Children folder includes
+   templateType = DRAFTSCHEMATIC,
 
--- Server Objects
-includeFile("tangible/deed/vehicle_deed/barc_speeder_imperial_deed.lua")
-includeFile("tangible/deed/vehicle_deed/barc_speeder_rebel_deed.lua")
-includeFile("tangible/deed/vehicle_deed/jetpack_deed.lua")
-includeFile("tangible/deed/vehicle_deed/barc_speeder_deed.lua")
-includeFile("tangible/deed/vehicle_deed/pod_racer_two_deed.lua")
-includeFile("tangible/deed/vehicle_deed/pod_racer_one_deed.lua")
-includeFile("tangible/deed/vehicle_deed/landspeeder_av21_deed.lua")
-includeFile("tangible/deed/vehicle_deed/landspeeder_x31_deed.lua")
-includeFile("tangible/deed/vehicle_deed/landspeeder_x34_deed.lua")
-includeFile("tangible/deed/vehicle_deed/speederbike_deed.lua")
-includeFile("tangible/deed/vehicle_deed/speederbike_flash_deed.lua")
-includeFile("tangible/deed/vehicle_deed/speederbike_swoop_deed.lua")
-includeFile("tangible/deed/vehicle_deed/vehicle_deed_base.lua")
-includeFile("tangible/deed/vehicle_deed/vehicular_prototype_bike_deed.lua")
-includeFile("tangible/deed/vehicle_deed/vehicular_prototype_deed.lua")
-includeFile("tangible/deed/vehicle_deed/balta_podracer_deed.lua")
-includeFile("tangible/deed/vehicle_deed/ipg_longtail_deed.lua")
-includeFile("tangible/deed/vehicle_deed/podracer_anakin_deed.lua")
+   customObjectName = "Four Engine Pod Racer",
+
+   craftingToolTab = 16, -- (See DraftSchematicObjectTemplate.h)
+   complexity = 25, 
+   size = 1, 
+
+   xpType = "crafting_general", 
+   xp = 1800, 
+
+   assemblySkill = "general_assembly", 
+   experimentingSkill = "general_experimentation", 
+   customizationSkill = "clothing_customization",
+   disableFactoryRun = true, 
+
+   customizationOptions = {},
+   customizationStringNames = {},
+   customizationDefaults = {},
+
+   ingredientTemplateNames = {"craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n"},
+   ingredientTitleNames = {"vehicle_body", "structural_frame"},
+   ingredientSlotType = {0, 0},
+   resourceTypes = {"metal_nonferrous", "metal_ferrous"},
+   resourceQuantities = {1125, 3125, 1},
+   contribution = {100, 100, 100},
+
+
+
+   targetTemplate = "object/tangible/deed/vehicle_deed/pod_racer_balta_podracer_deed.iff",
+
+   additionalTemplates = {
+              "object/tangible/deed/vehicle_deed/shared_pod_racer_balta_podracer_deed.iff",
+             }
+
+}
+ObjectTemplates:addTemplate(object_draft_schematic_vehicle_civilian_pod_racer_balta_podracer, "object/draft_schematic/vehicle/civilian/pod_racer_balta_podracer.iff")

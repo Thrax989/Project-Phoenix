@@ -953,3 +953,22 @@ object_mobile_vehicle_shared_vehicle_base = SharedCreatureObjectTemplate:new {
 }
 
 ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_vehicle_base, "object/mobile/vehicle/shared_vehicle_base.iff")
+
+
+object_mobile_vehicle_shared_pod_racer_balta_podracer = SharedCreatureObjectTemplate:new {
+	clientTemplateFileName = "object/mobile/vehicle/shared_pod_racer_balta_podracer.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_pod_racer_balta_podracer, "object/mobile/vehicle/shared_pod_racer_balta_podracer.iff")
+
+object_mobile_vehicle_shared_podracer_anakin = SharedCreatureObjectTemplate:new {
+	clientTemplateFileName = "object/mobile/vehicle/shared_podracer_anakin.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_podracer_anakin, "object/mobile/vehicle/shared_podracer_anakin.iff")
+
+object_mobile_vehicle_shared_pod_racer_ipg_longtail = SharedCreatureObjectTemplate:new {
+	clientTemplateFileName = "object/mobile/vehicle/shared_pod_racer_ipg_longtail.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_pod_racer_ipg_longtail, "object/mobile/vehicle/shared_pod_racer_ipg_longtail.iff")

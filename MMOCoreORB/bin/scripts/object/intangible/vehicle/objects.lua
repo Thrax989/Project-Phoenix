@@ -40,6 +40,22 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception. 
 
+
+object_intangible_vehicle_shared_pod_racer_balta_podracer_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_pod_racer_balta_podracer_pcd.iff"
+
+}
+
+object_intangible_vehicle_shared_pod_racer_ipg_longtail_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_pod_racer_ipg_longtail_pcd.iff"
+
+}
+
+object_intangible_vehicle_shared_podracer_anakin_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_podracer_anakin_pcd.iff"
+
+}
+
 object_intangible_vehicle_shared_barc_speeder_imperial_pcd = SharedIntangibleObjectTemplate:new {
 	clientTemplateFileName = "object/intangible/vehicle/shared_barc_speeder_imperial_pcd.iff"
 

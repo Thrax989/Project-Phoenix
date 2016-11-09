@@ -579,3 +579,19 @@ object_draft_schematic_vehicle_civilian_shared_speeder_bike_swoop = SharedDraftS
 }
 
 ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_civilian_shared_speeder_bike_swoop, "object/draft_schematic/vehicle/civilian/shared_speeder_bike_swoop.iff")
+
+object_draft_schematic_vehicle_civilian_shared_pod_racer_balta_podracer = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/civilian/shared_pod_racer_balta_podracer.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_civilian_shared_pod_racer_balta_podracer, "object/draft_schematic/vehicle/civilian/shared_pod_racer_balta_podracer.iff")
+
+object_draft_schematic_vehicle_civilian_pod_racer_ipg_longtail = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/civilian/shared_pod_racer_ipg_longtail.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_civilian_pod_racer_ipg_longtail, "object/draft_schematic/vehicle/civilian/shared_pod_racer_ipg_longtail.iff")
+
+object_draft_schematic_vehicle_civilian_podracer_anakin = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/vehicle/civilian/shared_podracer_anakin.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_vehicle_civilian_podracer_anakin, "object/draft_schematic/vehicle/civilian/shared_podracer_anakin.iff")
+
