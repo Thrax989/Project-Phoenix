@@ -70,6 +70,6 @@ includeFile("tangible/wearables/armor/tantel/serverobjects.lua")
 includeFile("tangible/wearables/armor/ubese/serverobjects.lua")
 includeFile("tangible/wearables/armor/zam/serverobjects.lua")
 includeFile("tangible/wearables/armor/deathtrooper_advanced/serverobjects.lua")
-includeFile("tangible/wearables/armor/rebe;_spec_force/serverobjects.lua")
+includeFile("tangible/wearables/armor/rebel_spec_force/serverobjects.lua")
 
 -- Server Objects
