@@ -41,26 +41,9 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_intangible_vehicle_hover_chair_pcd = object_intangible_vehicle_shared_hover_chair_pcd:new {
 
---Children folder includes
 
--- Server Objects
-includeFile("mobile/vehicle/jetpack.lua")
-includeFile("mobile/vehicle/landspeeder_av21.lua")
-includeFile("mobile/vehicle/landspeeder_base.lua")
-includeFile("mobile/vehicle/landspeeder_x31.lua")
-includeFile("mobile/vehicle/landspeeder_x34.lua")
-includeFile("mobile/vehicle/landspeeder_xp38.lua")
-includeFile("mobile/vehicle/speederbike.lua")
-includeFile("mobile/vehicle/speederbike_base.lua")
-includeFile("mobile/vehicle/speederbike_flash.lua")
-includeFile("mobile/vehicle/speederbike_swoop.lua")
-includeFile("mobile/vehicle/vehicle_base.lua")
-includeFile("mobile/vehicle/balta_podracer.lua")
-includeFile("mobile/vehicle/ipg_longtail.lua")
-includeFile("mobile/vehicle/podracer_anakin.lua")
-includeFile("mobile/vehicle/mechno_chair.lua")
-includeFile("mobile/vehicle/senate_pod.lua")
-includeFile("mobile/vehicle/basilisk_war_droid.lua")
-includeFile("mobile/vehicle/hover_chair.lua")
-includeFile("mobile/vehicle/stap_speeder.lua")
+}
+
+ObjectTemplates:addTemplate(object_intangible_vehicle_hover_chair_pcd, "object/intangible/vehicle/hover_chair_pcd.iff")

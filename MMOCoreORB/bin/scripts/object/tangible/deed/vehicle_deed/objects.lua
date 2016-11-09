@@ -670,3 +670,28 @@ object_tangible_deed_vehicle_deed_shared_podracer_anakin_deed = SharedTangibleOb
 	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_podracer_anakin_deed.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_podracer_anakin_deed, "object/tangible/deed/vehicle_deed/shared_podracer_anakin_deed.iff")
+
+object_tangible_deed_vehicle_deed_shared_basilisk_war_droid = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_basilisk_war_droid.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_basilisk_war_droid, "object/tangible/deed/vehicle_deed/shared_basilisk_war_droid.iff")
+
+object_tangible_deed_vehicle_deed_shared_senate_pod_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_senate_pod_deed.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_senate_pod_deed, "object/tangible/deed/vehicle_deed/shared_senate_pod_deed.iff")
+
+object_tangible_deed_vehicle_deed_shared_hover_chair_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_hover_chair_deed.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_hover_chair_deed, "object/tangible/deed/vehicle_deed/shared_hover_chair_deed.iff")
+
+object_tangible_deed_vehicle_deed_shared_speeder_stap_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_speeder_stap_deed.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_speeder_stap_deed, "object/tangible/deed/vehicle_deed/shared_speeder_stap_deed.iff")
+
+object_tangible_deed_vehicle_deed_shared_mechno_chair_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_mechno_chair_deed.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_mechno_chair_deed, "object/tangible/deed/vehicle_deed/shared_mechno_chair_deed.iff")

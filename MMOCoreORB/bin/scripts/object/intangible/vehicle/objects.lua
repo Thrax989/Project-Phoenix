@@ -478,3 +478,28 @@ object_intangible_vehicle_shared_vehicle_pcd_base = SharedIntangibleObjectTempla
 }
 
 ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_vehicle_pcd_base, "object/intangible/vehicle/shared_vehicle_pcd_base.iff")
+
+object_intangible_vehicle_shared_basilisk_war_droid_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_basilisk_war_droid_pcd.iff"
+
+}
+
+object_intangible_vehicle_shared_hover_chair_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_hover_chair_pcd.iff"
+
+}
+
+object_intangible_vehicle_shared_mechno_chair_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_mechno_chair_pcd.iff"
+
+}
+
+object_intangible_vehicle_shared_senate_pod_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_senate_pod_pcd.iff"
+
+}
+
+object_intangible_vehicle_shared_stap_speeder_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_stap_speeder_pcd.iff"
+
+}

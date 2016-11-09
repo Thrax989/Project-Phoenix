@@ -972,3 +972,33 @@ object_mobile_vehicle_shared_pod_racer_ipg_longtail = SharedCreatureObjectTempla
 }
 
 ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_pod_racer_ipg_longtail, "object/mobile/vehicle/shared_pod_racer_ipg_longtail.iff")
+
+object_mobile_vehicle_shared_mechno_chair = SharedCreatureObjectTemplate:new {
+	clientTemplateFileName = "object/mobile/vehicle/shared_mechno_chair.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_mechno_chair, "object/mobile/vehicle/shared_mechno_chair.iff")
+
+object_mobile_vehicle_shared_senate_pod = SharedCreatureObjectTemplate:new {
+	clientTemplateFileName = "object/mobile/vehicle/shared_senate_pod.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_senate_pod, "object/mobile/vehicle/shared_senate_pod.iff")
+
+object_mobile_vehicle_shared_basilisk_war_droid = SharedCreatureObjectTemplate:new {
+	clientTemplateFileName = "object/mobile/vehicle/shared_basilisk_war_droid.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_basilisk_war_droid, "object/mobile/vehicle/shared_basilisk_war_droid.iff")
+
+object_mobile_vehicle_shared_hover_chair = SharedCreatureObjectTemplate:new {
+	clientTemplateFileName = "object/mobile/vehicle/shared_hover_chair.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_hover_chair, "object/mobile/vehicle/shared_hover_chair.iff")
+
+object_mobile_vehicle_shared_stap_speeder = SharedCreatureObjectTemplate:new {
+	clientTemplateFileName = "object/mobile/vehicle/shared_stap_speeder.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_stap_speeder, "object/mobile/vehicle/shared_stap_speeder.iff")
