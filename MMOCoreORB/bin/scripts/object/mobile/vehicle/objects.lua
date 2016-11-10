@@ -1038,3 +1038,9 @@ object_mobile_vehicle_shared_koro2_speeder = SharedCreatureObjectTemplate:new {
 }
 
 ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_koro2_speeder, "object/mobile/vehicle/shared_koro2_speeder.iff")
+
+object_mobile_vehicle_shared_tcg_8_air_speeder = SharedCreatureObjectTemplate:new {
+	clientTemplateFileName = "object/mobile/vehicle/shared_tcg_8_air_speeder.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_tcg_8_air_speeder, "object/mobile/vehicle/shared_tcg_8_air_speeder.iff")

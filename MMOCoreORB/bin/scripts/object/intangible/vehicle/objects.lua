@@ -533,3 +533,8 @@ object_intangible_vehicle_shared_koro2_speeder_pcd = SharedIntangibleObjectTempl
 	clientTemplateFileName = "object/intangible/vehicle/shared_koro2_speeder_pcd.iff"
 
 }
+
+object_intangible_vehicle_shared_tcg_8_air_speeder_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_tcg_8_air_speeder_pcd.iff"
+
+}

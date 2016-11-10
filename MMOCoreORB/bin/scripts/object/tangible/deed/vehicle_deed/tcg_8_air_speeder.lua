@@ -41,33 +41,22 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_tangible_deed_vehicle_deed_tcg_8_air_speeder_deed = object_tangible_deed_vehicle_deed_shared_tcg_8_air_speeder_deed:new {
 
---Children folder includes
+	templateType = VEHICLEDEED,
 
--- Server Objects
-includeFile("mobile/vehicle/jetpack.lua")
-includeFile("mobile/vehicle/landspeeder_av21.lua")
-includeFile("mobile/vehicle/landspeeder_base.lua")
-includeFile("mobile/vehicle/landspeeder_x31.lua")
-includeFile("mobile/vehicle/landspeeder_x34.lua")
-includeFile("mobile/vehicle/landspeeder_xp38.lua")
-includeFile("mobile/vehicle/speederbike.lua")
-includeFile("mobile/vehicle/speederbike_base.lua")
-includeFile("mobile/vehicle/speederbike_flash.lua")
-includeFile("mobile/vehicle/speederbike_swoop.lua")
-includeFile("mobile/vehicle/vehicle_base.lua")
-includeFile("mobile/vehicle/balta_podracer.lua")
-includeFile("mobile/vehicle/ipg_longtail.lua")
-includeFile("mobile/vehicle/podracer_anakin.lua")
-includeFile("mobile/vehicle/mechno_chair.lua")
-includeFile("mobile/vehicle/senate_pod.lua")
-includeFile("mobile/vehicle/basilisk_war_droid.lua")
-includeFile("mobile/vehicle/hover_chair.lua")
-includeFile("mobile/vehicle/stap_speeder.lua")
-includeFile("mobile/vehicle/xj6_air_speeder.lua")
-includeFile("mobile/vehicle/tcg_hk47_jetpack.lua")
-includeFile("mobile/vehicle/tcg_republic_gunship.lua")
-includeFile("mobile/vehicle/tcg_military_transport.lua")
-includeFile("mobile/vehicle/tcg_merr_sonn_jt12_jetpack.lua")
-includeFile("mobile/vehicle/koro2_speeder.lua")
-includeFile("mobile/vehicle/tcg_8_air_speeder.lua")
+	controlDeviceObjectTemplate = "object/intangible/vehicle/tcg_8_air_speeder_pcd.iff",
+	generatedObjectTemplate = "object/mobile/vehicle/tcg_8_air_speeder.iff",
+
+	numberExperimentalProperties = {1, 1, 1},
+	experimentalProperties = {"XX", "XX", "SR"},
+	experimentalWeights = {1, 1, 1},
+	experimentalGroupTitles = {"null", "null", "exp_durability"},
+	experimentalSubGroupTitles = {"null", "null", "hit_points"},
+	experimentalMin = {0, 0, 1000},
+	experimentalMax = {0, 0, 2500},
+	experimentalPrecision = {0, 0, 0},
+	experimentalCombineType = {0, 0, 1},
+}
+
+ObjectTemplates:addTemplate(object_tangible_deed_vehicle_deed_tcg_8_air_speeder_deed, "object/tangible/deed/vehicle_deed/tcg_8_air_speeder.iff")

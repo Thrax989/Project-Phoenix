@@ -41,33 +41,10 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_mobile_vehicle_tcg_8_air_speeder = object_mobile_vehicle_shared_tcg_8_air_speeder:new {
+	templateType = VEHICLE,
+	decayRate = 25, -- Damage tick per decay cycle
+	decayCycle = 600 -- Time in seconds per cycle
+}
 
---Children folder includes
-
--- Server Objects
-includeFile("mobile/vehicle/jetpack.lua")
-includeFile("mobile/vehicle/landspeeder_av21.lua")
-includeFile("mobile/vehicle/landspeeder_base.lua")
-includeFile("mobile/vehicle/landspeeder_x31.lua")
-includeFile("mobile/vehicle/landspeeder_x34.lua")
-includeFile("mobile/vehicle/landspeeder_xp38.lua")
-includeFile("mobile/vehicle/speederbike.lua")
-includeFile("mobile/vehicle/speederbike_base.lua")
-includeFile("mobile/vehicle/speederbike_flash.lua")
-includeFile("mobile/vehicle/speederbike_swoop.lua")
-includeFile("mobile/vehicle/vehicle_base.lua")
-includeFile("mobile/vehicle/balta_podracer.lua")
-includeFile("mobile/vehicle/ipg_longtail.lua")
-includeFile("mobile/vehicle/podracer_anakin.lua")
-includeFile("mobile/vehicle/mechno_chair.lua")
-includeFile("mobile/vehicle/senate_pod.lua")
-includeFile("mobile/vehicle/basilisk_war_droid.lua")
-includeFile("mobile/vehicle/hover_chair.lua")
-includeFile("mobile/vehicle/stap_speeder.lua")
-includeFile("mobile/vehicle/xj6_air_speeder.lua")
-includeFile("mobile/vehicle/tcg_hk47_jetpack.lua")
-includeFile("mobile/vehicle/tcg_republic_gunship.lua")
-includeFile("mobile/vehicle/tcg_military_transport.lua")
-includeFile("mobile/vehicle/tcg_merr_sonn_jt12_jetpack.lua")
-includeFile("mobile/vehicle/koro2_speeder.lua")
-includeFile("mobile/vehicle/tcg_8_air_speeder.lua")
+ObjectTemplates:addTemplate(object_mobile_vehicle_tcg_8_air_speeder, "object/mobile/vehicle/tcg_8_air_speeder.iff")
