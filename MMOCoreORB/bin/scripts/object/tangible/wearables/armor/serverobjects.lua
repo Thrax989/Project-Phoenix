@@ -71,5 +71,6 @@ includeFile("tangible/wearables/armor/ubese/serverobjects.lua")
 includeFile("tangible/wearables/armor/zam/serverobjects.lua")
 includeFile("tangible/wearables/armor/deathtrooper_advanced/serverobjects.lua")
 includeFile("tangible/wearables/armor/rebel_spec_force/serverobjects.lua")
+includeFile("tangible/wearables/armor/infiltrator_s01/serverobjects.lua")
 
 -- Server Objects
