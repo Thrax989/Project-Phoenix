@@ -48,6 +48,7 @@ includeFile("mobile/skeleton/serverobjects.lua")
 includeFile("mobile/tatooine_npc/serverobjects.lua")
 includeFile("mobile/vehicle/serverobjects.lua")
 includeFile("mobile/vendor/serverobjects.lua")
+includeFile("mobile/hologram/serverobjects.lua")
 
 -- Server Objects
 includeFile("mobile/21b_surgical_droid.lua")
@@ -2649,5 +2650,7 @@ includeFile("mobile/young_roba.lua")
 includeFile("mobile/young_spined_snake.lua")
 includeFile("mobile/zabrak_female.lua")
 includeFile("mobile/zabrak_male.lua")
+
+includeFile("mobile/yoda.lua")
 includeFile("mobile/zucca_boar.lua")
 includeFile("mobile/zucca_boar_hue.lua")
