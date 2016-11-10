@@ -720,3 +720,8 @@ object_tangible_deed_vehicle_deed_shared_tcg_merr_sonn_jt12_jetpack_deed = Share
 	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_tcg_merr_sonn_jt12_jetpack_deed.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_tcg_merr_sonn_jt12_jetpack_deed, "object/tangible/deed/vehicle_deed/shared_tcg_merr_sonn_jt12_jetpack_deed.iff")
+
+object_tangible_deed_vehicle_deed_shared_koro2_speeder_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_koro2_speeder_deed.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_koro2_speeder_deed, "object/tangible/deed/vehicle_deed/shared_koro2_speeder_deed.iff")

@@ -41,34 +41,22 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_tangible_deed_vehicle_deed_koro2_speeder_deed = object_tangible_deed_vehicle_deed_shared_koro2_speeder_deed:new {
 
---Children folder includes
+	templateType = VEHICLEDEED,
 
--- Server Objects
-includeFile("intangible/vehicle/barc_speeder_imperial_pcd.lua")
-includeFile("intangible/vehicle/barc_speeder_rebel_pcd.lua")
-includeFile("intangible/vehicle/jetpack_pcd.lua")
-includeFile("intangible/vehicle/barc_speeder_pcd.lua")
-includeFile("intangible/vehicle/pod_racer_one_pcd.lua")
-includeFile("intangible/vehicle/pod_racer_two_pcd.lua")
-includeFile("intangible/vehicle/landspeeder_av21_pcd.lua")
-includeFile("intangible/vehicle/landspeeder_x31_pcd.lua")
-includeFile("intangible/vehicle/landspeeder_x34_pcd.lua")
-includeFile("intangible/vehicle/speederbike_flash_pcd.lua")
-includeFile("intangible/vehicle/speederbike_pcd.lua")
-includeFile("intangible/vehicle/speederbike_swoop_pcd.lua")
-includeFile("intangible/vehicle/balta_podracer.lua")
-includeFile("intangible/vehicle/ipg_longtail.lua")
-includeFile("intangible/vehicle/podracer_anakin.lua")
-includeFile("intangible/vehicle/vehicle_pcd_base.lua")
-includeFile("intangible/vehicle/stap_speeder.lua")
-includeFile("intangible/vehicle/xj6_air_speeder.lua")
-includeFile("intangible/vehicle/mechno_chair.lua")
-includeFile("intangible/vehicle/senate_pod.lua")
-includeFile("intangible/vehicle/basilisk_war_droid.lua")
-includeFile("intangible/vehicle/hover_chair.lua")
-includeFile("intangible/vehicle/tcg_hk47_jetpack.lua")
-includeFile("intangible/vehicle/tcg_republic_gunship.lua")
-includeFile("intangible/vehicle/tcg_military_transport.lua")
-includeFile("intangible/vehicle/tcg_merr_sonn_jt12_jetpack.lua")
-includeFile("intangible/vehicle/koro2_speeder.lua")
+	controlDeviceObjectTemplate = "object/intangible/vehicle/koro2_speeder_pcd.iff",
+	generatedObjectTemplate = "object/mobile/vehicle/koro2_speeder.iff",
+
+	numberExperimentalProperties = {1, 1, 1},
+	experimentalProperties = {"XX", "XX", "SR"},
+	experimentalWeights = {1, 1, 1},
+	experimentalGroupTitles = {"null", "null", "exp_durability"},
+	experimentalSubGroupTitles = {"null", "null", "hit_points"},
+	experimentalMin = {0, 0, 1000},
+	experimentalMax = {0, 0, 2500},
+	experimentalPrecision = {0, 0, 0},
+	experimentalCombineType = {0, 0, 1},
+}
+
+ObjectTemplates:addTemplate(object_tangible_deed_vehicle_deed_koro2_speeder_deed, "object/tangible/deed/vehicle_deed/koro2_speeder.iff")

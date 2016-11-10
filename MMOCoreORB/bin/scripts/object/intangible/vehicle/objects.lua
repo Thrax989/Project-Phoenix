@@ -528,3 +528,8 @@ object_intangible_vehicle_shared_tcg_merr_sonn_jt12_jetpack_pcd = SharedIntangib
 	clientTemplateFileName = "object/intangible/vehicle/shared_tcg_merr_sonn_jt12_jetpack_pcd.iff"
 
 }
+
+object_intangible_vehicle_shared_koro2_speeder_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_koro2_speeder_pcd.iff"
+
+}

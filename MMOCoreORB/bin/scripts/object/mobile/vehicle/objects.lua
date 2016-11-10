@@ -1032,3 +1032,9 @@ object_mobile_vehicle_shared_tcg_merr_sonn_jt12_jetpack = SharedCreatureObjectTe
 }
 
 ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_tcg_merr_sonn_jt12_jetpack, "object/mobile/vehicle/shared_tcg_merr_sonn_jt12_jetpack.iff")
+
+object_mobile_vehicle_shared_koro2_speeder = SharedCreatureObjectTemplate:new {
+	clientTemplateFileName = "object/mobile/vehicle/shared_koro2_speeder.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_koro2_speeder, "object/mobile/vehicle/shared_koro2_speeder.iff")
