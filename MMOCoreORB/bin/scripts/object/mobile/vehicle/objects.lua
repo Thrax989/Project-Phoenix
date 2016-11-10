@@ -1020,3 +1020,9 @@ object_mobile_vehicle_shared_tcg_republic_gunship = SharedCreatureObjectTemplate
 }
 
 ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_tcg_republic_gunship, "object/mobile/vehicle/shared_tcg_republic_gunship.iff")
+
+object_mobile_vehicle_shared_tcg_military_transport = SharedCreatureObjectTemplate:new {
+	clientTemplateFileName = "object/mobile/vehicle/shared_tcg_military_transport.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_tcg_military_transport, "object/mobile/vehicle/shared_tcg_military_transport.iff")

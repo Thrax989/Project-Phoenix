@@ -518,3 +518,8 @@ object_intangible_vehicle_shared_tcg_republic_gunship_pcd = SharedIntangibleObje
 	clientTemplateFileName = "object/intangible/vehicle/shared_tcg_republic_gunship_pcd.iff"
 
 }
+
+object_intangible_vehicle_shared_tcg_military_transport_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_tcg_military_transport_pcd.iff"
+
+}
