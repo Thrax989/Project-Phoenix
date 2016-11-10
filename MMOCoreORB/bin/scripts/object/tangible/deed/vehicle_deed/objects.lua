@@ -715,3 +715,8 @@ object_tangible_deed_vehicle_deed_shared_tcg_military_transport_deed = SharedTan
 	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_tcg_military_transport_deed.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_tcg_military_transport_deed, "object/tangible/deed/vehicle_deed/shared_tcg_military_transport_deed.iff")
+
+object_tangible_deed_vehicle_deed_shared_tcg_merr_sonn_jt12_jetpack_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_tcg_merr_sonn_jt12_jetpack_deed.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_tcg_merr_sonn_jt12_jetpack_deed, "object/tangible/deed/vehicle_deed/shared_tcg_merr_sonn_jt12_jetpack_deed.iff")

@@ -523,3 +523,8 @@ object_intangible_vehicle_shared_tcg_military_transport_pcd = SharedIntangibleOb
 	clientTemplateFileName = "object/intangible/vehicle/shared_tcg_military_transport_pcd.iff"
 
 }
+
+object_intangible_vehicle_shared_tcg_merr_sonn_jt12_jetpack_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_tcg_merr_sonn_jt12_jetpack_pcd.iff"
+
+}
