@@ -503,3 +503,18 @@ object_intangible_vehicle_shared_stap_speeder_pcd = SharedIntangibleObjectTempla
 	clientTemplateFileName = "object/intangible/vehicle/shared_stap_speeder_pcd.iff"
 
 }
+
+object_intangible_vehicle_shared_xj6_air_speeder_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_xj6_air_speeder_pcd.iff"
+
+}
+
+object_intangible_vehicle_shared_tcg_hk47_jetpack_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_tcg_hk47_jetpack_pcd.iff"
+
+}
+
+object_intangible_vehicle_shared_tcg_republic_gunship_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_tcg_republic_gunship_pcd.iff"
+
+}

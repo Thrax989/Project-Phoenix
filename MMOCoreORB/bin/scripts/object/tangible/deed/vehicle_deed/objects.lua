@@ -695,3 +695,18 @@ object_tangible_deed_vehicle_deed_shared_mechno_chair_deed = SharedTangibleObjec
 	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_mechno_chair_deed.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_mechno_chair_deed, "object/tangible/deed/vehicle_deed/shared_mechno_chair_deed.iff")
+
+object_tangible_deed_vehicle_deed_shared_xj6_air_speeder_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_xj6_air_speeder_deed.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_xj6_air_speeder_deed, "object/tangible/deed/vehicle_deed/shared_xj6_air_speeder_deed.iff")
+
+object_tangible_deed_vehicle_deed_shared_tcg_hk47_jetpack_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_tcg_hk47_jetpack_deed.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_tcg_hk47_jetpack_deed, "object/tangible/deed/vehicle_deed/shared_tcg_hk47_jetpack_deed.iff")
+
+object_tangible_deed_vehicle_deed_shared_tcg_republic_gunship_deed = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/deed/vehicle_deed/shared_tcg_republic_gunship_deed.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_deed_vehicle_deed_shared_tcg_republic_gunship_deed, "object/tangible/deed/vehicle_deed/shared_tcg_republic_gunship_deed.iff")

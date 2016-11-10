@@ -1002,3 +1002,21 @@ object_mobile_vehicle_shared_stap_speeder = SharedCreatureObjectTemplate:new {
 }
 
 ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_stap_speeder, "object/mobile/vehicle/shared_stap_speeder.iff")
+
+object_mobile_vehicle_shared_xj6_air_speeder = SharedCreatureObjectTemplate:new {
+	clientTemplateFileName = "object/mobile/vehicle/shared_xj6_air_speeder.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_xj6_air_speeder, "object/mobile/vehicle/shared_xj6_air_speeder.iff")
+
+object_mobile_vehicle_shared_tcg_hk47_jetpack = SharedCreatureObjectTemplate:new {
+	clientTemplateFileName = "object/mobile/vehicle/shared_tcg_hk47_jetpack.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_tcg_hk47_jetpack, "object/mobile/vehicle/shared_tcg_hk47_jetpack.iff")
+
+object_mobile_vehicle_shared_tcg_republic_gunship = SharedCreatureObjectTemplate:new {
+	clientTemplateFileName = "object/mobile/vehicle/shared_tcg_republic_gunship.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_mobile_vehicle_shared_tcg_republic_gunship, "object/mobile/vehicle/shared_tcg_republic_gunship.iff")

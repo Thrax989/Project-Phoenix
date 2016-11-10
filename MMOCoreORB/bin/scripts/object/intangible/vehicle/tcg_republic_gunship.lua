@@ -41,31 +41,9 @@
 --this exception also makes it possible to release a modified version 
 
 
+object_intangible_vehicle_tcg_republic_gunship_pcd = object_intangible_vehicle_shared_tcg_republic_gunship_pcd:new {
 
---Children folder includes
 
--- Server Objects
-includeFile("intangible/vehicle/barc_speeder_imperial_pcd.lua")
-includeFile("intangible/vehicle/barc_speeder_rebel_pcd.lua")
-includeFile("intangible/vehicle/jetpack_pcd.lua")
-includeFile("intangible/vehicle/barc_speeder_pcd.lua")
-includeFile("intangible/vehicle/pod_racer_one_pcd.lua")
-includeFile("intangible/vehicle/pod_racer_two_pcd.lua")
-includeFile("intangible/vehicle/landspeeder_av21_pcd.lua")
-includeFile("intangible/vehicle/landspeeder_x31_pcd.lua")
-includeFile("intangible/vehicle/landspeeder_x34_pcd.lua")
-includeFile("intangible/vehicle/speederbike_flash_pcd.lua")
-includeFile("intangible/vehicle/speederbike_pcd.lua")
-includeFile("intangible/vehicle/speederbike_swoop_pcd.lua")
-includeFile("intangible/vehicle/balta_podracer.lua")
-includeFile("intangible/vehicle/ipg_longtail.lua")
-includeFile("intangible/vehicle/podracer_anakin.lua")
-includeFile("intangible/vehicle/vehicle_pcd_base.lua")
-includeFile("intangible/vehicle/stap_speeder.lua")
-includeFile("intangible/vehicle/xj6_air_speeder.lua")
-includeFile("intangible/vehicle/mechno_chair.lua")
-includeFile("intangible/vehicle/senate_pod.lua")
-includeFile("intangible/vehicle/basilisk_war_droid.lua")
-includeFile("intangible/vehicle/hover_chair.lua")
-includeFile("intangible/vehicle/tcg_hk47_jetpack.lua")
-includeFile("intangible/vehicle/tcg_republic_gunship.lua")
+}
+
+ObjectTemplates:addTemplate(object_intangible_vehicle_tcg_republic_gunship_pcd, "object/intangible/vehicle/tcg_republic_gunship_pcd.iff")
