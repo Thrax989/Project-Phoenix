@@ -1696,7 +1696,7 @@ bool CombatManager::applySpecialAttackCost(CreatureObject* attacker, WeaponObjec
 	float negateCosts = (3 + attacker->getHAM(CreatureAttribute::STRENGTH) + attacker->getHAM(CreatureAttribute::QUICKNESS) + attacker->getHAM(CreatureAttribute::FOCUS)) / 3;
 	negateCosts = (negateCosts / 5000.f) * actionCost;
 	
-	actionCost = MAX(15, actionCost - negateCosts); // Ensure there is some cost per shot
+	actionCost = MAX(25, actionCost - negateCosts); // Ensure there is some cost per shot
 
 	if (attacker->getHAM(CreatureAttribute::ACTION) <= actionCost)
 		return false;
