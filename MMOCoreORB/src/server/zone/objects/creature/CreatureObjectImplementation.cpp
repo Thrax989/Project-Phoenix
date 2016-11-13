@@ -62,10 +62,9 @@
 #include "server/zone/objects/creature/buffs/PrivateBuff.h"
 #include "server/zone/objects/creature/buffs/PrivateSkillMultiplierBuff.h"
 #include "server/zone/objects/creature/buffs/PlayerVehicleBuff.h"
-#include "server/zone/objects/building/hospital/HospitalBuildingObject.h"
 
 #include "server/zone/packets/object/SitOnObject.h"
-
+#include "server/zone/objects/building/hospital/HospitalBuildingObject.h"
 #include "server/zone/managers/planet/PlanetManager.h"
 #include "terrain/manager/TerrainManager.h"
 #include "server/zone/managers/resource/resourcespawner/SampleTask.h"
@@ -781,7 +780,9 @@ bool CreatureObjectImplementation::setState(uint64 state, bool notifyClient) {
 					//Locker locker(thisZone);
 
 					if (closeobjects == NULL) {
+#ifdef COV_DEBUG
 						info("Null closeobjects vector in CreatureObjectImplementation::setState", true);
+#endif
 						thisZone->getInRangeObjects(getWorldPositionX(), getWorldPositionY(), ZoneServer::CLOSEOBJECTRANGE, &closeSceneObjects, true);
 						maxInRangeObjects = closeSceneObjects.size();
 					} else {
@@ -1001,7 +1002,10 @@ int CreatureObjectImplementation::inflictDamage(TangibleObject* attacker, int da
 	if (getSkillMod("avoid_incapacitation") > 0 && newValue <= 0)
 		newValue = 1;
 
-	if (damageType % 3 != 0 && newValue < 0) // secondaries never should go negative
+	if (damageType > 0 && newValue < 1) //Non-Health never goes below 1
+		newValue = 1;
+		
+	if (damageType == 0 && newValue < 0) //Health never goes negative
 		newValue = 0;
 
 	setHAM(damageType, newValue, notifyClient);
@@ -2648,10 +2652,18 @@ void CreatureObjectImplementation::activateHAMRegeneration(int latency) {
 		modifier *= 1.25f;
 	else if (isSitting())
 		modifier *= 1.75f;
-
+	
+	//Faster regen when resting 
+	if (!isInCombat() && isSitting())
+		modifier *= 10.0f;
+		
+	uint32 healthTick = 1;
+	
 	// this formula gives the amount of regen per second
-	uint32 healthTick = (uint32) ceil((float) MAX(0, getHAM(
-			CreatureAttribute::CONSTITUTION)) * 13.0f / 2100.0f * modifier);
+	if (!isInCombat()) {
+		healthTick = (uint32) ceil((float) MAX(0, getHAM(
+			CreatureAttribute::CONSTITUTION)) * 13.0f / 2100.0f * modifier); //Min possible Health regen in combat
+	}
 	uint32 actionTick = (uint32) ceil((float) MAX(0, getHAM(
 			CreatureAttribute::STAMINA)) * 13.0f / 2100.0f * modifier);
 	uint32 mindTick = (uint32) ceil((float) MAX(0, getHAM(
@@ -2700,15 +2712,33 @@ void CreatureObjectImplementation::activatePassiveWoundRegeneration() {
 		}
 	}
 
-	/// Mind wound regen
+	if (isInCombat())
+		return;
+		
+	/// Mind wound and Battle Fatigue regen
 	int mindRegen = getSkillMod("private_med_wound_mind");
+	int fatigueCurrent = asCreatureObject()->getShockWounds();
+	int fatigueHealed = 1;
+	
+	if (isSitting())
+		mindRegen = MAX(50, mindRegen);
+	
+	if(asCreatureObject()->getCurrentCamp() != NULL){
+		mindRegen = MAX(100, mindRegen);
+		
+		if (fatigueCurrent > 2)
+			fatigueHealed = 3;
+	}
 
 	if(mindRegen > 0) {
 		mindWoundHeal += (int)(mindRegen * 0.2);
 		if(mindWoundHeal >= 100) {
-			healWound(asCreatureObject(), CreatureAttribute::MIND, 1, true, false);
-			healWound(asCreatureObject(), CreatureAttribute::FOCUS, 1, true, false);
-			healWound(asCreatureObject(), CreatureAttribute::WILLPOWER, 1, true, false);
+			if (fatigueCurrent > 0)
+				asCreatureObject()->setShockWounds(fatigueCurrent - fatigueHealed, true);
+			
+			healWound(asCreatureObject(), CreatureAttribute::MIND, fatigueHealed, true, false);
+			healWound(asCreatureObject(), CreatureAttribute::FOCUS, fatigueHealed, true, false);
+			healWound(asCreatureObject(), CreatureAttribute::WILLPOWER, fatigueHealed, true, false);
 			mindWoundHeal -= 100;
 		}
 	}
