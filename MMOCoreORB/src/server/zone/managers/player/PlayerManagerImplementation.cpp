@@ -651,11 +651,6 @@ int PlayerManagerImplementation::notifyDestruction(TangibleObject* destructor, T
 		return 1;
 
 	CreatureObject* playerCreature = cast<CreatureObject*>( destructedObject);
-	
- 	int playerHealth = playerCreature->getHAM(CreatureAttribute::HEALTH);
- 
- 	if (playerHealth > 0) // Incap only when health is gone
- 		return 1;
 
 	if ((playerCreature->isIncapacitated() && !(playerCreature->isFeigningDeath())) || playerCreature->isDead())
 		return 1;
@@ -1045,11 +1040,6 @@ void PlayerManagerImplementation::sendPlayerToCloner(CreatureObject* player, uin
 			player->addWounds(CreatureAttribute::ACTION, 100, true, false);
 			player->addWounds(CreatureAttribute::MIND, 100, true, false);
 			player->addShockWounds(100, true);
-	} else { //always do some wounds and bf
- 			player->addWounds(CreatureAttribute::HEALTH, 50, true, false);
- 			player->addWounds(CreatureAttribute::ACTION, 50, true, false);
- 			player->addWounds(CreatureAttribute::MIND, 50, true, false);
- 			player->addShockWounds(50, true);
 			VisibilityManager::instance()->clearVisibility(player);
 			//Broadcast to Server
 			String playerName = player->getFirstName();
