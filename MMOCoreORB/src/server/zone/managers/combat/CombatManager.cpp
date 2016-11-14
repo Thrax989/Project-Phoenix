@@ -290,9 +290,9 @@ int CombatManager::doTargetCombatAction(CreatureObject* attacker, WeaponObject* 
 
 int CombatManager::doTargetCombatAction(CreatureObject* attacker, WeaponObject* weapon, CreatureObject* defender, const CreatureAttackData& data) {
 	if (weapon->getMinDamage() < 1 ||
-			weapon->getMinDamage() > 5000 ||
+			weapon->getMinDamage() > 5500||
 			weapon->getMaxDamage() < 1 ||
-			weapon->getMaxDamage() > 5000) {
+			weapon->getMaxDamage() > 5500{
 		Locker locker(weapon);
 		weapon->setMinDamage(3500);
 		weapon->setMaxDamage(3600);
