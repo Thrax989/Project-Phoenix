@@ -22,7 +22,7 @@ public:
 	int doQueueCommand(CreatureObject* player, const uint64& target, const UnicodeString& arguments) const {
 
 		int cooldownMilli = 240000; // 4 min
-		int durationSec =  210; // 3.5 min
+		int durationSec =  230; // 3.5 min
 		int mindCost = player->calculateCostAdjustment(CreatureAttribute::FOCUS, 100 );
 		unsigned int buffCRC = STRING_HASHCODE("enragePet");
 
@@ -78,8 +78,8 @@ public:
 				if( pet->getCooldownTimerMap() == NULL || !pet->getCooldownTimerMap()->isPast("enragePetsCooldown") )
 					continue;
 
-				// Determine damage bonus (50% of average damage)
-				int damageBonus = (int) ((((float)pet->getDamageMin() + (float)pet->getDamageMax())/2) * 0.50);
+				// Determine damage bonus (175% of average damage)
+				int damageBonus = (int) ((((float)pet->getDamageMin() + (float)pet->getDamageMax())/2) * 1.75);
 
 				// Determine damage susceptibility (one quarter of damage bonus)
 				int damageSusceptibility = damageBonus / 4;
