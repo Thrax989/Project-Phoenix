@@ -294,8 +294,8 @@ int CombatManager::doTargetCombatAction(CreatureObject* attacker, WeaponObject* 
 			weapon->getMaxDamage() < 1 ||
 			weapon->getMaxDamage() > 5000) {
 		Locker locker(weapon);
-		weapon->setMinDamage(3500);
-		weapon->setMaxDamage(3600);
+		weapon->setMinDamage(2500);
+		weapon->setMaxDamage(3000);
 		info(attacker->getFirstName() + " was found using a bugged weapon!!", true);
 	}
 	if (defender->isEntertaining())
