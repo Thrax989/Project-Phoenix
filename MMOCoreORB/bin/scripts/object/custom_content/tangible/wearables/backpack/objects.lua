@@ -80,3 +80,33 @@ object_tangible_wearables_backpack_shared_back_love_day_11_hue_wings = SharedTan
 	clientTemplateFileName = "object/tangible/wearables/backpack/shared_back_love_day_11_hue_wings.iff"
 }
 ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_back_love_day_11_hue_wings, "object/tangible/wearables/backpack/shared_back_love_day_11_hue_wings.iff")
+
+object_tangible_wearables_backpack_shared_padawan_pouch = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_padawan_pouch.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_padawan_pouch, "object/tangible/wearables/backpack/shared_padawan_pouch.iff")
+
+object_tangible_wearables_backpack_shared_fannypack_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_fannypack_s01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_fannypack_s01, "object/tangible/wearables/backpack/shared_fannypack_s01.iff")
+
+object_tangible_wearables_backpack_shared_nym_themepark_backpack = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_nym_themepark_backpack.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_nym_themepark_backpack, "object/tangible/wearables/backpack/shared_nym_themepark_backpack.iff")
+
+object_tangible_wearables_backpack_shared_backpack_armored = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_backpack_armored.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_backpack_armored, "object/tangible/wearables/backpack/shared_backpack_armored.iff")
+
+object_tangible_wearables_backpack_shared_backpack_c3po = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_backpack_c3po.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_backpack_c3po, "object/tangible/wearables/backpack/shared_backpack_c3po.iff")
+
+object_tangible_wearables_backpack_shared_backpack_recon = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_backpack_recon.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_backpack_recon, "object/tangible/wearables/backpack/shared_backpack_recon.iff")
