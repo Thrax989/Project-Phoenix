@@ -1,5 +1,6 @@
-death_watch_s_battle_droid = Creature:new {
-	objectName = "@mob/creature_names:mand_bunker_super_battle_droid",
+death_watch_s_battle_droid_2 = Creature:new {
+	objectName = "@mob/creature_names:",
+	customName = "Death Watch Super Battle Droid",
 	socialGroup = "death_watch",
 	faction = "",
 	level = 300,
@@ -49,4 +50,4 @@ death_watch_s_battle_droid = Creature:new {
 	defaultAttack = "creaturerangedattack"
 }
 
-CreatureTemplates:addCreatureTemplate(death_watch_s_battle_droid, "death_watch_s_battle_droid")
+CreatureTemplates:addCreatureTemplate(death_watch_s_battle_droid_2, "death_watch_s_battle_droid_2")
