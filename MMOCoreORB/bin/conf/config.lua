@@ -99,7 +99,7 @@ ZonesEnabled = {
 	"endor",
 	--"endor_asommers",
 	--"floratest",
-	"ghomrassen",
+	--"ghomrassen",
 	--"godclient_test",
 	--"hoth",
 	"kaas",
@@ -126,7 +126,7 @@ ZonesEnabled = {
 	--"space_tatooine",
 	--"space_tatooine_2",
 	--"space_yavin4",
-	"taanab",
+	--"taanab",
 	"talus",
 	"tatooine",
 	--"test_wearables",
@@ -141,6 +141,7 @@ ZonesEnabled = {
 TrePath = "/home/swgemu/workspace/tre"
 
 TreFiles = {
+	"phoenix_patch_2.tre",
 	"sytners_sat_maps_2.tre",
 	"phoenix_patch_1.tre",
 	"lasko_publish_06_01.tre",
