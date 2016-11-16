@@ -1,16 +1,17 @@
-death_watch_s_battle_droid = Creature:new {
-	objectName = "@mob/creature_names:mand_bunker_super_battle_droid",
+death_watch_s_battle_droid_2 = Creature:new {
+	objectName = "@mob/creature_names:",
+	customName = "Death Watch Super Battle Droid",
 	socialGroup = "death_watch",
 	faction = "",
 	level = 300,
-	chanceHit = 78.5,
-	damageMin = 1200,
-	damageMax = 2300,
+	chanceHit = 60,
+	damageMin = 4000,
+	damageMax = 4100,
 	baseXp = 19000,
-	baseHAM = 230000,
-	baseHAMmax = 230000,
+	baseHAM = 400000,
+	baseHAMmax = 410000,
 	armor = 3,
-	resists = {85,95,100,60,100,25,40,85,-1},--kinetic,energy,blast,heat,cold,electric,acid,stun,ls
+	resists = {100,100,100,100,100,100,100,100,50},--kinetic,energy,blast,heat,cold,electric,acid,stun,ls
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -49,4 +50,4 @@ death_watch_s_battle_droid = Creature:new {
 	defaultAttack = "creaturerangedattack"
 }
 
-CreatureTemplates:addCreatureTemplate(death_watch_s_battle_droid, "death_watch_s_battle_droid")
+CreatureTemplates:addCreatureTemplate(death_watch_s_battle_droid_2, "death_watch_s_battle_droid_2")
