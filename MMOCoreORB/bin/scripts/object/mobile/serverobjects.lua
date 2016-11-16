@@ -2651,5 +2651,6 @@ includeFile("mobile/zabrak_female.lua")
 includeFile("mobile/zabrak_male.lua")
 
 includeFile("mobile/yoda.lua")
+includeFile("mobile/exar_kun.lua")
 includeFile("mobile/zucca_boar.lua")
 includeFile("mobile/zucca_boar_hue.lua")
