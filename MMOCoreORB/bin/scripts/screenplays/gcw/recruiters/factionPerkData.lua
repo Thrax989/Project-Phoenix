@@ -104,7 +104,7 @@ rebelRewardData = {
 		droideka = { type=factionRewardType.hireling, display="@mob/creature_names:droideka", item="object/intangible/pet/pet_control.iff", controlledObjectTemplate="droideka", cost=19450},
 		death_watch_s_battle_droid = { type=factionRewardType.hireling, display="@mob/creature_names:mand_bunker_super_battle_droid", item="object/intangible/pet/pet_control.iff", controlledObjectTemplate="death_watch_s_battle_droid", cost=90450},
 		nightsister_elder = { type=factionRewardType.hireling, display="@mob/creature_names:nightsister_elder", item="object/intangible/pet/pet_control.iff", controlledObjectTemplate="nightsister_elder", cost=90450},
-		death_watch_ghost = { type=factionRewardType.hireling, display="@mob/creature_names:mand_bunker_dthwatch_grey", item="object/intangible/pet/pet_control.iff", controlledObjectTemplate="death_watch_ghost", cost=19450},
+		death_watch_ghost = { type=factionRewardType.hireling, display="@mob/creature_names:mand_bunker_dthwatch_grey", item="object/intangible/pet/pet_control.iff", controlledObjectTemplate="death_watch_ghost", cost=90450},
 	}
 }
 
@@ -228,6 +228,6 @@ imperialRewardData = {
 		droideka = { type=factionRewardType.hireling, display="@mob/creature_names:droideka", item="object/intangible/pet/pet_control.iff", controlledObjectTemplate="droideka", cost=19450},
 		nightsister_elder = { type=factionRewardType.hireling, display="@mob/creature_names:nightsister_elder", item="object/intangible/pet/pet_control.iff", controlledObjectTemplate="nightsister_elder", cost=90450},
 		death_watch_s_battle_droid = { type=factionRewardType.hireling, display="@mob/creature_names:mand_bunker_super_battle_droid", item="object/intangible/pet/pet_control.iff", controlledObjectTemplate="death_watch_s_battle_droid", cost=90450},
-		death_watch_ghost = { type=factionRewardType.hireling, display="@mob/creature_names:mand_bunker_dthwatch_grey", item="object/intangible/pet/pet_control.iff", controlledObjectTemplate="death_watch_ghost", cost=19450},
+		death_watch_ghost = { type=factionRewardType.hireling, display="@mob/creature_names:mand_bunker_dthwatch_grey", item="object/intangible/pet/pet_control.iff", controlledObjectTemplate="death_watch_ghost", cost=90450},
 	},
 }
