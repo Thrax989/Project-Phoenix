@@ -7690,3 +7690,10 @@ object_intangible_pet_shared_varactyl = SharedIntangibleObjectTemplate:new {
 }
 
 ObjectTemplates:addClientTemplate(object_intangible_pet_shared_varactyl, "object/intangible/pet/shared_varactyl.iff")
+
+object_intangible_pet_shared_bolotaur = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_bolotaur.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_bolotaur, "object/intangible/pet/shared_bolotaur.iff")
+
