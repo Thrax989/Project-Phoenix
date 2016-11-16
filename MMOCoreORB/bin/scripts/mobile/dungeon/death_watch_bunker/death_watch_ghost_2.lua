@@ -1,7 +1,7 @@
 
-death_watch_ghost = Creature:new {
-	objectName = "@mob/creature_names:mand_bunker_dthwatch_grey",
-	randomNameType = NAME_GENERIC,
+death_watch_ghost_2 = Creature:new {
+	objectName = "@mob/creature_names:",
+	customName = "death watch ghost 2",
 	randomNameTag = true,
 	socialGroup = "death_watch",
 	faction = "",
@@ -49,4 +49,4 @@ death_watch_ghost = Creature:new {
 	attacks = merge(bountyhuntermaster,marksmanmaster,brawlermaster,pikemanmaster,fencermaster,swordsmanmaster)
 }
 
-CreatureTemplates:addCreatureTemplate(death_watch_ghost, "death_watch_ghost")
+CreatureTemplates:addCreatureTemplate(death_watch_ghost_2, "death_watch_ghost_2")
