@@ -41,21 +41,8 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_tangible_deed_ep3_pet_deed_varactyl_deed = object_tangible_deed_ep3_pet_deed_shared_varactyl_deed:new {
+object_intangible_pet_varactyl = object_intangible_pet_shared_varactyl:new {
 
-	templateType = PETDEED,
-	numberExperimentalProperties = {1, 1},
-	experimentalProperties = {"XX", "XX"},
-	experimentalWeights = {1, 1},
-	experimentalGroupTitles = {"null", "null"},
-	experimentalSubGroupTitles = {"null", "null"},
-	experimentalMin = {0, 0},
-	experimentalMax = {0, 0},
-	experimentalPrecision = {0, 0},
-	experimentalCombineType = {0, 0},
-	generatedObjectTemplate = "mobile/custom/ancient_varactyl.iff",
-	controlDeviceObjectTemplate = "object/intangible/pet/varactyl.iff",
-	mobileTemplate = "ancient_varactyl",
 }
 
-ObjectTemplates:addTemplate(object_tangible_deed_ep3_pet_deed_varactyl_deed, "object/tangible/deed/ep3_pet_deed/varactyl_deed.iff")
+ObjectTemplates:addTemplate(object_intangible_pet_varactyl, "object/intangible/pet/varactyl.iff")

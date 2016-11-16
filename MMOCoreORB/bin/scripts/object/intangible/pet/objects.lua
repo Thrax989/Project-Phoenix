@@ -7684,3 +7684,9 @@ object_intangible_pet_shared_zucca_boar_hue = SharedIntangibleObjectTemplate:new
 }
 
 ObjectTemplates:addClientTemplate(object_intangible_pet_shared_zucca_boar_hue, "object/intangible/pet/shared_zucca_boar_hue.iff")
+
+object_intangible_pet_shared_varactyl = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_varactyl.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_varactyl, "object/intangible/pet/shared_varactyl.iff")
