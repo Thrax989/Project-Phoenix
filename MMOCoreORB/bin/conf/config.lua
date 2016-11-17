@@ -141,6 +141,7 @@ ZonesEnabled = {
 TrePath = "/home/swgemu/workspace/tre"
 
 TreFiles = {
+	"phoenix_patch_3.tre",
 	"phoenix_patch_2.tre",
 	"sytners_sat_maps_2.tre",
 	"phoenix_patch_1.tre",
