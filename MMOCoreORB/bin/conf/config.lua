@@ -91,20 +91,20 @@ ZonesEnabled = {
 	--"11",
 	--"character_farm",
 	--"cinco_city_test_m5",
-	--"corellia",
+	"corellia",
 	--"creature_test",
-	--"dantooine",
-	--"dathomir",
+	"dantooine",
+	"dathomir",
 	--"dungeon1",
-	--"endor",
+	"endor",
 	--"endor_asommers",
 	--"floratest",
 	--"godclient_test",
-	--"lok",
-	--"naboo",
+	"lok",
+	"naboo",
 	--"otoh_gunga",
 	--"rivertest",
-	--"rori",
+	"rori",
 	--"runtimerules",
 	--"simple",
 	--"space_09",
@@ -124,13 +124,13 @@ ZonesEnabled = {
 	--"space_tatooine_2",
 	--"space_yavin4",
 	--"taanab",
-	--"talus",
+	"talus",
 	"tatooine",
 	--"test_wearables",
 	"tutorial",
 	--"umbra",
 	--"watertabletest",
-	--"yavin4"
+	"yavin4"
 }
 
 
@@ -138,6 +138,20 @@ ZonesEnabled = {
 TrePath = "/home/swgemu/Desktop/SWGEmu"
 
 TreFiles = {
+	"phoenix_patch_2.tre",
+	"sytners_sat_maps_2.tre",
+	"phoenix_patch_1.tre",
+	"lasko_publish_06_01.tre",
+	"nw_001.tre",
+	"lasko_hotfix_01.tre",
+	"lasko_publish_05_01.tre",
+	"lasko_publish_04_02.tre",
+	"lasko_publish_04_01.tre",
+	"lasko_publish_03_01.tre",
+	"lasko_publish_02_01.tre",
+	"lasko_publish_01_03.tre",
+	"lasko_publish_01_02.tre",
+	"lasko_publish_01_01.tre",
 	"default_patch.tre",
 	"patch_sku1_14_00.tre",
 	"patch_14_00.tre",
@@ -190,7 +204,6 @@ TreFiles = {
 	"data_music_00.tre",
 	"bottom.tre"
 }
-
 --Status Server Config
 StatusPort = 44455
 StatusAllowedConnections = 500
