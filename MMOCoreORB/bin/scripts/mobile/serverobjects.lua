@@ -1,3 +1,8 @@
+
+includeFile("custom_content/serverobjects.lua")
+includeFile("custom/serverobjects.lua")
+includeFile("force_trainers/serverobjects.lua")
+
 -- Conversations
 includeFile("conversations.lua")
 
