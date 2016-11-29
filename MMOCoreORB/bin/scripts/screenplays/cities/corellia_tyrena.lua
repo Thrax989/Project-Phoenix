@@ -88,7 +88,7 @@ CorelliaTyrenaScreenPlay = CityScreenPlay:new {
 		{"corsec_trooper", "corsec_trooper", -5069.93,21,-2474.8,135.004,0, "", ""},
 		{"corsec_trooper", "corsec_trooper", -5401.3,21,-2613.1,58,0, "", ""},
 		{"corsec_trooper", "corsec_trooper", -5058.83,21,-2579.08,135.145,0, "", ""},
-
+		{"corsec_sergeant", "corsec_sergeant",-5410.17, 20.9418, -2789.21, 215.169, 0, "", ""},
 	},
 }
 
@@ -106,12 +106,9 @@ function CorelliaTyrenaScreenPlay:spawnSceneObjects()
 
 	--outside starport
 	spawnSceneObject(self.planet, "object/tangible/crafting/station/public_space_station.iff", -5032.14, 21, -2317.33, 0, 0 )
-
 end
 
 function CorelliaTyrenaScreenPlay:spawnMobiles()
-
-	--Anything dashed out will need to be added here and removed from spawn manager once the spawnMobiles command is extended.
 
 	--Starport
 	local pNpc = spawnMobile(self.planet, "bounty_hunter",300,-62.089,2.63942,41.8477,179.999,1935695)
@@ -136,7 +133,10 @@ function CorelliaTyrenaScreenPlay:spawnMobiles()
 	self:setMoodString(pNpc, "conversation")
 	pNpc = spawnMobile(self.planet, "info_broker",300,-1.85381,0.639422,55.3013,360.011,1935687)
 	self:setMoodString(pNpc, "conversation")
-	--{"commoner",60,15.2091,0.639422,56.8933,284.328,1935687, "calm", "Amarent Loren"},
+	pNpc = spawnMobile(self.planet, "commoner", 60, 15.2091, 0.639422, 56.8933, 284.328, 1935687)
+	self:setCustomName(pNpc, "Amarent Loren")
+	self:setMoodString(pNpc, "calm")
+
 	--Med Center
 	pNpc = spawnMobile(self.planet, "brawler",60,24.4668,0.26,4.56238,180.004,1935831)
 	self:setMoodString(pNpc, "angry")
@@ -170,7 +170,8 @@ function CorelliaTyrenaScreenPlay:spawnMobiles()
 	self:setMoodString(pNpc, "sad")
 	pNpc = spawnMobile(self.planet, "commoner_naboo",60,-14.4312,1.6,-16.4443,89.9986,1935827)
 	self:setMoodString(pNpc, "npc_consoling")
-	--{"r2",60,-13.4312,1.6,-15.4443,7.68027,1935827, "calm", "R2-P9"},
+	pNpc = spawnMobile(self.planet, "r2", 60, -13.4312, 1.6, -15.4443, 7.68027, 1935827)
+	self:setMoodString(pNpc, "calm")
 	pNpc = spawnMobile(self.planet, "bounty_hunter",300,-23.3263,1.59523,3.86229,0.250236,1935824)
 	self:setMoodString(pNpc, "angry")
 	pNpc = spawnMobile(self.planet, "sullustan_male",60,-23.3263,1.6,4.96228,180.004,1935824)
@@ -183,13 +184,13 @@ function CorelliaTyrenaScreenPlay:spawnMobiles()
 	self:setMoodString(pNpc, "neutral")
 	spawnMobile(self.planet, "trainer_dancer", 0,16.7961,-0.894993,-10.1031,3,2625355)
 	spawnMobile(self.planet, "trainer_musician", 0,21.1399,-0.894993,8.20648,120,2625355)
-	--{"acun_solari",60,19.8219,-0.894996,-19.5533,0,2625356, "calm", "Acun Solari"},
+	pNpc = spawnMobile(self.planet, "acun_solari", 60, 19.8219, -0.894996, -19.5533, 0, 2625356)
+	self:setMoodString(pNpc, "calm")
 	spawnMobile(self.planet, "trainer_entertainer", 0,6.15345,-0.894992,-19.3905,0,2625358)
 	pNpc = spawnMobile(self.planet, "artisan",60,-8.04223,-0.894908,-17.7225,360.011,2625360)
 	self:setMoodString(pNpc, "nervous")
 	pNpc = spawnMobile(self.planet, "contractor",300,-8.04223,-0.894941,-16.6225,180.002,2625360)
 	self:setMoodString(pNpc, "conversation")
-	--{"shalera_the_hutt",60,-19.2041,-0.894989,22.0094,239.061,2625364, "calm", "Shalera the Hutt"},
 	pNpc = spawnMobile(self.planet, "vrak",60,-26.3961,-0.894991,23.1611,112,2625364)
 	self:setMoodString(pNpc, "nervous")
 	pNpc = spawnMobile(self.planet, "commoner_fat",60,-26.4983,-0.519991,10.8543,179.992,2625365)
@@ -216,12 +217,14 @@ function CorelliaTyrenaScreenPlay:spawnMobiles()
 	spawnMobile(self.planet, "bounty_hunter", 300,-14.01,1.13306,-8.53,120.004,1935445)
 	spawnMobile(self.planet, "trainer_brawler", 0,-11,1.13306,-14,0,1935445)
 	spawnMobile(self.planet, "trainer_scout", 0,-12,1.13306,5.5,180,1935442)
+
 	--Guild Hall -5502 -2678
 	spawnMobile(self.planet, "trainer_merchant", 0,12,1.13306,6,180,1935461)
 	spawnMobile(self.planet, "trainer_architect", 0,11,1.13306,-14,0,1935463)
 	spawnMobile(self.planet, "trainer_weaponsmith", 0,-2.5,1.13306,-8.4,91,1935464)
 	spawnMobile(self.planet, "trainer_droidengineer", 0,-11,1.13306,-14,0,1935465)
 	spawnMobile(self.planet, "trainer_armorsmith", 0,-12,1.1,5,180,1935462)
+
 	--Guild Hall -5502 -2799
 	pNpc = spawnMobile(self.planet, "entertainer",60,-3.65637,1.1544,-8.77307,0,1935476)
 	self:setMoodString(pNpc, "conversation")
@@ -249,7 +252,8 @@ function CorelliaTyrenaScreenPlay:spawnMobiles()
 	self:setMoodString(pNpc, "conversation")
 	pNpc = spawnMobile(self.planet, "corellia_times_reporter",300,-18.0229,9,14.3195,180.008,1935472)
 	self:setMoodString(pNpc, "conversation")
-	--{"r3",60,-16.1386,2.25,18.5614,173.343,1935472, "calm", "R3-X8"},
+	pNpc = spawnMobile(self.planet, "r3", 60, -16.1386, 2.25, 18.5614, 173.343, 1935472)
+	self:setMoodString(pNpc, "calm")
 	pNpc = spawnMobile(self.planet, "commoner_technician",60,-18.0229,9,13.2195,360.011,1935472)
 	self:setMoodString(pNpc, "nervous")
 
@@ -266,7 +270,6 @@ function CorelliaTyrenaScreenPlay:spawnMobiles()
 	self:setMoodString(pNpc, "happy")
 	pNpc = spawnMobile(self.planet, "mercenary",300,-16.9721,1.00014,-3.02621,180.01,1935528)
 	self:setMoodString(pNpc, "neutral")
-	--{"commoner",60,-24,1.6,-4,354.16,1935532, "calm", "Pex (an elite storyteller vendor)"},
 
 	--Theater/Guild Hall
 	pNpc = spawnMobile(self.planet, "artisan",60,2.65839,2.6,4.15034,180.003,2365434)
@@ -289,7 +292,8 @@ function CorelliaTyrenaScreenPlay:spawnMobiles()
 	spawnMobile(self.planet, "trainer_imagedesigner", 0,-21.8004,2.12878,74.6487,184,2365437)
 
 	--Outside
-	--{"adar",60,-5448.03,21,-2674.92,253.163,0, "calm", "Adar Tallon"},
+	pNpc = spawnMobile(self.planet, "adar", 60, -5448.03, 21, -2674.92, 253.163, 0)
+	self:setMoodString(pNpc, "calm")
 	pNpc = spawnMobile(self.planet, "artisan",60,-5537.5,21,-2614.06,180.005,0)
 	self:setMoodString(pNpc, "conversation")
 	pNpc = spawnMobile(self.planet, "artisan",60,-5596.05,21,-2761.83,180.005,0)
@@ -330,7 +334,6 @@ function CorelliaTyrenaScreenPlay:spawnMobiles()
 	spawnMobile(self.planet, "commoner", 60,-5114.89,21,-2424.44,187.746,0)
 	spawnMobile(self.planet, "commoner", 60,-5200.74,21,-2638.47,308.492,0)
 	spawnMobile(self.planet, "commoner", 60,-5164.3,21,-2639.01,192.357,0)
-	--{"commoner",60,-5192.9,21,-2545.55,46.5164,0, "calm", "Excited Journalist"},
 	spawnMobile(self.planet, "commoner", 60,-5144.16,21,-2413.14,25.4291,0)
 	spawnMobile(self.planet, "commoner", 60,-5156.26,21,-2376.59,186.561,0)
 	spawnMobile(self.planet, "commoner", 60,-5003.67,21,-2342.15,284.215,0)
@@ -395,9 +398,8 @@ function CorelliaTyrenaScreenPlay:spawnMobiles()
 	spawnMobile(self.planet, "informant_npc_lvl_1", 0,-5097,21,-2344,270,0)
 	pNpc = spawnMobile(self.planet, "j_pai_brek",60,-5073.17,21,-2342.77,33.2325,0)
 	self:setMoodString(pNpc, "neutral")
-	--{"jom_irimore",60,-5520,21.3,-2630.99,0,0, "calm", "Jom Irimore"},
-	--{"junk_dealer",0,-5639.2,21,-2799.2,-40,0, "", "",JUNKCLOTHESANDJEWELLERY+JUNKARMOUR,JUNKCONVFINARY},
-	--{"junk_dealer",0,-5203.6,21,-2285.9,-11,0, "", "",JUNKGENERIC,JUNKCONVGENERIC},
+	pNpc = spawnMobile(self.planet, "jom_irimore", 60, -5520, 21.3, -2630.99, 0, 0)
+	self:setMoodString(pNpc, "calm")
 	pNpc = spawnMobile(self.planet, "larek_tatham",60,-5050.23,21,-2291.69,113.059,0)
 	self:setMoodString(pNpc, "neutral")
 	pNpc = spawnMobile(self.planet, "medic",60,-5095.02,21,-2514.56,0,0)
@@ -409,12 +411,26 @@ function CorelliaTyrenaScreenPlay:spawnMobiles()
 	pNpc = spawnMobile(self.planet, "mercenary",60,-5059.06,21,-2400.08,0,0)
 	self:setMoodString(pNpc, "worried")
 	spawnMobile(self.planet, "noble", 60,-5441.11,21.0895,-2624.13,269.845,0)
-	--{"r2",60,-5295.88,21,-2528.24,196.589,0, "calm", "R2-B0"},
-	--{"r2",60,-5297.6,21,-2396.69,271.4,0, "calm", "R2-X2"},
-	--{"r2",60,-4954.63,21,-2376.82,26.4361,0, "calm", "R2-E3"},
-	--{"r3",60,-5312.13,25.7208,-2570.41,64.2735,0, "calm", "R3-X5"},
-	--{"r5",60,-5400.32,21,-2614.17,236.816,0, "calm", "R5-S7"},
-	--{"r5",60,-4954.81,21,-2379.55,166.051,0, "calm", "R5-C7"},
+	spawnMobile(self.planet, "r2", 60, -5295.88, 21, -2528.24, 196.589, 0)
+	spawnMobile(self.planet, "r2", 60, -5297.6, 21, -2396.69, 271.4, 0)
+	spawnMobile(self.planet, "r2", 60, -4954.63, 21, -2376.82, 26.4361, 0)
+	spawnMobile(self.planet, "r3", 60, -5306.4, 21, -2567.6, -145, 0)
+	spawnMobile(self.planet, "r5", 60, -5400.32, 21, -2614.17, 236.816, 0)
+	spawnMobile(self.planet, "r5", 60, -4954.81, 21, -2379.55, 166.051, 0)
+	pNpc = spawnMobile(self.planet, "ulaire_roye", 60, -5048.68, 21, -2291.24, 122.799, 0)
+	self:setMoodString(pNpc, "neutral")
+	pNpc = spawnMobile(self.planet, "junk_dealer", 0, -5638.39, 21, -2798.75, -8, 0)
+	if pNpc ~= nil then
+		AiAgent(pNpc):setConvoTemplate("junkDealerFineryConvoTemplate")
+	end
+	spawnMobile(self.planet, "junk_dealer", 0, -5208.51, 21, -2284.94, 33, 0)
+	spawnMobile(self.planet, "junk_dealer", 0, -4970.31, 21, -2353.26, 168, 0)
+	pNpc = spawnMobile(self.planet, "junk_dealer", 0, -30.2, -0.9, 18.7, 80, 2625364)
+	if pNpc ~= nil then
+		AiAgent(pNpc):setConvoTemplate("junkDealerArmsConvoTemplate")
+	end
+	spawnMobile(self.planet, "junk_dealer", 0, -5565.97, 21.6, -2605.79, 69, 0)
+	spawnMobile(self.planet, "junk_dealer", 0, -14.4, 1.1, 2.9, 129, 1935442)
 
 	--Ragtag's
 	spawnMobile(self.planet, "ragtag_kook", 300,-5215.15,29.033,-2198.86,133.12,0)

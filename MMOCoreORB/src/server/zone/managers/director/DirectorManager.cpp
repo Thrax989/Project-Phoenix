@@ -83,6 +83,7 @@
 #include "server/zone/objects/tangible/component/Component.h"
 #include "server/zone/objects/pathfinding/NavMeshRegion.h"
 #include "server/zone/managers/collision/NavMeshManager.h"
+#include "server/zone/objects/player/sui/listbox/LuaSuiListBox.h"
 
 int DirectorManager::DEBUG_MODE = 0;
 int DirectorManager::ERROR_CODE = NO_ERROR;
@@ -358,6 +359,7 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	luaEngine->setGlobalInt("POSITIONCHANGED", ObserverEventType::POSITIONCHANGED);
 	luaEngine->setGlobalInt("CLOSECONTAINER", ObserverEventType::CLOSECONTAINER);
 	luaEngine->setGlobalInt("OBJECTDESTRUCTION", ObserverEventType::OBJECTDESTRUCTION);
+	luaEngine->setGlobalInt("OBJECTDISABLED", ObserverEventType::OBJECTDISABLED);
 	luaEngine->setGlobalInt("SAMPLE", ObserverEventType::SAMPLE);
 	luaEngine->setGlobalInt("CONVERSE", ObserverEventType::CONVERSE);
 	luaEngine->setGlobalInt("KILLEDCREATURE", ObserverEventType::KILLEDCREATURE);
@@ -532,6 +534,7 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	Luna<LuaPowerupObject>::Register(luaEngine->getLuaState());
 	Luna<LuaWaypointObject>::Register(luaEngine->getLuaState());
 	Luna<LuaComponent>::Register(luaEngine->getLuaState());
+	Luna<LuaSuiListBox>::Register(luaEngine->getLuaState());
 }
 
 int DirectorManager::loadScreenPlays(Lua* luaEngine) {

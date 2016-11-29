@@ -1,6 +1,7 @@
 junk_sheani = Creature:new {
 	objectName = "@mob/creature_names:junk_dealer",
 	customName = "Sheani",
+	planetMapCategory = "junkshop",
 	socialGroup = "townsperson",
 	faction = "townsperson",
 	level = 100,
@@ -23,15 +24,14 @@ junk_sheani = Creature:new {
 	ferocity = 0,
 	pvpBitmask = NONE,
 	creatureBitmask = PACK,
-	optionsBitmask = AIENABLED,
+	optionsBitmask = INVULNERABLE + CONVERSABLE,
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/junk_sheani.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "",
-	attacks = {
-	}
+	conversationTemplate = "junkDealerSheaniConvoTemplate",
+	attacks = {}
 }
 
 CreatureTemplates:addCreatureTemplate(junk_sheani, "junk_sheani")

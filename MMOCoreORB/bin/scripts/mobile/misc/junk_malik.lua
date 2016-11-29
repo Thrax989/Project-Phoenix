@@ -1,6 +1,7 @@
 junk_malik = Creature:new {
 	objectName = "@mob/creature_names:junk_dealer",
-	customName = "Malik",
+	customName = "Malik Pendron",
+	planetMapCategory = "junkshop",
 	socialGroup = "townsperson",
 	faction = "townsperson",
 	level = 100,
@@ -23,15 +24,14 @@ junk_malik = Creature:new {
 	ferocity = 0,
 	pvpBitmask = NONE,
 	creatureBitmask = PACK,
-	optionsBitmask = AIENABLED,
+	optionsBitmask = INVULNERABLE + CONVERSABLE,
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/junk_malik.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "",
-	attacks = {
-	}
+	conversationTemplate = "junkDealerMalikConvoTemplate",
+	attacks = {}
 }
 
 CreatureTemplates:addCreatureTemplate(junk_malik, "junk_malik")

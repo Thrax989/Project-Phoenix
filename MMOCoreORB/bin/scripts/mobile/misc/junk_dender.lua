@@ -1,6 +1,7 @@
 junk_dender = Creature:new {
 	objectName = "@mob/creature_names:junk_dealer",
 	customName = "Dender",
+	planetMapCategory = "junkshop",
 	socialGroup = "townsperson",
 	faction = "townsperson",
 	level = 100,
@@ -23,16 +24,14 @@ junk_dender = Creature:new {
 	ferocity = 0,
 	pvpBitmask = NONE,
 	creatureBitmask = PACK,
-	optionsBitmask = AIENABLED,
+	optionsBitmask = INVULNERABLE + CONVERSABLE,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/junk_reggi.iff"},
+	templates = {"object/creature/npc/base/whiphid_base_male.iff"}, -- object/mobile/junk_dender.iff has a typo in it's appearanceFilename
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "",
-	outfit = "junk_dender_outfit",
-	attacks = {
-	}
+	conversationTemplate = "junkDealerDenderConvoTemplate",
+	attacks = {}
 }
 
 CreatureTemplates:addCreatureTemplate(junk_dender, "junk_dender")

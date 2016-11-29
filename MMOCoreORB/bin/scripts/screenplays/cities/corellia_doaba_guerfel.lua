@@ -6,7 +6,6 @@ CorelliaDoabaGuerfelScreenPlay = CityScreenPlay:new {
 	planet = "corellia",
 
 	gcwMobs = {
-
 		{"comm_operator", "specforce_technician", 3308, 308, 5485.8, 45, 0, "npc_imperial", "conversation"},
 		{"dark_trooper", "rebel_commando", 3173.3, 300, 5302.5, -155, 0, "npc_imperial", "neutral"},
 		{"dark_trooper", "rebel_commando", 3181, 302.9, 5099.8, 175, 0, "npc_imperial", "neutral"},
@@ -24,7 +23,6 @@ CorelliaDoabaGuerfelScreenPlay = CityScreenPlay:new {
 		{"corsec_master_sergeant", "corsec_master_sergeant", 3300.28,308,5496.49,180.005,0, "npc_imperial", "conversation"},
 		{"corsec_sergeant", "corsec_sergeant", 3154.04,300,5172.07,0,0, "npc_imperial", "conversation"},
 		{"corsec_trooper", "corsec_trooper", 3119.2,285,5002.2,20,0, "", ""},
-
 	},
 }
 
@@ -42,12 +40,9 @@ function CorelliaDoabaGuerfelScreenPlay:spawnSceneObjects()
 
 	--outside starport
 	spawnSceneObject(self.planet, "object/tangible/crafting/station/public_space_station.iff", 3327.89, 308, 5534.89, 0, math.rad(-150) )
-
 end
 
 function CorelliaDoabaGuerfelScreenPlay:spawnMobiles()
-
-	--Anything dashed out will need to be added here and removed from spawn manager once the spawnMobiles command is extended.
 
 		--Starport
 	local pNpc = spawnMobile(self.planet, "entertainer",60,53.5,0.6,47.8,-80,9665359)
@@ -160,13 +155,15 @@ function CorelliaDoabaGuerfelScreenPlay:spawnMobiles()
 	spawnMobile(self.planet, "trainer_droidengineer", 0,-11,1.13306,-14,0,3075414)
 	spawnMobile(self.planet, "trainer_merchant", 0,12,1.13306,6,180,3075410)
 	spawnMobile(self.planet, "trainer_weaponsmith", 0,-2.5,1.13306,-8.4,91,3075413)
+
 		--Guild Hall 3182 5240
 	spawnMobile(self.planet, "businessman", 60,3.32,1.13306,-8.49,228.007,3075360)
 	spawnMobile(self.planet, "bounty_hunter", 300,-14.01,1.13306,-8.53,120.004,3075361)
-	--{"junk_dealer",0,-14.5,1.1,2.5,88,3075358, "", "",JUNKWEAPONS,JUNKCONVARMS},
 	spawnMobile(self.planet, "trainer_brawler", 0,-11,1.13306,-14,0,3075361)
 	spawnMobile(self.planet, "trainer_marksman", 0,0,1.13306,-14,0,3075360)
 	spawnMobile(self.planet, "trainer_scout", 0,-12,1.13306,5.5,180,3075358)
+	pNpc = spawnMobile(self.planet, "junk_dealer", 0, -14.5, 1.1, 2.5, 88, 3075358)
+
 		--Guild Hall 3160 5012
 	spawnMobile(self.planet, "contractor", 60,3.29,1.13306,-9.58,249.007,3055771)
 	spawnMobile(self.planet, "trainer_artisan", 0,0,1.13306,-14,0,3055771)
@@ -174,7 +171,6 @@ function CorelliaDoabaGuerfelScreenPlay:spawnMobiles()
 		--Hotel
 	pNpc = spawnMobile(self.planet, "mercenary",300,17.1745,1.28309,-13.1361,0,3075367)
 	self:setMoodString(pNpc, "angry")
-	--{"commoner",60,-24,1.6,-4,246.374,3075372, "calm", "An Event Promoter"},
 	pNpc = spawnMobile(self.planet, "corellia_times_investigator",60,-4.31306,0.999956,6.26959,180,3075366)
 	self:setMoodString(pNpc, "conversation")
 	pNpc = spawnMobile(self.planet, "ithorian_male",300,7.8197,1.00001,-5.9104,180.001,3075366)
@@ -231,6 +227,8 @@ function CorelliaDoabaGuerfelScreenPlay:spawnMobiles()
 	self:setMoodString(pNpc, "conversation")
 	pNpc = spawnMobile(self.planet, "bounty_hunter",300,3145.1,290,4995.55,180.005,0)
 	self:setMoodString(pNpc, "angry")
+	pNpc = spawnMobile(self.planet, "farmer", 60, 3145.1, 289.991, 4994.55, 359.489, 0)
+	self:setMoodString(pNpc, "conversation")
 	spawnMobile(self.planet, "informant_npc_lvl_1", 0,3100,300,5224,90,0)
 	spawnMobile(self.planet, "informant_npc_lvl_1", 0,3123,300,5188,0,0)
 	spawnMobile(self.planet, "informant_npc_lvl_1", 0,3145,300,5148,90,0)
@@ -240,7 +238,6 @@ function CorelliaDoabaGuerfelScreenPlay:spawnMobiles()
 	spawnMobile(self.planet, "informant_npc_lvl_1", 0,3311,300,5386,300,0)
 	spawnMobile(self.planet, "informant_npc_lvl_1", 0,3293,300,5401,90,0)
 	spawnMobile(self.planet, "informant_npc_lvl_1", 0,3297,308,5514,70,0)
-	--{"junk_dealer",0,3402.4,308,5679,5,0, "", "",JUNKGENERIC,JUNKCONVGENERIC},
 	spawnMobile(self.planet, "noble", 60,3158.95,300,5352.24,80.7765,0)
 	pNpc = spawnMobile(self.planet, "pilot",60,3202.28,290,4988.06,0,0)
 	self:setMoodString(pNpc, "angry")
@@ -253,6 +250,11 @@ function CorelliaDoabaGuerfelScreenPlay:spawnMobiles()
 	spawnMobile(self.planet, "trainer_medic", 0,3341,308,5517,47,0)
 	spawnMobile(self.planet, "trainer_scout", 0,3330.01,308,5512.46,204,0)
 	spawnMobile(self.planet, "trainer_tailor", 0,3077,300,5251,0,0)
+	spawnMobile(self.planet, "junk_dealer", 0, 3402.4, 308, 5679, 5, 0)
+	spawnMobile(self.planet, "junk_dealer", 0, 3367.86, 308.6, 5466.07, 0, 0)
+	if pNpc ~= nil then
+		AiAgent(pNpc):setConvoTemplate("junkDealerFineryConvoTemplate")
+	end
 
 	--newb starter grind spawns
 	spawnMobile(self.planet, "durni", 300, getRandomNumber(10) + 3475, 309.2, getRandomNumber(10) + 5727, getRandomNumber(360), 0)

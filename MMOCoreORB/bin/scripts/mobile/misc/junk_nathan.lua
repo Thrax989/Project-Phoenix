@@ -1,6 +1,7 @@
 junk_nathan = Creature:new {
 	objectName = "@mob/creature_names:junk_dealer",
-	customName = "Nathan Blyskipper (a Junk Dealer)",
+	customName = "Nathan Blyskipper",
+	planetMapCategory = "junkshop",
 	socialGroup = "townsperson",
 	faction = "townsperson",
 	level = 100,
@@ -23,15 +24,14 @@ junk_nathan = Creature:new {
 	ferocity = 0,
 	pvpBitmask = NONE,
 	creatureBitmask = PACK,
-	optionsBitmask = INVULNERABLE,
+	optionsBitmask = INVULNERABLE + CONVERSABLE,
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/junk_nathan.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "",
-	attacks = {
-	}
+	conversationTemplate = "junkDealerNathanConvoTemplate",
+	attacks = {}
 }
 
 CreatureTemplates:addCreatureTemplate(junk_nathan, "junk_nathan")

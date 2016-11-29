@@ -41,12 +41,9 @@ function NabooTheedScreenPlay:spawnSceneObjects()
 	--outside starport
 	spawnSceneObject(self.planet, "object/tangible/crafting/station/public_space_station.iff", -4830.96, 6, 4141.53, 0, math.rad(-140) )
 	spawnSceneObject(self.planet, "object/tangible/crafting/station/public_space_station.iff", -4886.07, 6, 4188.23, 0, math.rad(-140) )
-
 end
 
 function NabooTheedScreenPlay:spawnMobiles()
-
-	--Anything dashed out will need to be added here and removed from spawn manager once the spawnMobiles command is extended.
 
 	--Outside
 	local pNpc = spawnMobile(self.planet, "agriculturalist",60,-5827.81,6,4173.98,180.005,0)
@@ -194,13 +191,19 @@ function NabooTheedScreenPlay:spawnMobiles()
 	spawnMobile(self.planet, "informant_npc_lvl_1",0,-5369,6,4178,0,0)
 	spawnMobile(self.planet, "informant_npc_lvl_1",0,-5477,6,4089,0,0)
 	spawnMobile(self.planet, "j1_po",60,-4856.56,6,4158.12,237.016,0)
-	--{"junk_dealer",0,-5222.4,6,4217.4,-137,0, "", "",JUNKGENERIC,JUNKCONVGENERIC},
-	--{"junk_dealer",0,-5885.3,6,4214.7,83,0, "", "",JUNKGENERIC,JUNKCONVGENERIC},
 	spawnMobile(self.planet, "miner",60,-4965.4,6,4194.15,180.005,0)
 	pNpc = spawnMobile(self.planet, "miner",60,-5886.59,6,4369.23,180.005,0)
 	self:setMoodString(pNpc, "conversation")
 	pNpc = spawnMobile(self.planet, "official",300,-5886.59,6,4368.23,0,0)
 	self:setMoodString(pNpc, "conversation")
+	spawnMobile(self.planet, "junk_dealer", 0, -5884.3, 6, 4214.3, 83, 0)
+	pNpc = spawnMobile(self.planet, "junk_dealer", 0, -5762.59, 6.6, 4234.66, 87, 0)
+	if pNpc ~= nil then
+		AiAgent(pNpc):setConvoTemplate("junkDealerFineryConvoTemplate")
+	end
+	spawnMobile(self.planet, "junk_dealer", 0, -5222.78, 6, 4217.68, -130, 0)
+	spawnMobile(self.planet, "junk_dealer", 0, -5086.83, 6, 4142.32, 37, 0)
+	spawnMobile(self.planet, "junk_dealer", 0, -4999.46, 6, 4120.26, 113, 0)
 
 	spawnMobile(self.planet, "trainer_1hsword",0,-5565,6,4304,84,0)
 	spawnMobile(self.planet, "trainer_2hsword",0,-5382,6,4327,180,0)
@@ -320,7 +323,6 @@ function NabooTheedScreenPlay:spawnMobiles()
 	spawnMobile(self.planet, "commoner_naboo",300,18.9004,1.28309,-6.40631,0,1697378)
 	spawnMobile(self.planet, "chiss_male",300,7.0973,1.00001,8.95992,0,1697377)
 	spawnMobile(self.planet, "chiss_female",300,-24.1798,1.5815,3.00112,135.006,1697379)
-	--{"commoner",60,-24,1.6,-4,77.8869,1697383, "calm", "An Event Promoter"},
 	spawnMobile(self.planet, "ithorian_male",60,-21.5772,1.6,-14.1795,180.023,1697383)
 	spawnMobile(self.planet, "bounty_hunter",60,-7.0383,1.6,-12.1532,360.011,1697381)
 	spawnMobile(self.planet, "twilek_slave",60,-7.0383,1.6,-11.0532,179.988,1697381)
@@ -336,18 +338,28 @@ function NabooTheedScreenPlay:spawnMobiles()
 	self:setMoodString(pNpc, "conversation")
 	pNpc = spawnMobile(self.planet, "commoner",60,-19.0001,2.25,17.4832,90.0053,1305888)
 	self:setMoodString(pNpc, "neutral")
+
 	--Guild Hall -5457 4122
 	spawnMobile(self.planet, "trainer_brawler",0,-11,1,-13,0,1692075)
 	spawnMobile(self.planet, "trainer_marksman",0,0,1.13306,-13,0,1692074)
-	spawnMobile(self.planet, "trainer_scout",0,-14.0781,1.13306,3.79797,142,1692072)
+	spawnMobile(self.planet, "trainer_scout", 0, -11.9, 1.13306, 5.1, 179, 1692072)
+	spawnMobile(self.planet, "junk_dealer", 0, -14.3, 1.1, 3, 107, 1692072)
+
 	--Guild Hall -5368 4138
 	spawnMobile(self.planet, "trainer_artisan",0,0.0417929,1.13306,-13.5584,2,1692084)
+
 	--Guild Hall -5452 4014
 	spawnMobile(self.planet, "trainer_architect",0,11,1.133,-14.5,0,1692093)
 	spawnMobile(self.planet, "trainer_armorsmith",0,-15,1.1,0,90,1692092)
 	spawnMobile(self.planet, "trainer_droidengineer",0,-11,1.13306,-13,0,1692095)
 	spawnMobile(self.planet, "trainer_merchant",0,12,1.13306,6,180,1692091)
 	spawnMobile(self.planet, "trainer_weaponsmith",0,-3.1,1.1,-8.2,91,1692094)
+
+	--Cantina
+	pNpc = spawnMobile(self.planet, "junk_dealer", 0, -5.8, -0.9, -20.9, -52, 96)
+	if pNpc ~= nil then
+		AiAgent(pNpc):setConvoTemplate("junkDealerArmsConvoTemplate")
+	end
 
 	--Hotel
 	pNpc = spawnMobile(self.planet, "businessman",60,15.5641,1.28309,-2.37071,135.005,1677395)
@@ -367,7 +379,6 @@ function NabooTheedScreenPlay:spawnMobiles()
 	self:setMoodString(pNpc, "angry")
 	pNpc = spawnMobile(self.planet, "ysnide_omewror",60,4.2931,1.00001,-6.52435,180.012,1677394)
 	self:setMoodString(pNpc, "conversation")
-	--{"event_perk_vendor",0,-24,1.6,-4,240.351,1677400, "calm", "Pex (a storyteller vendor)"},
 	pNpc = spawnMobile(self.planet, "commoner_old",300,-22.6115,1.6,-10.3739,179.996,1677400)
 	self:setMoodString(pNpc, "sad")
 	pNpc = spawnMobile(self.planet, "noble",300,-22.6115,1.6,-11.4739,0,1677400)
@@ -416,5 +427,4 @@ function NabooTheedScreenPlay:spawnMobiles()
 	spawnMobile(self.planet, "flewt", 300, getRandomNumber(10) + -5176.4, 6, getRandomNumber(10) + 4612.2, getRandomNumber(360), 0)
 	spawnMobile(self.planet, "flewt", 300, getRandomNumber(10) + -5161.3, 6, getRandomNumber(10) + 4601.7, getRandomNumber(360), 0)
 	spawnMobile(self.planet, "flewt", 300, getRandomNumber(10) + -5193.3, 6, getRandomNumber(10) + 4610.0, getRandomNumber(360), 0)
-
 end

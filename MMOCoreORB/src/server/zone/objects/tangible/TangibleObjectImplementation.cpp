@@ -78,6 +78,9 @@ void TangibleObjectImplementation::loadTemplateData(SharedObjectTemplate* templa
 
 	faction = tanoData->getFaction();
 
+	junkDealerNeeded = tanoData->getJunkDealerNeeded();
+	junkValue = tanoData->getJunkValue();
+
 	threatMap = NULL;
 }
 
@@ -633,8 +636,11 @@ int TangibleObjectImplementation::inflictDamage(TangibleObject* attacker, int da
 			getThreatMap()->addDamage(creature, (uint32)damage);
 	}
 
-	if (newConditionDamage >= maxCondition)
+	if (newConditionDamage >= maxCondition) {
 		notifyObjectDestructionObservers(attacker, newConditionDamage, isCombatAction);
+		notifyObservers(ObserverEventType::OBJECTDISABLED, attacker);
+		setDisabled(true);
+	}
 
 	return 0;
 }
@@ -657,8 +663,11 @@ int TangibleObjectImplementation::inflictDamage(TangibleObject* attacker, int da
 			getThreatMap()->addDamage(creature, (uint32)damage, xp);
 	}
 
-	if (newConditionDamage >= maxCondition)
+	if (newConditionDamage >= maxCondition) {
 		notifyObjectDestructionObservers(attacker, newConditionDamage, isCombatAction);
+		notifyObservers(ObserverEventType::OBJECTDISABLED, attacker);
+		setDisabled(true);
+	}
 
 	return 0;
 }
@@ -1096,6 +1105,17 @@ bool TangibleObjectImplementation::isImperial() const {
 
 bool TangibleObjectImplementation::isNeutral() const {
 	return faction == Factions::FACTIONNEUTRAL;
+}
+
+void TangibleObjectImplementation::setDisabled(bool disabled) {
+	if (disabled)
+		setOptionBit(OptionBitmask::DISABLED, true);
+	else
+		clearOptionBit(OptionBitmask::DISABLED, true);
+}
+
+bool TangibleObjectImplementation::isDisabled() {
+	return getOptionsBitmask() & OptionBitmask::DISABLED;
 }
 
 TangibleObject* TangibleObject::asTangibleObject() {

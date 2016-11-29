@@ -1,6 +1,7 @@
 junk_ollobo = Creature:new {
 	objectName = "@mob/creature_names:junk_dealer",
 	customName = "Ollobo",
+	planetMapCategory = "junkshop",
 	socialGroup = "jabba",
 	faction = "jabba",
 	level = 100,
@@ -23,15 +24,14 @@ junk_ollobo = Creature:new {
 	ferocity = 0,
 	pvpBitmask = NONE,
 	creatureBitmask = PACK,
-	optionsBitmask = AIENABLED,
+	optionsBitmask = INVULNERABLE + CONVERSABLE,
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/junk_ollobo.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "",
-	attacks = {
-	}
+	conversationTemplate = "junkDealerOlloboConvoTemplate",
+	attacks = {}
 }
 
 CreatureTemplates:addCreatureTemplate(junk_ollobo, "junk_ollobo")

@@ -84,6 +84,10 @@ includeFile("tutorial/conversations/tutorialQuartermasterConvoHandler.lua")
 includeFile("tutorial/conversations/tutorialScaredSoldierConvoHandler.lua")
 includeFile("tutorial/conversations/tutorialTrainingRoomOfficerConvoHandler.lua")
 
+-- Junk Dealer
+includeFile("junk_dealer/junk_dealer.lua")
+includeFile("junk_dealer/junk_dealer_conv_handler.lua")
+
 -- Dungeons
 includeFile("dungeon/death_watch_bunker/deathWatchBunker.lua")
 includeFile("dungeon/death_watch_bunker/deathWatchContainerComponents.lua")
@@ -190,6 +194,18 @@ includeFile("village/convos/phase4/chief_engineer_phase4_conv_handler.lua")
 includeFile("village/convos/phase4/med_droid_phase4_conv_handler.lua")
 includeFile("village/convos/phase4/sarguillo_phase4_conv_handler.lua")
 includeFile("village/convos/phase4/sivarra_phase4_conv_handler.lua")
+
+-- Jedi
+includeFile("jedi/shrine/ForceShrineMenuComponent.lua")
+
+-- Jedi Trials (Padawan)
+includeFile("jedi/padawan/jedi_padawan_trial.lua")
+includeFile("jedi/padawan/convos/trials_padawan_architect_01.lua")
+includeFile("jedi/padawan/convos/trials_padawan_architect_02.lua")
+includeFile("jedi/padawan/convos/trials_padawan_artist_01.lua")
+includeFile("jedi/padawan/convos/trials_padawan_artist_02.lua")
+includeFile("jedi/padawan/trials/trial_architect.lua")
+includeFile("jedi/padawan/trials/trial_artist.lua")
 
 -- Events - Bestine Election
 includeFile("events/conversations/bestine_election/bestine_election_conv_handler.lua")
@@ -547,6 +563,9 @@ includeFile("static_spawns/tatooine_static_spawns_south.lua")
 
 --Yavin4
 includeFile("static_spawns/yavin4_static_spawns.lua")
+
+--Magic Eight Ball
+includeFile("tools/MagicEightBallMenuComponent.lua")
 
 --Treasure Maps
 includeFile("treasure_map/EncodedDiskMenuComponent.lua")

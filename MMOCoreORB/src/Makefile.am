@@ -106,7 +106,8 @@ core3_TESTS = 	server/zone/objects/area/areashapes/tests/CircularAreaShapeTest.c
 			  	server/zone/tests/ZoneTest.cpp \
 			  	server/zone/managers/objectcontroller/command/tests/CommandLuaTest.cpp
 
-core3_IDLS =	autogen/server/zone/objects/pathfinding/NavMeshRegion.cpp \
+core3_IDLS =	autogen/server/zone/objects/tangible/misc/FsCsObject.cpp \
+				autogen/server/zone/objects/pathfinding/NavMeshRegion.cpp \
 				autogen/server/zone/objects/creature/buffs/ConcealBuff.cpp \
 				autogen/server/zone/objects/tangible/eventperk/ScavengerDroid.cpp \
 				autogen/server/zone/managers/gcw/GCWBaseShutdownObserver.cpp \
@@ -207,7 +208,6 @@ core3_IDLS =	autogen/server/zone/objects/pathfinding/NavMeshRegion.cpp \
 				autogen/server/zone/objects/tangible/consumable/DelayedBuffObserver.cpp \
 				autogen/server/zone/objects/tangible/loot/LootkitObject.cpp \
 				autogen/server/zone/objects/creature/CreatureObject.cpp \
-				autogen/server/zone/objects/creature/junkdealer/JunkdealerCreature.cpp \
 				autogen/server/zone/objects/creature/VehicleObject.cpp \
 				autogen/server/zone/objects/creature/ai/NonPlayerCreatureObject.cpp \
 				autogen/server/zone/objects/creature/ai/Creature.cpp \
@@ -365,6 +365,7 @@ core3_IDLS =	autogen/server/zone/objects/pathfinding/NavMeshRegion.cpp \
 				autogen/server/zone/objects/tangible/ticket/TicketObject.cpp \
 				autogen/server/zone/objects/tangible/terminal/characterbuilder/CharacterBuilderTerminal.cpp \
 				autogen/server/zone/managers/gcw/GCWManager.cpp \
+				autogen/server/zone/managers/gcw/sessions/ContrabandScanSession.cpp \
 				autogen/server/zone/objects/tangible/threat/ThreatMapObserver.cpp \
 				autogen/server/zone/objects/creature/conversation/ConversationObserver.cpp \
 				autogen/server/zone/objects/creature/conversation/TrainerConversationObserver.cpp \
@@ -373,6 +374,7 @@ core3_IDLS =	autogen/server/zone/objects/pathfinding/NavMeshRegion.cpp \
 				
 core3_SOURCES =	$(core3_IDLS) \
 		$(core3_TESTS) \
+		server/zone/objects/player/sui/listbox/LuaSuiListBox.cpp \
 		server/zone/objects/player/sui/LuaSuiPageData.cpp \
 		server/zone/objects/player/sui/SuiPageData.cpp \
 		server/zone/managers/vendor/VendorManager.cpp \
@@ -489,7 +491,6 @@ core3_SOURCES =	$(core3_IDLS) \
 		server/zone/objects/tangible/components/HolocronMenuComponent.cpp \
 		server/zone/objects/tangible/components/WaypointDatapadMenuComponent.cpp \
 		server/zone/objects/tangible/components/ForceCrystalMenuComponent.cpp \
-		server/zone/objects/tangible/components/ForceShrineMenuComponent.cpp \
 		server/zone/objects/tangible/components/CloningTerminalMenuComponent.cpp \
 		server/zone/objects/tangible/components/generic/ArtCrateMenuComponent.cpp \
 		server/zone/objects/tangible/components/ContainerObjectComponent.cpp \
@@ -561,6 +562,7 @@ core3_SOURCES =	$(core3_IDLS) \
 		server/zone/managers/faction/FactionManager.cpp \
 		server/zone/managers/faction/FactionMap.cpp \
 		server/zone/managers/gcw/GCWManagerImplementation.cpp \
+		server/zone/managers/gcw/sessions/ContrabandScanSessionImplementation.cpp \
 		server/zone/managers/gcw/GCWBaseShutdownObserverImplementation.cpp \
 		server/zone/managers/components/ComponentManager.cpp \
 		server/zone/managers/planet/HeightMap.cpp \
@@ -723,7 +725,6 @@ core3_SOURCES =	$(core3_IDLS) \
 		server/zone/objects/tangible/components/droid/DroidDataStorageModuleDataComponent.cpp \
 		server/zone/objects/tangible/components/droid/DroidDatapadContainerComponent.cpp \
 		server/zone/objects/installation/components/TurretDataComponent.cpp \
-		server/zone/objects/creature/junkdealer/JunkdealerCreatureImplementation.cpp \
 		server/zone/objects/creature/variables/CommandQueueAction.cpp \
 		server/zone/objects/creature/commands/QueueCommand.cpp \
 		server/zone/objects/creature/commands/ForceHealQueueCommand.cpp \

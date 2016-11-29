@@ -1,6 +1,7 @@
 junk_quich = Creature:new {
 	objectName = "@mob/creature_names:junk_dealer",
-	customName = "Quich",
+	customName = "Quich Marae",
+	planetMapCategory = "junkshop",
 	socialGroup = "townsperson",
 	faction = "townsperson",
 	level = 100,
@@ -23,15 +24,14 @@ junk_quich = Creature:new {
 	ferocity = 0,
 	pvpBitmask = NONE,
 	creatureBitmask = PACK,
-	optionsBitmask = AIENABLED,
+	optionsBitmask = INVULNERABLE + CONVERSABLE,
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/junk_quich.iff"},
 	lootGroups = {},
 	weapons = {},
-	conversationTemplate = "",
-	attacks = {
-	}
+	conversationTemplate = "junkDealerQuichConvoTemplate",
+	attacks = {}
 }
 
 CreatureTemplates:addCreatureTemplate(junk_quich, "junk_quich")

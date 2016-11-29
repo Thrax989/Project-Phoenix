@@ -2649,12 +2649,5 @@ includeFile("mobile/young_roba.lua")
 includeFile("mobile/young_spined_snake.lua")
 includeFile("mobile/zabrak_female.lua")
 includeFile("mobile/zabrak_male.lua")
-
-
-includeFile("mobile/outbreak_afflicted_blackwing_rancor_boss.lua")
-includeFile("mobile/yoda.lua")
-includeFile("mobile/varactyl.lua")
-includeFile("mobile/bolotaur.lua")
-includeFile("mobile/exar_kun.lua")
 includeFile("mobile/zucca_boar.lua")
 includeFile("mobile/zucca_boar_hue.lua")
