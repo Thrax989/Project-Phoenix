@@ -1,2 +1,0 @@
---includeFile("custom_content/tangible/sign/player/house_address_halloween_sign.lua")
---includeFile("custom_content/tangible/sign/player/shop_sign_halloween_sign.lua")
