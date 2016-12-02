@@ -161,6 +161,7 @@ class PlayerManager extends Observer implements Logger {
 
 	public native void setExperienceMultiplier(float globalMultiplier);
 	public native void awardExperience(CreatureObject player, final string xpType, int amount, boolean sendSystemMessage = true, float localMultiplier = 1.0f);
+	public native void frsSkillCheck(CreatureObject player, final string skill, final string skillParent);
 
 	@local @dereferenced
 	public native SortedVector<SceneObject> getInsurableItems(CreatureObject player, boolean onlyInsurable = true);
@@ -444,7 +445,7 @@ class PlayerManager extends Observer implements Logger {
 	 * @returns true if it was added
 	 * @param crc CRC of the buff, player target of buff, amount is the attribute modifier for the buff, duration of the buff, buffType specifies whether medical or performance and attribute sets the creature attribute to modify
 	 */
-	private native boolean doEnhanceCharacter(unsigned int crc, CreatureObject player, int amount, int duration, int buffType, byte attribute);
+	public native boolean doEnhanceCharacter(unsigned int crc, CreatureObject player, int amount, int duration, int buffType, byte attribute);
 
 	public int getBaseStoredCreaturePets() {
 		return baseStoredCreaturePets;

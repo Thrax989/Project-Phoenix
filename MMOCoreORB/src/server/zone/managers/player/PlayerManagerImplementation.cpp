@@ -130,6 +130,12 @@
 
 #include <iostream>
 
+#include "server/zone/objects/player/Races.h"
+/*  GOTO line 733 for next portion to uncomment:  NGE Player BH system*/
+#include "server/zone/managers/visibility/VisibilityManager.h"
+#include "server/zone/objects/player/sui/callbacks/BountyHuntSuiCallback.h"
+#include "server/zone/objects/player/sui/inputbox/SuiInputBox.h"
+
 int PlayerManagerImplementation::MAX_CHAR_ONLINE_COUNT = 2;
 
 PlayerManagerImplementation::PlayerManagerImplementation(ZoneServer* zoneServer, ZoneProcessServer* impl) :
@@ -745,12 +751,39 @@ void PlayerManagerImplementation::killPlayer(TangibleObject* attacker, CreatureO
 	player->sendSystemMessage(stringId);
 
 	player->updateTimeOfDeath();
-	player->clearBuffs(true);
+	//player->clearBuffs(true);
 
 	PlayerObject* ghost = player->getPlayerObject();
+	player->setFactionStatus(FactionStatus::ONLEAVE);
+	player->playEffect("clienteffect/holoemote_haunted.cef", "head");
+	PlayMusicMessage* pmm = new PlayMusicMessage("sound/mus_npe2_station_victory.snd");
+ 	player->sendMessage(pmm);
 
 	if (ghost != NULL)
 		ghost->resetIncapacitationTimes();
+		//ghost->setFoodFilling(0);
+		//ghost->setDrinkFilling(0);
+	/* NGE BH SYSTEM */
+	if (attacker->isPlayerCreature() && attacker != player) {
+		ManagedReference<SuiMessageBox*> box = new SuiMessageBox(player, SuiWindowType::CITY_ADMIN_CONFIRM_UPDATE_TYPE);
+		box->setPromptTitle("You have been slain...");
+		box->setPromptText("Would you like to pay 25,000 credits to place a bounty on your killers head?");
+		box->setCancelButton(true, "@no");
+		box->setOkButton(true, "@yes");
+		box->setUsingObject(attacker);
+		box->setCallback(new BountyHuntSuiCallback(player->getZoneServer()));
+		player->getPlayerObject()->addSuiBox(box);
+		player->sendMessage(box->generateMessage());
+	}
+	if (attacker->isPlayerCreature()) {
+		CreatureObject* attackerCreature = cast<CreatureObject*>(attacker);
+		int attackerRating = attackerCreature->getScreenPlayState("pvpRating");
+		int playerRating = player->getScreenPlayState("pvpRating");
+		attackerCreature->setScreenPlayState("pvpRating", attackerRating + 1);
+		attackerCreature->sendSystemMessage("You have raised your PVP Rating");
+		player->setScreenPlayState("pvpRating", playerRating - 1);
+		player->sendSystemMessage("You have lowered your PVP Rating");
+	}
 
 	if (attacker->getFaction() != 0) {
 		if (attacker->isPlayerCreature() || attacker->isPet()) {
@@ -955,6 +988,13 @@ void PlayerManagerImplementation::sendPlayerToCloner(CreatureObject* player, uin
 
 	if (ghost->hasPvpTef())
 		ghost->schedulePvpTefRemovalTask(true);
+
+	if (player->hasSkill("force_rank_dark_novice") || player->hasSkill("force_rank_light_novice")) {
+		player->setFactionStatus(2);
+	} else {
+		if (ghost->hasPvpTef())
+			ghost->schedulePvpTefRemovalTask(true);
+	}
 
 
 	SortedVector<ManagedReference<SceneObject*> > insurableItems = getInsurableItems(player, false);
@@ -1182,10 +1222,12 @@ void PlayerManagerImplementation::disseminateExperience(TangibleObject* destruct
 				String xpType = entry->elementAt(j).getKey();
 				float xpAmount = baseXp;
 
-				xpAmount *= (float) damage / totalDamage;
+				//xpAmount *= (float) damage / totalDamage;
+
+				xpAmount /= (float) entry->size() / 1;
 
 				//Cap xp based on level
-				xpAmount = MIN(xpAmount, calculatePlayerLevel(attacker, xpType) * 300.f);
+				//xpAmount = MIN(xpAmount, calculatePlayerLevel(attacker, xpType) * 300.f);
 
 				//Apply group bonus if in group
 				if (group != NULL)
@@ -1480,7 +1522,38 @@ void PlayerManagerImplementation::awardExperience(CreatureObject* player, const 
 	if (playerObject == NULL)
 		return;
 
-	int xp = playerObject->addExperience(xpType, (int) (amount * localMultiplier * globalExpMultiplier));
+	int xp;
+	if (amount <= 0 || xpType == "force_rank_xp" || xpType == "jedi_general") {
+		xp = playerObject->addExperience(xpType, amount);
+	} else if (xpType == "imagedesigner" ||
+		xpType == "music" ||
+		xpType == "dance" ||
+		xpType == "entertainer_healing" ||
+		xpType == "scout" ||
+		xpType == "trapping" ||
+		xpType == "camp" ||
+		xpType == "crafting_medicine_general" ||
+		xpType == "crafting_general" ||
+		xpType == "resource_harvesting_inorganic" ||
+		xpType == "creaturehandler" ||
+		xpType == "crafting_bio_engineer_creature" ||
+		xpType == "bio_engineer_dna_harvesting" ||
+		xpType == "crafting_clothing_armor" ||
+		xpType == "crafting_weapons_general" ||
+		xpType == "crafting_food_general" ||
+		xpType == "crafting_clothing_general" ||
+		xpType == "crafting_structure_general" ||
+		xpType == "crafting_droid_general" ||
+		xpType == "merchant" ||
+		xpType == "slicing" ||
+		xpType == "crafting_spice" ||
+		xpType == "political" ||
+		xpType == "bountyhunter" ||
+		xpType == "shipwright") {
+		xp = playerObject->addExperience(xpType, (amount * 20));
+	} else {
+		xp = playerObject->addExperience(xpType, (int) (amount * localMultiplier * globalExpMultiplier));
+	}
 
 	player->notifyObservers(ObserverEventType::XPAWARDED, player, xp);
 
@@ -1498,7 +1571,120 @@ void PlayerManagerImplementation::awardExperience(CreatureObject* player, const 
 		}
 	}
 
+	if (xpType == "force_rank_xp") {
+		if (player->hasSkill("force_rank_light_novice") || player->hasSkill("force_rank_dark_novice")) {
+			PlayerObject* ghost = player->getPlayerObject();
+			SkillList* skillList = player->getSkillList();
+			int curExp = ghost->getExperience("force_rank_xp");
+			if (curExp < -37501) { //Allows up to 5 deaths without getting any XP
+				if (player->hasSkill("force_rank_light_novice")) {
+					while (player->hasSkill("force_rank_light_novice")) {
+						for (int i = 0; i < skillList->size(); ++i) {
+							Skill* skill = skillList->get(i);
+							if (skill->getSkillName().indexOf("force_rank_") != -1) {
+								SkillManager::instance()->surrenderSkill(skill->getSkillName(), player, true);
+							}
+						}
+					}
+					if (player->getScreenPlayState("jedi_FRS") == 4) {
+						player->setScreenPlayState("jedi_FRS", 16);
+					}
+					if (ghost->getJediState() > 2) {
+						ghost->setJediState(2);
+					}
+					String playerName = player->getFirstName();
+					StringBuffer zBroadcast;
+					zBroadcast << "\\#ffb90f" << playerName << " has left the \\#22b7f6Jedi Order!";
+					ghost->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
+				} else if (player->hasSkill("force_rank_dark_novice")) {
+					while (player->hasSkill("force_rank_dark_novice")) {
+						for (int i = 0; i < skillList->size(); ++i) {
+							Skill* skill = skillList->get(i);
+							if (skill->getSkillName().indexOf("force_rank_") != -1) {
+								SkillManager::instance()->surrenderSkill(skill->getSkillName(), player, true);
+							}
+						}
+					}
+					if (player->getScreenPlayState("jedi_FRS") == 8) {
+						player->setScreenPlayState("jedi_FRS", 16);
+					}
+					if (ghost->getJediState() > 2) {
+						ghost->setJediState(2);
+					}
+					String playerName = player->getFirstName();
+					StringBuffer zBroadcast;
+					zBroadcast << "\\#ffb90f" << playerName << " has left the \\#e51b1bSith Order!";
+					ghost->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
+				}
+			}
+			if (curExp < 10000) {
+				frsSkillCheck(player, "novice", "rank_01");
+			}
+			if (curExp >= 10000 && curExp < 20000) {
+				frsSkillCheck(player, "rank_01", "rank_02");
+			}
+			if (curExp >= 20000 && curExp < 30000) {
+				frsSkillCheck(player, "rank_02", "rank_03");
+			}
+			if (curExp >= 30000 && curExp < 40000) {
+				frsSkillCheck(player, "rank_03", "rank_04");
+			}
+			if (curExp >= 40000 && curExp < 60000) {
+				frsSkillCheck(player, "rank_04", "rank_05");
+			}
+			if (curExp >= 60000 && curExp < 80000) {
+				frsSkillCheck(player, "rank_05", "rank_06");
+			}
+			if (curExp >= 80000 && curExp < 100000) {
+				frsSkillCheck(player, "rank_06", "rank_07");
+			}
+			if (curExp >= 100000 && curExp < 150000) {
+				frsSkillCheck(player, "rank_07", "rank_08");
+			}
+			if (curExp >= 150000 && curExp < 200000) {
+				frsSkillCheck(player, "rank_08", "rank_09");
+				SkillManager::instance()->awardSkill("force_title_jedi_rank_04", player, true, true, true);
+			}
+			if (curExp >= 200000 && curExp < 300000) {
+				frsSkillCheck(player, "rank_09", "rank_10");
+			}
+			if (curExp >= 300000 && curExp < 500000) {
+				frsSkillCheck(player, "rank_10", "master");
+				SkillManager::instance()->awardSkill("force_title_jedi_master", player, true, true, true);
+			}
+			if (curExp >= 500000) {
+				frsSkillCheck(player, "master", "master");
+				SkillManager::instance()->awardSkill("force_title_jedi_master", player, true, true, true);
+			}
+		}
+	}
 
+
+}
+
+void PlayerManagerImplementation::frsSkillCheck(CreatureObject* player, const String& skill, const String& skillParent) {
+	SkillManager* skillManager = server->getSkillManager();
+	String skillStarter;
+	if (player->hasSkill("force_rank_light_novice")) {
+		skillStarter = "force_rank_light_";
+	} else {
+		skillStarter = "force_rank_dark_";
+	}
+	player->sendSystemMessage("You have been granted: " + skillStarter + skill);
+	skillManager->awardSkill(skillStarter + skill, player, true, true, true);
+	if (player->hasSkill(skillStarter + skillParent) && (skill != skillParent)) {
+		player->sendSystemMessage("You no longer meet the requirements for: " + skillStarter + skill);
+		//skillManager->surrenderSkill(skillStarter + skillParent, player, true);
+		SkillList* skillList = player->getSkillList();
+		while (player->hasSkill(skillStarter + skillParent)) {
+			for (int i = 0; i < skillList->size(); ++i) {
+				Skill* skill = skillList->get(i);
+				if (skill->getSkillName().indexOf(skillStarter) != -1){
+					SkillManager::instance()->surrenderSkill(skill->getSkillName(), player, true);
+				}
+			}
+		}
+	}
 }
 
 void PlayerManagerImplementation::sendLoginMessage(CreatureObject* creature) {

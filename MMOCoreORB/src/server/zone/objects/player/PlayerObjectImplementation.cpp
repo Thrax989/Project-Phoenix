@@ -1260,6 +1260,96 @@ void PlayerObjectImplementation::notifyOnline() {
 		activateForcePowerRegen();
 
 	schedulePvpTefRemovalTask();
+
+	//Set PVP rating for existing players
+	if (playerCreature->getScreenPlayState("pvpRating") == 0) {
+		playerCreature->setScreenPlayState("pvpRating", 1200);
+	}
+
+	SkillList* skillList = playerCreature->getSkillList();
+	ManagedReference<PlayerObject*> ghost = playerCreature->getPlayerObject();
+
+	// Check for Old Trainer Method
+	Vector3 coords = ghost->getTrainerCoordinates();
+	//Vector3 coordsOrg = ghost->getTrainerCoordinates();
+	if (coords.getX() != (float)5294.95 && ghost->getJediState() > 1) {
+		Vector3 coords(5294.95, -4123.03, 0); // Temp Location to get all Jedi moved to Dath
+		String zoneName = "dathomir"; // Temp Location to get all Jedi moved to Dath
+		ghost->setTrainerCoordinates(coords); // Temp Location to get all Jedi moved to Dath
+		ghost->setTrainerZoneName(zoneName); // Temp Location to get all Jedi moved to Dath
+		playerCreature->sendExecuteConsoleCommand("/pause 10;/findmytrainer");
+		/*StringBuffer orgCords;
+		orgCords
+		<< "Your Orignal Trainer was located at X: "
+		<< coordsOrg.getX();
+		playerCreature->sendSystemMessage(orgCords.toString());*/
+	}
+
+	// Check for force Title without past FRS
+	if (playerCreature->getScreenPlayState("jedi_FRS") == 0 && playerCreature->hasSkill("force_title_jedi_rank_03")) {
+		SkillManager::instance()->surrenderSkill("force_title_jedi_master", playerCreature, true);
+		SkillManager::instance()->surrenderSkill("force_title_jedi_rank_04", playerCreature, true);
+		SkillManager::instance()->surrenderSkill("force_title_jedi_rank_03", playerCreature, true);
+	}
+
+	//Check for Light side FRS without being a rebel
+	if (playerCreature->hasSkill("force_rank_light_novice") && !ghost->isPrivileged() && (playerCreature->getFaction() != 370444368 || playerCreature->getScreenPlayState("jedi_FRS") != 4)) {
+		while (numSpecificSkills(playerCreature, "force_rank_light_") > 0) {
+			for (int i = 0; i < skillList->size(); ++i) {
+				String skillName = skillList->get(i)->getSkillName();
+				if(skillName.contains("force_rank_light_")) {
+					SkillManager::instance()->surrenderSkill(skillName, playerCreature, true);
+				}
+			}
+		}
+		ghost->setJediState(2);
+	}
+	//Check for Dark Side FRS without being Imperial
+	if (playerCreature->hasSkill("force_rank_dark_novice") && !ghost->isPrivileged() && (playerCreature->getFaction() != 3679112276 || playerCreature->getScreenPlayState("jedi_FRS") != 8)) {
+		while (numSpecificSkills(playerCreature, "force_rank_dark_") > 0) {
+			for (int i = 0; i < skillList->size(); ++i) {
+				String skillName = skillList->get(i)->getSkillName();
+				if(skillName.contains("force_rank_dark_")) {
+					SkillManager::instance()->surrenderSkill(skillName, playerCreature, true);
+				}
+			}
+		}
+		ghost->setJediState(2);
+	}
+	//Check for FRS Jedi without overt
+	if ((playerCreature->hasSkill("force_rank_dark_novice") || playerCreature->hasSkill("force_rank_light_novice")) && !ghost->isPrivileged()) {
+		playerCreature->setFactionStatus(2);
+	}
+
+	// Check for FRS XP
+	if (ghost->getExperience("force_rank_xp") != 0 && numSpecificSkills(playerCreature, "force_rank_") < 1) {
+			int amount = 0;
+			int curExp = ghost->getExperience("force_rank_xp");
+			amount -= curExp;
+			playerCreature->getZoneServer()->getPlayerManager()->awardExperience(playerCreature, "force_rank_xp", amount);
+	}
+	// Check for Jedi XP
+
+	if (ghost->getExperience("jedi_general") != 0 && numSpecificSkills(playerCreature, "force_") < 1) {
+		int amount = 0;
+		int curExp = ghost->getExperience("jedi_general");
+		amount -= curExp;
+		playerCreature->getZoneServer()->getPlayerManager()->awardExperience(playerCreature, "jedi_general", amount);
+	}
+}
+
+int PlayerObjectImplementation::numSpecificSkills(CreatureObject* creature, const String& reqSkillName) {
+	SkillList* skills =  creature->getSkillList();
+	int numSkills = 0;
+
+	for(int i = 0; i < skills->size(); ++i) {
+		String skillName = skills->get(i)->getSkillName();
+		if(skillName.contains(reqSkillName)) {
+			numSkills++;
+		}
+	}
+
+	return numSkills;
 }
 
 void PlayerObjectImplementation::notifyOffline() {

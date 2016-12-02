@@ -289,6 +289,15 @@ int CombatManager::doTargetCombatAction(CreatureObject* attacker, WeaponObject* 
 }
 
 int CombatManager::doTargetCombatAction(CreatureObject* attacker, WeaponObject* weapon, CreatureObject* defender, const CreatureAttackData& data) {
+	if (weapon->getMinDamage() < 1 ||
+			weapon->getMinDamage() > 50000 ||
+			weapon->getMaxDamage() < 1 ||
+			weapon->getMaxDamage() > 50000) {
+		Locker locker(weapon);
+		weapon->setMinDamage(5);
+		weapon->setMaxDamage(10);
+		info(attacker->getFirstName() + " was found using a bugged weapon!!", true);
+	}
 	if (defender->isEntertaining())
 		defender->stopEntertaining();
 
@@ -1502,9 +1511,13 @@ int CombatManager::getHitChance(TangibleObject* attacker, CreatureObject* target
 
 		// saber block is special because it's just a % chance to block based on the skillmod
 		if (def == "saber_block") {
-			if (!attacker->isTurret() && (weapon->getAttackType() == SharedWeaponObjectTemplate::RANGEDATTACK) && ((System::random(100)) < targetCreature->getSkillMod(def)))
-				return RICOCHET;
-			else return HIT;
+			int block_mod = targetCreature->getSkillMod(def);
+            if (targetCreature->isIntimidated()) {
+                block_mod = (block_mod / 2);
+            }
+            if (!attacker->isTurret() && (weapon->getAttackType() == SharedWeaponObjectTemplate::RANGEDATTACK) && ((System::random(100)) < block_mod))
+                return RICOCHET;
+            else return HIT;
 		}
 
 		targetDefense = getDefenderSecondaryDefenseModifier(targetCreature);
@@ -1821,6 +1834,50 @@ int CombatManager::calculatePoolsToDamage(int poolsToDamage) {
 	return poolsToDamage;
 }
 
+void CombatManager::sendDamageTypeCombatSpam(CreatureObject* defender, WeaponObject* weapon) {
+	int damageType = weapon->getDamageType();
+	StringBuffer dmgtxt;
+	
+	dmgtxt << "You were hit with ";
+	
+	switch (damageType) {
+	case SharedWeaponObjectTemplate::KINETIC:
+		dmgtxt << "Kinetic";
+		break;
+	case SharedWeaponObjectTemplate::ENERGY:
+		dmgtxt << "Energy";
+		break;
+	case SharedWeaponObjectTemplate::ELECTRICITY:
+		dmgtxt << "Electricity";
+		break;
+	case SharedWeaponObjectTemplate::STUN:
+		dmgtxt << "Stun";
+		break;
+	case SharedWeaponObjectTemplate::BLAST:
+		dmgtxt << "Blast";
+		break;
+	case SharedWeaponObjectTemplate::HEAT:
+		dmgtxt << "Heat";
+		break;
+	case SharedWeaponObjectTemplate::COLD:
+		dmgtxt << "Cold";
+		break;
+	case SharedWeaponObjectTemplate::ACID:
+		dmgtxt << "Acid";
+		break;
+	case SharedWeaponObjectTemplate::LIGHTSABER:
+		dmgtxt << "Lightsaber";
+		break;
+	default:
+		dmgtxt << "Unknown";
+		break;
+	}
+	
+	dmgtxt << " damage.";
+	
+	defender->sendCustomCombatSpam(dmgtxt.toString(), 10); // 10 is red text color
+}
+
 int CombatManager::applyDamage(TangibleObject* attacker, WeaponObject* weapon, CreatureObject* defender, int damage, float damageMultiplier, int poolsToDamage, uint8& hitLocation, const CreatureAttackData& data) {
 	if (poolsToDamage == 0 || damageMultiplier == 0)
 		return 0;
@@ -1858,6 +1915,10 @@ int CombatManager::applyDamage(TangibleObject* attacker, WeaponObject* weapon, C
 	int foodMitigation = 0;
 	if (foodBonus > 0)
 		foodMitigation = (int)(damage * foodBonus / 100.f);
+
+	// Tell player the damage type they were hit with
+ 	if(defender->isPlayerCreature())
+ 		sendDamageTypeCombatSpam(defender, weapon);
 
 	if (healthDamaged) {
 		static uint8 bodyLocations[] = {HIT_BODY, HIT_BODY, HIT_LARM, HIT_RARM};

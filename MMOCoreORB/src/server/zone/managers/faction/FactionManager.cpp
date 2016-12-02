@@ -9,6 +9,11 @@
 #include "FactionMap.h"
 #include "server/zone/objects/player/PlayerObject.h"
 #include "templates/manager/TemplateManager.h"
+#include "server/zone/managers/loot/LootManager.h"
+#include "server/zone/managers/player/PlayerManager.h"
+#include "server/chat/ChatManager.h"
+#include "server/zone/packets/player/PlayMusicMessage.h"
+
 
 FactionManager::FactionManager() {
 	setLoggingName("FactionManager");
@@ -158,17 +163,61 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 		ManagedReference<PlayerObject*> ghost = killerCreature->getPlayerObject();
 
 		ManagedReference<PlayerObject*> killedGhost = destructedObject->getPlayerObject();
+		ManagedReference<SceneObject*> inventory = killer->getSlottedObject("inventory");
+		ManagedReference<LootManager*> lootManager = killer->getZoneServer()->getLootManager();
+		ManagedReference<PlayerManager*> playerManager = killerCreature->getZoneServer()->getPlayerManager();
+
+		//Broadcast to Server
+		String playerName = destructedObject->getFirstName();
+		String killerName = killerCreature->getFirstName();
+		StringBuffer zBroadcast;
 
 		if (killer->isRebel() && destructedObject->isImperial()) {
 			ghost->increaseFactionStanding("rebel", 30);
+			killer->playEffect("clienteffect/holoemote_rebel.cef", "head");
+			PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
+ 			killer->sendMessage(pmm);
+			lootManager->createLoot(inventory, "holocron_light", 300);//, playerName);
+			if(ghost->getJediState() >= 2){
+				lootManager->createNamedLoot(inventory, "task_loot_padawan_braid", playerName, 300);//, playerName);
+			}else{
+				lootManager->createNamedLoot(inventory, "playerDatapad", playerName, 300);//, playerName);
+			}
+			lootManager->createLoot(inventory, "clothing_attachments", 300);//, playerName);
+				lootManager->createLoot(inventory, "armor_attachments", 300);//, playerName);
 			ghost->decreaseFactionStanding("imperial", 45);
 
 			killedGhost->decreaseFactionStanding("imperial", 45);
+			if (killerCreature->hasSkill("force_rank_light_novice") && destructedObject->hasSkill("force_rank_dark_novice")) {
+				playerManager->awardExperience(killerCreature, "force_rank_xp", 5000);
+				zBroadcast  << "\\#ffd700" << killerName << "\\#00e604 Light Force User Has Defeated A \\#e60000 Dark Force User \\#00ffdf" << killerName << "\\#00e604 Has Been Awarded 5,000 Light Force Ranking Exp ";
+				playerManager->awardExperience(destructedObject, "force_rank_xp", -7500);
+				zBroadcast << "\\#ffd700" <<  playerName << " \\#00e604Has Lost -7,500 Dark Force Ranking Exp By A \\#e60000 Light Force User \\#00e604Be On The Look Out For This Light Force Ranking Player " "\\#00ffdf" << killerName;
+				ghost->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
+			}
 		} else if (killer->isImperial() && destructedObject->isRebel()) {
 			ghost->increaseFactionStanding("imperial", 30);
+			killer->playEffect("clienteffect/holoemote_imperial.cef", "head");
+			PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
+ 			killer->sendMessage(pmm);
+			lootManager->createLoot(inventory, "holocron_dark", 300);//, playerName);
+			if(ghost->getJediState() >= 2){
+				lootManager->createNamedLoot(inventory, "task_loot_padawan_braid", playerName, 300);//, playerName);
+			}else{
+				lootManager->createNamedLoot(inventory, "playerDatapad", playerName, 300);//, playerName);
+			}
+			lootManager->createLoot(inventory, "clothing_attachments", 300);//, playerName);
+				lootManager->createLoot(inventory, "armor_attachments", 300);//, playerName);
 			ghost->decreaseFactionStanding("rebel", 45);
 
 			killedGhost->decreaseFactionStanding("rebel", 45);
+			if (killerCreature->hasSkill("force_rank_dark_novice") && destructedObject->hasSkill("force_rank_light_novice")) {
+				playerManager->awardExperience(killerCreature, "force_rank_xp", 5000);
+				zBroadcast  << "\\#ffd700" << killerName << "\\#00e604 Dark Force User Has Defeated A \\#e60000 Light Force User \\#00ffdf" << killerName << "\\#00e604 Has Been Awarded 5,000 Dark Force Ranking Exp ";
+				playerManager->awardExperience(destructedObject, "force_rank_xp", -7500);
+				zBroadcast << "\\#ffd700" <<  playerName << " \\#00e604Has Lost -7,500 Light Force Ranking Exp By A \\#e60000 Dark Force User \\#00e604Be On The Look Out For This Dark Force Ranking Player " "\\#00ffdf" << killerName;
+				ghost->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
+			}
 		}
 	}
 }
