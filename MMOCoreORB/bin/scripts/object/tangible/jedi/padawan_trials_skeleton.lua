@@ -42,7 +42,7 @@
 
 
 object_tangible_jedi_padawan_trials_skeleton = object_tangible_jedi_shared_padawan_trials_skeleton:new {
-
+	objectMenuComponent = "ForceShrineMenuComponent1",
 }
 
 ObjectTemplates:addTemplate(object_tangible_jedi_padawan_trials_skeleton, "object/tangible/jedi/padawan_trials_skeleton.iff")
