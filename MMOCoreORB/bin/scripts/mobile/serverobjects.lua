@@ -42,3 +42,8 @@ includeFile("lair/serverobjects.lua")
 
 -- Outfits
 includeFile("outfits/serverobjects.lua")
+
+--New Content
+includeFile("custom_content/serverobjects.lua")
+includeFile("custom/serverobjects.lua")
+includeFile("force_trainers/serverobjects.lua")
