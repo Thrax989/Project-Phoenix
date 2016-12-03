@@ -39,8 +39,9 @@ tatooine_militiaman = Creature:new {
 				{group = "rifles", chance = 1000000},
 				{group = "pistols", chance = 1000000},
 				{group = "melee_weapons", chance = 1000000},
-				{group = "carbines", chance = 1000000},
-			}
+				{group = "carbines", chance = 1000000}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"rebel_weapons_light"},

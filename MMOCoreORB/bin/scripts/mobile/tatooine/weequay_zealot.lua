@@ -37,7 +37,8 @@ weequay_zealot = Creature:new {
 				{group = "loot_kit_parts", chance = 2000000},
 				{group = "printer_parts", chance = 1000000},
 				{group = "weequay_common", chance = 500000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"rebel_weapons_heavy"},

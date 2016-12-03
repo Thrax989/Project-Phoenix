@@ -38,7 +38,8 @@ alkhara_champion = Creature:new {
 				{group = "loot_kit_parts", chance = 1500000},
 				{group = "alkhara_common", chance = 450000},
 				{group = "color_crystals", chance = 550000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"pirate_weapons_medium"},
