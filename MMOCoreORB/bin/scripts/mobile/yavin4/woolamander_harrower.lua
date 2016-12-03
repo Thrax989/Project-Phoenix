@@ -18,7 +18,7 @@ woolamander_harrower = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 20,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + HERD + KILLER,
@@ -32,7 +32,7 @@ woolamander_harrower = Creature:new {
 			groups = {
 				{group = "harrower_bone", chance = 10000000}
 			},
-			lootChance = 2020000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

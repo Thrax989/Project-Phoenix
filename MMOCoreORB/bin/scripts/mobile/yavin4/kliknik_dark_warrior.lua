@@ -18,7 +18,7 @@ kliknik_dark_warrior = Creature:new {
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
-	tamingChance = 0.15,
+	tamingChance = 0.25,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
@@ -33,7 +33,7 @@ kliknik_dark_warrior = Creature:new {
 			groups = {
 				{group = "kliknik_common", chance = 10000000}
 			},
-			lootChance = 1800000
+			lootChance = 10000000
 		}
 	},
 	weapons = {"creature_spit_small_yellow"},

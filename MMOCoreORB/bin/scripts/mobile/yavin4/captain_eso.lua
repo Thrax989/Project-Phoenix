@@ -1,18 +1,16 @@
-stranded_rebel_pilot = Creature:new {
-	objectName = "@mob/creature_names:stranded_rebel_pilot",
-	randomNameType = NAME_GENERIC,
-	randomNameTag = true,
+captain_eso = Creature:new {
+	objectName = "@mob/creature_names:captain_eso",
 	socialGroup = "rebel",
 	faction = "rebel",
-	level = 20,
-	chanceHit = 3.03,
+	level = 22,
+	chanceHit = 0.33,
 	damageMin = 190,
 	damageMax = 200,
 	baseXp = 1803,
 	baseHAM = 5000,
 	baseHAMmax = 6100,
 	armor = 0,
-	resists = {10,10,10,-1,-1,-1,-1,-1,-1},
+	resists = {25,25,0,0,-1,0,0,-1,-1},
 	meatType = "",
 	meatAmount = 0,
 	hideType = "",
@@ -23,31 +21,28 @@ stranded_rebel_pilot = Creature:new {
 	tamingChance = 0,
 	ferocity = 0,
 	pvpBitmask = ATTACKABLE,
-	creatureBitmask = PACK + KILLER,
+	creatureBitmask = NONE,
 	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/dressed_stranded_rebel_pilot.iff"},
+	templates = {"object/mobile/dressed_captain_eso.iff"},
 	lootGroups = {
 		{
 			groups = {
-				{group = "color_crystals", chance = 100000},
-				{group = "junk", chance = 4700000},
+				{group = "junk", chance = 5000000},
 				{group = "rifles", chance = 1000000},
 				{group = "pistols", chance = 1000000},
 				{group = "melee_weapons", chance = 1000000},
 				{group = "carbines", chance = 1000000},
-				{group = "clothing_attachments", chance = 100000},
-				{group = "armor_attachments", chance = 100000},
 				{group = "wearables_common", chance = 1000000}
 			},
 			lootChance = 10000000
 		}
 	},
-	weapons = {"rebel_weapons_medium"},
+	weapons = {"imperial_weapons_heavy"},
 	conversationTemplate = "",
 	reactionStf = "@npc_reaction/military",
 	attacks = merge(brawlermaster,marksmanmaster)
 }
 
-CreatureTemplates:addCreatureTemplate(stranded_rebel_pilot, "stranded_rebel_pilot")
+CreatureTemplates:addCreatureTemplate(captain_eso, "captain_eso")
