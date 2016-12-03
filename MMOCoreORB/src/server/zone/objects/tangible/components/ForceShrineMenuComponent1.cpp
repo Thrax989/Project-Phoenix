@@ -1,12 +1,12 @@
 /*
-* ForceShrinenMenuComponent1.cpp
+* ForceShrineMenuComponent1.cpp
 *
 * Created on: 01/23/2012
 *	 Author: Valkyra
 *  
 */
 
-#include "ForceShrinenMenuComponent1.h"
+#include "ForceShrineMenuComponent1.h"
 
 #include "server/zone/objects/creature/CreatureObject.h"
 #include "server/zone/objects/scene/SceneObject.h"
@@ -22,7 +22,7 @@
 #include "server/zone/ZoneServer.h"
 #include "server/chat/ChatManager.h"
 
-void ForceShrinenMenuComponent1::fillObjectMenuResponse(SceneObject* sceneObject, ObjectMenuResponse* menuResponse, CreatureObject* player) const {
+void ForceShrineMenuComponent1::fillObjectMenuResponse(SceneObject* sceneObject, ObjectMenuResponse* menuResponse, CreatureObject* player) const {
 
 	TangibleObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player);
 	ManagedReference<PlayerObject*> ghost = player->getPlayerObject();
@@ -56,7 +56,7 @@ void ForceShrinenMenuComponent1::fillObjectMenuResponse(SceneObject* sceneObject
 	}
 }
 
-int ForceShrinenMenuComponent1::handleObjectMenuSelect(SceneObject* sceneObject, CreatureObject* creature, byte selectedID) const {
+int ForceShrineMenuComponent1::handleObjectMenuSelect(SceneObject* sceneObject, CreatureObject* creature, byte selectedID) const {
 	/*if (selectedID != 213)
 	return 0;
 
@@ -205,7 +205,7 @@ int ForceShrinenMenuComponent1::handleObjectMenuSelect(SceneObject* sceneObject,
 			ghost->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 			//Set Jedi State
 			ghost->setJediState(8);
-			ghost->setFactionStatus(2);
+			creature->setFactionStatus(2);
 			SkillManager::instance()->awardSkill("force_rank_dark_novice", creature, true, true, true);
 			ManagedReference<SceneObject*> inventory = creature->getSlottedObject("inventory");
 			//Check if inventory is full.
@@ -256,7 +256,7 @@ int ForceShrinenMenuComponent1::handleObjectMenuSelect(SceneObject* sceneObject,
 			ghost->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
 			//Set Jedi State
 			ghost->setJediState(4);
-			ghost->setFactionStatus(2);
+			creature->setFactionStatus(2);
 			SkillManager::instance()->awardSkill("force_rank_light_novice", creature, true, true, true);
 			ManagedReference<SceneObject*> inventory = creature->getSlottedObject("inventory");
 			//Check if inventory is full.
@@ -422,7 +422,7 @@ int ForceShrinenMenuComponent1::handleObjectMenuSelect(SceneObject* sceneObject,
 		creature->sendMessage(box->generateMessage());
 	}
 	if (selectedID == 227) {
-		ghost->setFactionStatus(2);
+		creature->setFactionStatus(2);
 		ManagedReference<SuiMessageBox*> box = new SuiMessageBox(creature, SuiWindowType::NONE);
 		box->setPromptTitle("Faction Status"); // You feel a tingle in the Force.
 		box->setPromptText("Your Faction Status is set to 2");
@@ -436,7 +436,7 @@ int ForceShrinenMenuComponent1::handleObjectMenuSelect(SceneObject* sceneObject,
 	return 0;
 }
 
-void ForceShrinenMenuComponent1::findTrainerObject(CreatureObject* player, PlayerObject* ghost) const {
+void ForceShrineMenuComponent1::findTrainerObject(CreatureObject* player, PlayerObject* ghost) const {
 
 	// Trainer number. Pick a random trainer, there are at least 600 in the galaxy.
 	ZoneServer* zserv = player->getZoneServer();
