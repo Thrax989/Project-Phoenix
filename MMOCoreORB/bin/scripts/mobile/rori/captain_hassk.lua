@@ -34,7 +34,8 @@ captain_hassk = Creature:new {
 				{group = "loot_kit_parts", chance = 2000000},
 				{group = "wearables_common", chance = 500000},
 				{group = "wearables_uncommon", chance = 500000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"captain_hassk_weapons"},

@@ -39,7 +39,8 @@ first_brigade_trooper = Creature:new {
 				{group = "rifles", chance = 1000000},
 				{group = "pistols", chance = 1000000},
 				{group = "loot_kit_parts", chance = 500000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"rebel_weapons_medium"},
