@@ -24,10 +24,10 @@
 #include "server/zone/objects/creature/events/DroidSkillModTask.h"
 #include "server/zone/objects/creature/events/DroidPowerTask.h"
 #include "server/zone/objects/tangible/weapon/WeaponObject.h"
-#include "server/zone/objects/building/BuildingObject.h"
 #include "server/zone/managers/stringid/StringIdManager.h"
 #include "tasks/StorePetTask.h"
 #include "server/chat/ChatManager.h"
+#include "server/zone/objects/building/BuildingObject.h"
 
 void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 	if (player->isInCombat() || player->isDead() || player->isIncapacitated() || player->getPendingTask("tame_pet") != NULL) {
@@ -91,7 +91,7 @@ void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 			return;
 		}
 
-		if (player->getFaction() != petFaction || player->getFactionStatus() == FactionStatus::ONLEAVE) {
+		if (player->getFaction() != petFaction || ghost->getFactionStatus() == FactionStatus::ONLEAVE) {
 			StringIdChatParameter message("@faction_perk:prose_be_declared_faction"); // You must be a declared %TO to use %TT.
 			message.setTO(pet->getFactionString());
 			message.setTT(pet->getDisplayedName());
@@ -162,7 +162,7 @@ void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 		}
 
 	} else if (petType == PetManager::FACTIONPET){
-		maxPets = 3;
+		maxPets = 1;
 	}
 
 	for (int i = 0; i < ghost->getActivePetsSize(); ++i) {
@@ -223,10 +223,10 @@ void PetControlDeviceImplementation::callObject(CreatureObject* player) {
 		Reference<CallPetTask*> callPet = new CallPetTask(_this.getReferenceUnsafeStaticCast(), player, "call_pet");
 
 		StringIdChatParameter message("pet/pet_menu", "call_pet_delay"); // Calling pet in %DI seconds. Combat will terminate pet call.
-		message.setDI(15);
+		message.setDI(3);
 		player->sendSystemMessage(message);
 
-		player->addPendingTask("call_pet", callPet, 15 * 1000);
+		player->addPendingTask("call_pet", callPet, 3 * 1000);
 
 		if (petControlObserver == NULL) {
 			petControlObserver = new PetControlObserver(_this.getReferenceUnsafeStaticCast());
@@ -458,14 +458,14 @@ void PetControlDeviceImplementation::storeObject(CreatureObject* player, bool fo
 
 	Reference<StorePetTask*> task = new StorePetTask(player, pet);
 
-	// Store non-faction pets immediately.  Store faction pets after 60sec delay.
+	// Store non-faction pets immediately.  Store faction pets after 5sec delay.
 	if( petType != PetManager::FACTIONPET || force || player->getPlayerObject()->isPrivileged()){
 		task->execute();
 	}
 	else{
 		if(pet->getPendingTask("store_pet") == NULL) {
-			player->sendSystemMessage( "Storing pet in 60 seconds");
-			pet->addPendingTask("store_pet", task, 60 * 1000);
+			player->sendSystemMessage( "Storing pet in 1 seconds");
+			pet->addPendingTask("store_pet", task, 1 * 1000);
 		}
 		else{
 			Time nextExecution;
@@ -505,7 +505,7 @@ bool PetControlDeviceImplementation::growPet(CreatureObject* player, bool force,
 
 	Time currentTime;
 	uint32 timeDelta = currentTime.getTime() - lastGrowth.getTime();
-	int stagesToGrow = timeDelta / 43200; // 12 hour
+	int stagesToGrow = timeDelta / 60; // 1 Minute
 
 	if (adult)
 		stagesToGrow = 10;
