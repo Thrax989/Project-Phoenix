@@ -2,7 +2,7 @@ kimogila_hatchling = Creature:new {
 	objectName = "@mob/creature_names:kimogila_hatchling",
 	socialGroup = "kimogila",
 	faction = "",
-	level = 22,
+	level = 85,
 	chanceHit = 0.33,
 	damageMin = 210,
 	damageMax = 220,
@@ -18,7 +18,7 @@ kimogila_hatchling = Creature:new {
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK,
@@ -32,7 +32,7 @@ kimogila_hatchling = Creature:new {
 	        groups = {
 				{group = "kimogila_common", chance = 10000000}
 			},
-			lootChance = 1440000
+			lootChance = 10000000
 		}
 	},
 	weapons = {"creature_spit_small_yellow"},

@@ -34,12 +34,13 @@ ig_assassin_droid = Creature:new {
 				{group = "pistols", chance = 1000000},
 				{group = "carbines", chance = 1000000},
 				{group = "tailor_components", chance = 500000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	conversationTemplate = "",
 	defaultWeapon = "object/weapon/ranged/droid/droid_droideka_ranged.iff",
-	defaultAttack = "attack"
+	defaultAttack = "creaturerangedattack"
 }
 
 CreatureTemplates:addCreatureTemplate(ig_assassin_droid, "ig_assassin_droid")

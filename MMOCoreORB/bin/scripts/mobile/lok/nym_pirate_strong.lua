@@ -41,7 +41,8 @@ nym_pirate_strong = Creature:new {
 				{group = "pistols", chance = 1000000},
 				{group = "carbines", chance = 1000000},
 				{group = "tailor_components", chance = 500000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"pirate_weapons_heavy"},

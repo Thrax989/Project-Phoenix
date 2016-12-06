@@ -2,7 +2,7 @@ kimogila_dwarf = Creature:new {
 	objectName = "@mob/creature_names:kimogila_dwarf",
 	socialGroup = "kimogila",
 	faction = "",
-	level = 139,
+	level = 85,
 	chanceHit = 4.5,
 	damageMin = 800,
 	damageMax = 1400,
@@ -18,7 +18,7 @@ kimogila_dwarf = Creature:new {
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 20,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
@@ -32,7 +32,7 @@ kimogila_dwarf = Creature:new {
 	        groups = {
 				{group = "kimogila_common", chance = 10000000}
 			},
-			lootChance = 3460000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

@@ -3,7 +3,7 @@ aged_kimogila = Creature:new {
 	customName = "an aged kimogila",
 	socialGroup = "kimogila",
 	faction = "",
-	level = 139,
+	level = 85,
 	chanceHit = 5.5,
 	damageMin = 900,
 	damageMax = 1500,
@@ -19,7 +19,7 @@ aged_kimogila = Creature:new {
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 20,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
@@ -32,7 +32,7 @@ aged_kimogila = Creature:new {
 	        groups = {
 				{group = "kimogila_common", chance = 10000000}
 			},
-			lootChance = 3460000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

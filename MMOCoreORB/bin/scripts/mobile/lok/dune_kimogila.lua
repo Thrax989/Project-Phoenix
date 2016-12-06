@@ -2,7 +2,7 @@ dune_kimogila = Creature:new {
 	objectName = "@mob/creature_names:dune_kimogila",
 	socialGroup = "kimogila",
 	faction = "",
-	level = 123,
+	level = 85,
 	chanceHit = 4,
 	damageMin = 785,
 	damageMax = 1280,
@@ -18,7 +18,7 @@ dune_kimogila = Creature:new {
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
@@ -31,7 +31,7 @@ dune_kimogila = Creature:new {
 	        groups = {
 				{group = "kimogila_common", chance = 10000000}
 			},
-			lootChance = 3460000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

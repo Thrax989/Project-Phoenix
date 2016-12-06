@@ -18,7 +18,7 @@ reclusive_gurk_king = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 300,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + HERD + KILLER,
@@ -32,7 +32,7 @@ reclusive_gurk_king = Creature:new {
 	        groups = {
 				{group = "gurk_king_common", chance = 10000000}
 			},
-			lootChance = 1900000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

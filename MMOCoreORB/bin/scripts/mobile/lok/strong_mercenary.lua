@@ -48,7 +48,8 @@ strong_mercenary = Creature:new {
 				{group = "clothing_attachments", chance = 300000},
 				{group = "armor_attachments", chance = 300000},
 				{group = "wearables_common", chance = 500000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"rebel_weapons_heavy"},

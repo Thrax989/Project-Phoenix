@@ -2,7 +2,7 @@ enraged_kimogila = Creature:new {
 	objectName = "@mob/creature_names:enraged_kimogila",
 	socialGroup = "kimogila",
 	faction = "",
-	level = 135,
+	level = 85,
 	chanceHit = 4.75,
 	damageMin = 920,
 	damageMax = 1550,
@@ -18,7 +18,7 @@ enraged_kimogila = Creature:new {
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 0,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
@@ -32,7 +32,7 @@ enraged_kimogila = Creature:new {
 	        groups = {
 				{group = "kimogila_common", chance = 10000000}
 			},
-			lootChance = 3700000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},
