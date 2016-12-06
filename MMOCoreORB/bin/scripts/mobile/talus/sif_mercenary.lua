@@ -38,7 +38,8 @@ sif_mercenary = Creature:new {
 				{group = "carbines", chance = 1000000},
 				{group = "nyms_rare", chance = 500000},
 				{group = "wearables_common", chance = 1000000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"sif_weapons"},

@@ -38,7 +38,8 @@ fed_dub_constable = Creature:new {
 				{group = "carbines", chance = 2000000},
 				{group = "tailor_components", chance = 1500000},
 				{group = "loot_kit_parts", chance = 1500000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"imperial_weapons_medium"},

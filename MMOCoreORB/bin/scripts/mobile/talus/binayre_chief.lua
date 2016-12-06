@@ -38,7 +38,8 @@ binayre_chief = Creature:new {
 				{group = "loot_kit_parts", chance = 1500000},
 				{group = "binayre_common", chance = 4550000},
 				{group = "color_crystals", chance = 450000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"pirate_weapons_heavy"},

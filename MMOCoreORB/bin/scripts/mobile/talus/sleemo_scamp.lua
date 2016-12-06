@@ -38,8 +38,9 @@ sleemo_scamp = Creature:new {
 				{group = "pistols", chance = 700000},
 				{group = "carbines", chance = 700000},
 				{group = "printer_parts", chance = 1000000},
-				{group = "loot_kit_parts", chance = 1000000},
-			}
+				{group = "loot_kit_parts", chance = 1000000}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"pirate_weapons_light"},
