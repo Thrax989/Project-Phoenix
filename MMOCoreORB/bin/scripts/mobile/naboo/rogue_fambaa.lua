@@ -19,7 +19,7 @@ rogue_fambaa = Creature:new {
 	boneAmount = 675,
 	milkType = "milk_wild",
 	milk = 400,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 9,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = NONE,
@@ -33,7 +33,7 @@ rogue_fambaa = Creature:new {
 	        groups = {
 				{group = "fambaa_common", chance = 10000000}
 			},
-			lootChance = 1740000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

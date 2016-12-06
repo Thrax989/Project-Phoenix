@@ -18,7 +18,7 @@ peko_peko_albatross = Creature:new {
 	boneType = "bone_avian",
 	boneAmount = 100,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 8,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = PACK + HERD + KILLER,
@@ -32,7 +32,7 @@ peko_peko_albatross = Creature:new {
 	        groups = {
 				{group = "peko_albatross", chance = 10000000}
 			},
-			lootChance = 4100000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

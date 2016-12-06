@@ -19,7 +19,7 @@ gungan_fambaa = Creature:new {
 	boneAmount = 725,
 	milkType = "milk_domesticated",
 	milk = 400,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 3,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = PACK,
@@ -33,7 +33,7 @@ gungan_fambaa = Creature:new {
 	        groups = {
 				{group = "fambaa_common", chance = 10000000}
 			},
-			lootChance = 1840000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

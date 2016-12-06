@@ -36,8 +36,9 @@ exiled_gungan = Creature:new {
 				{group = "composite_armor", chance = 1000000},
 				{group = "melee_two_handed", chance = 1000000},
 				{group = "clothing_attachments", chance = 300000},
-				{group = "armor_attachments", chance = 300000},
-			}
+				{group = "armor_attachments", chance = 300000}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"pirate_weapons_heavy"},

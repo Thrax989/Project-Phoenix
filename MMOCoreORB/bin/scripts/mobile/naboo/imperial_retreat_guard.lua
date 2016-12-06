@@ -35,7 +35,8 @@ imperial_retreat_guard = Creature:new {
 				{group = "loot_kit_parts", chance = 2000000},
 				{group = "clothing_attachments", chance = 250000},
 				{group = "armor_attachments", chance = 250000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"imperial_weapons_medium"},
