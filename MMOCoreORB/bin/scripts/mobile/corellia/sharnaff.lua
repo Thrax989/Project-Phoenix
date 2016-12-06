@@ -19,7 +19,7 @@ sharnaff = Creature:new {
 	boneAmount = 180,
 	milkType = "milk_wild",
 	milk = 220,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 2,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = NONE,
@@ -32,7 +32,7 @@ sharnaff = Creature:new {
 			groups = {
 				{group = "sharnaff_common", chance = 10000000}
 			},
-			lootChance = 1620000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},
