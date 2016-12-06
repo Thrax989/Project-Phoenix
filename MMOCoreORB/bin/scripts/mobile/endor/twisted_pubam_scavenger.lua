@@ -36,7 +36,7 @@ twisted_pubam_scavenger = Creature:new {
 				{group = "ewok", chance = 9000000},
 				{group = "wearables_uncommon", chance = 1000000},
 			},
-			lootChance = 1680000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

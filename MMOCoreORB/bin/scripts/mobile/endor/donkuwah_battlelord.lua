@@ -33,7 +33,7 @@ donkuwah_battlelord = Creature:new {
 			groups = {
 				{group = "donkuwah_common", chance = 10000000}
 			},
-			lootChance = 1520000
+			lootChance = 10000000
 		}
 	},
 	weapons = {"donkuwah_weapons"},

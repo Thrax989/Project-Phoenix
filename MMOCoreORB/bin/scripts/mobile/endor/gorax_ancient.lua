@@ -1,8 +1,9 @@
-gorax = Creature:new {
-	objectName = "@mob/creature_names:gorax",
+gorax_ancient = Creature:new {
+	objectName = "@mob/creature_names:",
+	customName = "giant canyon krayt dragon elder",
 	socialGroup = "gorax",
 	faction = "",
-	level = 85,
+	level = 300,
 	chanceHit = 30,
 	damageMin = 1645,
 	damageMax = 3000,
@@ -44,4 +45,4 @@ gorax = Creature:new {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(gorax, "gorax")
+CreatureTemplates:addCreatureTemplate(gorax_ancient, "gorax_ancient")

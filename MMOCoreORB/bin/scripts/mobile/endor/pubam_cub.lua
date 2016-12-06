@@ -36,7 +36,7 @@ pubam_cub = Creature:new {
 				{group = "ewok", chance = 9000000},
 				{group = "wearables_uncommon", chance = 1000000},
 			},
-			lootChance = 1100000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

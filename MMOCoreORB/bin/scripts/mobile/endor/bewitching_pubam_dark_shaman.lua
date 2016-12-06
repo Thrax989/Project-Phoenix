@@ -34,7 +34,7 @@ bewitching_pubam_dark_shaman = Creature:new {
 	        groups = {
 				{group = "ewok", chance = 10000000}
 			},
-			lootChance = 1600000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

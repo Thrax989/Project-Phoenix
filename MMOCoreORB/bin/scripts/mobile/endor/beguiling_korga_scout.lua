@@ -37,7 +37,7 @@ beguiling_korga_scout = Creature:new {
 				{group = "armor_attachments", chance = 450000},
 				{group = "clothing_attachments", chance = 450000}
 			},
-			lootChance = 1640000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

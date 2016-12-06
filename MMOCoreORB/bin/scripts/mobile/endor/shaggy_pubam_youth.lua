@@ -35,7 +35,7 @@ shaggy_pubam_youth = Creature:new {
 			groups = {
 				{group = "ewok", chance = 10000000}
 			},
-			lootChance = 1100000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

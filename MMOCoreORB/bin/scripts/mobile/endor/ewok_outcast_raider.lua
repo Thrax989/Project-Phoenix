@@ -33,7 +33,7 @@ ewok_outcast_raider = Creature:new {
 			groups = {
 				{group = "ewok", chance = 10000000}
 			},
-			lootChance = 1620000
+			lootChance = 10000000
 		}
 	},
 	weapons = {"ewok_weapons"},

@@ -35,7 +35,7 @@ shaggy_korga_youth = Creature:new {
 			groups = {
 				{group = "ewok", chance = 10000000}
 			},
-			lootChance = 1300000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

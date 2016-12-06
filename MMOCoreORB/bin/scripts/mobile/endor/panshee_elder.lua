@@ -43,7 +43,7 @@ panshee_elder = Creature:new {
 			groups = {
 				{group = "ewok", chance = 10000000}
 			},
-			lootChance = 1920000
+			lootChance = 10000000
 		}
 	},
 	weapons = {"ewok_weapons"},

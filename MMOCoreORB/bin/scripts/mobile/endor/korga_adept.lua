@@ -35,7 +35,7 @@ korga_adept = Creature:new {
 			groups = {
 				{group = "ewok", chance = 10000000}
 			},
-			lootChance = 1200000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

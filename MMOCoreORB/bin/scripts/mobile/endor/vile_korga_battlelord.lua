@@ -36,7 +36,7 @@ vile_korga_battlelord = Creature:new {
 				{group = "ewok", chance = 9000000},
 				{group = "wearables_uncommon", chance = 1000000},
 			},
-			lootChance = 1760000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

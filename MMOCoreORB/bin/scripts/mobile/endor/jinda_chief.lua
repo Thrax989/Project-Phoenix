@@ -40,7 +40,7 @@ jinda_chief = Creature:new {
 				{group = "armor_attachments", chance = 450000},
 				{group = "clothing_attachments", chance = 450000}
 			},
-			lootChance = 2020000
+			lootChance = 10000000
 		}
 	},
 	weapons = {"ewok_weapons"},

@@ -35,7 +35,7 @@ grungy_donkuwah_laborer = Creature:new {
 			groups = {
 				{group = "donkuwah_common", chance = 10000000}
 			},
-			lootChance = 1560000
+			lootChance = 10000000
 		}
 	},
 	weapons = {"donkuwah_weapons"},
