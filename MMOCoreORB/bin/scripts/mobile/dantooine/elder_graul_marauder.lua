@@ -1,5 +1,6 @@
-graul_marauder = Creature:new {
-	objectName = "@mob/creature_names:graul_marauder",
+elder_graul_marauder = Creature:new {
+   objectName = "@mob/creature_names:",
+   customName = "elder graul marauder",
 	socialGroup = "graul",
 	faction = "",
 	level = 85,
@@ -36,4 +37,4 @@ graul_marauder = Creature:new {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(graul_marauder, "graul_marauder")
+CreatureTemplates:addCreatureTemplate(elder_graul_marauder, "elder_graul_marauder")
