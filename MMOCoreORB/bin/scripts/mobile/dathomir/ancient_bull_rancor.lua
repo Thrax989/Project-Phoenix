@@ -2,7 +2,7 @@ ancient_bull_rancor = Creature:new {
 	objectName = "@mob/creature_names:ancient_bull_rancor",
 	socialGroup = "rancor",
 	faction = "",
-	level = 98,
+	level = 85,
 	chanceHit = 0.95,
 	damageMin = 620,
 	damageMax = 950,
@@ -18,7 +18,7 @@ ancient_bull_rancor = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 950,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 20,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
@@ -35,7 +35,7 @@ ancient_bull_rancor = Creature:new {
 				{group = "weapons_all", chance = 2500000},
 				{group = "wearables_all", chance = 1500000}
 			},
-			lootChance = 2960000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

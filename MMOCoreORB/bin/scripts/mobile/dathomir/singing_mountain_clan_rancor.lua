@@ -18,7 +18,7 @@ singing_mountain_clan_rancor = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 480,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 10,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + STALKER,
@@ -35,13 +35,13 @@ singing_mountain_clan_rancor = Creature:new {
 				{group = "weapons_all", chance = 2500000},
 				{group = "wearables_all", chance = 1500000}
 			},
-			lootChance = 2100000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
-		{"",""},
+		{"intimidationattack",""},
 		{"intimidationattack",""}
 	}
 }

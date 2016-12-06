@@ -18,7 +18,7 @@ enraged_rancor = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 778,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 12,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
@@ -35,7 +35,7 @@ enraged_rancor = Creature:new {
 				{group = "weapons_all", chance = 2500000},
 				{group = "wearables_all", chance = 1500000}
 			},
-			lootChance = 2600000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

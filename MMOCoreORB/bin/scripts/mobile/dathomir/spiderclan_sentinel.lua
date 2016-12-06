@@ -31,7 +31,7 @@ spiderclan_sentinel = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 1500000},
+				{group = "axkva_min", chance = 1500000},
 				{group = "crystals_quality", chance = 500000},
 				{group = "color_crystals", chance = 500000},
 				{group = "armor_attachments", chance = 400000},
@@ -42,12 +42,13 @@ spiderclan_sentinel = Creature:new {
 				{group = "carbines", chance = 1000000},
 				{group = "wearables_common", chance = 500000},
 				{group = "wearables_uncommon", chance = 500000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"mixed_force_weapons"},
 	conversationTemplate = "",
-	attacks = merge(brawlermaster,pikemanmaster,forcewielder)
+	attacks = merge(brawlermaster,pikemanmaster)
 }
 
 CreatureTemplates:addCreatureTemplate(spiderclan_sentinel, "spiderclan_sentinel")

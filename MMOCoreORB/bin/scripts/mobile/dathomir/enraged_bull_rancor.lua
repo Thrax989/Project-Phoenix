@@ -2,8 +2,8 @@ enraged_bull_rancor = Creature:new {
 	objectName = "@mob/creature_names:enraged_bull_rancor",
 	socialGroup = "rancor",
 	faction = "",
-	level = 89,
-	chanceHit = 0.85,
+	level = 85,
+	chanceHit = 20.85,
 	damageMin = 570,
 	damageMax = 850,
 	baseXp = 8500,
@@ -18,7 +18,7 @@ enraged_bull_rancor = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 670,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 15,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
@@ -35,7 +35,7 @@ enraged_bull_rancor = Creature:new {
 				{group = "weapons_all", chance = 2500000},
 				{group = "wearables_all", chance = 1500000}
 			},
-			lootChance = 2780000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

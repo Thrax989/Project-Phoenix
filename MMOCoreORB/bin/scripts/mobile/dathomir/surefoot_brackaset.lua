@@ -18,7 +18,7 @@ surefoot_brackaset = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 81,
 	milk = 0,
-	tamingChance = 0,
+	tamingChance = 0.25,
 	ferocity = 0,
 	pvpBitmask = ATTACKABLE,
 	creatureBitmask = PACK + HERD,
@@ -32,7 +32,7 @@ surefoot_brackaset = Creature:new {
 	        groups = {
 				{group = "brackaset_common", chance = 10000000}
 			},
-			lootChance = 1920000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

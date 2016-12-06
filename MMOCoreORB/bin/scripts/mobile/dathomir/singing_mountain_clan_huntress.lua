@@ -31,7 +31,7 @@ singing_mountain_clan_huntress = Creature:new {
 	lootGroups = {
 		{
 			groups = {
-				{group = "junk", chance = 1500000},
+				{group = "axkva_min", chance = 1500000},
 				{group = "crystals_okay", chance = 500000},
 				{group = "color_crystals", chance = 500000},
 				{group = "armor_attachments", chance = 350000},
@@ -42,7 +42,8 @@ singing_mountain_clan_huntress = Creature:new {
 				{group = "carbines", chance = 1000000},
 				{group = "wearables_uncommon", chance = 500000},
 				{group = "tailor_components", chance = 500000}
-			}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"mixed_force_weapons"},

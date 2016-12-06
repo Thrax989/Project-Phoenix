@@ -18,7 +18,7 @@ bull_rancor = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 850,
 	milk = 0,
-	tamingChance = 0.01,
+	tamingChance = 0.25,
 	ferocity = 11,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
@@ -36,7 +36,7 @@ bull_rancor = Creature:new {
 				{group = "weapons_all", chance = 2500000},
 				{group = "wearables_all", chance = 1500000}
 			},
-			lootChance = 2300000
+			lootChance = 10000000
 		}
 	},
 	weapons = {},

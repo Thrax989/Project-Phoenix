@@ -35,9 +35,24 @@ rancor = Creature:new {
 				{group = "weapons_all", chance = 2500000},
 				{group = "wearables_all", chance = 1500000}
 			},
-			lootChance = 2000000
-		}
-	},
+			lootChance = 10000000
+		},
+		 {
+			groups = {
+				{group = "looted_container", chance = 5000000},
+				{group = "loot_kit_parts", chance = 2500000},
+				{group = "clothing_attachments", chance = 2500000}
+			},
+			lootChance = 2500000
+		},
+		 {
+			groups = {
+				{group = "tailor_components", chance = 5000000},
+				{group = "junk", chance = 5000000}
+			},
+			lootChance = 2500000
+		},
+		},
 	weapons = {},
 	conversationTemplate = "",
 	attacks = {
