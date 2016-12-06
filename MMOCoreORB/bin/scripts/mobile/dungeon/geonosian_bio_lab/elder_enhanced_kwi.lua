@@ -1,8 +1,9 @@
-enhanced_kwi = Creature:new {
-	objectName = "@mob/creature_names:geonosian_enhanced_kwi",
+elder_enhanced_kwi = Creature:new {
+   objectName = "@mob/creature_names:",
+   customName = "elder enhanced kwi",
 	socialGroup = "geonosian_creature",
 	faction = "",
-	level = 85,
+	level = 106,
 	chanceHit = 1.75,
 	damageMin = 690,
 	damageMax = 1090,
@@ -18,7 +19,7 @@ enhanced_kwi = Creature:new {
 	boneType = "bone_mammal",
 	boneAmount = 75,
 	milk = 0,
-	tamingChance = 0.25,
+	tamingChance = 0,
 	ferocity = 16,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
@@ -45,4 +46,4 @@ enhanced_kwi = Creature:new {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(enhanced_kwi, "enhanced_kwi")
+CreatureTemplates:addCreatureTemplate(elder_enhanced_kwi, "elder_enhanced_kwi")

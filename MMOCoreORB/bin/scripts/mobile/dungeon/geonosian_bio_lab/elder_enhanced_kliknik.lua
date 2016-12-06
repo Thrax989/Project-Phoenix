@@ -1,8 +1,9 @@
-enhanced_kliknik = Creature:new {
-	objectName = "@mob/creature_names:geonosian_kliknik_force_strong",
+elder_enhanced_kliknik = Creature:new {
+   objectName = "@mob/creature_names:",
+   customName = "elder enhanced kliknik",
 	socialGroup = "geonosian_creature",
 	faction = "",
-	level = 85,
+	level = 109,
 	chanceHit = 2.2,
 	damageMin = 675,
 	damageMax = 1060,
@@ -18,7 +19,7 @@ enhanced_kliknik = Creature:new {
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
-	tamingChance = 0.25,
+	tamingChance = 0,
 	ferocity = 15,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
@@ -45,4 +46,4 @@ enhanced_kliknik = Creature:new {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(enhanced_kliknik, "enhanced_kliknik")
+CreatureTemplates:addCreatureTemplate(elder_enhanced_kliknik, "elder_enhanced_kliknik")

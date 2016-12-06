@@ -1,9 +1,9 @@
-enhanced_gaping_spider = Creature:new {
-	objectName = "@mob/creature_names:geonosian_gaping_spider_fire",
-	customName = "Fire Breathing Spider",
+elder_enhanced_gaping_spider = Creature:new {
+   objectName = "@mob/creature_names:",
+   customName = "elder enhanced gaping spider",
 	socialGroup = "geonosian_creature",
 	faction = "",
-	level = 85,
+	level = 300,
 	chanceHit = 2.5,
 	damageMin = 1715,
 	damageMax = 2540,
@@ -57,4 +57,4 @@ enhanced_gaping_spider = Creature:new {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(enhanced_gaping_spider, "enhanced_gaping_spider")
+CreatureTemplates:addCreatureTemplate(elder_enhanced_gaping_spider, "elder_enhanced_gaping_spider")

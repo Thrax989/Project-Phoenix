@@ -35,8 +35,10 @@ crazed_geonosian_guard = Creature:new {
 		{
 			groups = {
 				{group = "geonosian_common", chance = 5000000},
-				{group = "geonosian_relic", chance = 5000000}
-			}
+				{group = "geonosian_hard", chance = 4000000},
+				{group = "geonosian_relic", chance = 1000000}
+			},
+			lootChance = 10000000
 		}
 	},
 	weapons = {"geonosian_weapons"},

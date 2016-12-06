@@ -1,16 +1,17 @@
-enhanced_kliknik = Creature:new {
-	objectName = "@mob/creature_names:geonosian_kliknik_force_strong",
+elder_enhanced_force_kliknik = Creature:new {
+   objectName = "@mob/creature_names:",
+   customName = "elder enhanced force kliknik",
 	socialGroup = "geonosian_creature",
 	faction = "",
-	level = 85,
-	chanceHit = 2.2,
-	damageMin = 675,
-	damageMax = 1060,
-	baseXp = 10360,
-	baseHAM = 34000,
-	baseHAMmax = 42000,
+	level = 94,
+	chanceHit = 0.95,
+	damageMin = 610,
+	damageMax = 930,
+	baseXp = 8964,
+	baseHAM = 22000,
+	baseHAMmax = 27000,
 	armor = 2,
-	resists = {40,40,10,195,-1,110,110,10,-1},
+	resists = {35,35,0,95,-1,0,0,0,-1},
 	meatType = "meat_carnivore",
 	meatAmount = 45,
 	hideType = "hide_scaley",
@@ -18,15 +19,15 @@ enhanced_kliknik = Creature:new {
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
-	tamingChance = 0.25,
+	tamingChance = 0,
 	ferocity = 15,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
 	optionsBitmask = AIENABLED,
 	diet = CARNIVORE,
 
-	templates = {"object/mobile/kliknik.iff"},
-	scale = 1.4,
+	templates = {"object/mobile/kliknik_hue.iff"},
+	scale = 1.45,
 	lootGroups = {
 	 {
 	        groups = {
@@ -45,4 +46,4 @@ enhanced_kliknik = Creature:new {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(enhanced_kliknik, "enhanced_kliknik")
+CreatureTemplates:addCreatureTemplate(elder_enhanced_force_kliknik, "elder_enhanced_force_kliknik")

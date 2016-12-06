@@ -1,9 +1,9 @@
-acklay = Creature:new {
-	objectName = "@mob/creature_names:geonosian_acklay_bunker_boss",
-	customName = "Acklay",
+acklay_master = Creature:new {
+   objectName = "@mob/creature_names:",
+   customName = "acklay master",
 	socialGroup = "geonosian_creature",
 	faction = "",
-	level = 85,
+	level = 157,
 	chanceHit = 92.5,
 	damageMin = 935,
 	damageMax = 2180,
@@ -19,7 +19,7 @@ acklay = Creature:new {
 	boneType = "",
 	boneAmount = 0,
 	milk = 0,
-	tamingChance = 0.25,
+	tamingChance = 0,
 	ferocity = 25,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
 	creatureBitmask = PACK + KILLER,
@@ -43,4 +43,4 @@ acklay = Creature:new {
 	}
 }
 
-CreatureTemplates:addCreatureTemplate(acklay, "acklay")
+CreatureTemplates:addCreatureTemplate(acklay_master, "acklay_master")
