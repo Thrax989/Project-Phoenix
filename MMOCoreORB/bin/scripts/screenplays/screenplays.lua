@@ -2,6 +2,7 @@ package.path = package.path .. ";scripts/screenplays/themepark/?.lua;scripts/scr
 require("screenplay")
 require("conv_handler")
 require("themeParkLogic")
+require("screenplayHelper")
 require("corvetteTicketGiverLogic")
 require("corvetteTicketTakerLogic")
 
@@ -583,3 +584,25 @@ includeFile("record_keepers/record_keepers.lua")
 --Tests
 includeFile("tests/tests.lua")
 
+-- GCW Transit
+includeFile("gcw/gcw_transit_system.lua")
+includeFile("gcw/reb_transit_system.lua")
+includeFile("gcw/gcw_transit_deco.lua")
+
+-- Custom Content
+includeFile("custom_content/screenplays.lua")
+includeFile("events/world_exchange_dealer.lua")
+
+--World Boss Teleporters
+--includeFile("dungeon/teleport_pve.lua")
+--includeFile("dungeon/teleport_tatooine_pve.lua")
+--includeFile("dungeon/teleport_talus_pve.lua")
+--includeFile("dungeon/teleport_yavin4_pve.lua")
+--includeFile("dungeon/teleport_naboo_pve.lua")
+--includeFile("dungeon/teleport_rori_pve.lua")
+--includeFile("dungeon/teleport_lok_pve.lua")
+--includeFile("dungeon/teleport_corellia_pve.lua")
+--includeFile("dungeon/teleport_dantooine_pve.lua")
+--includeFile("dungeon/teleport_dathomir_pve.lua")
+--includeFile("dungeon/teleport_endor_pve.lua")
+--includeFile("dungeon/teleport_kaas_pve.lua")
