@@ -823,7 +823,7 @@ uint32 BuildingObjectImplementation::getMaximumNumberOfPlayerItems() {
 	if (lots == 0)
 		return MAXPLAYERITEMS;
 
-	return MIN(MAXPLAYERITEMS, lots * 100);
+	return MIN(MAXPLAYERITEMS, lots * 250);
 }
 
 int BuildingObjectImplementation::notifyObjectInsertedToChild(SceneObject* object, SceneObject* child, SceneObject* oldParent) {
