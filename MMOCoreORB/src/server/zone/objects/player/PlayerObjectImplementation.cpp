@@ -90,7 +90,7 @@
 void PlayerObjectImplementation::initializeTransientMembers() {
 	IntangibleObjectImplementation::initializeTransientMembers();
 
-	foodFillingMax = 100;
+	foodFillingMax = 50;
 	drinkFillingMax = 100;
 
 	duelList.setNoDuplicateInsertPlan();
@@ -148,7 +148,7 @@ void PlayerObjectImplementation::loadTemplateData(SharedObjectTemplate* template
 	trainerZoneName = getTrainerZoneName();
 
 	foodFilling = 0;
-	foodFillingMax = 100;
+	foodFillingMax = 50;
 
 	drinkFilling = 0;
 	drinkFillingMax = 100;
