@@ -48,16 +48,16 @@ public:
 		if (targetGhost == NULL)
 			return GENERALERROR;
 
-		if(targetGhost->getFactionStatus() == FactionStatus::ONLEAVE || targetGhost->getFactionStatus() == FactionStatus::COVERT){
-			targetGhost->setFactionStatus(FactionStatus::OVERT);
+		if(creature->getFactionStatus() == FactionStatus::ONLEAVE || creature->getFactionStatus() == FactionStatus::COVERT){
+			creature->setFactionStatus(FactionStatus::OVERT);
 		}else{
-			targetGhost->setFactionStatus(FactionStatus::ONLEAVE);
+			creature->setFactionStatus(FactionStatus::ONLEAVE);
 		}
 			//Broadcast to Server
  			String playerName = creature->getFirstName();
  			StringBuffer zBroadcast;
  			zBroadcast << "\\#00E604" << playerName << " \\#63C8F9 Is Now ";
-			if(targetGhost->getFactionStatus() == FactionStatus::ONLEAVE){
+			if(creature->getFactionStatus() == FactionStatus::ONLEAVE){
 				zBroadcast << "Onleave";
 			}else{
 				zBroadcast << "Overt";
