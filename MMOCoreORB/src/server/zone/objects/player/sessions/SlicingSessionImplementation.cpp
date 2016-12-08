@@ -739,7 +739,7 @@ void SlicingSessionImplementation::handleSliceEncumbrance(uint8 percent) {
 
 	armor->setEncumbranceSlice(percent / 100.f);
 	if(system::random(1) == 1)
-		armor->setRating(System::random(2)+1);
+		armor->setRating(System::random(3));
 	armor->setSliced(true);
 
 	StringIdChatParameter params;
@@ -762,7 +762,7 @@ void SlicingSessionImplementation::handleSliceEffectiveness(uint8 percent) {
 
 	armor->setEffectivenessSlice(percent / 100.f);
 	if(system::random(1) == 1)
-		armor->setRating(System::random(2)+1);
+		armor->setRating(System::random(3));
 	armor->setSliced(true);
 
 	StringIdChatParameter params;
