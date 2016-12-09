@@ -12,6 +12,7 @@
 #include "server/zone/managers/player/PlayerManager.h"
 #include "server/zone/objects/group/GroupObject.h"
 #include "server/zone/objects/creature/CreatureObject.h"
+#include "server/zone/objects/player/Races.h"
 #include "server/zone/objects/player/events/EntertainingSessionTask.h"
 #include "server/zone/objects/player/EntertainingObserver.h"
 #include "templates/params/creature/CreatureAttribute.h"
@@ -79,8 +80,9 @@ void EntertainingSessionImplementation::doEntertainerPatronEffects() {
 	if (building != NULL && factionPerkSkill > 0 && building->isPlayerRegisteredWithin(creo->getObjectID())) {
 		unsigned int buildingFaction = building->getFaction();
 		unsigned int healerFaction = creo->getFaction();
+		PlayerObject* ghost = creo->getPlayerObject();
 
-		if (healerFaction != 0 && healerFaction == buildingFaction && creo->getFactionStatus() == FactionStatus::OVERT) {
+		if (ghost != NULL && healerFaction != 0 && healerFaction == buildingFaction && ghost->getFactionStatus() == FactionStatus::OVERT) {
 			woundHealingSkill += factionPerkSkill;
 			playerShockHealingSkill += factionPerkSkill;
 		}
@@ -629,8 +631,8 @@ void EntertainingSessionImplementation::addEntertainerBuffDuration(CreatureObjec
 
 	buffDuration += duration;
 
-	if (buffDuration > (120.0f + (10.0f / 60.0f)) ) // 2 hrs 10 seconds
-		buffDuration = (120.0f + (10.0f / 60.0f)); // 2hrs 10 seconds
+if (buffDuration > (110.0f + (10.0f / 60.0f)) ) // 1 hr 50 min 10 seconds, default is 2h 10 sec
+		buffDuration = (185.0f + (10.0f / 60.0f)); // 2hrs 10 seconds
 
 	setEntertainerBuffDuration(creature, performanceType, buffDuration);
 }
@@ -651,18 +653,21 @@ void EntertainingSessionImplementation::addEntertainerBuffStrength(CreatureObjec
 		maxBuffStrength = (float) entertainer->getSkillMod("healing_music_mind");
 	}
 
-	if(maxBuffStrength > 125.0f)
-		maxBuffStrength = 125.0f;	//cap at 125% power
+	if(maxBuffStrength > 100.0f) {
+		float wearableBuff = (maxBuffStrength - 100.0f) * 2;
+		maxBuffStrength = 100.0f + wearableBuff;	//cap at 200%, default is 125% power
+	}
 
-	float factionPerkStrength = entertainer->getSkillMod("private_faction_buff_mind");
+	float factionPerkStrength = entertainer->getSkillMod("private_faction_buff_mind") + 25.0f;
 
 	ManagedReference<BuildingObject*> building = entertainer->getRootParent().get().castTo<BuildingObject*>();
 
 	if (building != NULL && factionPerkStrength > 0 && building->isPlayerRegisteredWithin(entertainer->getObjectID())) {
 		unsigned int buildingFaction = building->getFaction();
 		unsigned int entFaction = entertainer->getFaction();
+		PlayerObject* ghost = entertainer->getPlayerObject();
 
-		if (entFaction != 0 && entFaction == buildingFaction && entertainer->getFactionStatus() == FactionStatus::OVERT) {
+		if (ghost != NULL && entFaction != 0 && entFaction == buildingFaction && ghost->getFactionStatus() == FactionStatus::OVERT) {
 			maxBuffStrength += factionPerkStrength;
 		}
 	}
@@ -843,7 +848,7 @@ void EntertainingSessionImplementation::sendEntertainmentUpdate(CreatureObject* 
 	/*if (updateEntValue)
 		creature->setTerrainNegotiation(0.8025000095f, true);*/
 
-	String str = entertainer->getZoneServer()->getChatManager()->getMoodAnimation(mood);
+	String str = Races::getMoodStr(mood);
 	creature->setMoodString(str, true);
 }
 
