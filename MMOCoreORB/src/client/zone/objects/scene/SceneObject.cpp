@@ -1,6 +1,6 @@
 #include "SceneObject.h"
-#include "../../managers/object/ObjectManager.h"
-#include "../../Zone.h"
+#include "client/zone/managers/object/ObjectManager.h"
+#include "client/zone/Zone.h"
 
 SceneObject::SceneObject(LuaObject* templateData) : Logger("SceneObject") {
 	parent = NULL;
@@ -151,4 +151,3 @@ bool SceneObject::removeObject(SceneObject* object) {
 
 	return true;
 }
-
