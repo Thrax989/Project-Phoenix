@@ -52,5 +52,5 @@ function ForceCrystalCaveScreenPlay:spawnMobiles()
 	spawnMobile("dantooine", "untrained_wielder_of_the_dark_side",1800,23.8,-38.4,-32.8,-2,8535484)
 	spawnMobile("dantooine", "untrained_wielder_of_the_dark_side",1800,22.4,-42.1,-64.1,38,8535484)
 	spawnMobile("dantooine", "untrained_wielder_of_the_dark_side",1800,49.8,-48.5,-65.6,-51,8535484)
-	spawnMobile("dantooine", "untrained_wielder_of_the_dark_side",1800,49.7,-48,-17.7,167,8535484)
+	spawnMobile("dantooine", "Zamidirin",600,49.7,-48,-17.7,167,8535484)
 end
