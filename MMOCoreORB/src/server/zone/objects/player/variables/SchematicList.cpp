@@ -28,20 +28,24 @@ bool SchematicList::parseFromBinaryStream(ObjectInputStream* stream) {
 }
 
 void SchematicList::addRewardedSchematics(SceneObject* player) {
-	if(player->isPlayerObject()) {
-		PlayerObject* ghost = cast<PlayerObject*>(player);
-		if(ghost != NULL) {
-
-			Vector<ManagedReference<DraftSchematic* > > schematics;
-
-			for(int i = 0; i < rewardedSchematics.size(); ++i)
-				schematics.add(rewardedSchematics.elementAt(i).getKey());
-
-
-			ghost->addSchematics(schematics, true);
-		}
-	}
-
+    if (player->isPlayerObject()) {
+        PlayerObject* ghost = cast<PlayerObject*>(player);
+ 
+        if (ghost != NULL) {
+            Vector<ManagedReference<DraftSchematic* > > schematics;
+ 
+            for (int i = rewardedSchematics.size() - 1; i >= 0; --i) {
+                DraftSchematic* schem = rewardedSchematics.elementAt(i).getKey();
+ 
+                if (schem->getDraftSchematicTemplate() != NULL)
+                    schematics.add(schem);
+                else
+                    rewardedSchematics.drop(schem);
+            }
+ 
+            ghost->addSchematics(schematics, true);
+        }
+    }
 }
 
 bool SchematicList::addRewardedSchematic(DraftSchematic* schematic, short type, int quantity) {
