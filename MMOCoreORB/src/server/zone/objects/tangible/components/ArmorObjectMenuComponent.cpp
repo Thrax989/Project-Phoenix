@@ -3,7 +3,7 @@
  *
  *  Created on: 2/4/2013
  *      Author: bluree
- *		Credits: TA & Valk & Kinshi (recolor)
+ *		Credits: TA & Valk
  */
 
 #include "server/zone/objects/creature/CreatureObject.h"
@@ -41,32 +41,17 @@ void ArmorObjectMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, 
 		if (!sceneObject->isASubChildOf(player))
 			return;
 	}
-	/* // LoH Moved to WearableObjectMenuComponent.cpp to work with both armor and clothing
-	String appearanceFilename = sceneObject->getObjectTemplate()->getAppearanceFilename();
-	VectorMap<String, Reference<CustomizationVariable*> > variables;
-	AssetCustomizationManagerTemplate::instance()->getCustomizationVariables(appearanceFilename.hashCode(), variables, false);
+
+	String text = "Color Change";
+	menuResponse->addRadialMenuItem(81, 3, text);
+	menuResponse->addRadialMenuItem(82, 3, "@sui:color_frame");
 	
-	String varkey = variables.elementAt(0).getKey();
-	
-	if (varkey.contains("color")) {
-		menuResponse->addRadialMenuItem(81, 3, "Change Colors");
-		
-		for(int i = 0; i< variables.size(); ++i){
-			varkey = variables.elementAt(i).getKey();
-			
-			if (varkey.contains("color")) {
-				String optionName = "Color " + String::valueOf(i + 1);
-				menuResponse->addRadialMenuItemToRadialID(81, (82 + i), 3, optionName); // sub-menu
-			}
-		}
-	}
-	*/
     WearableObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player); 	
 }
 
 int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, CreatureObject* player, byte selectedID) const {
-	/*
-	if (selectedID > 81) {
+
+	if (selectedID == 81 || selectedID == 82) {
 		
 		ManagedReference<SceneObject*> parent = sceneObject->getParent().get();
 	
@@ -96,26 +81,29 @@ int ArmorObjectMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, C
 
 		ZoneServer* server = player->getZoneServer();
 
-		if (server != NULL) {
-			// The color index.
-			String appearanceFilename = sceneObject->getObjectTemplate()->getAppearanceFilename();
+		if (server != NULL) {		
 
-			VectorMap<String, Reference<CustomizationVariable*> > variables;
-			AssetCustomizationManagerTemplate::instance()->getCustomizationVariables(appearanceFilename.hashCode(), variables, false);
+		// The color index.
+		String appearanceFilename = sceneObject->getObjectTemplate()->getAppearanceFilename();
+		VectorMap<String, Reference<CustomizationVariable*> > variables;
+		AssetCustomizationManagerTemplate::instance()->getCustomizationVariables(appearanceFilename.hashCode(), variables, false);
 
-			// The Sui Box.
-			ManagedReference<SuiColorBox*> cbox = new SuiColorBox(player, SuiWindowType::COLOR_ARMOR);
-			cbox->setCallback(new ColorArmorSuiCallback(server));
-			cbox->setColorPalette(variables.elementAt(selectedID - 82).getKey()); // 0, 1, 2, 3...
-			cbox->setUsingObject(sceneObject);
+		// The Sui Box.
+		ManagedReference<SuiColorBox*> cbox = new SuiColorBox(player, SuiWindowType::COLOR_ARMOR);
+		cbox->setCallback(new ColorArmorSuiCallback(server));
+		if (selectedID == 81)
+		cbox->setColorPalette(variables.elementAt(1).getKey()); // First one seems to be the frame of it? Skip to 2nd.
+		else
+		cbox->setColorPalette(variables.elementAt(0).getKey());
+		cbox->setUsingObject(sceneObject);
 
-			// Add to player.
-			ManagedReference<PlayerObject*> ghost = player->getPlayerObject();
-			ghost->addSuiBox(cbox);
-			player->sendMessage(cbox->generateMessage());
+		// Add to player.
+		ManagedReference<PlayerObject*> ghost = player->getPlayerObject();
+		ghost->addSuiBox(cbox);
+		player->sendMessage(cbox->generateMessage());
 		}
 
 	}
-	*/
+	
 	return WearableObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 }
