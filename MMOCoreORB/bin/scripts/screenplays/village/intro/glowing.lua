@@ -20,16 +20,7 @@ BASICBADGES = {
 	COMBAT_BRAWLER_MASTER,
 	SCIENCE_MEDIC_MASTER,
 	SOCIAL_ENTERTAINER_MASTER
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
@@ -119,7 +110,6 @@ PROFESSIONBADGES = {
 	CRAFTING_CHEF_MASTER,
 	CRAFTING_DROIDENGINEER_MASTER,
 	CRAFTING_MERCHANT_MASTER,
-
 	CRAFTING_TAILOR_MASTER,
 	CRAFTING_WEAPONSMITH_MASTER,
 	OUTDOORS_BIO_ENGINEER_MASTER,
@@ -223,16 +213,6 @@ end
 function Glowing:onPlayerLoggedIn(pPlayer)
 	if not self:isGlowing(pPlayer) then
 		self:registerObservers(pPlayer)
-
-
-
-
-
-
-
-
-
-
 	end
 end
 
