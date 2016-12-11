@@ -41,40 +41,39 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_draft_schematic_weapon_lightsaber_lightsaber_refined_crystal_pack = object_draft_schematic_weapon_lightsaber_shared_lightsaber_refined_crystal_pack:new {
+object_draft_schematic_vehicle_civilian_speeder_stap = object_draft_schematic_vehicle_civilian_shared_speeder_stap:new {
 
    templateType = DRAFTSCHEMATIC,
 
-   customObjectName = "A Refined Crystal Pack",
+   customObjectName = "STAP Speeder",
 
-   craftingToolTab = 2048, -- (See DraftSchematicObjectTemplate.h)
-   complexity = 18, 
+   craftingToolTab = 16, -- (See DraftSchematicObjectTemplate.h)
+   complexity = 25, 
    size = 1, 
 
-   xpType = "fs_crafting", 
-   xp = 5000, 
+   xpType = "crafting_general", 
+   xp = 1800, 
 
-   assemblySkill = "jedi_saber_assembly", 
-   experimentingSkill = "jedi_saber_experimentation", 
-   customizationSkill = "jedi_customization", 
-   disableFactoryRun = false,   
+   assemblySkill = "general_assembly", 
+   experimentingSkill = "general_experimentation", 
+   customizationSkill = "clothing_customization", 
 
    customizationOptions = {},
    customizationStringNames = {},
    customizationDefaults = {},
 
-   ingredientTemplateNames = {"craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n"},
-   ingredientTitleNames = {"module_housing", "ultrasonic_vibration_generator", "conductive_circuits"},
-   ingredientSlotType = {0, 0, 0},
-   resourceTypes = {"steel", "gemstone", "copper"},
-   resourceQuantities = {10, 20, 6},
-   contribution = {100, 100, 100},
+   ingredientTemplateNames = {"craft_vehicle_ingredients_n", "craft_vehicle_ingredients_n"},
+   ingredientTitleNames = {"vehicle_body", "structural_frame"},
+   ingredientSlotType = {0, 0},
+   resourceTypes = {"metal_nonferrous", "metal_ferrous"},
+   resourceQuantities = {1125, 3125},
+   contribution = {100, 100},
 
 
-   targetTemplate = "object/tangible/component/weapon/lightsaber/lightsaber_refined_crystal_pack.iff",
+   targetTemplate = "object/tangible/deed/vehicle_deed/senate_pod_deed.iff",
 
    additionalTemplates = {
              }
 
 }
-ObjectTemplates:addTemplate(object_draft_schematic_weapon_lightsaber_lightsaber_refined_crystal_pack, "object/draft_schematic/weapon/lightsaber/lightsaber_refined_crystal_pack.iff")
+ObjectTemplates:addTemplate(object_draft_schematic_vehicle_civilian_speeder_stap, "object/draft_schematic/vehicle/civilian/speeder_stap.iff")
