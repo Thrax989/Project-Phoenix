@@ -18,6 +18,7 @@ object_tangible_beta_beta_terminal_wound = object_tangible_beta_shared_beta_term
 
 
 	itemList = {
+			"Buff Character", "enhance_character",
 			"Clense Character", "cleanse_character",
 			"Reset Buffs", "reset_buffs",
 			"Apply DOTs", "apply_dots",
