@@ -570,10 +570,10 @@ object_tangible_wearables_armor_infiltrator_shared_armor_infiltrator_s01_legging
 ]]
 }
 
-ObjectTemplates:addClientTemplate(object_tangible_wearables_armor_infiltrator_shared_armor_infiltrator_s01_leggings, "object/tangible/wearables/armor/infiltrator/shared_armor_infiltrator_s01_leggings.iff")
+ObjectTemplates:addClientTemplate(object_tangible_wearables_armor_infiltrator_shared_armor_infiltrator_s01_belt, "object/tangible/wearables/armor/infiltrator/shared_armor_infiltrator_s01_belt.iff")
 
-object_tangible_wearables_armor_infiltrator_shared_armor_infiltrator_s01_belt = SharedTangibleObjectTemplate:new {
-	clientTemplateFileName = "object/tangible/wearables/armor/infiltrator/shared_armor_infiltrator_s01_belt.iff"
+object_tangible_wearables_armor_infiltrator_shared_armor_infiltrator_s01_leggings = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/armor/infiltrator/shared_armor_infiltrator_s01_leggings.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
 --[[
 	appearanceFilename = "appearance/armor_infiltrator_s01_s01_leggings_f.sat",
