@@ -50,7 +50,7 @@ object_installation_turret_turret_dish_sm = object_installation_turret_shared_tu
 	-- Damagetypes in WeaponObject
 	vulnerability = BLAST + LIGHTSABER,
 	-- LIGHT, MEDIUM, HEAVY
-	rating = LIGHT,
+	rating = HEAVY,
 
 	kinetic = 75,
 	energy = 95,
