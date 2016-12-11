@@ -6,8 +6,8 @@ acklay_venom = {
 	customObjectName = "",
 	directObjectTemplate = "object/tangible/component/munition/acklay_venom.iff",
 	craftingValues = {
-		{"maxdamage",417,1033,0},
-		{"useCount",1,5,0}
+		{"maxdamage",700,1600,0},
+		{"useCount",3,8,0}
 	},
 	customizationStringNames = {},
 	customizationValues = {}
