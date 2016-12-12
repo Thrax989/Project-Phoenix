@@ -148,7 +148,7 @@ void PlayerObjectImplementation::loadTemplateData(SharedObjectTemplate* template
 	trainerZoneName = getTrainerZoneName();
 
 	foodFilling = 0;
-	foodFillingMax = 50;
+	foodFillingMax = 100;
 
 	drinkFilling = 0;
 	drinkFillingMax = 100;
