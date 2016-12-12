@@ -46,6 +46,10 @@ function TalusDetainmentCenterScreenPlay:flipBase(pBuilding)
 	return 0
 end
 
+function TalusDetainmentCenterScreenPlay:spawnOutsideMobiles()
+	spawnMobile("talus", "ep3_clone_relics_durge", 3600, 4965.16, 450, -5982, -21, 0)
+end
+
 function TalusDetainmentCenterScreenPlay:spawnImperials(pBuilding)
 	BuildingObject(pBuilding):initializeStaticGCWBase(FACTIONIMPERIAL)
 

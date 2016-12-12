@@ -231,7 +231,7 @@ deathWatchStaticSpawns = {
 	{"death_watch_battle_droid", 300, -281.9, -60.0, -120.7, 177, 5996371},
 	{"death_watch_battle_droid", 300, -281.9, -60.0, -129.6, -3, 5996371},
 
-	{"death_watch_wraith", 300, -2, -60.0, -172.6, 176, 5996352},
+	{"mando_boss", 3600, -2, -60.0, -172.6, 176, 5996352},
 	{"death_watch_miner", 300, -12.5, -59.9, -203.6, 127, 5996354},
 	{"death_watch_miner", 300, -10.8, -60.1, -207.2, -24, 5996354},
 
