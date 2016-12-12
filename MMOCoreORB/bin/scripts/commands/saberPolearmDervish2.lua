@@ -61,7 +61,7 @@ SaberPolearmDervish2Command = {
 		{}, 
 		{ "blind_defense", "resistance_states" }, 
 		{ "jedi_state_defense" }, 
-		75, 
+		85, 
 		0, 
 		60 
 	  ),
@@ -70,7 +70,7 @@ SaberPolearmDervish2Command = {
 		{}, 
 		{ "dizzy_defense", "resistance_states" }, 
 		{ "jedi_state_defense" }, 
-		75, 
+		85, 
 		0, 
 		30 
 	  ),
@@ -79,7 +79,7 @@ SaberPolearmDervish2Command = {
 		{}, 
 		{ "stun_defense", "resistance_states" }, 
 		{ "jedi_state_defense" }, 
-		76, 
+		85, 
 		0, 
 		60
 	  )
