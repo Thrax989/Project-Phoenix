@@ -48,7 +48,7 @@ public:
 		int skillMod = player->getSkillMod("dna_harvesting");
 		int cl = deed->getLevel();
 
-		if (skillMod < 1 || cl > skillMod + 15){
+		if (skillMod < 1 || cl > skillMod + 50){
 			player->sendSystemMessage("@bio_engineer:harvest_dna_skill_too_low");
 			return;
 		}
@@ -66,7 +66,7 @@ public:
 				}
 				break;
 			case SAMPLING:
-				if (waitCount == 9) {
+				if (waitCount == 1) {
 					currentPhase = END;
 				}else {
 					waitCount++;
@@ -83,7 +83,7 @@ public:
 				// max samples 3/4 of real creatures, (4 samples total with master BE and +25 tapes)
 				int maxSamples = (int) ceil((float)skillMod/25.0*0.75);
 				deed->incrementSampleCount();
-				if ((30 + rollMod) < sampleRoll || cl > 85) {
+				if ((60 + rollMod) < sampleRoll || cl > 85) {
 					// failure but we increment the count
 					player->sendSystemMessage("@bio_engineer:harvest_dna_failed");
 				} else {
