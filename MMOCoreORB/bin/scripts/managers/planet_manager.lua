@@ -193,8 +193,8 @@ dathomir = {
 		{templateFile = "object/building/player/city/shuttleport_naboo.iff", x = 5219.5, z = 79.38, y = -4050.03, ow = 0.258819, ox = 0, oz = 0, oy = 0.965926, parentid = 0},
 		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.701463, oz = 0, ow = 0.712705, x = 592.612, z = 6, y = 3089.84, parentid = 0},
 		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", ox = 0, oy = 0.314904, oz = 0, ow = 0.949123, x = -67.6585, z = 18, y = -1595.3, parentid = 0},
-		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", x = 5237.31, z = 78.5, y = -4058.72, ow = 0.272558, ox = 0, oz = 0, oy = 0.962139, parentid = 0},
-		{templateFile = "object/tangible/beta/beta_terminal_wound.iff", x = 5239.13, z = 78.5, y = -4057.93, ow = -0.272558, ox = 0, oz = 0, oy = -0.962139, parentid = 0}
+		{templateFile = "object/tangible/terminal/terminal_mission.iff", x = 5237.31, z = 78.5, y = -4058.72, ow = 0.272558, ox = 0, oz = 0, oy = 0.962139, parentid = 0},
+		{templateFile = "object/tangible/jedi/padawan_trials_skeleton.iff", x = 5239.13, z = 78.5, y = -4057.93, ow = -0.272558, ox = 0, oz = 0, oy = -0.962139, parentid = 0}
 	}
 }
 
