@@ -279,7 +279,7 @@ void SlicingSessionImplementation::endSlicing() {
 	}
 
 	if (tangibleObject->isMissionTerminal())
-		player->addCooldown("slicing.terminal", (2 * (60 * 1000))); // 2min Cooldown
+		player->addCooldown("slicing.terminal", (1 * (10 * 1000))); // 10second Cooldown
 
 	cancelSession();
 
@@ -528,20 +528,20 @@ void SlicingSessionImplementation::handleSlice(SuiListBox* suiBox) {
 
 	if (tangibleObject->isContainerObject() || tangibleObject->getGameObjectType() == SceneObjectType::PLAYERLOOTCRATE) {
 		handleContainerSlice();
-		playerManager->awardExperience(player, "slicing", 250, true); // Container Slice XP
+		playerManager->awardExperience(player, "slicing", 25000, true); // Container Slice XP
 	} else if (tangibleObject->isMissionTerminal()) {
 		MissionTerminal* term = cast<MissionTerminal*>( tangibleObject.get());
-		playerManager->awardExperience(player, "slicing", 100, true); // Terminal Slice XP
+		playerManager->awardExperience(player, "slicing", 10000, true); // Terminal Slice XP
 		term->addSlicer(player);
 		player->sendSystemMessage("@slicing/slicing:terminal_success");
 	} else if (tangibleObject->isWeaponObject()) {
 		handleWeaponSlice();
-		playerManager->awardExperience(player, "slicing", 250, true); // Weapon Slice XP
+		playerManager->awardExperience(player, "slicing", 25000, true); // Weapon Slice XP
 	} else if (tangibleObject->isArmorObject()) {
 		handleArmorSlice();
-		playerManager->awardExperience(player, "slicing", 250, true); // Armor Slice XP
+		playerManager->awardExperience(player, "slicing", 25000, true); // Armor Slice XP
 	} else if ( isBaseSlice()){
-		playerManager->awardExperience(player,"slicing", 1000, true); // Base slicing
+		playerManager->awardExperience(player,"slicing", 10000, true); // Base slicing
 
 		Zone* zone = player->getZone();
 
