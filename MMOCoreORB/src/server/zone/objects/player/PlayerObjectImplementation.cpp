@@ -90,7 +90,7 @@
 void PlayerObjectImplementation::initializeTransientMembers() {
 	IntangibleObjectImplementation::initializeTransientMembers();
 
-	foodFillingMax = 50;
+	foodFillingMax = 100;
 	drinkFillingMax = 100;
 
 	duelList.setNoDuplicateInsertPlan();
