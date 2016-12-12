@@ -244,7 +244,6 @@ includeFile("events/eventPromoter.lua")
 includeFile("events/lifeDay.lua")
 includeFile("events/buffTerminalMenuComponent.lua")
 includeFile("events/race_droid.lua")
-includeFile("events/black_sun.lua")
 
 -- Hero of Tatooine
 includeFile("tasks/hero_of_tatooine/conversations/hermitConvoHandler.lua")
@@ -545,9 +544,6 @@ includeFile("poi/tatooine_village_ruins.lua")
 includeFile("poi/yavin4_blueleaf_temple.lua")
 includeFile("poi/yavin4_imperial_base.lua")
 includeFile("poi/yavin4_woolamander_temple.lua")
-
---Boss Encounters
-includeFile("poi/lok_rvboss.lua")
 
 --Static Spawns
 includeFile("static_spawns/corellia_static_spawns.lua")

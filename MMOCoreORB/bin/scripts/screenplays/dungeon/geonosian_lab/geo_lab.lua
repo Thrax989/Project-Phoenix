@@ -148,6 +148,15 @@ function GeonosianLabScreenPlay:spawnMobiles()
 	spawnMobile("yavin4", "biogenic_scientist_generic_02", 1, -132.769, -34, -206.189, -93, 1627814)--biogen_gen02
 	spawnMobile("yavin4", "biogenic_scientist_geonosian", 1, 7.4, -22, -333, 180, 1627822) -- biogen_geo
 
+	if isZoneEnabled("corellia") then
+ 		spawnMobile("corellia", "herald_biogenic_teraeza", 60, 21.3645, 1.28309, 9.48413, 142.744, 1935823)
+ 	end
+ 	if isZoneEnabled("naboo") then
+ 		spawnMobile("naboo", "herald_biogenic_harmon", 60, 5094, -192, 6754, -173, 0)
+ 	end
+ 
+ 	spawnMobile("yavin4", "herald_biogenic_gardo", 60, -3.8, 0.1, -3.8, 88, 1713374)
+
 	spawnMobile("yavin4", "acklay",300,101.1,-34.3,-321.6,-136,1627823, true) --Randomized respawn
 	spawnMobile("yavin4", "elder_enhanced_gaping_spider",600,-130,-22.1,-85,-180,1627794, true) -- Randomized respawn
 	spawnMobile("yavin4", "enhanced_gaping_spider",600,-130,-22.1,-85,-180,1627794)
