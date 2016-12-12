@@ -1,4 +1,4 @@
-object_tangible_wearables_armor_rebel_assault_armor_rebel_assault_helmet = object_tangible_wearables_armor_rebel_assault_shared_armor_rebel_assault_helmet:new {
+object_tangible_wearables_armor_rebel_assault_armor_rebel_spec_ops_helmet = object_tangible_wearables_armor_rebel_assault_shared_armor_rebel_spec_ops_helmet:new {
 
 	templateType = ARMOROBJECT,
 
@@ -91,4 +91,4 @@ object_tangible_wearables_armor_rebel_assault_armor_rebel_assault_helmet = objec
 	experimentalCombineType = {0, 0, 4, 1, 1, 1, 1, 1, 1, 4, 4, 4, 1},
 }
 
-ObjectTemplates:addTemplate(object_tangible_wearables_armor_rebel_assault_armor_rebel_assault_helmet, "object/tangible/wearables/armor/rebel/assault/armor_rebel_assault_helmet.iff")
+ObjectTemplates:addTemplate(object_tangible_wearables_armor_rebel_assault_armor_rebel_spec_ops_helmet, "object/tangible/wearables/armor/rebel/assault/armor_rebel_spec_ops_helmet.iff")
