@@ -1,11 +1,8 @@
 /*
  * BountyMissionObjectiveImplementation.cpp
- * PLEASE DO NOT STEAL OUR WORK
- * ASK BEFOR USING
- * Contact Me Here http://projectphoenix.com.shivtr.com/
- * Created on: 20/08/2010
- * Re Created on: 10/26/2016 12:54 am
- * Authors: dannuic , TOXIC
+ *
+ *  Created on: 20/08/2010
+ *      Author: dannuic
  */
 
 #include "server/zone/objects/mission/BountyMissionObjective.h"
@@ -25,18 +22,6 @@
 #include "server/zone/objects/mission/bountyhunter/BountyHunterDroid.h"
 #include "server/zone/objects/mission/bountyhunter/events/BountyHunterTargetTask.h"
 #include "server/zone/managers/visibility/VisibilityManager.h"
-#include "server/zone/objects/player/sui/callbacks/BountyHuntSuiCallback.h"
-#include "server/zone/objects/player/sui/inputbox/SuiInputBox.h"
-#include "server/zone/packets/player/PlayMusicMessage.h"
-#include "server/zone/objects/creature/commands/QueueCommand.h"
-#include "server/zone/objects/creature/ai/DroidObject.h"
-#include "server/zone/managers/creature/PetManager.h"
-#include "server/zone/managers/visibility/VisibilityManager.h"
-#include "server/zone/managers/combat/CombatManager.h"
-#include "server/zone/packets/player/PlayMusicMessage.h"
-#include "server/zone/managers/loot/LootManager.h"
-
-
 
 void BountyMissionObjectiveImplementation::setNpcTemplateToSpawn(SharedObjectTemplate* sp) {
 	npcTemplateToSpawn = sp;
@@ -128,22 +113,10 @@ void BountyMissionObjectiveImplementation::complete() {
 		return;
 
 	ManagedReference<CreatureObject*> owner = getPlayerOwner();
-	ManagedReference<SceneObject*> inventory = owner->getSlottedObject("inventory");
-	ManagedReference<LootManager*> lootManager = owner->getZoneServer()->getLootManager();
 	//Award bountyhunter xp.
 	owner->getZoneServer()->getPlayerManager()->awardExperience(owner, "bountyhunter", mission->getRewardCredits() / 50, true, 1);
 
 	owner->getZoneServer()->getMissionManager()->completePlayerBounty(mission->getTargetObjectId(), owner->getObjectID());
-	lootManager->createLoot(inventory, "clothing_attachments", 300);//, playerName);
-	lootManager->createLoot(inventory, "armor_attachments", 300);//, playerName);
-	owner->sendSystemMessage("You have defeated a Jedi, keep up the good work!");
-	//Broadcast to Server
-	String playerName = owner->getFirstName();
-	StringBuffer zBroadcast;
-	zBroadcast << "\\#ffd700" << playerName << " \\#00e604 BountyHunter  Has Defeated A \\#e60000 Target! \\#00ffdf" << playerName << " Be On The Look Out For This Player ";
-	owner->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
-	PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
- 	owner->sendMessage(pmm);
 
 	removeFromBountyLock(true);
 
@@ -191,7 +164,6 @@ void BountyMissionObjectiveImplementation::spawnTarget(const String& zoneName) {
 		}
 	}
 }
-
 
 int BountyMissionObjectiveImplementation::notifyObserverEvent(MissionObserver* observer, uint32 eventType, Observable* observable, ManagedObject* arg1, int64 arg2) {
 	Locker locker(&syncMutex);
@@ -668,18 +640,6 @@ void BountyMissionObjectiveImplementation::handlePlayerKilled(ManagedObject* arg
 			//Player killed by target, fail mission.
 			owner->sendSystemMessage("@mission/mission_generic:failed"); // Mission failed
 			killer->sendSystemMessage("You have defeated a bounty hunter, ruining his mission against you!");
-			//Broadcast to Server
-			String playerName = killer->getFirstName();
-			StringBuffer zBroadcast;
-			zBroadcast << "\\#ffd700" << playerName << " \\#00e604 Force User Has Defeated A \\#e60000 Bounty Hunter! \\#00ffdf" << playerName << " Has Been Awarded 5,000 Force Ranking Exp";
-			killer->getZoneServer()->getChatManager()->broadcastGalaxy(NULL, zBroadcast.toString());
-			PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
- 			killer->sendMessage(pmm);
-			killer->playEffect("clienteffect//holoemote_brainstorm.cef", "head");
-			killer->playEffect("clienteffect/holoemote_sparky.cef", "head");
-			if (killer->hasSkill("force_rank_light_novice") || killer->hasSkill("force_rank_dark_novice")) {
-				killer->getZoneServer()->getPlayerManager()->awardExperience(killer, "force_rank_xp", 5000);
-			}
 			fail();
 		}
 	}
