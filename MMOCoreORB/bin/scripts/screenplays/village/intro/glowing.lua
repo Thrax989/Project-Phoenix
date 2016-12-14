@@ -194,7 +194,7 @@ function Glowing:badgeAwardedEventHandler(pPlayer, pPlayer2, badgeNumber)
 	if self:countBadges(pPlayer) >= TOTALNUMBEROFBADGESREQUIRED and not CreatureObject(pPlayer):hasSkill("force_title_jedi_novice") then
 		VillageJediManagerCommon.setJediProgressionScreenPlayState(pPlayer, VILLAGE_JEDI_PROGRESSION_GLOWING)
 
-		OldManIntroEncounter:startPlayerOnIntro(pPlayer)
+		FsIntro:startPlayerOnIntro(pPlayer)
 		return 1
 	end
 
