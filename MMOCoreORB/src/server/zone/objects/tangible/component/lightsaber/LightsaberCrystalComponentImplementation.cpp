@@ -76,8 +76,8 @@ void LightsaberCrystalComponentImplementation::fillAttributeList(AttributeListMe
 		}
 	}
 
-	if ((player->getJediState() > 1 && getColor() == 31) || player->getAdminLevel() > 6) {
-		if (ownerID != 0 || player->getAdminLevel() > 6) {
+	if ((player->getJediState() > 1 || player->isPrivileged()) && getColor() == 31) {
+		if (ownerID != 0) {
 			alm->insertAttribute("mindamage", minimumDamage);
 			alm->insertAttribute("maxdamage", maximumDamage);
 			alm->insertAttribute("wpn_attack_speed", attackSpeed);
@@ -95,8 +95,7 @@ void LightsaberCrystalComponentImplementation::fillAttributeList(AttributeListMe
 }
 
 void LightsaberCrystalComponentImplementation::fillObjectMenuResponse(ObjectMenuResponse* menuResponse, CreatureObject* player) {
-	//if (ownerID == 0 && player->hasSkill("force_title_jedi_rank_01") && hasPlayerAsParent(player)) {
-	if (player->hasSkill("force_title_jedi_rank_01") && hasPlayerAsParent(player)) {
+	if (ownerID == 0 && player->hasSkill("force_title_jedi_rank_01") && hasPlayerAsParent(player)) {
 		String text = "@jedi_spam:tune_crystal";
 		menuResponse->addRadialMenuItem(128, 3, text);
 	}
@@ -106,7 +105,7 @@ void LightsaberCrystalComponentImplementation::fillObjectMenuResponse(ObjectMenu
 
 int LightsaberCrystalComponentImplementation::handleObjectMenuSelect(CreatureObject* player, byte selectedID) {
 	if (selectedID == 128 && player->hasSkill("force_title_jedi_rank_01") && hasPlayerAsParent(player)) {
-		//if(ownerID == 0) {
+		if(ownerID == 0) {
 			ManagedReference<SuiMessageBox*> suiMessageBox = new SuiMessageBox(player, SuiWindowType::TUNE_CRYSTAL);
 
 			suiMessageBox->setPromptTitle("@jedi_spam:confirm_tune_title");
@@ -117,7 +116,7 @@ int LightsaberCrystalComponentImplementation::handleObjectMenuSelect(CreatureObj
 
 			player->getPlayerObject()->addSuiBox(suiMessageBox);
 			player->sendMessage(suiMessageBox->generateMessage());
-		//}
+		}
 	}
 
 	return 0;
@@ -153,7 +152,7 @@ void LightsaberCrystalComponentImplementation::tuneCrystal(CreatureObject* playe
 		return;
 	}
 
-	//if (ownerID == 0){
+	if (ownerID == 0){
 		setOwnerID(player->getObjectID());
 
 		// Color code is lime green.
@@ -167,7 +166,7 @@ void LightsaberCrystalComponentImplementation::tuneCrystal(CreatureObject* playe
 
 		setCustomObjectName(tuneName, true);
 		player->sendSystemMessage("@jedi_spam:crystal_tune_success");
-	//}
+	}
 }
 
 void LightsaberCrystalComponentImplementation::updateCrystal(int value){
@@ -180,7 +179,7 @@ void LightsaberCrystalComponentImplementation::updateCrystal(int value){
 void LightsaberCrystalComponentImplementation::updateCraftingValues(CraftingValues* values, bool firstUpdate) {
 
 	int colorMax = values->getMaxValue("color");
-	int color = values->getCurrentValue("color");
+	int color = values->getCurrentValue("color"); 
 
 	setMaxCondition(values->getCurrentValue("hitpoints"));
 
@@ -188,7 +187,7 @@ void LightsaberCrystalComponentImplementation::updateCraftingValues(CraftingValu
 		int finalColor = MIN(color, 30);
 		setColor(finalColor);
 		updateCrystal(finalColor);
-	}
+	} 
 	else {
 		setColor(31);
 		updateCrystal(31);
@@ -196,27 +195,17 @@ void LightsaberCrystalComponentImplementation::updateCraftingValues(CraftingValu
 
 	if (color == 31){
 		setQuality(values->getCurrentValue("quality"));
-		setAttackSpeed(MAX(MIN(Math::getPrecision(values->getCurrentValue("attackspeed"), 2), 2), -2));
-		setMinimumDamage(MAX(MIN(values->getCurrentValue("mindamage"), 100), 0));
-		setMaximumDamage(MAX(MIN(values->getCurrentValue("maxdamage"), 200), 0));
-		setWoundChance(MAX(MIN(values->getCurrentValue("woundchance"), 75), 0));
+		setAttackSpeed(Math::getPrecision(values->getCurrentValue("attackspeed"), 2));
+		setMinimumDamage(MIN(values->getCurrentValue("mindamage"), 100));
+		setMaximumDamage(MIN(values->getCurrentValue("maxdamage"), 200));
+		setWoundChance(values->getCurrentValue("woundchance"));
 
 		// Following are incoming positive values in script (Due to loot modifier.)
 		// Switch to negative number.
-		setSacHealth(MAX(MIN(MIN(values->getCurrentValue("attackhealthcost"), 9) * -1, 0), -10));
-		setSacAction(MAX(MIN(MIN(values->getCurrentValue("attackactioncost"), 9) * -1, 0), -10));
-		setSacMind(MAX(MIN(MIN(values->getCurrentValue("attackmindcost"), 9) * -1, 0), -10));
-		setForceCost(MAX(MIN(Math::getPrecision(values->getCurrentValue("forcecost"), 1) * -1, 0), -15));
-	} else {
-		setQuality(values->getCurrentValue("quality"));
-		setAttackSpeed(0);
-		setMinimumDamage(MAX(MIN(values->getCurrentValue("mindamage"), 100), 0));
-		setMaximumDamage(MAX(MIN(values->getCurrentValue("maxdamage"), 200), 0));
-		setWoundChance(0);
-		setSacHealth(0);
-		setSacAction(0);
-		setSacMind(0);
-		setForceCost(0);
+		setSacHealth(MIN(values->getCurrentValue("attackhealthcost"), 9) * -1);
+		setSacAction(MIN(values->getCurrentValue("attackactioncost"), 9) * -1);
+		setSacMind(MIN(values->getCurrentValue("attackmindcost"), 9) * -1);
+		setForceCost(Math::getPrecision(values->getCurrentValue("forcecost"), 1) * -1);
 	}
 
 	ComponentImplementation::updateCraftingValues(values, firstUpdate);
@@ -235,8 +224,8 @@ int LightsaberCrystalComponentImplementation::inflictDamage(TangibleObject* atta
 		if (weapon != NULL) {
 			if (getColor() == 31) {
 				weapon->setAttackSpeed(weapon->getAttackSpeed() - getAttackSpeed());
-				weapon->setMinDamage(weapon->getMinDamage() - MIN(MAX(getMinimumDamage(), 0), 100));
-				weapon->setMaxDamage(weapon->getMaxDamage() - MIN(MAX(getMaximumDamage(), 0), 200));
+				weapon->setMinDamage(weapon->getMinDamage() - getMinimumDamage());
+				weapon->setMaxDamage(weapon->getMaxDamage() - getMaximumDamage());
 				weapon->setHealthAttackCost(weapon->getHealthAttackCost() - getSacHealth());
 				weapon->setActionAttackCost(weapon->getActionAttackCost() - getSacAction());
 				weapon->setMindAttackCost(weapon->getMindAttackCost() - getSacMind());
@@ -247,8 +236,6 @@ int LightsaberCrystalComponentImplementation::inflictDamage(TangibleObject* atta
 			if (getColor() != 31) {
 				weapon->setBladeColor(31);
 				weapon->setCustomizationVariable("/private/index_color_blade", 31, true);
-				weapon->setMinDamage(weapon->getMinDamage() - MIN(MAX(getMinimumDamage(), 0.f), 100.f));
-				weapon->setMaxDamage(weapon->getMaxDamage() - MIN(MAX(getMaximumDamage(), 0.f), 100.f));
 
 				if (weapon->isEquipped()) {
 					ManagedReference<CreatureObject*> parent = cast<CreatureObject*>(weapon->getParent().get().get());
