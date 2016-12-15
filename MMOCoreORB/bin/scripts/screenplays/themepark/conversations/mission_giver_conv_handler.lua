@@ -88,6 +88,9 @@ function mission_giver_conv_handler:handleScreenInit(pConvTemplate, pPlayer, pNp
 		if (self.themePark:missionStatus(pPlayer) == -1) then
 			nextScreenName = "failure"
 
+		elseif npcCompare < 0 then
+			nextScreenName = "next"
+
 		elseif currentMissionNumber == 0 and not self.themePark.genericGiver then
 			nextScreenName = "notyet"
 
@@ -155,8 +158,6 @@ function mission_giver_conv_handler:handleScreenInit(pConvTemplate, pPlayer, pNp
 					nextScreenName = "npc_1_n"
 				end
 			end
-		elseif npcCompare < 0 then
-			nextScreenName = "next"
 		else
 			nextScreenName = "notyet"
 		end
@@ -523,7 +524,11 @@ function mission_giver_conv_handler:handleScreenNotYet(pConvTemplate, pPlayer, p
 	local npcNumber = self.themePark:getNpcNumber(pNpc)
 	local stfFile = self.themePark:getStfFile(npcNumber)
 
-	clonedScreen:setDialogTextStringId(stfFile .. ":notyet")
+	if (self.themePark:isValidConvoString(stfFile, ":notyet")) then
+		clonedScreen:setDialogTextStringId(stfFile .. ":notyet")
+	else
+		clonedScreen:setDialogTextStringId("@static_npc/naboo/brennis_doore:notyet") -- "I got nothing to say right now."
+	end
 
 	return pConvScreen
 end
