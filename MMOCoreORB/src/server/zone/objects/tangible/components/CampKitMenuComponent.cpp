@@ -263,6 +263,8 @@ int CampKitMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject,
 			return 1;
 		}
 
+		campArea->setAbandoned(false);
+
 		structureObject->addActiveArea(campArea);
 
 		player->sendSystemMessage("@camp:camp_complete");
@@ -280,4 +282,3 @@ int CampKitMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject,
 
 	return 0;
 }
-
