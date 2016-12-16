@@ -16,7 +16,7 @@ Join Our Discord Server Today To Talk With The Community
 Main Server Website
 
 
-http://projectphoenix.com.shivtr.com/
+http://www.swgprojectphoenix.com/
 
 
 This Project Consist Of many Collaborators Over The Years Who Brought The Project To Its Current State.
