@@ -592,8 +592,8 @@ includeFile("gcw/gcw_transit_deco.lua")
 -- Custom Content
 includeFile("custom_content/screenplays.lua")
 includeFile("events/world_exchange_dealer.lua")
-
---World Boss Teleporters
+includeFile("events/black_sun.lua")
+includeFile("poi/lok_rvboss.lua")
 --includeFile("dungeon/teleport_pve.lua")
 --includeFile("dungeon/teleport_tatooine_pve.lua")
 --includeFile("dungeon/teleport_talus_pve.lua")
@@ -605,4 +605,3 @@ includeFile("events/world_exchange_dealer.lua")
 --includeFile("dungeon/teleport_dantooine_pve.lua")
 --includeFile("dungeon/teleport_dathomir_pve.lua")
 --includeFile("dungeon/teleport_endor_pve.lua")
---includeFile("dungeon/teleport_kaas_pve.lua")
