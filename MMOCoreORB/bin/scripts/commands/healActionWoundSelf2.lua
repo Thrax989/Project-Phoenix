@@ -44,9 +44,10 @@
 HealActionWoundSelf2Command = {
         name = "healactionwoundself2",
 	healWoundAmount = 350,
-	forceCostDivisor = 15,
 	healWoundAttributes = ACTION_ATTRIBUTE,
 	forceCost = 100,
+	forceCostDivisor = 15.0,
+	range = 0
 }
 
 AddCommand(HealActionWoundSelf2Command)
