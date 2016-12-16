@@ -273,3 +273,11 @@ includeFile("conversations/junk_dealer/junk_dealer_quich_conv.lua")
 includeFile("conversations/junk_dealer/junk_dealer_reggi_conv.lua")
 includeFile("conversations/junk_dealer/junk_dealer_sheani_conv.lua")
 includeFile("conversations/junk_dealer/junk_dealer_sneg_conv.lua")
+
+-- GCW Transit System
+includeFile("conversations/gcw_transitsystem/transitconvo.lua")
+includeFile("conversations/gcw_transitsystem/reb_transitconvo.lua")
+
+-- World Boss Exchange System
+includeFile("conversations/events/world_exchange.lua")
+
