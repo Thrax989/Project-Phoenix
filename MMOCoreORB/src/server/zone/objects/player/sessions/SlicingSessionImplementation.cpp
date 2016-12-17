@@ -738,6 +738,7 @@ void SlicingSessionImplementation::handleSliceEncumbrance(uint8 percent) {
 	Locker locker(armor);
 
 	armor->setEncumbranceSlice(percent / 100.f);
+	armor->setMaxSockets(4);
 	int rating_roll = System::random(2);
 	if(rating_roll == 2)
         	armor->setRating(3);
@@ -764,6 +765,7 @@ void SlicingSessionImplementation::handleSliceEffectiveness(uint8 percent) {
 	Locker locker(armor);
 
 	armor->setEffectivenessSlice(percent / 100.f);
+	armor->setMaxSockets(4);
 	int rating_roll = System::random(2);
 	if(rating_roll == 2)
         	armor->setRating(3);
