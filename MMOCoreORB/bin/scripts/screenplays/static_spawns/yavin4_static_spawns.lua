@@ -15,6 +15,9 @@ function Yavin4StaticSpawnsScreenPlay:start()
 end
 
 function Yavin4StaticSpawnsScreenPlay:spawnMobiles()
+	
+	spawnMobile("yavin4", "luke_elder", 300, -5575.59, 87.861, 4903.66, -179, 0)
+	spawnMobile("yavin4", "darthvader_elder", 300, 5080.18, 79.4253, 306.668, 90, 0)
 
 	-- Light Jedi Enclave (-5575, 4910)
 	spawnMobile("yavin4", "light_jedi_sentinel", 300, -5579.0, 87.7, 4908.5, -179, 0)
