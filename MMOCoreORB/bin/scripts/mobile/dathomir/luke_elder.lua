@@ -1,6 +1,6 @@
 luke_elder = Creature:new {
 	customName = "Luke (Elder)",
-	faction = "rebel",
+	faction = "",
 	socialGroup = "dark_jedi",
 	level = 300,
 	chanceHit = 50.00,
