@@ -766,6 +766,8 @@ void WeaponObjectImplementation::decay(CreatureObject* user) {
 		chance += 10;
 
 	if (roll < chance) {
+		Locker locker(_this.getReferenceUnsafeStaticCast());
+
 		if (isJediWeapon()) {
 			ManagedReference<SceneObject*> saberInv = getSlottedObject("saber_inv");
 
