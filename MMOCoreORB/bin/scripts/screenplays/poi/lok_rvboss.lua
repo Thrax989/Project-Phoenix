@@ -24,7 +24,7 @@ function lok_rvboss:spawnMobiles()
 	local pPadawan = spawnMobile("lok", "revan_quest1", 3600, -1939.94, 12, -2969.95, 138.087, 0)
         	createObserver(OBJECTDESTRUCTION, "lok_rvboss", "notifyPadawanDead", pPadawan)
 --Boss 2 Trigger
-	local ppPadawan = spawnMobile("lok", "revan_quest1", 3600, -2020.51, 12, -3069.16, 138.087, 0)
+	local ppPadawan = spawnMobile("lok", "revan_quest1", 3600, -2021.09, 12, -3063.44, 138.087, 0)
         	createObserver(OBJECTDESTRUCTION, "lok_rvboss", "notifypPadawanDead", ppPadawan)
 --Boss 3 Trigger
 	local pppPadawan = spawnMobile("lok", "revan_quest1", 3600, -1944.12, 12, -3197.34, 138.087, 0)
