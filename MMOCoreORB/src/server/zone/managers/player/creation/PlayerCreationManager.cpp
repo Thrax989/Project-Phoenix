@@ -343,7 +343,7 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 	ZoneClientSession* client = callback->getClient();
 
 	if (client->getCharacterCount(zoneServer.get()->getGalaxyID()) >= 4) {
-		ErrorMessage* errMsg = new ErrorMessage("Create Error", "You are limited to 3 characters per galaxy.", 0x0);
+		ErrorMessage* errMsg = new ErrorMessage("Create Error", "You are limited to 4 characters per galaxy. holiday extra character slot event ends jan 1st", 0x0);
 		client->sendMessage(errMsg);
 
 		return false;
