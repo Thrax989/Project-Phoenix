@@ -75,7 +75,7 @@ function world_exchange_convo_handler:getNextConversationScreen(conversationTemp
 	            nextConversationScreen = conversation:getScreen("insufficient_item")
 	            creature:sendSystemMessage("You have insufficient items")
 	     elseif (optionLink == "1" and itemCounter >= 1) then
-	            local pItem = giveItem(pInventory, "object/tangible/container/loot/player_loot_crate.iff", -1)
+	            local pItem = giveItem(pInventory, "object/tangible/tcg/series7/wearable_gold_cape.iff", -1)
 	            DeleteItems = 1
 		    nextConversationScreen = conversation:getScreen("end")
 		    creature:sendSystemMessage("Item 1.")
@@ -84,7 +84,7 @@ function world_exchange_convo_handler:getNextConversationScreen(conversationTemp
 	            nextConversationScreen = conversation:getScreen("insufficient_item")
 	            creature:sendSystemMessage("You have insufficient items")
 	     elseif (optionLink == "2" and itemCounter >= 1) then
-	            local pItem = giveItem(pInventory, "object/tangible/container/loot/player_loot_crate.iff", -1)
+	            local pItem = giveItem(pInventory, "object/tangible/tcg/series7/wearable_purple_cape.iff", -1)
 	            DeleteItems = 1
 		    nextConversationScreen = conversation:getScreen("end")
 		    creature:sendSystemMessage("Item 2.")
@@ -93,7 +93,7 @@ function world_exchange_convo_handler:getNextConversationScreen(conversationTemp
 	            nextConversationScreen = conversation:getScreen("insufficient_item")
 	            creature:sendSystemMessage("You have insufficient items")
 	     elseif (optionLink == "3" and itemCounter >= 1) then
-	            local pItem = giveItem(pInventory, "object/tangible/container/loot/player_loot_crate.iff", -1)
+	            local pItem = giveItem(pInventory, "object/tangible/tcg/series8/wearable_alliance_cape.iff", -1)
 	            DeleteItems = 1
 		    nextConversationScreen = conversation:getScreen("end")
 		    creature:sendSystemMessage("Item 3.")
@@ -102,7 +102,7 @@ function world_exchange_convo_handler:getNextConversationScreen(conversationTemp
 	            nextConversationScreen = conversation:getScreen("insufficient_item")
 	            creature:sendSystemMessage("You have insufficient items")
 	     elseif (optionLink == "4" and itemCounter >= 1) then
-	            local pItem = giveItem(pInventory, "object/tangible/container/loot/player_loot_crate.iff", -1)
+	            local pItem = giveItem(pInventory, "object/tangible/tcg/series8/wearable_bh_cape.iff", -1)
 	            DeleteItems = 1
 		    nextConversationScreen = conversation:getScreen("end")
 		    creature:sendSystemMessage("Item 4.")
@@ -111,7 +111,7 @@ function world_exchange_convo_handler:getNextConversationScreen(conversationTemp
 	            nextConversationScreen = conversation:getScreen("insufficient_item")
 	            creature:sendSystemMessage("You have insufficient items")
 	     elseif (optionLink == "5" and itemCounter >= 1) then
-	            local pItem = giveItem(pInventory, "object/tangible/container/loot/player_loot_crate.iff", -1)
+	            local pItem = giveItem(pInventory, "object/tangible/tcg/series8/wearable_first_order_cape.iff", -1)
 	            DeleteItems = 1
 		    nextConversationScreen = conversation:getScreen("end")
 		    creature:sendSystemMessage("Item 5.")
@@ -120,7 +120,7 @@ function world_exchange_convo_handler:getNextConversationScreen(conversationTemp
 	            nextConversationScreen = conversation:getScreen("insufficient_item")
 	            creature:sendSystemMessage("You have insufficient items")
 	     elseif (optionLink == "6" and itemCounter >= 1) then
-	            local pItem = giveItem(pInventory, "object/tangible/container/loot/player_loot_crate.iff", -1)
+	            local pItem = giveItem(pInventory, "object/tangible/tcg/series8/wearable_imp_cape.iff", -1)
 	            DeleteItems = 1
 		    nextConversationScreen = conversation:getScreen("end")
 		    creature:sendSystemMessage("Item 6.")		    
@@ -129,7 +129,7 @@ function world_exchange_convo_handler:getNextConversationScreen(conversationTemp
 	            nextConversationScreen = conversation:getScreen("insufficient_item")
 	            creature:sendSystemMessage("You have insufficient items")
 	     elseif (optionLink == "7" and itemCounter >= 1) then
-	            local pItem = giveItem(pInventory, "object/tangible/container/loot/player_loot_crate.iff", -1)
+	            local pItem = giveItem(pInventory, "object/tangible/tcg/series8/wearable_lando_cape.iff", -1)
 	            DeleteItems = 1
 		    nextConversationScreen = conversation:getScreen("end")
 		    creature:sendSystemMessage("7.")
@@ -138,7 +138,7 @@ function world_exchange_convo_handler:getNextConversationScreen(conversationTemp
 	            nextConversationScreen = conversation:getScreen("insufficient_item")
 	            creature:sendSystemMessage("You have insufficient items")
 	     elseif (optionLink == "8" and itemCounter >= 1) then
-	            local pItem = giveItem(pInventory, "object/tangible/container/loot/player_loot_crate.iff", -1)
+	            local pItem = giveItem(pInventory, "object/tangible/tcg/series8/wearable_light_jedi_cape.iff", -1)
 	            DeleteItems = 1
 		    nextConversationScreen = conversation:getScreen("end")
 		    creature:sendSystemMessage("Item 8.")
@@ -147,10 +147,19 @@ function world_exchange_convo_handler:getNextConversationScreen(conversationTemp
 	            nextConversationScreen = conversation:getScreen("insufficient_item")
 	            creature:sendSystemMessage("You have insufficient items")
 	     elseif (optionLink == "9" and itemCounter >= 1) then
-	            local pItem = giveItem(pInventory, "object/tangible/container/loot/player_loot_crate.iff", -1)
+	            local pItem = giveItem(pInventory, "object/tangible/tcg/series8/wearable_revan_cape.iff", -1)
 	            DeleteItems = 1
 		    nextConversationScreen = conversation:getScreen("end")
 		    creature:sendSystemMessage("Item 9.")
+				
+	     elseif (optionLink == "10" and itemCounter < 1) then            
+	            nextConversationScreen = conversation:getScreen("insufficient_item")
+	            creature:sendSystemMessage("You have insufficient items")
+	     elseif (optionLink == "10" and itemCounter >= 1) then
+	            local pItem = giveItem(pInventory, "object/tangible/tcg/series8/wearable_sith_cape.iff", -1)
+	            DeleteItems = 1
+		    nextConversationScreen = conversation:getScreen("end")
+		    creature:sendSystemMessage("Item 10.")
 
 
 
