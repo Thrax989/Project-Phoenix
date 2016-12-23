@@ -45,7 +45,7 @@ function GoToDathomir:onSuccessfulSpawn(pPlayer)
 	CreatureObject(pPlayer):sendSystemMessage("@quest/force_sensitive/intro:force_sensitive")
 
 	if (not PlayerObject(pGhost):isJedi()) then
-		PlayerObject(pGhost):setJediState(1)
+		PlayerObject(pGhost):setJediState(2)
 	end
 
 	awardSkill(pPlayer, "force_title_jedi_novice")
