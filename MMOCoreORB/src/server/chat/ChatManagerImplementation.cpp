@@ -26,7 +26,6 @@
 #include "server/zone/packets/chat/ChatOnCreateRoom.h"
 #include "server/zone/packets/chat/ChatOnDestroyRoom.h"
 #include "server/zone/packets/chat/ChatOnEnteredRoom.h"
-#include "server/zone/packets/chat/ChatPersistentMessageToClient.h"
 #include "server/zone/packets/chat/ChatQueryRoomResults.h"
 #include "server/zone/packets/chat/ChatOnReceiveRoomInvitation.h"
 #include "server/zone/packets/chat/ChatOnInviteToRoom.h"
@@ -40,7 +39,6 @@
 #include "server/zone/objects/guild/GuildObject.h"
 #include "server/zone/objects/player/PlayerObject.h"
 #include "server/zone/objects/creature/ai/AiAgent.h"
-#include "server/zone/objects/intangible/PetControlDevice.h"
 
 #include "server/chat/StringIdChatParameter.h"
 #include "server/chat/PersistentMessage.h"
@@ -48,8 +46,6 @@
 
 #include "server/chat/room/ChatRoom.h"
 #include "server/chat/room/ChatRoomMap.h"
-#include "server/chat/SendMailTask.h"
-#include "server/zone/packets/chat/ChatSystemMessage.h"
 #include "templates/string/StringFile.h"
 
 ChatManagerImplementation::ChatManagerImplementation(ZoneServer* serv, int initsize) : ManagedServiceImplementation() {
@@ -78,7 +74,6 @@ void ChatManagerImplementation::stop() {
 	groupRoom = NULL;
 	guildRoom = NULL;
 	auctionRoom = NULL;
-	generalRoom = NULL;
 	gameRooms.removeAll();
 }
 
@@ -323,8 +318,10 @@ void ChatManagerImplementation::initiateRooms() {
 	guildRoom = createRoom("guild", systemRoom);
 	guildRoom->setPrivate();
 
-	generalRoom = createRoom("General", galaxyRoom);
+	Reference<ChatRoom*> generalRoom = createRoom("Chat", galaxyRoom);
 	generalRoom->setCanEnter(true);
+	generalRoom->setAllowSubrooms(true);
+	generalRoom->setTitle("public chat for this server, can create rooms here");
 
 	auctionRoom = createRoom("Auction", galaxyRoom);
 	auctionRoom->setCanEnter(true);
